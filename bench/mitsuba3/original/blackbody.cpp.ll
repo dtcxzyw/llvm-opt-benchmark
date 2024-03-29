@@ -1,0 +1,11782 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.std::__1::locale::id" = type <{ %"struct.std::__1::once_flag", i32, [4 x i8] }>
+%"struct.std::__1::once_flag" = type { i64 }
+%"struct.std::__1::piecewise_construct_t" = type { i8 }
+%"class.std::__1::basic_string" = type { %"class.std::__1::__compressed_pair" }
+%"class.std::__1::__compressed_pair" = type { %"struct.std::__1::__compressed_pair_elem" }
+%"struct.std::__1::__compressed_pair_elem" = type { %"struct.std::__1::basic_string<char>::__rep" }
+%"struct.std::__1::basic_string<char>::__rep" = type { %union.anon }
+%union.anon = type { %"struct.std::__1::basic_string<char>::__long" }
+%"struct.std::__1::basic_string<char>::__long" = type { %struct.anon.1, i64, ptr }
+%struct.anon.1 = type { i64 }
+%"struct.mitsuba::Vector" = type { %"struct.drjit::StaticArrayImpl" }
+%"struct.drjit::StaticArrayImpl" = type { [2 x float] }
+%"class.std::__1::vector" = type { ptr, ptr, %"class.std::__1::__compressed_pair.6" }
+%"class.std::__1::__compressed_pair.6" = type { %"struct.std::__1::__compressed_pair_elem.7" }
+%"struct.std::__1::__compressed_pair_elem.7" = type { ptr }
+%"class.mitsuba::BlackBodySpectrum" = type <{ %"class.mitsuba::Texture", float, float, float, %"struct.mitsuba::Vector", [4 x i8] }>
+%"class.mitsuba::Texture" = type { %"class.mitsuba::Object.base", %"class.std::__1::basic_string" }
+%"class.mitsuba::Object.base" = type <{ ptr, %"struct.std::__1::atomic" }>
+%"struct.std::__1::atomic" = type { %"struct.std::__1::__atomic_base" }
+%"struct.std::__1::__atomic_base" = type { %"struct.std::__1::__atomic_base.0" }
+%"struct.std::__1::__atomic_base.0" = type { %"struct.std::__1::__cxx_atomic_impl" }
+%"struct.std::__1::__cxx_atomic_impl" = type { %"struct.std::__1::__cxx_atomic_base_impl" }
+%"struct.std::__1::__cxx_atomic_base_impl" = type { i32 }
+%"struct.std::__1::__default_init_tag" = type { i8 }
+%"struct.std::__1::pair" = type { float, float }
+%"class.std::__1::vector<std::__1::string>::__destroy_vector" = type { ptr }
+%"struct.drjit::Mask" = type { %"struct.drjit::MaskBase" }
+%"struct.drjit::MaskBase" = type { %"struct.drjit::StaticArrayImpl.15" }
+%"struct.drjit::StaticArrayImpl.15" = type { %"struct.drjit::KMaskBase" }
+%"struct.drjit::KMaskBase" = type { i8 }
+%"struct.mitsuba::Spectrum" = type { %"struct.drjit::StaticArrayImpl.12" }
+%"struct.drjit::StaticArrayImpl.12" = type { <4 x float> }
+%"struct.mitsuba::ScopedPhase" = type { i8 }
+%"struct.mitsuba::Interaction" = type { float, float, %"struct.mitsuba::Spectrum", %"struct.mitsuba::Point", %"struct.mitsuba::Normal" }
+%"struct.mitsuba::Point" = type { %"struct.drjit::StaticArrayImpl.18" }
+%"struct.drjit::StaticArrayImpl.18" = type { %"struct.drjit::StaticArrayImpl.19" }
+%"struct.drjit::StaticArrayImpl.19" = type { <4 x float> }
+%"struct.mitsuba::Normal" = type { %"struct.drjit::StaticArrayImpl.22" }
+%"struct.drjit::StaticArrayImpl.22" = type { %"struct.drjit::StaticArrayImpl.23" }
+%"struct.drjit::StaticArrayImpl.23" = type { <4 x float> }
+%"struct.std::__1::pair.35" = type { %"struct.mitsuba::Spectrum", %"struct.mitsuba::Spectrum" }
+%"struct.drjit::detail::MaskedArray" = type <{ ptr, %"struct.drjit::Mask", [7 x i8] }>
+%"class.std::__1::tuple" = type { %"struct.std::__1::__tuple_impl" }
+%"struct.std::__1::__tuple_impl" = type { %"class.std::__1::__tuple_leaf", %"class.std::__1::__tuple_leaf.37" }
+%"class.std::__1::__tuple_leaf" = type { ptr }
+%"class.std::__1::__tuple_leaf.37" = type { ptr }
+%"class.std::__1::basic_ostringstream" = type { %"class.std::__1::basic_ostream.base", %"class.std::__1::basic_stringbuf", %"class.std::__1::basic_ios.base" }
+%"class.std::__1::basic_ostream.base" = type { ptr }
+%"class.std::__1::basic_stringbuf" = type <{ %"class.std::__1::basic_streambuf", %"class.std::__1::basic_string", ptr, i32, [4 x i8] }>
+%"class.std::__1::basic_streambuf" = type { ptr, %"class.std::__1::locale", ptr, ptr, ptr, ptr, ptr, ptr }
+%"class.std::__1::locale" = type { ptr }
+%"class.std::__1::basic_ios.base" = type <{ %"class.std::__1::ios_base", ptr, i32 }>
+%"class.std::__1::ios_base" = type { ptr, i32, i64, i64, i32, i32, ptr, ptr, ptr, ptr, i64, i64, ptr, i64, i64, ptr, i64, i64 }
+%"class.std::__1::function" = type { %"class.std::__1::__function::__value_func" }
+%"class.std::__1::__function::__value_func" = type { %"struct.std::__1::aligned_storage<24>::type", ptr, [8 x i8] }
+%"struct.std::__1::aligned_storage<24>::type" = type { [32 x i8] }
+%"class.std::__1::function.38" = type { %"class.std::__1::__function::__value_func.42" }
+%"class.std::__1::__function::__value_func.42" = type { %"struct.std::__1::aligned_storage<24>::type", ptr, [8 x i8] }
+%"class.std::__1::basic_ios" = type <{ %"class.std::__1::ios_base", ptr, i32, [4 x i8] }>
+%"struct.std::__1::__value_init_tag" = type { i8 }
+%"class.std::__1::basic_ostream<char>::sentry" = type { i8, ptr }
+%"class.std::__1::ostreambuf_iterator" = type { ptr }
+%"struct.std::__1::basic_string<char>::__short" = type { %struct.anon, [0 x i8], [23 x i8] }
+%struct.anon = type { i8 }
+%class.anon = type { i8 }
+%"class.std::__1::allocator.46" = type { i8 }
+%"class.std::__1::allocator.49" = type { i8 }
+%"class.std::__1::__function::__func" = type <{ %"class.std::__1::__function::__base", %"class.std::__1::__function::__alloc_func", [7 x i8] }>
+%"class.std::__1::__function::__base" = type { ptr }
+%"class.std::__1::__function::__alloc_func" = type { %"class.std::__1::__compressed_pair.52" }
+%"class.std::__1::__compressed_pair.52" = type { i8 }
+%"class.std::__1::tuple.55" = type { %"struct.std::__1::__tuple_impl.56" }
+%"struct.std::__1::__tuple_impl.56" = type { %"class.std::__1::__tuple_leaf.57" }
+%"class.std::__1::__tuple_leaf.57" = type { ptr }
+%"class.std::__1::tuple.58" = type { %"struct.std::__1::__tuple_impl.59" }
+%"struct.std::__1::__tuple_impl.59" = type { %"class.std::__1::__tuple_leaf.60" }
+%"class.std::__1::__tuple_leaf.60" = type { ptr }
+%"class.std::__1::unique_ptr.64" = type { %"class.std::__1::__compressed_pair.65" }
+%"class.std::__1::__compressed_pair.65" = type { %"struct.std::__1::__compressed_pair_elem.66", %"struct.std::__1::__compressed_pair_elem.67" }
+%"struct.std::__1::__compressed_pair_elem.66" = type { ptr }
+%"struct.std::__1::__compressed_pair_elem.67" = type { %"class.std::__1::__allocator_destructor" }
+%"class.std::__1::__allocator_destructor" = type { ptr, i64 }
+%"class.std::__1::tuple.68" = type { %"struct.std::__1::__tuple_impl.69" }
+%"struct.std::__1::__tuple_impl.69" = type { %"class.std::__1::__tuple_leaf.70" }
+%"class.std::__1::__tuple_leaf.70" = type { ptr }
+%"class.std::__1::tuple.72" = type { %"struct.std::__1::__tuple_impl.73" }
+%"struct.std::__1::__tuple_impl.73" = type { %"class.std::__1::__tuple_leaf.74" }
+%"class.std::__1::__tuple_leaf.74" = type { ptr }
+%"class.std::type_info" = type { ptr, ptr }
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC5ERKNS_10PropertiesE = comdat any
+
+$_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc = comdat any
+
+$_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJffETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_ = comdat any
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE18parameters_changedERKNSt3__16vectorINS7_12basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEENSC_ISE_EEEE = comdat any
+
+$_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev = comdat any
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE8traverseEPNS_17TraversalCallbackE = comdat any
+
+$_ZN7mitsuba17TraversalCallback13put_parameterIfEEvRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERT_j = comdat any
+
+$_ZN7mitsubapsENS_10ParamFlagsE = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11cdf_and_pdfIfEENSt3__14pairIT_SA_EESA_ = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE9eval_implERKS4_b = comdat any
+
+$_ZN5drjit4MaskIfLm4EECI2NS_8MaskBaseIfLm4ES1_EEIRbNS2_IfLm4ES1_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOS7_ = comdat any
+
+$_ZN5drjit3expIN7mitsuba8SpectrumIfLm4EEEEET_RKS4_ = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4evalERKNS_18SurfaceInteractionIfS5_EEb = comdat any
+
+$_ZN7mitsuba11ScopedPhaseC2ENS_13ProfilerPhaseE = comdat any
+
+$_ZN7mitsuba11ScopedPhaseD2Ev = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE12pdf_spectrumERKNS_18SurfaceInteractionIfS5_EEb = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15sample_spectrumERKNS_18SurfaceInteractionIfS5_EERKS4_b = comdat any
+
+$_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_ = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11cdf_and_pdfIS4_EENSt3__14pairIT_SA_EESA_ = comdat any
+
+$_ZNSt3__13tieB8ne190000IJN7mitsuba8SpectrumIfLm4EEES3_EEENS_5tupleIJDpRT_EEES7_ = comdat any
+
+$_ZNSt3__15tupleIJRN7mitsuba8SpectrumIfLm4EEES4_EEaSB8ne190000IS3_S3_TnNS_9enable_ifIXsr21_EnableAssignFromPairILb0EONS_4pairIT_T0_EEEE5valueEiE4typeELi0EEERS5_SC_ = comdat any
+
+$_ZN5drjit11none_nestedINS_4MaskIfLm4EEEEEDaRKT_ = comdat any
+
+$_ZNSt3__14pairIN7mitsuba8SpectrumIfLm4EEES3_EC2B8ne190000IRS3_S3_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOS8_OS9_ = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4meanEv = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16wavelength_rangeEv = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19spectral_resolutionEv = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE3maxEv = comdat any
+
+$_ZN5drjit5clampIfffEEDaRKT_RKT0_RKT1_ = comdat any
+
+$_ZN5drjit3expIfEET_RKS1_ = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE9to_stringEv = comdat any
+
+$_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev = comdat any
+
+$_ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc = comdat any
+
+$_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE = comdat any
+
+$_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsB8ne190000EPFRS3_S4_E = comdat any
+
+$_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_ = comdat any
+
+$_ZN7mitsuba6string6indentIfEENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERKT_m = comdat any
+
+$_ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne190000Ev = comdat any
+
+$_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev = comdat any
+
+$_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE6class_Ev = comdat any
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE = comdat any
+
+$_ZN7mitsuba6detail11get_variantIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEPKcv = comdat any
+
+$_ZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEv = comdat any
+
+$_ZN7mitsuba6detail23get_unserialize_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESD_EEEv = comdat any
+
+$_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev = comdat any
+
+$_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev = comdat any
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev = comdat any
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED0Ev = comdat any
+
+$_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f = comdat any
+
+$_ZN5drjit8MaskBaseIfLm4ENS_4MaskIfLm4EEEEC2IRbS3_TnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOS8_ = comdat any
+
+$_ZN5drjit15StaticArrayImplIfLm4ELb1ENS_4MaskIfLm4EEEiECI2NS_9KMaskBaseIfLm4ES2_EEIbTnNSt3__19enable_ifIXoosr3stdE9is_same_vIbT_Esr3stdE9is_same_vIiS7_EEiE4typeELi0EEERKS7_ = comdat any
+
+$_ZN5drjit6detail11MaskedArrayIN7mitsuba8SpectrumIfLm4EEEEC2ERS4_RKNS_4MaskIfLm4EEE = comdat any
+
+$_ZNSt3__15tupleIJRN7mitsuba8SpectrumIfLm4EEES4_EEC2B8ne190000INS_4_AndETnNS_9enable_ifIXsrT_IJNS_17integral_constantIbLb1EEENS_21is_copy_constructibleIS4_EESD_EE5valueEiE4typeELi0EEES4_S4_ = comdat any
+
+$_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0ELm1EEEEJRN7mitsuba8SpectrumIfLm4EEES6_EEC2B8ne190000IJLm0ELm1EEJS6_S6_ETpTnmJEJEJS6_S6_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSA_IJDpT2_EEEDpOT3_ = comdat any
+
+$_ZNSt3__112__tuple_leafILm0ERN7mitsuba8SpectrumIfLm4EEELb0EEC2B8ne190000IS4_TnNS_9enable_ifIXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefIT_ES5_EEEENS_16is_constructibleIS4_JS9_EEEEE5valueEiE4typeELi0EEEOS9_ = comdat any
+
+$_ZNSt3__112__tuple_leafILm1ERN7mitsuba8SpectrumIfLm4EEELb0EEC2B8ne190000IS4_TnNS_9enable_ifIXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefIT_ES5_EEEENS_16is_constructibleIS4_JS9_EEEEE5valueEiE4typeELi0EEEOS9_ = comdat any
+
+$_ZN5drjit10any_nestedIvNS_4MaskIfLm4EEEEEDaRKT0_ = comdat any
+
+$_ZN5drjit10any_nestedINS_4MaskIfLm4EEEbEEDaRKT0_ = comdat any
+
+$_ZN5drjit6detail4rcp_IfEET_RKS2_ = comdat any
+
+$_ZN5drjit6detail8maximum_IfEET_RKS2_S4_ = comdat any
+
+$_ZN5drjit6detail8minimum_IfEET_RKS2_S4_ = comdat any
+
+$_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev = comdat any
+
+$_ZTv0_n24_NSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev = comdat any
+
+$_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev = comdat any
+
+$_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE = comdat any
+
+$_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej = comdat any
+
+$_ZNSt3__18ios_baseC2B8ne190000Ev = comdat any
+
+$_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4initB8ne190000EPNS_15basic_streambufIcS2_EE = comdat any
+
+$_ZNSt3__111char_traitsIcE3eofB8ne190000Ev = comdat any
+
+$_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2B8ne190000INS_16__value_init_tagENS_18__default_init_tagEEEOT_OT0_ = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em = comdat any
+
+$_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2B8ne190000ENS_16__value_init_tagE = comdat any
+
+$_ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2B8ne190000ENS_18__default_init_tagE = comdat any
+
+$_ZNSt3__19allocatorIcEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIcEEEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m = comdat any
+
+$_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev = comdat any
+
+$_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev = comdat any
+
+$_ZNKSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentrycvbB8ne190000Ev = comdat any
+
+$_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_ = comdat any
+
+$_ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEC2B8ne190000ERNS_13basic_ostreamIcS2_EE = comdat any
+
+$_ZNKSt3__18ios_base5flagsB8ne190000Ev = comdat any
+
+$_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ev = comdat any
+
+$_ZNKSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEE6failedB8ne190000Ev = comdat any
+
+$_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE8setstateB8ne190000Ej = comdat any
+
+$_ZNKSt3__18ios_base5widthB8ne190000Ev = comdat any
+
+$_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl = comdat any
+
+$_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc = comdat any
+
+$_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev = comdat any
+
+$_ZNSt3__18ios_base5widthB8ne190000El = comdat any
+
+$_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2B8ne190000INS_18__default_init_tagESA_EEOT_OT0_ = comdat any
+
+$_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2B8ne190000ENS_18__default_init_tagE = comdat any
+
+$_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_ = comdat any
+
+$_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev = comdat any
+
+$_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev = comdat any
+
+$_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev = comdat any
+
+$_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev = comdat any
+
+$_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev = comdat any
+
+$_ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getB8ne190000Ev = comdat any
+
+$_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev = comdat any
+
+$_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getB8ne190000Ev = comdat any
+
+$_ZNSt3__114pointer_traitsIPcE10pointer_toB8ne190000ERc = comdat any
+
+$_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5rdbufB8ne190000Ev = comdat any
+
+$_ZNKSt3__18ios_base5rdbufB8ne190000Ev = comdat any
+
+$_ZNSt3__111char_traitsIcE11eq_int_typeB8ne190000Eii = comdat any
+
+$_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec = comdat any
+
+$_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE = comdat any
+
+$_ZNKSt3__15ctypeIcE5widenB8ne190000Ec = comdat any
+
+$_ZNSt3__18ios_base8setstateB8ne190000Ej = comdat any
+
+$_ZNSt3__112__to_addressB8ne190000IKcEEPT_S3_ = comdat any
+
+$_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev = comdat any
+
+$_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev = comdat any
+
+$_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev = comdat any
+
+$_ZNSt3__114pointer_traitsIPKcE10pointer_toB8ne190000ERS1_ = comdat any
+
+$_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE15__get_long_sizeB8ne190000Ev = comdat any
+
+$_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__get_short_sizeB8ne190000Ev = comdat any
+
+$_ZNSt3__111char_traitsIcE6lengthB8ne190000EPKc = comdat any
+
+$_ZNSt3__118__constexpr_strlenB8ne190000EPKc = comdat any
+
+$_ZNSt3__117__compressed_pairIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEEC2B8ne190000IDnNS_18__default_init_tagEEEOT_OT0_ = comdat any
+
+$_ZNSt3__122__compressed_pair_elemIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELi0ELb0EEC2B8ne190000IDnTnNS_9enable_ifIXntsr7is_sameIS8_u7__decayIT_EEE5valueEiE4typeELi0EEEOSB_ = comdat any
+
+$_ZNSt3__122__compressed_pair_elemINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEELi1ELb1EEC2B8ne190000ENS_18__default_init_tagE = comdat any
+
+$_ZNSt3__19allocatorINS_12basic_stringIcNS_11char_traitsIcEENS0_IcEEEEEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEEEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE16__destroy_vectorC2B8ne190000ERS8_ = comdat any
+
+$_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE16__destroy_vectorclB8ne190000Ev = comdat any
+
+$_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev = comdat any
+
+$_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE17__annotate_deleteB8ne190000Ev = comdat any
+
+$_ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEEE10deallocateB8ne190000ERS7_PS6_m = comdat any
+
+$_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__allocB8ne190000Ev = comdat any
+
+$_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE8capacityB8ne190000Ev = comdat any
+
+$_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE22__base_destruct_at_endB8ne190000EPS6_ = comdat any
+
+$_ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_ = comdat any
+
+$_ZNSt3__112__to_addressB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEPT_S8_ = comdat any
+
+$_ZNSt3__19allocatorINS_12basic_stringIcNS_11char_traitsIcEENS0_IcEEEEE7destroyB8ne190000EPS5_ = comdat any
+
+$_ZNSt3__19allocatorINS_12basic_stringIcNS_11char_traitsIcEENS0_IcEEEEE10deallocateB8ne190000EPS5_m = comdat any
+
+$_ZNSt3__119__libcpp_deallocateB8ne190000EPvmm = comdat any
+
+$_ZNSt3__124__is_overaligned_for_newB8ne190000Em = comdat any
+
+$_ZNSt3__127__do_deallocate_handle_sizeB8ne190000IJSt11align_val_tEEEvPvmDpT_ = comdat any
+
+$_ZNSt3__127__do_deallocate_handle_sizeB8ne190000IJEEEvPvmDpT_ = comdat any
+
+$_ZNSt3__124__libcpp_operator_deleteB8ne190000IJPvSt11align_val_tEEEvDpT_ = comdat any
+
+$_ZNSt3__124__libcpp_operator_deleteB8ne190000IJPvEEEvDpT_ = comdat any
+
+$_ZNSt3__117__compressed_pairIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE6secondB8ne190000Ev = comdat any
+
+$_ZNSt3__122__compressed_pair_elemINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEELi1ELb1EE5__getB8ne190000Ev = comdat any
+
+$_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE9__end_capB8ne190000Ev = comdat any
+
+$_ZNKSt3__117__compressed_pairIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE5firstB8ne190000Ev = comdat any
+
+$_ZNKSt3__122__compressed_pair_elemIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELi0ELb0EE5__getB8ne190000Ev = comdat any
+
+$_ZN7mitsubaanEjNS_10ParamFlagsE = comdat any
+
+$_ZNSt3__14pairIffEC2B8ne190000IRfS3_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOS5_OS6_ = comdat any
+
+$_ZN5drjit5ldexpIN7mitsuba8SpectrumIfLm4EEES3_EENS_6detail14replace_scalarINS4_7deepestIJT_T0_EE4typeENS4_4exprIJNS4_6scalarIS7_iE4typeENSC_IS8_iE4typeEEE4typeEiE4typeERKS7_RKS8_ = comdat any
+
+$_ZNSt3__14pairIN7mitsuba8SpectrumIfLm4EEES3_EC2B8ne190000IRS3_S6_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOS8_OS9_ = comdat any
+
+$_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_ = comdat any
+
+$_ZNSt3__13getB8ne190000ILm0EJRN7mitsuba8SpectrumIfLm4EEES4_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERS9_ = comdat any
+
+$_ZNSt3__13getB8ne190000ILm1EJRN7mitsuba8SpectrumIfLm4EEES4_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERS9_ = comdat any
+
+$_ZNSt3__112__tuple_leafILm0ERN7mitsuba8SpectrumIfLm4EEELb0EE3getB8ne190000Ev = comdat any
+
+$_ZNSt3__112__tuple_leafILm1ERN7mitsuba8SpectrumIfLm4EEELb0EE3getB8ne190000Ev = comdat any
+
+$_ZN5drjit5ldexpIffEENS_6detail14replace_scalarINS1_7deepestIJT_T0_EE4typeENS1_4exprIJNS1_6scalarIS4_iE4typeENS9_IS5_iE4typeEEE4typeEiE4typeERKS4_RKS5_ = comdat any
+
+$_ZN5drjit6detail6floor_IfEET_RKS2_ = comdat any
+
+$_ZN5drjit6detail6fmadd_IfEET_RKS2_S4_S4_ = comdat any
+
+$_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEEC2IZNS1_6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_S6_EEiE4typeELi0EEES8_vEUlS6_E_vEESK_ = comdat any
+
+$_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000IZNS2_6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_S7_EEiE4typeELi0EEENS_8functionIS8_EEvEUlS7_E_TnNSK_IXntsr7is_sameIu7__decayISL_ES9_EE5valueEiE4typeELi0EEEOSL_ = comdat any
+
+$_ZNSt3__19allocatorIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EC2B8ne190000Ev = comdat any
+
+$_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000IZNS2_6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_S7_EEiE4typeELi0EEENS_8functionIS8_EEvEUlS7_E_NS_9allocatorISQ_EEEEOSL_RKT0_ = comdat any
+
+$_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__110__function10__not_nullB8ne190000IZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEbRKSD_ = comdat any
+
+$_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEEC2B8ne190000ISP_EERKNS0_ISE_EE = comdat any
+
+$_ZNSt3__19allocatorIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EC2B8ne190000INS_10__function6__funcISN_SO_SL_EEEERKNS0_ISC_EE = comdat any
+
+$_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_ = comdat any
+
+$_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_ = comdat any
+
+$_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_ED2Ev = comdat any
+
+$_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_ED0Ev = comdat any
+
+$_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7__cloneEv = comdat any
+
+$_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7__cloneEPNS0_6__baseISM_EE = comdat any
+
+$_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7destroyEv = comdat any
+
+$_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E18destroy_deallocateEv = comdat any
+
+$_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EclESG_ = comdat any
+
+$_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E6targetERKSt9type_info = comdat any
+
+$_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E11target_typeEv = comdat any
+
+$_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev = comdat any
+
+$_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED0Ev = comdat any
+
+$_ZNSt3__116forward_as_tupleB8ne190000IJZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEENS_5tupleIJDpOT_EEESR_ = comdat any
+
+$_ZNSt3__116forward_as_tupleB8ne190000IJNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEENS_5tupleIJDpOT_EEEST_ = comdat any
+
+$_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEEC2B8ne190000IJOSN_EJOSP_EEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENSV_IJDpT0_EEE = comdat any
+
+$_ZNSt3__15tupleIJOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEC2B8ne190000IJSN_ETnNSB_IXsr4_AndINS_17integral_constantIbXeqsZT_sZT_EEENSP_17_EnableUTypesCtorIJDpT_EEEEE5valueEiE4typeELi0EEEDpOSU_ = comdat any
+
+$_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJOZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_EEC2B8ne190000IJLm0EEJSQ_ETpTnmJEJEJSP_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSU_IJDpT2_EEEDpOT3_ = comdat any
+
+$_ZNSt3__112__tuple_leafILm0EOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EEC2B8ne190000ISN_TnNSB_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISC_ESP_EEEENS_16is_constructibleISO_JSC_EEEEE5valueEiE4typeELi0EEEOSC_ = comdat any
+
+$_ZNSt3__15tupleIJONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEC2B8ne190000IJSP_ETnNSC_IXsr4_AndINS_17integral_constantIbXeqsZT_sZT_EEENSR_17_EnableUTypesCtorIJDpT_EEEEE5valueEiE4typeELi0EEEDpOSW_ = comdat any
+
+$_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_EEEEC2B8ne190000IJLm0EEJSS_ETpTnmJEJEJSR_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSW_IJDpT2_EEEDpOT3_ = comdat any
+
+$_ZNSt3__112__tuple_leafILm0EONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EEC2B8ne190000ISP_TnNSC_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISD_ESR_EEEENS_16is_constructibleISQ_JSD_EEEEE5valueEiE4typeELi0EEEOSD_ = comdat any
+
+$_ZNSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EEC2B8ne190000IJOSN_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE = comdat any
+
+$_ZNSt3__122__compressed_pair_elemINS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELi1ELb1EEC2B8ne190000IJOSP_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE = comdat any
+
+$_ZNSt3__13getB8ne190000ILm0EJOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERST_ = comdat any
+
+$_ZNSt3__112__tuple_leafILm0EOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EE3getB8ne190000Ev = comdat any
+
+$_ZNSt3__13getB8ne190000ILm0EJONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERSV_ = comdat any
+
+$_ZNSt3__112__tuple_leafILm0EONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EE3getB8ne190000Ev = comdat any
+
+$_ZNKSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E15__get_allocatorB8ne190000Ev = comdat any
+
+$_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEE8allocateB8ne190000Em = comdat any
+
+$_ZNSt3__122__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEEC2B8ne190000ERST_m = comdat any
+
+$_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEEC2B8ne190000ILb1EvEEPSS_NS_16__dependent_typeINS_27__unique_ptr_deleter_sfinaeISV_EEXT_EE20__good_rval_ref_typeE = comdat any
+
+$_ZNKSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE3getB8ne190000Ev = comdat any
+
+$_ZNKSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E8__targetB8ne190000Ev = comdat any
+
+$_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_ = comdat any
+
+$_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE7releaseB8ne190000Ev = comdat any
+
+$_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEED2B8ne190000Ev = comdat any
+
+$_ZNKSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEE6secondB8ne190000Ev = comdat any
+
+$_ZNKSt3__122__compressed_pair_elemINS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELi1ELb1EE5__getB8ne190000Ev = comdat any
+
+$_ZNSt3__116allocator_traitsINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEE8max_sizeB8ne190000IST_TnNSE_IXsr14__has_max_sizeIKSF_EE5valueEiE4typeELi0EEEmRKST_ = comdat any
+
+$_ZSt28__throw_bad_array_new_lengthB8ne190000v = comdat any
+
+$_ZNSt3__117__libcpp_allocateB8ne190000Emm = comdat any
+
+$_ZNKSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEE8max_sizeB8ne190000Ev = comdat any
+
+$_ZNSt3__121__libcpp_operator_newB8ne190000IJmSt11align_val_tEEEPvDpT_ = comdat any
+
+$_ZNSt3__121__libcpp_operator_newB8ne190000IJmEEEPvDpT_ = comdat any
+
+$_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEEC2B8ne190000IRST_SW_EEOSE_OT0_ = comdat any
+
+$_ZNSt3__122__compressed_pair_elemIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EELi0ELb0EEC2B8ne190000IRST_TnNSD_IXntsr7is_sameISU_u7__decayISE_EEE5valueEiE4typeELi0EEEOSE_ = comdat any
+
+$_ZNSt3__122__compressed_pair_elemINS_22__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS5_17BlackBodySpectrumIfN5drjit6MatrixINS5_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS5_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS5_6ObjectESJ_EEEvEUlSJ_E_NS2_ISR_EESP_EEEEEELi1ELb0EEC2B8ne190000ISV_TnNSF_IXntsr7is_sameISW_u7__decayISG_EEE5valueEiE4typeELi0EEEOSG_ = comdat any
+
+$_ZNKSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5firstB8ne190000Ev = comdat any
+
+$_ZNKSt3__122__compressed_pair_elemIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EELi0ELb0EE5__getB8ne190000Ev = comdat any
+
+$_ZNKSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEE5firstB8ne190000Ev = comdat any
+
+$_ZNKSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EE5__getB8ne190000Ev = comdat any
+
+$_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_ = comdat any
+
+$_ZNSt3__116forward_as_tupleB8ne190000IJRKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEENS_5tupleIJDpOT_EEEST_ = comdat any
+
+$_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEEC2B8ne190000IJRKSN_EJOSP_EEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENSW_IJDpT0_EEE = comdat any
+
+$_ZNSt3__15tupleIJRKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEC2B8ne190000INS_4_AndETnNSB_IXsrT_IJNS_17integral_constantIbLb1EEENS_21is_copy_constructibleISP_EEEE5valueEiE4typeELi0EEESP_ = comdat any
+
+$_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJRKZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_EEC2B8ne190000IJLm0EEJSR_ETpTnmJEJEJSR_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSV_IJDpT2_EEEDpOT3_ = comdat any
+
+$_ZNSt3__112__tuple_leafILm0ERKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EEC2B8ne190000ISP_TnNSB_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISC_ESQ_EEEENS_16is_constructibleISP_JSC_EEEEE5valueEiE4typeELi0EEEOSC_ = comdat any
+
+$_ZNSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EEC2B8ne190000IJRKSN_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE = comdat any
+
+$_ZNSt3__13getB8ne190000ILm0EJRKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERSU_ = comdat any
+
+$_ZNSt3__112__tuple_leafILm0ERKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EE3getB8ne190000Ev = comdat any
+
+$_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5firstB8ne190000Ev = comdat any
+
+$_ZNSt3__122__compressed_pair_elemIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EELi0ELb0EE5__getB8ne190000Ev = comdat any
+
+$_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5resetB8ne190000EPSS_ = comdat any
+
+$_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE6secondB8ne190000Ev = comdat any
+
+$_ZNSt3__122__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEEclB8ne190000EPSS_ = comdat any
+
+$_ZNSt3__122__compressed_pair_elemINS_22__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS5_17BlackBodySpectrumIfN5drjit6MatrixINS5_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS5_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS5_6ObjectESJ_EEEvEUlSJ_E_NS2_ISR_EESP_EEEEEELi1ELb0EE5__getB8ne190000Ev = comdat any
+
+$_ZNSt3__116allocator_traitsINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEE10deallocateB8ne190000ERST_PSS_m = comdat any
+
+$_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEE10deallocateB8ne190000EPSR_m = comdat any
+
+$_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_ = comdat any
+
+$_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_ = comdat any
+
+$_ZNSt3__116forward_as_tupleB8ne190000IJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEENS_5tupleIJDpOT_EEESV_ = comdat any
+
+$_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEEC2B8ne190000IJRKSN_EJRKSP_EEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENSX_IJDpT0_EEE = comdat any
+
+$_ZNSt3__15tupleIJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEC2B8ne190000INS_4_AndETnNSC_IXsrT_IJNS_17integral_constantIbLb1EEENS_21is_copy_constructibleISR_EEEE5valueEiE4typeELi0EEESR_ = comdat any
+
+$_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_EEEEC2B8ne190000IJLm0EEJST_ETpTnmJEJEJST_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSX_IJDpT2_EEEDpOT3_ = comdat any
+
+$_ZNSt3__112__tuple_leafILm0ERKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EEC2B8ne190000ISR_TnNSC_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISD_ESS_EEEENS_16is_constructibleISR_JSD_EEEEE5valueEiE4typeELi0EEEOSD_ = comdat any
+
+$_ZNSt3__122__compressed_pair_elemINS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELi1ELb1EEC2B8ne190000IJRKSP_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE = comdat any
+
+$_ZNSt3__13getB8ne190000ILm0EJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERSW_ = comdat any
+
+$_ZNSt3__112__tuple_leafILm0ERKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EE3getB8ne190000Ev = comdat any
+
+$_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7destroyB8ne190000Ev = comdat any
+
+$_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EclB8ne190000ESG_ = comdat any
+
+$_ZNSt3__128__invoke_void_return_wrapperIPN7mitsuba6ObjectELb0EE6__callB8ne190000IJRZNS1_6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFS3_SJ_EEEvEUlSJ_E_SJ_EEES3_DpOT_ = comdat any
+
+$_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEE5firstB8ne190000Ev = comdat any
+
+$_ZNSt3__18__invokeB8ne190000IRZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_JSF_EEEDTclclsr3stdE7declvalISC_EEspclsr3stdE7declvalIT0_EEEEOSC_DpOSP_ = comdat any
+
+$_ZZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEvENKUlSE_E_clESE_ = comdat any
+
+$_ZNSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EE5__getB8ne190000Ev = comdat any
+
+$_ZNKSt9type_infoeqB8ne190000ERKS_ = comdat any
+
+$_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2B8ne190000Ev = comdat any
+
+$_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectEPNS2_6StreamEEEC2B8ne190000Ev = comdat any
+
+$_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectEPNS2_6StreamEEED2B8ne190000Ev = comdat any
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE1cE = comdat any
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE1hE = comdat any
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE1kE = comdat any
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE1bE = comdat any
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE2c0E = comdat any
+
+$_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE2c1E = comdat any
+
+$_ZTVN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE = comdat any
+
+$_ZTSN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE = comdat any
+
+$_ZTIN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE = comdat any
+
+$_ZN5drjit9InvLogTwoIfEE = comdat any
+
+$_ZN5drjit8InfinityIN7mitsuba8SpectrumIfLm4EEEEE = comdat any
+
+$_ZN5drjit8InfinityIfEE = comdat any
+
+$_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE = comdat any
+
+$_ZTSNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE = comdat any
+
+$_ZTSNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE = comdat any
+
+$_ZTINSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE = comdat any
+
+$_ZTINSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE = comdat any
+
+$_ZTVNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE = comdat any
+
+$_ZNSt3__119piecewise_constructE = comdat any
+
+$_ZTSZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEvEUlSE_E_ = comdat any
+
+$_ZTIZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEvEUlSE_E_ = comdat any
+
+@_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE1cE = weak_odr constant float 0x41B1DE7840000000, comdat, align 4
+@_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE1hE = weak_odr constant float 0x390B860BE0000000, comdat, align 4
+@_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE1kE = weak_odr constant float 0x3B30B0E680000000, comdat, align 4
+@_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE1bE = weak_odr constant float 0x3F67BD1180000000, comdat, align 4
+@_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE2c0E = weak_odr constant float 0x3CA12A2C40000000, comdat, align 4
+@_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE2c1E = weak_odr constant float 0x3F8D775620000000, comdat, align 4
+@_ZTVN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE = weak_odr unnamed_addr constant { [25 x ptr] } { [25 x ptr] [ptr null, ptr @_ZTIN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, ptr @_ZNK7mitsuba6Object6expandEv, ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE8traverseEPNS_17TraversalCallbackE, ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE18parameters_changedERKNSt3__16vectorINS7_12basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEENSC_ISE_EEEE, ptr @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE6class_Ev, ptr @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE2idEv, ptr @_ZN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE6set_idERKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE, ptr @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE9to_stringEv, ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev, ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED0Ev, ptr @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4evalERKNS_18SurfaceInteractionIfS5_EEb, ptr @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15sample_spectrumERKNS_18SurfaceInteractionIfS5_EERKS4_b, ptr @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE12pdf_spectrumERKNS_18SurfaceInteractionIfS5_EEb, ptr @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15sample_positionERKNS_5PointIfLm2EEEb, ptr @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE12pdf_positionERKNS_5PointIfLm2EEEb, ptr @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE6eval_1ERKNS_18SurfaceInteractionIfS5_EEb, ptr @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11eval_1_gradERKNS_18SurfaceInteractionIfS5_EEb, ptr @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE6eval_3ERKNS_18SurfaceInteractionIfS5_EEb, ptr @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4meanEv, ptr @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE10resolutionEv, ptr @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19spectral_resolutionEv, ptr @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16wavelength_rangeEv, ptr @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE3maxEv, ptr @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_spatially_varyingEv] }, comdat, align 8
+@.str = private unnamed_addr constant [12 x i8] c"temperature\00", align 1
+@.str.1 = private unnamed_addr constant [15 x i8] c"wavelength_min\00", align 1
+@.str.2 = private unnamed_addr constant [15 x i8] c"wavelength_max\00", align 1
+@.str.3 = private unnamed_addr constant [19 x i8] c"BlackBodySpectrum[\00", align 1
+@.str.4 = private unnamed_addr constant [17 x i8] c"  temperature = \00", align 1
+@.str.5 = private unnamed_addr constant [2 x i8] c"]\00", align 1
+@_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE = weak_odr global ptr null, comdat, align 8
+@_ZGVN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE = weak_odr global i64 0, comdat($_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE), align 8
+@.str.6 = private unnamed_addr constant [18 x i8] c"BlackBodySpectrum\00", align 1
+@.str.7 = private unnamed_addr constant [8 x i8] c"Texture\00", align 1
+@.str.8 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.9 = private unnamed_addr constant [20 x i8] c"Black body spectrum\00", align 1
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTSN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE = weak_odr constant [74 x i8] c"N7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE\00", comdat, align 1
+@_ZTIN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE = external constant ptr
+@_ZTIN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE = weak_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, ptr @_ZTIN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE }, comdat, align 8
+@_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE = external unnamed_addr constant { [5 x ptr], [5 x ptr] }, align 8
+@_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE = external unnamed_addr constant [4 x ptr], align 8
+@_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE = external unnamed_addr constant { [16 x ptr] }, align 8
+@.str.10 = private unnamed_addr constant [26 x i8] c"scalar_spectral_polarized\00", align 1
+@_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE = external unnamed_addr constant { [4 x ptr] }, align 8
+@_ZTVNSt3__18ios_baseE = external unnamed_addr constant { [4 x ptr] }, align 8
+@_ZNSt3__15ctypeIcE2idE = external global %"class.std::__1::locale::id", align 8
+@.str.11 = private unnamed_addr constant [55 x i8] c"Parameter can't be differentiable because of its type!\00", align 1
+@_ZTIPKc = external constant ptr
+@_ZTIf = external constant ptr
+@_ZN5drjit9InvLogTwoIfEE = linkonce_odr hidden constant float 0x3FF7154760000000, comdat, align 4
+@_ZN5drjit8InfinityIN7mitsuba8SpectrumIfLm4EEEEE = linkonce_odr hidden constant float 0x7FF0000000000000, comdat, align 4
+@_ZN5drjit8InfinityIfEE = linkonce_odr hidden constant float 0x7FF0000000000000, comdat, align 4
+@_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE = linkonce_odr hidden unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr @_ZTINSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, ptr @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_ED2Ev, ptr @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_ED0Ev, ptr @_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7__cloneEv, ptr @_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7__cloneEPNS0_6__baseISM_EE, ptr @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7destroyEv, ptr @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E18destroy_deallocateEv, ptr @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EclESG_, ptr @_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E6targetERKSt9type_info, ptr @_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E11target_typeEv] }, comdat, align 8
+@_ZTSNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE = linkonce_odr hidden constant [279 x i8] c"NSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE\00", comdat, align 1
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTSNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE = linkonce_odr hidden constant [69 x i8] c"NSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE\00", comdat, align 1
+@_ZTINSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE }, comdat, align 8
+@_ZTINSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, ptr @_ZTINSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE }, comdat, align 8
+@_ZTVNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE = linkonce_odr hidden unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr @_ZTINSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE, ptr @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev, ptr @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
+@_ZNSt3__119piecewise_constructE = linkonce_odr hidden constant %"struct.std::__1::piecewise_construct_t" zeroinitializer, comdat, align 1
+@_ZTISt20bad_array_new_length = external constant ptr
+@_ZTSZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEvEUlSE_E_ = linkonce_odr hidden constant [229 x i8] c"ZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEvEUlSE_E_\00", comdat, align 1
+@_ZTIZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEvEUlSE_E_ = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEvEUlSE_E_ }, comdat, align 8
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init, ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE }]
+@llvm.used = appending global [1 x ptr] [ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE], section "llvm.metadata"
+
+@_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesE = weak_odr unnamed_addr alias void (ptr, ptr), ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE
+
+; Function Attrs: mustprogress uwtable
+define weak_odr void @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat($_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC5ERKNS_10PropertiesE) align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__1::basic_string", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"struct.mitsuba::Vector", align 4
+  %9 = alloca float, align 4
+  %10 = alloca %"class.std::__1::basic_string", align 8
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca %"class.std::__1::basic_string", align 8
+  %14 = alloca float, align 4
+  %15 = alloca %"class.std::__1::vector", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %16 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %4, align 8
+  call void @_ZN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  store ptr getelementptr inbounds inrange(-16, 184) ({ [25 x ptr] }, ptr @_ZTVN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i32 0, i32 0, i32 2), ptr %16, align 8
+  %18 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef @.str)
+          to label %19 unwind label %34
+
+19:                                               ; preds = %2
+  %20 = invoke noundef float @_ZNK7mitsuba10Properties3getIfEET_RKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %21 unwind label %38
+
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %16, i32 0, i32 1
+  store float %20, ptr %22, align 8
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
+  %23 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef @.str.1)
+          to label %24 unwind label %34
+
+24:                                               ; preds = %21
+  store float 3.600000e+02, ptr %11, align 4
+  %25 = invoke noundef float @_ZNK7mitsuba10Properties3getIfEET_RKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+          to label %26 unwind label %42
+
+26:                                               ; preds = %24
+  store float %25, ptr %9, align 4
+  %27 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef @.str.2)
+          to label %28 unwind label %42
+
+28:                                               ; preds = %26
+  store float 8.300000e+02, ptr %14, align 4
+  %29 = invoke noundef float @_ZNK7mitsuba10Properties3getIfEET_RKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+          to label %30 unwind label %46
+
+30:                                               ; preds = %28
+  store float %29, ptr %12, align 4
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJffETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %12)
+          to label %31 unwind label %46
+
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %16, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %32, ptr align 4 %8, i64 8, i1 false)
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #20
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #20
+  call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #20
+  invoke void @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE18parameters_changedERKNSt3__16vectorINS7_12basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEENSC_ISE_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %33 unwind label %51
+
+33:                                               ; preds = %31
+  call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #20
+  ret void
+
+34:                                               ; preds = %21, %2
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %6, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %7, align 4
+  br label %55
+
+38:                                               ; preds = %19
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %6, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %7, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
+  br label %55
+
+42:                                               ; preds = %26, %24
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %6, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %7, align 4
+  br label %50
+
+46:                                               ; preds = %30, %28
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %6, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %7, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #20
+  br label %50
+
+50:                                               ; preds = %46, %42
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #20
+  br label %55
+
+51:                                               ; preds = %31
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %6, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %7, align 4
+  call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #20
+  br label %55
+
+55:                                               ; preds = %51, %50, %38, %34
+  call void @_ZN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #20
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %6, align 8
+  %58 = load i32, ptr %7, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
+}
+
+declare void @_ZN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+
+declare noundef float @_ZNK7mitsuba10Properties3getIfEET_RKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.std::__1::__default_init_tag", align 1
+  %6 = alloca %"struct.std::__1::__default_init_tag", align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds %"class.std::__1::basic_string", ptr %7, i32 0, i32 0
+  call void @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2B8ne190000INS_18__default_init_tagESA_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call noundef i64 @_ZNSt3__111char_traitsIcE6lengthB8ne190000EPKc(ptr noundef %10) #20
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %9, i64 noundef %11)
+  ret void
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: nounwind
+declare void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
+
+declare noundef float @_ZNK7mitsuba10Properties3getIfEET_RKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEERKS2_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 4 dereferenceable(4)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJffETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = load ptr, ptr %8, align 8
+  %12 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %4, align 8
+  store ptr %11, ptr %5, align 8
+  store ptr %12, ptr %6, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load float, ptr %14, align 4
+  store float %15, ptr %13, align 4
+  %16 = getelementptr inbounds float, ptr %13, i64 1
+  %17 = load ptr, ptr %6, align 8
+  %18 = load float, ptr %17, align 4
+  store float %18, ptr %16, align 4
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+
+; Function Attrs: mustprogress uwtable
+define weak_odr void @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE18parameters_changedERKNSt3__16vectorINS7_12basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEENSC_ISE_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.std::__1::pair", align 4
+  %14 = alloca %"struct.std::__1::pair", align 4
+  store ptr %0, ptr %11, align 8
+  store ptr %1, ptr %12, align 8
+  %15 = load ptr, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %15, i32 0, i32 4
+  store ptr %16, ptr %10, align 8
+  %17 = load ptr, ptr %10, align 8
+  store ptr %17, ptr %7, align 8
+  %18 = load ptr, ptr %7, align 8
+  store ptr %18, ptr %3, align 8
+  store i64 0, ptr %4, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = load i64, ptr %4, align 8
+  %21 = getelementptr inbounds [2 x float], ptr %19, i64 0, i64 %20
+  %22 = load float, ptr %21, align 4
+  %23 = call contract <2 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11cdf_and_pdfIfEENSt3__14pairIT_SA_EESA_(ptr noundef nonnull align 8 dereferenceable(64) %15, float noundef %22)
+  store <2 x float> %23, ptr %13, align 4
+  %24 = getelementptr inbounds %"struct.std::__1::pair", ptr %13, i32 0, i32 0
+  %25 = load float, ptr %24, align 4
+  %26 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %15, i32 0, i32 2
+  store float %25, ptr %26, align 4
+  %27 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %15, i32 0, i32 4
+  store ptr %27, ptr %9, align 8
+  %28 = load ptr, ptr %9, align 8
+  store ptr %28, ptr %8, align 8
+  %29 = load ptr, ptr %8, align 8
+  store ptr %29, ptr %5, align 8
+  store i64 1, ptr %6, align 8
+  %30 = load ptr, ptr %5, align 8
+  %31 = load i64, ptr %6, align 8
+  %32 = getelementptr inbounds [2 x float], ptr %30, i64 0, i64 %31
+  %33 = load float, ptr %32, align 4
+  %34 = call contract <2 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11cdf_and_pdfIfEENSt3__14pairIT_SA_EESA_(ptr noundef nonnull align 8 dereferenceable(64) %15, float noundef %33)
+  store <2 x float> %34, ptr %14, align 4
+  %35 = getelementptr inbounds %"struct.std::__1::pair", ptr %14, i32 0, i32 0
+  %36 = load float, ptr %35, align 4
+  %37 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %15, i32 0, i32 2
+  %38 = load float, ptr %37, align 4
+  %39 = fsub contract float %36, %38
+  %40 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %15, i32 0, i32 3
+  store float %39, ptr %40, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %"struct.std::__1::__default_init_tag", align 1
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds %"class.std::__1::vector", ptr %5, i32 0, i32 0
+  store ptr null, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.std::__1::vector", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.std::__1::vector", ptr %5, i32 0, i32 2
+  store ptr null, ptr %3, align 8
+  invoke void @_ZNSt3__117__compressed_pairIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEEC2B8ne190000IDnNS_18__default_init_tagEEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %9 unwind label %10
+
+9:                                                ; preds = %1
+  ret void
+
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::__1::vector<std::__1::string>::__destroy_vector", align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE16__destroy_vectorC2B8ne190000ERS8_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %7
+
+5:                                                ; preds = %1
+  invoke void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE16__destroy_vectorclB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %5
+  ret void
+
+7:                                                ; preds = %5, %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #21
+  unreachable
+}
+
+; Function Attrs: nounwind
+declare void @_ZN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define weak_odr void @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE8traverseEPNS_17TraversalCallbackE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__1::basic_string", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef @.str)
+  %10 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %8, i32 0, i32 1
+  %11 = invoke noundef i32 @_ZN7mitsubapsENS_10ParamFlagsE(i32 noundef 1)
+          to label %12 unwind label %14
+
+12:                                               ; preds = %2
+  invoke void @_ZN7mitsuba17TraversalCallback13put_parameterIfEEvRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERT_j(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %11)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %12
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
+  ret void
+
+14:                                               ; preds = %12, %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN7mitsuba17TraversalCallback13put_parameterIfEEvRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERT_j(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %8, align 4
+  %11 = call noundef i32 @_ZN7mitsubaanEjNS_10ParamFlagsE(i32 noundef %10, i32 noundef 0)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %4
+  %14 = call ptr @__cxa_allocate_exception(i64 8) #20
+  store ptr @.str.11, ptr %14, align 16
+  call void @__cxa_throw(ptr %14, ptr @_ZTIPKc, ptr null) #22
+  unreachable
+
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %6, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = load ptr, ptr %9, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 3
+  %21 = load ptr, ptr %20, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIf)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN7mitsubapsENS_10ParamFlagsE(i32 noundef %0) #5 comdat {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4
+  ret i32 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr <2 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11cdf_and_pdfIfEENSt3__14pairIT_SA_EESA_(ptr noundef nonnull align 8 dereferenceable(64) %0, float noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::__1::pair", align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  %18 = alloca float, align 4
+  %19 = alloca float, align 4
+  %20 = alloca float, align 4
+  %21 = alloca float, align 4
+  %22 = alloca float, align 4
+  store ptr %0, ptr %8, align 8
+  store float %1, ptr %9, align 4
+  %23 = load ptr, ptr %8, align 8
+  store ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE2c1E, ptr %3, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = load float, ptr %24, align 4
+  %26 = load ptr, ptr %3, align 8
+  %27 = load float, ptr %26, align 4
+  %28 = fmul contract float %25, %27
+  store float %28, ptr %10, align 4
+  %29 = load float, ptr %10, align 4
+  %30 = fmul contract float %29, 0x3F8D775620000000
+  store float %30, ptr %11, align 4
+  store ptr %10, ptr %4, align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = load float, ptr %31, align 4
+  %33 = load ptr, ptr %4, align 8
+  %34 = load float, ptr %33, align 4
+  %35 = fmul contract float %32, %34
+  store float %35, ptr %12, align 4
+  %36 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %23, i32 0, i32 1
+  %37 = load float, ptr %36, align 8
+  store float %37, ptr %13, align 4
+  store ptr %13, ptr %5, align 8
+  %38 = load ptr, ptr %5, align 8
+  %39 = load float, ptr %38, align 4
+  %40 = load ptr, ptr %5, align 8
+  %41 = load float, ptr %40, align 4
+  %42 = fmul contract float %39, %41
+  store float %42, ptr %14, align 4
+  %43 = load float, ptr %14, align 4
+  %44 = load float, ptr %13, align 4
+  %45 = fmul contract float %43, %44
+  store float %45, ptr %15, align 4
+  %46 = load float, ptr %9, align 4
+  %47 = fmul contract float %46, 0x3E112E0BE0000000
+  store float %47, ptr %9, align 4
+  store ptr %9, ptr %6, align 8
+  %48 = load ptr, ptr %6, align 8
+  %49 = load float, ptr %48, align 4
+  %50 = load ptr, ptr %6, align 8
+  %51 = load float, ptr %50, align 4
+  %52 = fmul contract float %49, %51
+  store float %52, ptr %16, align 4
+  %53 = load float, ptr %16, align 4
+  %54 = load float, ptr %9, align 4
+  %55 = fmul contract float %53, %54
+  store float %55, ptr %17, align 4
+  %56 = load float, ptr %16, align 4
+  %57 = load float, ptr %17, align 4
+  %58 = fmul contract float %56, %57
+  store float %58, ptr %18, align 4
+  %59 = load float, ptr %13, align 4
+  %60 = load float, ptr %9, align 4
+  %61 = fmul contract float %59, %60
+  %62 = fdiv contract float 0xBF8D775620000000, %61
+  store float %62, ptr %20, align 4
+  %63 = call contract noundef float @_ZN5drjit3expIfEET_RKS1_(ptr noundef nonnull align 4 dereferenceable(4) %20)
+  store float %63, ptr %19, align 4
+  %64 = load float, ptr %13, align 4
+  %65 = fmul contract float 0x3CA12A2C40000000, %64
+  %66 = load float, ptr %19, align 4
+  %67 = fmul contract float %65, %66
+  %68 = load float, ptr %11, align 4
+  %69 = load float, ptr %10, align 4
+  %70 = fmul contract float 3.000000e+00, %69
+  %71 = load float, ptr %13, align 4
+  %72 = fmul contract float %70, %71
+  %73 = load float, ptr %9, align 4
+  %74 = fmul contract float %72, %73
+  %75 = fadd contract float %68, %74
+  %76 = load float, ptr %14, align 4
+  %77 = fmul contract float 0x3FB61980A0000000, %76
+  %78 = load float, ptr %16, align 4
+  %79 = fmul contract float %77, %78
+  %80 = fadd contract float %75, %79
+  %81 = load float, ptr %15, align 4
+  %82 = fmul contract float 6.000000e+00, %81
+  %83 = load float, ptr %17, align 4
+  %84 = fmul contract float %82, %83
+  %85 = fadd contract float %80, %84
+  %86 = fmul contract float %67, %85
+  %87 = load float, ptr %12, align 4
+  %88 = load float, ptr %17, align 4
+  %89 = fmul contract float %87, %88
+  %90 = fdiv contract float %86, %89
+  store float %90, ptr %21, align 4
+  %91 = load float, ptr %19, align 4
+  %92 = fmul contract float 0x3AC26E3500000000, %91
+  %93 = load float, ptr %18, align 4
+  %94 = fdiv contract float %92, %93
+  store float %94, ptr %22, align 4
+  call void @_ZNSt3__14pairIffEC2B8ne190000IRfS3_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOS5_OS6_(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %22) #20
+  %95 = load <2 x float>, ptr %7, align 4
+  ret <2 x float> %95
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE9eval_implERKS4_b(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, i1 noundef zeroext %2) #6 comdat align 2 {
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca %"struct.drjit::Mask", align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca %"struct.drjit::Mask", align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %"struct.drjit::Mask", align 1
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca <4 x float>, align 16
+  %18 = alloca <4 x float>, align 16
+  %19 = alloca %"struct.mitsuba::Spectrum", align 16
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca <4 x float>, align 16
+  %23 = alloca <4 x float>, align 16
+  %24 = alloca <4 x float>, align 16
+  %25 = alloca <4 x float>, align 16
+  %26 = alloca %"struct.mitsuba::Spectrum", align 16
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca %"struct.mitsuba::Spectrum", align 16
+  %30 = alloca ptr, align 8
+  %31 = alloca ptr, align 8
+  %32 = alloca <4 x float>, align 16
+  %33 = alloca i8, align 1
+  %34 = alloca <4 x float>, align 16
+  %35 = alloca %"struct.mitsuba::Spectrum", align 16
+  %36 = alloca ptr, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca %"struct.drjit::Mask", align 1
+  %39 = alloca ptr, align 8
+  %40 = alloca %"struct.drjit::Mask", align 1
+  %41 = alloca ptr, align 8
+  %42 = alloca ptr, align 8
+  %43 = alloca i8, align 1
+  %44 = alloca ptr, align 8
+  %45 = alloca ptr, align 8
+  %46 = alloca %"struct.drjit::Mask", align 1
+  %47 = alloca ptr, align 8
+  %48 = alloca ptr, align 8
+  %49 = alloca ptr, align 8
+  %50 = alloca i64, align 8
+  %51 = alloca ptr, align 8
+  %52 = alloca i64, align 8
+  %53 = alloca ptr, align 8
+  %54 = alloca ptr, align 8
+  %55 = alloca %"struct.drjit::Mask", align 1
+  %56 = alloca ptr, align 8
+  %57 = alloca %"struct.drjit::Mask", align 1
+  %58 = alloca ptr, align 8
+  %59 = alloca ptr, align 8
+  %60 = alloca i8, align 1
+  %61 = alloca ptr, align 8
+  %62 = alloca ptr, align 8
+  %63 = alloca %"struct.drjit::Mask", align 1
+  %64 = alloca ptr, align 8
+  %65 = alloca ptr, align 8
+  %66 = alloca i8, align 1
+  %67 = alloca i8, align 1
+  %68 = alloca %"struct.drjit::Mask", align 1
+  %69 = alloca ptr, align 8
+  %70 = alloca %"struct.drjit::Mask", align 1
+  %71 = alloca ptr, align 8
+  %72 = alloca ptr, align 8
+  %73 = alloca i8, align 1
+  %74 = alloca ptr, align 8
+  %75 = alloca ptr, align 8
+  %76 = alloca ptr, align 8
+  %77 = alloca <4 x float>, align 16
+  %78 = alloca <4 x float>, align 16
+  %79 = alloca <4 x float>, align 16
+  %80 = alloca <4 x float>, align 16
+  %81 = alloca <4 x float>, align 16
+  %82 = alloca <4 x float>, align 16
+  %83 = alloca <4 x float>, align 16
+  %84 = alloca <4 x float>, align 16
+  %85 = alloca <4 x float>, align 16
+  %86 = alloca <4 x float>, align 16
+  %87 = alloca <4 x float>, align 16
+  %88 = alloca <4 x float>, align 16
+  %89 = alloca %"struct.mitsuba::Spectrum", align 16
+  %90 = alloca ptr, align 8
+  %91 = alloca ptr, align 8
+  %92 = alloca %"struct.mitsuba::Spectrum", align 16
+  %93 = alloca ptr, align 8
+  %94 = alloca ptr, align 8
+  %95 = alloca %"struct.mitsuba::Spectrum", align 16
+  %96 = alloca ptr, align 8
+  %97 = alloca ptr, align 8
+  %98 = alloca %"struct.mitsuba::Spectrum", align 16
+  %99 = alloca ptr, align 8
+  %100 = alloca ptr, align 8
+  %101 = alloca %"struct.mitsuba::Spectrum", align 16
+  %102 = alloca ptr, align 8
+  %103 = alloca ptr, align 8
+  %104 = alloca %"struct.mitsuba::Spectrum", align 16
+  %105 = alloca ptr, align 8
+  %106 = alloca ptr, align 8
+  %107 = alloca ptr, align 8
+  %108 = alloca ptr, align 8
+  %109 = alloca ptr, align 8
+  %110 = alloca ptr, align 8
+  %111 = alloca ptr, align 8
+  %112 = alloca ptr, align 8
+  %113 = alloca ptr, align 8
+  %114 = alloca ptr, align 8
+  %115 = alloca ptr, align 8
+  %116 = alloca ptr, align 8
+  %117 = alloca ptr, align 8
+  %118 = alloca ptr, align 8
+  %119 = alloca ptr, align 8
+  %120 = alloca ptr, align 8
+  %121 = alloca ptr, align 8
+  %122 = alloca ptr, align 8
+  %123 = alloca ptr, align 8
+  %124 = alloca ptr, align 8
+  %125 = alloca ptr, align 8
+  %126 = alloca %"struct.mitsuba::Spectrum", align 16
+  %127 = alloca ptr, align 8
+  %128 = alloca ptr, align 8
+  %129 = alloca %"struct.mitsuba::Spectrum", align 16
+  %130 = alloca ptr, align 8
+  %131 = alloca ptr, align 8
+  %132 = alloca %"struct.mitsuba::Spectrum", align 16
+  %133 = alloca ptr, align 8
+  %134 = alloca ptr, align 8
+  %135 = alloca %"struct.mitsuba::Spectrum", align 16
+  %136 = alloca ptr, align 8
+  %137 = alloca ptr, align 8
+  %138 = alloca %"struct.mitsuba::Spectrum", align 16
+  %139 = alloca ptr, align 8
+  %140 = alloca ptr, align 8
+  %141 = alloca %"struct.mitsuba::Spectrum", align 16
+  %142 = alloca %"struct.mitsuba::Spectrum", align 16
+  %143 = alloca ptr, align 8
+  %144 = alloca ptr, align 8
+  %145 = alloca %"struct.mitsuba::Spectrum", align 16
+  %146 = alloca %"struct.mitsuba::Spectrum", align 16
+  %147 = alloca ptr, align 8
+  %148 = alloca ptr, align 8
+  %149 = alloca %"struct.mitsuba::Spectrum", align 16
+  %150 = alloca ptr, align 8
+  %151 = alloca %"struct.drjit::Mask", align 1
+  %152 = alloca ptr, align 8
+  %153 = alloca ptr, align 8
+  %154 = alloca %"struct.mitsuba::Spectrum", align 16
+  %155 = alloca ptr, align 8
+  %156 = alloca %"struct.drjit::Mask", align 1
+  %157 = alloca ptr, align 8
+  %158 = alloca ptr, align 8
+  %159 = alloca %"struct.mitsuba::Spectrum", align 16
+  %160 = alloca %"struct.drjit::Mask", align 1
+  %161 = alloca ptr, align 8
+  %162 = alloca ptr, align 8
+  %163 = alloca ptr, align 8
+  %164 = alloca ptr, align 8
+  %165 = alloca %"struct.drjit::Mask", align 1
+  %166 = alloca %"struct.mitsuba::Spectrum", align 16
+  %167 = alloca ptr, align 8
+  %168 = alloca ptr, align 8
+  %169 = alloca %"struct.mitsuba::Spectrum", align 16
+  %170 = alloca ptr, align 8
+  %171 = alloca ptr, align 8
+  %172 = alloca %"struct.mitsuba::Spectrum", align 16
+  %173 = alloca ptr, align 8
+  %174 = alloca ptr, align 8
+  %175 = alloca %"struct.mitsuba::Spectrum", align 16
+  %176 = alloca ptr, align 8
+  %177 = alloca ptr, align 8
+  %178 = alloca %"struct.mitsuba::Spectrum", align 16
+  %179 = alloca ptr, align 8
+  %180 = alloca ptr, align 8
+  %181 = alloca %"struct.mitsuba::Spectrum", align 16
+  %182 = alloca ptr, align 8
+  %183 = alloca ptr, align 8
+  %184 = alloca %"struct.mitsuba::Spectrum", align 16
+  %185 = alloca ptr, align 8
+  %186 = alloca %"struct.mitsuba::Spectrum", align 16
+  %187 = alloca ptr, align 8
+  %188 = alloca %"struct.mitsuba::Spectrum", align 16
+  %189 = alloca ptr, align 8
+  %190 = alloca ptr, align 8
+  %191 = alloca %"struct.mitsuba::Spectrum", align 16
+  %192 = alloca %"struct.mitsuba::Spectrum", align 16
+  %193 = alloca ptr, align 8
+  %194 = alloca ptr, align 8
+  %195 = alloca %"struct.mitsuba::Spectrum", align 16
+  %196 = alloca %"struct.mitsuba::Spectrum", align 16
+  %197 = alloca ptr, align 8
+  %198 = alloca ptr, align 8
+  %199 = alloca i8, align 1
+  %200 = alloca %"struct.mitsuba::Spectrum", align 16
+  %201 = alloca float, align 4
+  %202 = alloca %"struct.mitsuba::Spectrum", align 16
+  %203 = alloca %"struct.mitsuba::Spectrum", align 16
+  %204 = alloca %"struct.mitsuba::Spectrum", align 16
+  %205 = alloca %"struct.drjit::Mask", align 1
+  %206 = alloca %"struct.drjit::Mask", align 1
+  %207 = alloca %"struct.drjit::Mask", align 1
+  %208 = alloca %"struct.drjit::Mask", align 1
+  %209 = alloca %"struct.mitsuba::Spectrum", align 16
+  %210 = alloca float, align 4
+  %211 = alloca %"struct.mitsuba::Spectrum", align 16
+  %212 = alloca %"struct.mitsuba::Spectrum", align 16
+  %213 = alloca %"struct.mitsuba::Spectrum", align 16
+  %214 = alloca %"struct.mitsuba::Spectrum", align 16
+  %215 = alloca %"struct.mitsuba::Spectrum", align 16
+  %216 = alloca float, align 4
+  store ptr %0, ptr %197, align 8
+  store ptr %1, ptr %198, align 8
+  %217 = zext i1 %2 to i8
+  store i8 %217, ptr %199, align 1
+  %218 = load ptr, ptr %197, align 8
+  %219 = load ptr, ptr %198, align 8
+  store float 0x3E112E0BE0000000, ptr %201, align 4
+  store ptr %219, ptr %189, align 8
+  store ptr %201, ptr %190, align 8
+  %220 = load ptr, ptr %189, align 8
+  %221 = load ptr, ptr %190, align 8
+  %222 = load float, ptr %221, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %191, float noundef %222)
+  store ptr %220, ptr %176, align 8
+  store ptr %191, ptr %177, align 8
+  %223 = load ptr, ptr %176, align 8
+  store ptr %223, ptr %111, align 8
+  %224 = load ptr, ptr %111, align 8
+  %225 = load ptr, ptr %177, align 8
+  store ptr %225, ptr %112, align 8
+  %226 = load ptr, ptr %112, align 8
+  store ptr %224, ptr %96, align 8
+  store ptr %226, ptr %97, align 8
+  %227 = load ptr, ptr %96, align 8
+  %228 = load <4 x float>, ptr %227, align 16
+  %229 = load ptr, ptr %97, align 8
+  %230 = load <4 x float>, ptr %229, align 16
+  store <4 x float> %228, ptr %83, align 16
+  store <4 x float> %230, ptr %84, align 16
+  %231 = load <4 x float>, ptr %83, align 16
+  %232 = load <4 x float>, ptr %84, align 16
+  %233 = fmul contract <4 x float> %231, %232
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %95, <4 x float> noundef %233)
+  %234 = load <4 x float>, ptr %95, align 16
+  store <4 x float> %234, ptr %175, align 16
+  %235 = load <4 x float>, ptr %175, align 16
+  store <4 x float> %235, ptr %188, align 16
+  %236 = load <4 x float>, ptr %188, align 16
+  %237 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %200, i32 0, i32 0
+  %238 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %237, i32 0, i32 0
+  store <4 x float> %236, ptr %238, align 16
+  store ptr %200, ptr %185, align 8
+  %239 = load ptr, ptr %185, align 8
+  %240 = load ptr, ptr %185, align 8
+  store ptr %239, ptr %182, align 8
+  store ptr %240, ptr %183, align 8
+  %241 = load ptr, ptr %182, align 8
+  store ptr %241, ptr %107, align 8
+  %242 = load ptr, ptr %107, align 8
+  %243 = load ptr, ptr %183, align 8
+  store ptr %243, ptr %108, align 8
+  %244 = load ptr, ptr %108, align 8
+  store ptr %242, ptr %90, align 8
+  store ptr %244, ptr %91, align 8
+  %245 = load ptr, ptr %90, align 8
+  %246 = load <4 x float>, ptr %245, align 16
+  %247 = load ptr, ptr %91, align 8
+  %248 = load <4 x float>, ptr %247, align 16
+  store <4 x float> %246, ptr %87, align 16
+  store <4 x float> %248, ptr %88, align 16
+  %249 = load <4 x float>, ptr %87, align 16
+  %250 = load <4 x float>, ptr %88, align 16
+  %251 = fmul contract <4 x float> %249, %250
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %89, <4 x float> noundef %251)
+  %252 = load <4 x float>, ptr %89, align 16
+  store <4 x float> %252, ptr %181, align 16
+  %253 = load <4 x float>, ptr %181, align 16
+  store <4 x float> %253, ptr %184, align 16
+  %254 = load <4 x float>, ptr %184, align 16
+  %255 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %202, i32 0, i32 0
+  %256 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %255, i32 0, i32 0
+  store <4 x float> %254, ptr %256, align 16
+  store ptr %202, ptr %187, align 8
+  %257 = load ptr, ptr %187, align 8
+  %258 = load ptr, ptr %187, align 8
+  store ptr %257, ptr %179, align 8
+  store ptr %258, ptr %180, align 8
+  %259 = load ptr, ptr %179, align 8
+  store ptr %259, ptr %109, align 8
+  %260 = load ptr, ptr %109, align 8
+  %261 = load ptr, ptr %180, align 8
+  store ptr %261, ptr %110, align 8
+  %262 = load ptr, ptr %110, align 8
+  store ptr %260, ptr %93, align 8
+  store ptr %262, ptr %94, align 8
+  %263 = load ptr, ptr %93, align 8
+  %264 = load <4 x float>, ptr %263, align 16
+  %265 = load ptr, ptr %94, align 8
+  %266 = load <4 x float>, ptr %265, align 16
+  store <4 x float> %264, ptr %85, align 16
+  store <4 x float> %266, ptr %86, align 16
+  %267 = load <4 x float>, ptr %85, align 16
+  %268 = load <4 x float>, ptr %86, align 16
+  %269 = fmul contract <4 x float> %267, %268
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %92, <4 x float> noundef %269)
+  %270 = load <4 x float>, ptr %92, align 16
+  store <4 x float> %270, ptr %178, align 16
+  %271 = load <4 x float>, ptr %178, align 16
+  store <4 x float> %271, ptr %186, align 16
+  %272 = load <4 x float>, ptr %186, align 16
+  %273 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %204, i32 0, i32 0
+  %274 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %273, i32 0, i32 0
+  store <4 x float> %272, ptr %274, align 16
+  store ptr %204, ptr %167, align 8
+  store ptr %200, ptr %168, align 8
+  %275 = load ptr, ptr %167, align 8
+  store ptr %275, ptr %117, align 8
+  %276 = load ptr, ptr %117, align 8
+  %277 = load ptr, ptr %168, align 8
+  store ptr %277, ptr %118, align 8
+  %278 = load ptr, ptr %118, align 8
+  store ptr %276, ptr %105, align 8
+  store ptr %278, ptr %106, align 8
+  %279 = load ptr, ptr %105, align 8
+  %280 = load <4 x float>, ptr %279, align 16
+  %281 = load ptr, ptr %106, align 8
+  %282 = load <4 x float>, ptr %281, align 16
+  store <4 x float> %280, ptr %77, align 16
+  store <4 x float> %282, ptr %78, align 16
+  %283 = load <4 x float>, ptr %77, align 16
+  %284 = load <4 x float>, ptr %78, align 16
+  %285 = fmul contract <4 x float> %283, %284
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %104, <4 x float> noundef %285)
+  %286 = load <4 x float>, ptr %104, align 16
+  store <4 x float> %286, ptr %166, align 16
+  %287 = load <4 x float>, ptr %166, align 16
+  %288 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %203, i32 0, i32 0
+  %289 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %288, i32 0, i32 0
+  store <4 x float> %287, ptr %289, align 16
+  call void @_ZN5drjit4MaskIfLm4EECI2NS_8MaskBaseIfLm4ES1_EEIRbNS2_IfLm4ES1_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %205, ptr noundef nonnull align 1 dereferenceable(1) %199)
+  %290 = load ptr, ptr %198, align 8
+  %291 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %218, i32 0, i32 4
+  store ptr %291, ptr %155, align 8
+  %292 = load ptr, ptr %155, align 8
+  store ptr %292, ptr %53, align 8
+  %293 = load ptr, ptr %53, align 8
+  store ptr %293, ptr %49, align 8
+  store i64 0, ptr %50, align 8
+  %294 = load ptr, ptr %49, align 8
+  %295 = load i64, ptr %50, align 8
+  %296 = getelementptr inbounds [2 x float], ptr %294, i64 0, i64 %295
+  store ptr %290, ptr %157, align 8
+  store ptr %296, ptr %158, align 8
+  %297 = load ptr, ptr %157, align 8
+  %298 = load ptr, ptr %158, align 8
+  %299 = load float, ptr %298, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %159, float noundef %299)
+  store ptr %297, ptr %64, align 8
+  store ptr %159, ptr %65, align 8
+  %300 = load ptr, ptr %64, align 8
+  store ptr %300, ptr %61, align 8
+  %301 = load ptr, ptr %61, align 8
+  %302 = load ptr, ptr %65, align 8
+  store ptr %302, ptr %62, align 8
+  %303 = load ptr, ptr %62, align 8
+  store ptr %301, ptr %58, align 8
+  store ptr %303, ptr %59, align 8
+  %304 = load ptr, ptr %58, align 8
+  %305 = load <4 x float>, ptr %304, align 16
+  %306 = load ptr, ptr %59, align 8
+  %307 = load <4 x float>, ptr %306, align 16
+  %308 = fcmp contract oge <4 x float> %305, %307
+  %309 = shufflevector <4 x i1> %308, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %310 = bitcast <8 x i1> %309 to i8
+  store i8 %310, ptr %60, align 1
+  store ptr %60, ptr %56, align 8
+  %311 = load ptr, ptr %56, align 8
+  %312 = load i8, ptr %311, align 1
+  store i8 %312, ptr %55, align 1
+  %313 = load i8, ptr %55, align 1
+  store i8 %313, ptr %57, align 1
+  %314 = load i8, ptr %57, align 1
+  store i8 %314, ptr %63, align 1
+  %315 = load i8, ptr %63, align 1
+  store i8 %315, ptr %156, align 1
+  %316 = load i8, ptr %156, align 1
+  %317 = getelementptr inbounds %"struct.drjit::Mask", ptr %207, i32 0, i32 0
+  %318 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %317, i32 0, i32 0
+  %319 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %318, i32 0, i32 0
+  %320 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %319, i32 0, i32 0
+  store i8 %316, ptr %320, align 1
+  %321 = load ptr, ptr %198, align 8
+  %322 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %218, i32 0, i32 4
+  store ptr %322, ptr %150, align 8
+  %323 = load ptr, ptr %150, align 8
+  store ptr %323, ptr %54, align 8
+  %324 = load ptr, ptr %54, align 8
+  store ptr %324, ptr %51, align 8
+  store i64 1, ptr %52, align 8
+  %325 = load ptr, ptr %51, align 8
+  %326 = load i64, ptr %52, align 8
+  %327 = getelementptr inbounds [2 x float], ptr %325, i64 0, i64 %326
+  store ptr %321, ptr %152, align 8
+  store ptr %327, ptr %153, align 8
+  %328 = load ptr, ptr %152, align 8
+  %329 = load ptr, ptr %153, align 8
+  %330 = load float, ptr %329, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %154, float noundef %330)
+  store ptr %328, ptr %47, align 8
+  store ptr %154, ptr %48, align 8
+  %331 = load ptr, ptr %47, align 8
+  store ptr %331, ptr %44, align 8
+  %332 = load ptr, ptr %44, align 8
+  %333 = load ptr, ptr %48, align 8
+  store ptr %333, ptr %45, align 8
+  %334 = load ptr, ptr %45, align 8
+  store ptr %332, ptr %41, align 8
+  store ptr %334, ptr %42, align 8
+  %335 = load ptr, ptr %41, align 8
+  %336 = load <4 x float>, ptr %335, align 16
+  %337 = load ptr, ptr %42, align 8
+  %338 = load <4 x float>, ptr %337, align 16
+  %339 = fcmp contract ole <4 x float> %336, %338
+  %340 = shufflevector <4 x i1> %339, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %341 = bitcast <8 x i1> %340 to i8
+  store i8 %341, ptr %43, align 1
+  store ptr %43, ptr %39, align 8
+  %342 = load ptr, ptr %39, align 8
+  %343 = load i8, ptr %342, align 1
+  store i8 %343, ptr %38, align 1
+  %344 = load i8, ptr %38, align 1
+  store i8 %344, ptr %40, align 1
+  %345 = load i8, ptr %40, align 1
+  store i8 %345, ptr %46, align 1
+  %346 = load i8, ptr %46, align 1
+  store i8 %346, ptr %151, align 1
+  %347 = load i8, ptr %151, align 1
+  %348 = getelementptr inbounds %"struct.drjit::Mask", ptr %208, i32 0, i32 0
+  %349 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %348, i32 0, i32 0
+  %350 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %349, i32 0, i32 0
+  %351 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %350, i32 0, i32 0
+  store i8 %347, ptr %351, align 1
+  store ptr %207, ptr %161, align 8
+  store ptr %208, ptr %162, align 8
+  %352 = load ptr, ptr %161, align 8
+  store ptr %352, ptr %74, align 8
+  %353 = load ptr, ptr %74, align 8
+  %354 = load ptr, ptr %162, align 8
+  store ptr %354, ptr %75, align 8
+  %355 = load ptr, ptr %75, align 8
+  store ptr %353, ptr %71, align 8
+  store ptr %355, ptr %72, align 8
+  %356 = load ptr, ptr %71, align 8
+  %357 = load i8, ptr %356, align 1
+  %358 = load ptr, ptr %72, align 8
+  %359 = load i8, ptr %358, align 1
+  store i8 %357, ptr %66, align 1
+  store i8 %359, ptr %67, align 1
+  %360 = load i8, ptr %66, align 1
+  %361 = load i8, ptr %67, align 1
+  %362 = bitcast i8 %360 to <8 x i1>
+  %363 = bitcast i8 %361 to <8 x i1>
+  %364 = and <8 x i1> %362, %363
+  %365 = bitcast <8 x i1> %364 to i8
+  store i8 %365, ptr %73, align 1
+  store ptr %73, ptr %69, align 8
+  %366 = load ptr, ptr %69, align 8
+  %367 = load i8, ptr %366, align 1
+  store i8 %367, ptr %68, align 1
+  %368 = load i8, ptr %68, align 1
+  store i8 %368, ptr %70, align 1
+  %369 = load i8, ptr %70, align 1
+  store i8 %369, ptr %160, align 1
+  %370 = load i8, ptr %160, align 1
+  %371 = getelementptr inbounds %"struct.drjit::Mask", ptr %206, i32 0, i32 0
+  %372 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %371, i32 0, i32 0
+  %373 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %372, i32 0, i32 0
+  %374 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %373, i32 0, i32 0
+  store i8 %370, ptr %374, align 1
+  store ptr %205, ptr %163, align 8
+  store ptr %206, ptr %164, align 8
+  %375 = load ptr, ptr %163, align 8
+  %376 = load ptr, ptr %164, align 8
+  store ptr %375, ptr %15, align 8
+  store ptr %376, ptr %16, align 8
+  %377 = load ptr, ptr %15, align 8
+  store ptr %377, ptr %12, align 8
+  %378 = load ptr, ptr %12, align 8
+  %379 = load ptr, ptr %16, align 8
+  store ptr %379, ptr %13, align 8
+  %380 = load ptr, ptr %13, align 8
+  store ptr %378, ptr %9, align 8
+  store ptr %380, ptr %10, align 8
+  %381 = load ptr, ptr %9, align 8
+  %382 = load i8, ptr %381, align 1
+  %383 = load ptr, ptr %10, align 8
+  %384 = load i8, ptr %383, align 1
+  store i8 %382, ptr %4, align 1
+  store i8 %384, ptr %5, align 1
+  %385 = load i8, ptr %4, align 1
+  %386 = load i8, ptr %5, align 1
+  %387 = bitcast i8 %385 to <8 x i1>
+  %388 = bitcast i8 %386 to <8 x i1>
+  %389 = and <8 x i1> %387, %388
+  %390 = bitcast <8 x i1> %389 to i8
+  store i8 %390, ptr %11, align 1
+  store ptr %11, ptr %7, align 8
+  %391 = load ptr, ptr %7, align 8
+  %392 = load i8, ptr %391, align 1
+  store i8 %392, ptr %6, align 1
+  %393 = load i8, ptr %6, align 1
+  store i8 %393, ptr %8, align 1
+  %394 = load i8, ptr %8, align 1
+  store i8 %394, ptr %14, align 1
+  %395 = load i8, ptr %14, align 1
+  store i8 %395, ptr %165, align 1
+  %396 = load ptr, ptr %163, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %396, ptr align 1 %165, i64 1, i1 false)
+  store float 0x3AC26E3500000000, ptr %210, align 4
+  %397 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %218, i32 0, i32 1
+  store ptr %200, ptr %193, align 8
+  store ptr %397, ptr %194, align 8
+  %398 = load ptr, ptr %193, align 8
+  %399 = load ptr, ptr %194, align 8
+  %400 = load float, ptr %399, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %195, float noundef %400)
+  store ptr %398, ptr %173, align 8
+  store ptr %195, ptr %174, align 8
+  %401 = load ptr, ptr %173, align 8
+  store ptr %401, ptr %113, align 8
+  %402 = load ptr, ptr %113, align 8
+  %403 = load ptr, ptr %174, align 8
+  store ptr %403, ptr %114, align 8
+  %404 = load ptr, ptr %114, align 8
+  store ptr %402, ptr %99, align 8
+  store ptr %404, ptr %100, align 8
+  %405 = load ptr, ptr %99, align 8
+  %406 = load <4 x float>, ptr %405, align 16
+  %407 = load ptr, ptr %100, align 8
+  %408 = load <4 x float>, ptr %407, align 16
+  store <4 x float> %406, ptr %81, align 16
+  store <4 x float> %408, ptr %82, align 16
+  %409 = load <4 x float>, ptr %81, align 16
+  %410 = load <4 x float>, ptr %82, align 16
+  %411 = fmul contract <4 x float> %409, %410
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %98, <4 x float> noundef %411)
+  %412 = load <4 x float>, ptr %98, align 16
+  store <4 x float> %412, ptr %172, align 16
+  %413 = load <4 x float>, ptr %172, align 16
+  store <4 x float> %413, ptr %192, align 16
+  %414 = load <4 x float>, ptr %192, align 16
+  %415 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %215, i32 0, i32 0
+  %416 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %415, i32 0, i32 0
+  store <4 x float> %414, ptr %416, align 16
+  store ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE2c1E, ptr %143, align 8
+  store ptr %215, ptr %144, align 8
+  %417 = load ptr, ptr %143, align 8
+  %418 = load float, ptr %417, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %145, float noundef %418)
+  %419 = load ptr, ptr %144, align 8
+  store ptr %145, ptr %133, align 8
+  store ptr %419, ptr %134, align 8
+  %420 = load ptr, ptr %133, align 8
+  store ptr %420, ptr %120, align 8
+  %421 = load ptr, ptr %120, align 8
+  %422 = load ptr, ptr %134, align 8
+  store ptr %422, ptr %121, align 8
+  %423 = load ptr, ptr %121, align 8
+  store ptr %421, ptr %27, align 8
+  store ptr %423, ptr %28, align 8
+  %424 = load ptr, ptr %27, align 8
+  %425 = load <4 x float>, ptr %424, align 16
+  %426 = load ptr, ptr %28, align 8
+  %427 = load <4 x float>, ptr %426, align 16
+  store <4 x float> %425, ptr %24, align 16
+  store <4 x float> %427, ptr %25, align 16
+  %428 = load <4 x float>, ptr %24, align 16
+  %429 = load <4 x float>, ptr %25, align 16
+  %430 = fdiv contract <4 x float> %428, %429
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %26, <4 x float> noundef %430)
+  %431 = load <4 x float>, ptr %26, align 16
+  store <4 x float> %431, ptr %132, align 16
+  %432 = load <4 x float>, ptr %132, align 16
+  store <4 x float> %432, ptr %142, align 16
+  %433 = load <4 x float>, ptr %142, align 16
+  %434 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %214, i32 0, i32 0
+  %435 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %434, i32 0, i32 0
+  store <4 x float> %433, ptr %435, align 16
+  %436 = call contract <4 x float> @_ZN5drjit3expIN7mitsuba8SpectrumIfLm4EEEEET_RKS4_(ptr noundef nonnull align 16 dereferenceable(16) %214)
+  %437 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %213, i32 0, i32 0
+  %438 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %437, i32 0, i32 0
+  store <4 x float> %436, ptr %438, align 16
+  store float 1.000000e+00, ptr %216, align 4
+  store ptr %213, ptr %139, align 8
+  store ptr %216, ptr %140, align 8
+  %439 = load ptr, ptr %139, align 8
+  %440 = load ptr, ptr %140, align 8
+  %441 = load float, ptr %440, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %141, float noundef %441)
+  store ptr %439, ptr %127, align 8
+  store ptr %141, ptr %128, align 8
+  %442 = load ptr, ptr %127, align 8
+  store ptr %442, ptr %124, align 8
+  %443 = load ptr, ptr %124, align 8
+  %444 = load ptr, ptr %128, align 8
+  store ptr %444, ptr %125, align 8
+  %445 = load ptr, ptr %125, align 8
+  store ptr %443, ptr %20, align 8
+  store ptr %445, ptr %21, align 8
+  %446 = load ptr, ptr %20, align 8
+  %447 = load <4 x float>, ptr %446, align 16
+  %448 = load ptr, ptr %21, align 8
+  %449 = load <4 x float>, ptr %448, align 16
+  store <4 x float> %447, ptr %17, align 16
+  store <4 x float> %449, ptr %18, align 16
+  %450 = load <4 x float>, ptr %17, align 16
+  %451 = load <4 x float>, ptr %18, align 16
+  %452 = fsub contract <4 x float> %450, %451
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %19, <4 x float> noundef %452)
+  %453 = load <4 x float>, ptr %19, align 16
+  store <4 x float> %453, ptr %126, align 16
+  %454 = load <4 x float>, ptr %126, align 16
+  store <4 x float> %454, ptr %138, align 16
+  %455 = load <4 x float>, ptr %138, align 16
+  %456 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %212, i32 0, i32 0
+  %457 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %456, i32 0, i32 0
+  store <4 x float> %455, ptr %457, align 16
+  store ptr %203, ptr %170, align 8
+  store ptr %212, ptr %171, align 8
+  %458 = load ptr, ptr %170, align 8
+  store ptr %458, ptr %115, align 8
+  %459 = load ptr, ptr %115, align 8
+  %460 = load ptr, ptr %171, align 8
+  store ptr %460, ptr %116, align 8
+  %461 = load ptr, ptr %116, align 8
+  store ptr %459, ptr %102, align 8
+  store ptr %461, ptr %103, align 8
+  %462 = load ptr, ptr %102, align 8
+  %463 = load <4 x float>, ptr %462, align 16
+  %464 = load ptr, ptr %103, align 8
+  %465 = load <4 x float>, ptr %464, align 16
+  store <4 x float> %463, ptr %79, align 16
+  store <4 x float> %465, ptr %80, align 16
+  %466 = load <4 x float>, ptr %79, align 16
+  %467 = load <4 x float>, ptr %80, align 16
+  %468 = fmul contract <4 x float> %466, %467
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %101, <4 x float> noundef %468)
+  %469 = load <4 x float>, ptr %101, align 16
+  store <4 x float> %469, ptr %169, align 16
+  %470 = load <4 x float>, ptr %169, align 16
+  %471 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %211, i32 0, i32 0
+  %472 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %471, i32 0, i32 0
+  store <4 x float> %470, ptr %472, align 16
+  store ptr %210, ptr %147, align 8
+  store ptr %211, ptr %148, align 8
+  %473 = load ptr, ptr %147, align 8
+  %474 = load float, ptr %473, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %149, float noundef %474)
+  %475 = load ptr, ptr %148, align 8
+  store ptr %149, ptr %130, align 8
+  store ptr %475, ptr %131, align 8
+  %476 = load ptr, ptr %130, align 8
+  store ptr %476, ptr %122, align 8
+  %477 = load ptr, ptr %122, align 8
+  %478 = load ptr, ptr %131, align 8
+  store ptr %478, ptr %123, align 8
+  %479 = load ptr, ptr %123, align 8
+  store ptr %477, ptr %30, align 8
+  store ptr %479, ptr %31, align 8
+  %480 = load ptr, ptr %30, align 8
+  %481 = load <4 x float>, ptr %480, align 16
+  %482 = load ptr, ptr %31, align 8
+  %483 = load <4 x float>, ptr %482, align 16
+  store <4 x float> %481, ptr %22, align 16
+  store <4 x float> %483, ptr %23, align 16
+  %484 = load <4 x float>, ptr %22, align 16
+  %485 = load <4 x float>, ptr %23, align 16
+  %486 = fdiv contract <4 x float> %484, %485
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %29, <4 x float> noundef %486)
+  %487 = load <4 x float>, ptr %29, align 16
+  store <4 x float> %487, ptr %129, align 16
+  %488 = load <4 x float>, ptr %129, align 16
+  store <4 x float> %488, ptr %146, align 16
+  %489 = load <4 x float>, ptr %146, align 16
+  %490 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %209, i32 0, i32 0
+  %491 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %490, i32 0, i32 0
+  store <4 x float> %489, ptr %491, align 16
+  store ptr %209, ptr %136, align 8
+  store ptr %205, ptr %137, align 8
+  %492 = load ptr, ptr %136, align 8
+  store ptr %492, ptr %119, align 8
+  %493 = load ptr, ptr %119, align 8
+  %494 = load ptr, ptr %137, align 8
+  store ptr %494, ptr %76, align 8
+  %495 = load ptr, ptr %76, align 8
+  store ptr %493, ptr %36, align 8
+  store ptr %495, ptr %37, align 8
+  %496 = load ptr, ptr %36, align 8
+  %497 = load ptr, ptr %37, align 8
+  %498 = load i8, ptr %497, align 1
+  %499 = load <4 x float>, ptr %496, align 16
+  store i8 %498, ptr %33, align 1
+  store <4 x float> %499, ptr %34, align 16
+  %500 = load i8, ptr %33, align 1
+  %501 = load <4 x float>, ptr %34, align 16
+  store <4 x float> zeroinitializer, ptr %32, align 16
+  %502 = load <4 x float>, ptr %32, align 16
+  %503 = bitcast i8 %500 to <8 x i1>
+  %504 = shufflevector <8 x i1> %503, <8 x i1> %503, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %505 = select contract <4 x i1> %504, <4 x float> %501, <4 x float> %502
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %35, <4 x float> noundef %505)
+  %506 = load <4 x float>, ptr %35, align 16
+  store <4 x float> %506, ptr %135, align 16
+  %507 = load <4 x float>, ptr %135, align 16
+  %508 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %196, i32 0, i32 0
+  %509 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %508, i32 0, i32 0
+  store <4 x float> %507, ptr %509, align 16
+  %510 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %196, i32 0, i32 0
+  %511 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %510, i32 0, i32 0
+  %512 = load <4 x float>, ptr %511, align 16
+  ret <4 x float> %512
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN5drjit4MaskIfLm4EECI2NS_8MaskBaseIfLm4ES1_EEIRbNS2_IfLm4ES1_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5drjit8MaskBaseIfLm4ENS_4MaskIfLm4EEEEC2IRbS3_TnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOS8_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden <4 x float> @_ZN5drjit3expIN7mitsuba8SpectrumIfLm4EEEEET_RKS4_(ptr noundef nonnull align 16 dereferenceable(16) %0) #6 comdat {
+  %2 = alloca <4 x float>, align 16
+  %3 = alloca %"struct.mitsuba::Spectrum", align 16
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca <4 x float>, align 16
+  %7 = alloca <4 x float>, align 16
+  %8 = alloca i8, align 1
+  %9 = alloca <4 x float>, align 16
+  %10 = alloca <4 x float>, align 16
+  %11 = alloca %"struct.mitsuba::Spectrum", align 16
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %"struct.mitsuba::Spectrum", align 16
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca <4 x float>, align 16
+  %20 = alloca <4 x float>, align 16
+  %21 = alloca <4 x float>, align 16
+  %22 = alloca %"struct.mitsuba::Spectrum", align 16
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca %"struct.mitsuba::Spectrum", align 16
+  %30 = alloca ptr, align 8
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca %"struct.mitsuba::Spectrum", align 16
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca i64, align 8
+  %37 = alloca i64, align 8
+  %38 = alloca [1 x %"struct.mitsuba::Spectrum"], align 16
+  %39 = alloca i64, align 8
+  %40 = alloca %"struct.mitsuba::Spectrum", align 16
+  %41 = alloca <4 x float>, align 16
+  %42 = alloca <4 x float>, align 16
+  %43 = alloca <4 x float>, align 16
+  %44 = alloca %"struct.mitsuba::Spectrum", align 16
+  %45 = alloca ptr, align 8
+  %46 = alloca ptr, align 8
+  %47 = alloca ptr, align 8
+  %48 = alloca <4 x float>, align 16
+  %49 = alloca <4 x float>, align 16
+  %50 = alloca %"struct.mitsuba::Spectrum", align 16
+  %51 = alloca ptr, align 8
+  %52 = alloca ptr, align 8
+  %53 = alloca ptr, align 8
+  %54 = alloca ptr, align 8
+  %55 = alloca ptr, align 8
+  %56 = alloca ptr, align 8
+  %57 = alloca ptr, align 8
+  %58 = alloca %"struct.mitsuba::Spectrum", align 16
+  %59 = alloca ptr, align 8
+  %60 = alloca ptr, align 8
+  %61 = alloca ptr, align 8
+  %62 = alloca %"struct.mitsuba::Spectrum", align 16
+  %63 = alloca ptr, align 8
+  %64 = alloca ptr, align 8
+  %65 = alloca %"struct.mitsuba::Spectrum", align 16
+  %66 = alloca ptr, align 8
+  %67 = alloca %"struct.mitsuba::Spectrum", align 16
+  %68 = alloca ptr, align 8
+  %69 = alloca ptr, align 8
+  %70 = alloca i64, align 8
+  %71 = alloca i64, align 8
+  %72 = alloca [2 x %"struct.mitsuba::Spectrum"], align 16
+  %73 = alloca i64, align 8
+  %74 = alloca %"struct.mitsuba::Spectrum", align 16
+  %75 = alloca %"struct.mitsuba::Spectrum", align 16
+  %76 = alloca <4 x float>, align 16
+  %77 = alloca <4 x float>, align 16
+  %78 = alloca <4 x float>, align 16
+  %79 = alloca %"struct.mitsuba::Spectrum", align 16
+  %80 = alloca ptr, align 8
+  %81 = alloca ptr, align 8
+  %82 = alloca ptr, align 8
+  %83 = alloca <4 x float>, align 16
+  %84 = alloca <4 x float>, align 16
+  %85 = alloca %"struct.mitsuba::Spectrum", align 16
+  %86 = alloca ptr, align 8
+  %87 = alloca ptr, align 8
+  %88 = alloca ptr, align 8
+  %89 = alloca ptr, align 8
+  %90 = alloca ptr, align 8
+  %91 = alloca ptr, align 8
+  %92 = alloca ptr, align 8
+  %93 = alloca %"struct.mitsuba::Spectrum", align 16
+  %94 = alloca ptr, align 8
+  %95 = alloca ptr, align 8
+  %96 = alloca ptr, align 8
+  %97 = alloca %"struct.mitsuba::Spectrum", align 16
+  %98 = alloca ptr, align 8
+  %99 = alloca ptr, align 8
+  %100 = alloca %"struct.mitsuba::Spectrum", align 16
+  %101 = alloca ptr, align 8
+  %102 = alloca %"struct.mitsuba::Spectrum", align 16
+  %103 = alloca ptr, align 8
+  %104 = alloca ptr, align 8
+  %105 = alloca i64, align 8
+  %106 = alloca i64, align 8
+  %107 = alloca [3 x %"struct.mitsuba::Spectrum"], align 16
+  %108 = alloca i64, align 8
+  %109 = alloca %"struct.mitsuba::Spectrum", align 16
+  %110 = alloca %"struct.mitsuba::Spectrum", align 16
+  %111 = alloca %"struct.mitsuba::Spectrum", align 16
+  %112 = alloca ptr, align 8
+  %113 = alloca %"struct.mitsuba::Spectrum", align 16
+  %114 = alloca i64, align 8
+  %115 = alloca ptr, align 8
+  %116 = alloca ptr, align 8
+  %117 = alloca ptr, align 8
+  %118 = alloca %"struct.mitsuba::Spectrum", align 16
+  %119 = alloca ptr, align 8
+  %120 = alloca ptr, align 8
+  %121 = alloca ptr, align 8
+  %122 = alloca ptr, align 8
+  %123 = alloca ptr, align 8
+  %124 = alloca ptr, align 8
+  %125 = alloca %"struct.mitsuba::Spectrum", align 16
+  %126 = alloca ptr, align 8
+  %127 = alloca ptr, align 8
+  %128 = alloca ptr, align 8
+  %129 = alloca %"struct.mitsuba::Spectrum", align 16
+  %130 = alloca ptr, align 8
+  %131 = alloca ptr, align 8
+  %132 = alloca ptr, align 8
+  %133 = alloca %"struct.mitsuba::Spectrum", align 16
+  %134 = alloca <4 x float>, align 16
+  %135 = alloca <4 x float>, align 16
+  %136 = alloca %"struct.mitsuba::Spectrum", align 16
+  %137 = alloca ptr, align 8
+  %138 = alloca ptr, align 8
+  %139 = alloca ptr, align 8
+  %140 = alloca ptr, align 8
+  %141 = alloca %"struct.mitsuba::Spectrum", align 16
+  %142 = alloca ptr, align 8
+  %143 = alloca ptr, align 8
+  %144 = alloca %"struct.mitsuba::Spectrum", align 16
+  %145 = alloca ptr, align 8
+  %146 = alloca ptr, align 8
+  %147 = alloca %"struct.mitsuba::Spectrum", align 16
+  %148 = alloca %"struct.mitsuba::Spectrum", align 16
+  %149 = alloca ptr, align 8
+  %150 = alloca double, align 8
+  %151 = alloca double, align 8
+  %152 = alloca double, align 8
+  %153 = alloca double, align 8
+  %154 = alloca double, align 8
+  %155 = alloca double, align 8
+  %156 = alloca [6 x %"struct.mitsuba::Spectrum"], align 16
+  %157 = alloca <4 x float>, align 16
+  %158 = alloca <4 x float>, align 16
+  %159 = alloca <4 x float>, align 16
+  %160 = alloca %"struct.mitsuba::Spectrum", align 16
+  %161 = alloca ptr, align 8
+  %162 = alloca ptr, align 8
+  %163 = alloca ptr, align 8
+  %164 = alloca ptr, align 8
+  %165 = alloca ptr, align 8
+  %166 = alloca ptr, align 8
+  %167 = alloca %"struct.mitsuba::Spectrum", align 16
+  %168 = alloca ptr, align 8
+  %169 = alloca ptr, align 8
+  %170 = alloca ptr, align 8
+  %171 = alloca %"struct.mitsuba::Spectrum", align 16
+  %172 = alloca ptr, align 8
+  %173 = alloca ptr, align 8
+  %174 = alloca ptr, align 8
+  %175 = alloca %"struct.mitsuba::Spectrum", align 16
+  %176 = alloca <4 x float>, align 16
+  %177 = alloca <4 x float>, align 16
+  %178 = alloca <4 x float>, align 16
+  %179 = alloca %"struct.mitsuba::Spectrum", align 16
+  %180 = alloca ptr, align 8
+  %181 = alloca ptr, align 8
+  %182 = alloca ptr, align 8
+  %183 = alloca ptr, align 8
+  %184 = alloca ptr, align 8
+  %185 = alloca ptr, align 8
+  %186 = alloca %"struct.mitsuba::Spectrum", align 16
+  %187 = alloca ptr, align 8
+  %188 = alloca ptr, align 8
+  %189 = alloca ptr, align 8
+  %190 = alloca %"struct.mitsuba::Spectrum", align 16
+  %191 = alloca ptr, align 8
+  %192 = alloca ptr, align 8
+  %193 = alloca ptr, align 8
+  %194 = alloca %"struct.mitsuba::Spectrum", align 16
+  %195 = alloca <4 x float>, align 16
+  %196 = alloca <4 x float>, align 16
+  %197 = alloca <4 x float>, align 16
+  %198 = alloca %"struct.mitsuba::Spectrum", align 16
+  %199 = alloca ptr, align 8
+  %200 = alloca ptr, align 8
+  %201 = alloca ptr, align 8
+  %202 = alloca ptr, align 8
+  %203 = alloca ptr, align 8
+  %204 = alloca ptr, align 8
+  %205 = alloca %"struct.mitsuba::Spectrum", align 16
+  %206 = alloca ptr, align 8
+  %207 = alloca ptr, align 8
+  %208 = alloca ptr, align 8
+  %209 = alloca %"struct.mitsuba::Spectrum", align 16
+  %210 = alloca ptr, align 8
+  %211 = alloca ptr, align 8
+  %212 = alloca ptr, align 8
+  %213 = alloca %"struct.mitsuba::Spectrum", align 16
+  %214 = alloca %"struct.mitsuba::Spectrum", align 16
+  %215 = alloca %"struct.mitsuba::Spectrum", align 16
+  %216 = alloca ptr, align 8
+  %217 = alloca %"struct.drjit::Mask", align 1
+  %218 = alloca ptr, align 8
+  %219 = alloca %"struct.drjit::Mask", align 1
+  %220 = alloca ptr, align 8
+  %221 = alloca ptr, align 8
+  %222 = alloca i8, align 1
+  %223 = alloca ptr, align 8
+  %224 = alloca ptr, align 8
+  %225 = alloca %"struct.drjit::Mask", align 1
+  %226 = alloca ptr, align 8
+  %227 = alloca ptr, align 8
+  %228 = alloca %"struct.drjit::Mask", align 1
+  %229 = alloca ptr, align 8
+  %230 = alloca ptr, align 8
+  %231 = alloca %"struct.mitsuba::Spectrum", align 16
+  %232 = alloca %"struct.drjit::Mask", align 1
+  %233 = alloca ptr, align 8
+  %234 = alloca %"struct.drjit::Mask", align 1
+  %235 = alloca ptr, align 8
+  %236 = alloca ptr, align 8
+  %237 = alloca i8, align 1
+  %238 = alloca <4 x float>, align 16
+  %239 = alloca <4 x float>, align 16
+  %240 = alloca <4 x float>, align 16
+  %241 = alloca %"struct.mitsuba::Spectrum", align 16
+  %242 = alloca ptr, align 8
+  %243 = alloca ptr, align 8
+  %244 = alloca ptr, align 8
+  %245 = alloca <4 x float>, align 16
+  %246 = alloca <4 x float>, align 16
+  %247 = alloca <4 x float>, align 16
+  %248 = alloca <4 x float>, align 16
+  %249 = alloca %"struct.mitsuba::Spectrum", align 16
+  %250 = alloca ptr, align 8
+  %251 = alloca ptr, align 8
+  %252 = alloca %"struct.mitsuba::Spectrum", align 16
+  %253 = alloca ptr, align 8
+  %254 = alloca ptr, align 8
+  %255 = alloca ptr, align 8
+  %256 = alloca ptr, align 8
+  %257 = alloca ptr, align 8
+  %258 = alloca ptr, align 8
+  %259 = alloca ptr, align 8
+  %260 = alloca ptr, align 8
+  %261 = alloca ptr, align 8
+  %262 = alloca ptr, align 8
+  %263 = alloca ptr, align 8
+  %264 = alloca %"struct.drjit::Mask", align 1
+  %265 = alloca ptr, align 8
+  %266 = alloca ptr, align 8
+  %267 = alloca %"struct.drjit::Mask", align 1
+  %268 = alloca ptr, align 8
+  %269 = alloca ptr, align 8
+  %270 = alloca %"struct.mitsuba::Spectrum", align 16
+  %271 = alloca %"struct.mitsuba::Spectrum", align 16
+  %272 = alloca ptr, align 8
+  %273 = alloca ptr, align 8
+  %274 = alloca ptr, align 8
+  %275 = alloca %"struct.mitsuba::Spectrum", align 16
+  %276 = alloca ptr, align 8
+  %277 = alloca ptr, align 8
+  %278 = alloca %"struct.mitsuba::Spectrum", align 16
+  %279 = alloca ptr, align 8
+  %280 = alloca ptr, align 8
+  %281 = alloca %"struct.mitsuba::Spectrum", align 16
+  %282 = alloca ptr, align 8
+  %283 = alloca %"struct.mitsuba::Spectrum", align 16
+  %284 = alloca ptr, align 8
+  %285 = alloca %"struct.mitsuba::Spectrum", align 16
+  %286 = alloca ptr, align 8
+  %287 = alloca i8, align 1
+  %288 = alloca float, align 4
+  %289 = alloca %"struct.drjit::Mask", align 1
+  %290 = alloca %"struct.drjit::Mask", align 1
+  %291 = alloca float, align 4
+  %292 = alloca %"struct.mitsuba::Spectrum", align 16
+  %293 = alloca %"struct.mitsuba::Spectrum", align 16
+  %294 = alloca float, align 4
+  %295 = alloca float, align 4
+  %296 = alloca float, align 4
+  %297 = alloca %"struct.mitsuba::Spectrum", align 16
+  %298 = alloca %"struct.mitsuba::Spectrum", align 16
+  %299 = alloca float, align 4
+  %300 = alloca %"struct.mitsuba::Spectrum", align 16
+  %301 = alloca float, align 4
+  %302 = alloca %"struct.mitsuba::Spectrum", align 16
+  %303 = alloca %"struct.mitsuba::Spectrum", align 16
+  %304 = alloca %"struct.mitsuba::Spectrum", align 16
+  %305 = alloca %"struct.mitsuba::Spectrum", align 16
+  %306 = alloca %"struct.mitsuba::Spectrum", align 16
+  %307 = alloca float, align 4
+  %308 = alloca %"struct.mitsuba::Spectrum", align 16
+  %309 = alloca %"struct.mitsuba::Spectrum", align 16
+  %310 = alloca %"struct.mitsuba::Spectrum", align 16
+  store ptr %0, ptr %286, align 8
+  store i8 1, ptr %287, align 1
+  store float 0x40561814A0000000, ptr %288, align 4
+  %311 = load ptr, ptr %286, align 8
+  store ptr %311, ptr %268, align 8
+  store ptr %288, ptr %269, align 8
+  %312 = load ptr, ptr %268, align 8
+  %313 = load ptr, ptr %269, align 8
+  %314 = load float, ptr %313, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %270, float noundef %314)
+  store ptr %312, ptr %265, align 8
+  store ptr %270, ptr %266, align 8
+  %315 = load ptr, ptr %265, align 8
+  store ptr %315, ptr %262, align 8
+  %316 = load ptr, ptr %262, align 8
+  %317 = load ptr, ptr %266, align 8
+  store ptr %317, ptr %263, align 8
+  %318 = load ptr, ptr %263, align 8
+  store ptr %316, ptr %235, align 8
+  store ptr %318, ptr %236, align 8
+  %319 = load ptr, ptr %235, align 8
+  %320 = load <4 x float>, ptr %319, align 16
+  %321 = load ptr, ptr %236, align 8
+  %322 = load <4 x float>, ptr %321, align 16
+  %323 = fcmp contract ogt <4 x float> %320, %322
+  %324 = shufflevector <4 x i1> %323, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %325 = bitcast <8 x i1> %324 to i8
+  store i8 %325, ptr %237, align 1
+  store ptr %237, ptr %233, align 8
+  %326 = load ptr, ptr %233, align 8
+  %327 = load i8, ptr %326, align 1
+  store i8 %327, ptr %232, align 1
+  %328 = load i8, ptr %232, align 1
+  store i8 %328, ptr %234, align 1
+  %329 = load i8, ptr %234, align 1
+  store i8 %329, ptr %264, align 1
+  %330 = load i8, ptr %264, align 1
+  store i8 %330, ptr %267, align 1
+  %331 = load i8, ptr %267, align 1
+  %332 = getelementptr inbounds %"struct.drjit::Mask", ptr %289, i32 0, i32 0
+  %333 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %332, i32 0, i32 0
+  %334 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %333, i32 0, i32 0
+  %335 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %334, i32 0, i32 0
+  store i8 %331, ptr %335, align 1
+  %336 = load ptr, ptr %286, align 8
+  store float 0xC0561814A0000000, ptr %291, align 4
+  store ptr %336, ptr %229, align 8
+  store ptr %291, ptr %230, align 8
+  %337 = load ptr, ptr %229, align 8
+  %338 = load ptr, ptr %230, align 8
+  %339 = load float, ptr %338, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %231, float noundef %339)
+  store ptr %337, ptr %226, align 8
+  store ptr %231, ptr %227, align 8
+  %340 = load ptr, ptr %226, align 8
+  store ptr %340, ptr %223, align 8
+  %341 = load ptr, ptr %223, align 8
+  %342 = load ptr, ptr %227, align 8
+  store ptr %342, ptr %224, align 8
+  %343 = load ptr, ptr %224, align 8
+  store ptr %341, ptr %220, align 8
+  store ptr %343, ptr %221, align 8
+  %344 = load ptr, ptr %220, align 8
+  %345 = load <4 x float>, ptr %344, align 16
+  %346 = load ptr, ptr %221, align 8
+  %347 = load <4 x float>, ptr %346, align 16
+  %348 = fcmp contract olt <4 x float> %345, %347
+  %349 = shufflevector <4 x i1> %348, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %350 = bitcast <8 x i1> %349 to i8
+  store i8 %350, ptr %222, align 1
+  store ptr %222, ptr %218, align 8
+  %351 = load ptr, ptr %218, align 8
+  %352 = load i8, ptr %351, align 1
+  store i8 %352, ptr %217, align 1
+  %353 = load i8, ptr %217, align 1
+  store i8 %353, ptr %219, align 1
+  %354 = load i8, ptr %219, align 1
+  store i8 %354, ptr %225, align 1
+  %355 = load i8, ptr %225, align 1
+  store i8 %355, ptr %228, align 1
+  %356 = load i8, ptr %228, align 1
+  %357 = getelementptr inbounds %"struct.drjit::Mask", ptr %290, i32 0, i32 0
+  %358 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %357, i32 0, i32 0
+  %359 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %358, i32 0, i32 0
+  %360 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %359, i32 0, i32 0
+  store i8 %356, ptr %360, align 1
+  %361 = load ptr, ptr %286, align 8
+  store float 5.000000e-01, ptr %294, align 4
+  store ptr @_ZN5drjit9InvLogTwoIfEE, ptr %210, align 8
+  store ptr %361, ptr %211, align 8
+  store ptr %294, ptr %212, align 8
+  %362 = load ptr, ptr %210, align 8
+  %363 = load float, ptr %362, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %213, float noundef %363)
+  %364 = load ptr, ptr %211, align 8
+  %365 = load ptr, ptr %212, align 8
+  %366 = load float, ptr %365, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %214, float noundef %366)
+  store ptr %213, ptr %206, align 8
+  store ptr %364, ptr %207, align 8
+  store ptr %214, ptr %208, align 8
+  %367 = load ptr, ptr %206, align 8
+  store ptr %367, ptr %202, align 8
+  %368 = load ptr, ptr %202, align 8
+  %369 = load ptr, ptr %207, align 8
+  store ptr %369, ptr %203, align 8
+  %370 = load ptr, ptr %203, align 8
+  %371 = load ptr, ptr %208, align 8
+  store ptr %371, ptr %204, align 8
+  %372 = load ptr, ptr %204, align 8
+  store ptr %368, ptr %199, align 8
+  store ptr %370, ptr %200, align 8
+  store ptr %372, ptr %201, align 8
+  %373 = load ptr, ptr %199, align 8
+  %374 = load <4 x float>, ptr %373, align 16
+  %375 = load ptr, ptr %200, align 8
+  %376 = load <4 x float>, ptr %375, align 16
+  %377 = load ptr, ptr %201, align 8
+  %378 = load <4 x float>, ptr %377, align 16
+  store <4 x float> %374, ptr %195, align 16
+  store <4 x float> %376, ptr %196, align 16
+  store <4 x float> %378, ptr %197, align 16
+  %379 = load <4 x float>, ptr %195, align 16
+  %380 = load <4 x float>, ptr %196, align 16
+  %381 = load <4 x float>, ptr %197, align 16
+  %382 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %379, <4 x float> %380, <4 x float> %381)
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %198, <4 x float> noundef %382)
+  %383 = load <4 x float>, ptr %198, align 16
+  store <4 x float> %383, ptr %205, align 16
+  %384 = load <4 x float>, ptr %205, align 16
+  store <4 x float> %384, ptr %209, align 16
+  %385 = load <4 x float>, ptr %209, align 16
+  %386 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %293, i32 0, i32 0
+  %387 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %386, i32 0, i32 0
+  store <4 x float> %385, ptr %387, align 16
+  store ptr %293, ptr %216, align 8
+  %388 = load ptr, ptr %216, align 8
+  store ptr %388, ptr %112, align 8
+  %389 = load ptr, ptr %112, align 8
+  %390 = load <4 x float>, ptr %389, align 16
+  %391 = call contract <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %390, i32 9)
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %111, <4 x float> noundef %391)
+  %392 = load <4 x float>, ptr %111, align 16
+  store <4 x float> %392, ptr %215, align 16
+  %393 = load <4 x float>, ptr %215, align 16
+  %394 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %292, i32 0, i32 0
+  %395 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %394, i32 0, i32 0
+  store <4 x float> %393, ptr %395, align 16
+  store float 0xBFE6300000000000, ptr %295, align 4
+  store float 0x3F2BD01060000000, ptr %296, align 4
+  %396 = load ptr, ptr %286, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %297, ptr align 16 %396, i64 16, i1 false)
+  store float 0xBFE6300000000000, ptr %299, align 4
+  store ptr %292, ptr %172, align 8
+  store ptr %299, ptr %173, align 8
+  store ptr %297, ptr %174, align 8
+  %397 = load ptr, ptr %172, align 8
+  %398 = load ptr, ptr %173, align 8
+  %399 = load float, ptr %398, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %175, float noundef %399)
+  %400 = load ptr, ptr %174, align 8
+  store ptr %397, ptr %168, align 8
+  store ptr %175, ptr %169, align 8
+  store ptr %400, ptr %170, align 8
+  %401 = load ptr, ptr %168, align 8
+  store ptr %401, ptr %164, align 8
+  %402 = load ptr, ptr %164, align 8
+  %403 = load ptr, ptr %169, align 8
+  store ptr %403, ptr %165, align 8
+  %404 = load ptr, ptr %165, align 8
+  %405 = load ptr, ptr %170, align 8
+  store ptr %405, ptr %166, align 8
+  %406 = load ptr, ptr %166, align 8
+  store ptr %402, ptr %161, align 8
+  store ptr %404, ptr %162, align 8
+  store ptr %406, ptr %163, align 8
+  %407 = load ptr, ptr %161, align 8
+  %408 = load <4 x float>, ptr %407, align 16
+  %409 = load ptr, ptr %162, align 8
+  %410 = load <4 x float>, ptr %409, align 16
+  %411 = load ptr, ptr %163, align 8
+  %412 = load <4 x float>, ptr %411, align 16
+  store <4 x float> %408, ptr %157, align 16
+  store <4 x float> %410, ptr %158, align 16
+  store <4 x float> %412, ptr %159, align 16
+  %413 = load <4 x float>, ptr %157, align 16
+  %414 = load <4 x float>, ptr %158, align 16
+  %415 = load <4 x float>, ptr %159, align 16
+  %416 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %413, <4 x float> %414, <4 x float> %415)
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %160, <4 x float> noundef %416)
+  %417 = load <4 x float>, ptr %160, align 16
+  store <4 x float> %417, ptr %167, align 16
+  %418 = load <4 x float>, ptr %167, align 16
+  store <4 x float> %418, ptr %171, align 16
+  %419 = load <4 x float>, ptr %171, align 16
+  %420 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %298, i32 0, i32 0
+  %421 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %420, i32 0, i32 0
+  store <4 x float> %419, ptr %421, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %297, ptr align 16 %298, i64 16, i1 false)
+  store float 0x3F2BD01060000000, ptr %301, align 4
+  store ptr %292, ptr %191, align 8
+  store ptr %301, ptr %192, align 8
+  store ptr %297, ptr %193, align 8
+  %422 = load ptr, ptr %191, align 8
+  %423 = load ptr, ptr %192, align 8
+  %424 = load float, ptr %423, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %194, float noundef %424)
+  %425 = load ptr, ptr %193, align 8
+  store ptr %422, ptr %187, align 8
+  store ptr %194, ptr %188, align 8
+  store ptr %425, ptr %189, align 8
+  %426 = load ptr, ptr %187, align 8
+  store ptr %426, ptr %183, align 8
+  %427 = load ptr, ptr %183, align 8
+  %428 = load ptr, ptr %188, align 8
+  store ptr %428, ptr %184, align 8
+  %429 = load ptr, ptr %184, align 8
+  %430 = load ptr, ptr %189, align 8
+  store ptr %430, ptr %185, align 8
+  %431 = load ptr, ptr %185, align 8
+  store ptr %427, ptr %180, align 8
+  store ptr %429, ptr %181, align 8
+  store ptr %431, ptr %182, align 8
+  %432 = load ptr, ptr %180, align 8
+  %433 = load <4 x float>, ptr %432, align 16
+  %434 = load ptr, ptr %181, align 8
+  %435 = load <4 x float>, ptr %434, align 16
+  %436 = load ptr, ptr %182, align 8
+  %437 = load <4 x float>, ptr %436, align 16
+  store <4 x float> %433, ptr %176, align 16
+  store <4 x float> %435, ptr %177, align 16
+  store <4 x float> %437, ptr %178, align 16
+  %438 = load <4 x float>, ptr %176, align 16
+  %439 = load <4 x float>, ptr %177, align 16
+  %440 = load <4 x float>, ptr %178, align 16
+  %441 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %438, <4 x float> %439, <4 x float> %440)
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %179, <4 x float> noundef %441)
+  %442 = load <4 x float>, ptr %179, align 16
+  store <4 x float> %442, ptr %186, align 16
+  %443 = load <4 x float>, ptr %186, align 16
+  store <4 x float> %443, ptr %190, align 16
+  %444 = load <4 x float>, ptr %190, align 16
+  %445 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %300, i32 0, i32 0
+  %446 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %445, i32 0, i32 0
+  store <4 x float> %444, ptr %446, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %297, ptr align 16 %300, i64 16, i1 false)
+  store ptr %297, ptr %282, align 8
+  %447 = load ptr, ptr %282, align 8
+  %448 = load ptr, ptr %282, align 8
+  store ptr %447, ptr %279, align 8
+  store ptr %448, ptr %280, align 8
+  %449 = load ptr, ptr %279, align 8
+  store ptr %449, ptr %255, align 8
+  %450 = load ptr, ptr %255, align 8
+  %451 = load ptr, ptr %280, align 8
+  store ptr %451, ptr %256, align 8
+  %452 = load ptr, ptr %256, align 8
+  store ptr %450, ptr %250, align 8
+  store ptr %452, ptr %251, align 8
+  %453 = load ptr, ptr %250, align 8
+  %454 = load <4 x float>, ptr %453, align 16
+  %455 = load ptr, ptr %251, align 8
+  %456 = load <4 x float>, ptr %455, align 16
+  store <4 x float> %454, ptr %247, align 16
+  store <4 x float> %456, ptr %248, align 16
+  %457 = load <4 x float>, ptr %247, align 16
+  %458 = load <4 x float>, ptr %248, align 16
+  %459 = fmul contract <4 x float> %457, %458
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %249, <4 x float> noundef %459)
+  %460 = load <4 x float>, ptr %249, align 16
+  store <4 x float> %460, ptr %278, align 16
+  %461 = load <4 x float>, ptr %278, align 16
+  store <4 x float> %461, ptr %281, align 16
+  %462 = load <4 x float>, ptr %281, align 16
+  %463 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %302, i32 0, i32 0
+  %464 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %463, i32 0, i32 0
+  store <4 x float> %462, ptr %464, align 16
+  store ptr %297, ptr %149, align 8
+  store double 0x3FE000000672A44F, ptr %150, align 8
+  store double 0x3FC555553B661D99, ptr %151, align 8
+  store double 0x3FA555381D73FD31, ptr %152, align 8
+  store double 0x3F811120FB3CB51D, ptr %153, align 8
+  store double 0x3F56E879C3F007DD, ptr %154, align 8
+  store double 0x3F2A0D2CE64969E6, ptr %155, align 8
+  %465 = load double, ptr %150, align 8
+  %466 = fptrunc double %465 to float
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %156, float noundef %466)
+  %467 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %156, i64 1
+  %468 = load double, ptr %151, align 8
+  %469 = fptrunc double %468 to float
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %467, float noundef %469)
+  %470 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %467, i64 1
+  %471 = load double, ptr %152, align 8
+  %472 = fptrunc double %471 to float
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %470, float noundef %472)
+  %473 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %470, i64 1
+  %474 = load double, ptr %153, align 8
+  %475 = fptrunc double %474 to float
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %473, float noundef %475)
+  %476 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %473, i64 1
+  %477 = load double, ptr %154, align 8
+  %478 = fptrunc double %477 to float
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %476, float noundef %478)
+  %479 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %476, i64 1
+  %480 = load double, ptr %155, align 8
+  %481 = fptrunc double %480 to float
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %479, float noundef %481)
+  %482 = load ptr, ptr %149, align 8
+  store ptr %482, ptr %103, align 8
+  store ptr %156, ptr %104, align 8
+  store i64 2, ptr %105, align 8
+  store i64 3, ptr %106, align 8
+  store i64 0, ptr %108, align 8
+  br label %483
+
+483:                                              ; preds = %486, %1
+  %484 = load i64, ptr %108, align 8
+  %485 = icmp ult i64 %484, 3
+  br i1 %485, label %486, label %519
+
+486:                                              ; preds = %483
+  %487 = load ptr, ptr %103, align 8
+  %488 = load ptr, ptr %104, align 8
+  %489 = load i64, ptr %108, align 8
+  %490 = mul i64 2, %489
+  %491 = add i64 %490, 1
+  %492 = getelementptr inbounds [6 x %"struct.mitsuba::Spectrum"], ptr %488, i64 0, i64 %491
+  %493 = load ptr, ptr %104, align 8
+  %494 = load i64, ptr %108, align 8
+  %495 = mul i64 2, %494
+  %496 = getelementptr inbounds [6 x %"struct.mitsuba::Spectrum"], ptr %493, i64 0, i64 %495
+  store ptr %487, ptr %94, align 8
+  store ptr %492, ptr %95, align 8
+  store ptr %496, ptr %96, align 8
+  %497 = load ptr, ptr %94, align 8
+  store ptr %497, ptr %90, align 8
+  %498 = load ptr, ptr %90, align 8
+  %499 = load ptr, ptr %95, align 8
+  store ptr %499, ptr %91, align 8
+  %500 = load ptr, ptr %91, align 8
+  %501 = load ptr, ptr %96, align 8
+  store ptr %501, ptr %92, align 8
+  %502 = load ptr, ptr %92, align 8
+  store ptr %498, ptr %80, align 8
+  store ptr %500, ptr %81, align 8
+  store ptr %502, ptr %82, align 8
+  %503 = load ptr, ptr %80, align 8
+  %504 = load <4 x float>, ptr %503, align 16
+  %505 = load ptr, ptr %81, align 8
+  %506 = load <4 x float>, ptr %505, align 16
+  %507 = load ptr, ptr %82, align 8
+  %508 = load <4 x float>, ptr %507, align 16
+  store <4 x float> %504, ptr %76, align 16
+  store <4 x float> %506, ptr %77, align 16
+  store <4 x float> %508, ptr %78, align 16
+  %509 = load <4 x float>, ptr %76, align 16
+  %510 = load <4 x float>, ptr %77, align 16
+  %511 = load <4 x float>, ptr %78, align 16
+  %512 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %509, <4 x float> %510, <4 x float> %511)
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %79, <4 x float> noundef %512)
+  %513 = load <4 x float>, ptr %79, align 16
+  store <4 x float> %513, ptr %93, align 16
+  %514 = load <4 x float>, ptr %93, align 16
+  store <4 x float> %514, ptr %109, align 16
+  %515 = load i64, ptr %108, align 8
+  %516 = getelementptr inbounds [3 x %"struct.mitsuba::Spectrum"], ptr %107, i64 0, i64 %515
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %516, ptr align 16 %109, i64 16, i1 false)
+  %517 = load i64, ptr %108, align 8
+  %518 = add i64 %517, 1
+  store i64 %518, ptr %108, align 8
+  br label %483, !llvm.loop !4
+
+519:                                              ; preds = %483
+  %520 = load ptr, ptr %103, align 8
+  store ptr %520, ptr %101, align 8
+  %521 = load ptr, ptr %101, align 8
+  %522 = load ptr, ptr %101, align 8
+  store ptr %521, ptr %98, align 8
+  store ptr %522, ptr %99, align 8
+  %523 = load ptr, ptr %98, align 8
+  store ptr %523, ptr %88, align 8
+  %524 = load ptr, ptr %88, align 8
+  %525 = load ptr, ptr %99, align 8
+  store ptr %525, ptr %89, align 8
+  %526 = load ptr, ptr %89, align 8
+  store ptr %524, ptr %86, align 8
+  store ptr %526, ptr %87, align 8
+  %527 = load ptr, ptr %86, align 8
+  %528 = load <4 x float>, ptr %527, align 16
+  %529 = load ptr, ptr %87, align 8
+  %530 = load <4 x float>, ptr %529, align 16
+  store <4 x float> %528, ptr %83, align 16
+  store <4 x float> %530, ptr %84, align 16
+  %531 = load <4 x float>, ptr %83, align 16
+  %532 = load <4 x float>, ptr %84, align 16
+  %533 = fmul contract <4 x float> %531, %532
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %85, <4 x float> noundef %533)
+  %534 = load <4 x float>, ptr %85, align 16
+  store <4 x float> %534, ptr %97, align 16
+  %535 = load <4 x float>, ptr %97, align 16
+  store <4 x float> %535, ptr %100, align 16
+  %536 = load <4 x float>, ptr %100, align 16
+  store <4 x float> %536, ptr %110, align 16
+  store ptr %110, ptr %68, align 8
+  store ptr %107, ptr %69, align 8
+  store i64 1, ptr %70, align 8
+  store i64 1, ptr %71, align 8
+  store i64 0, ptr %73, align 8
+  br label %537
+
+537:                                              ; preds = %540, %519
+  %538 = load i64, ptr %73, align 8
+  %539 = icmp ult i64 %538, 1
+  br i1 %539, label %540, label %573
+
+540:                                              ; preds = %537
+  %541 = load ptr, ptr %68, align 8
+  %542 = load ptr, ptr %69, align 8
+  %543 = load i64, ptr %73, align 8
+  %544 = mul i64 2, %543
+  %545 = add i64 %544, 1
+  %546 = getelementptr inbounds [3 x %"struct.mitsuba::Spectrum"], ptr %542, i64 0, i64 %545
+  %547 = load ptr, ptr %69, align 8
+  %548 = load i64, ptr %73, align 8
+  %549 = mul i64 2, %548
+  %550 = getelementptr inbounds [3 x %"struct.mitsuba::Spectrum"], ptr %547, i64 0, i64 %549
+  store ptr %541, ptr %59, align 8
+  store ptr %546, ptr %60, align 8
+  store ptr %550, ptr %61, align 8
+  %551 = load ptr, ptr %59, align 8
+  store ptr %551, ptr %55, align 8
+  %552 = load ptr, ptr %55, align 8
+  %553 = load ptr, ptr %60, align 8
+  store ptr %553, ptr %56, align 8
+  %554 = load ptr, ptr %56, align 8
+  %555 = load ptr, ptr %61, align 8
+  store ptr %555, ptr %57, align 8
+  %556 = load ptr, ptr %57, align 8
+  store ptr %552, ptr %45, align 8
+  store ptr %554, ptr %46, align 8
+  store ptr %556, ptr %47, align 8
+  %557 = load ptr, ptr %45, align 8
+  %558 = load <4 x float>, ptr %557, align 16
+  %559 = load ptr, ptr %46, align 8
+  %560 = load <4 x float>, ptr %559, align 16
+  %561 = load ptr, ptr %47, align 8
+  %562 = load <4 x float>, ptr %561, align 16
+  store <4 x float> %558, ptr %41, align 16
+  store <4 x float> %560, ptr %42, align 16
+  store <4 x float> %562, ptr %43, align 16
+  %563 = load <4 x float>, ptr %41, align 16
+  %564 = load <4 x float>, ptr %42, align 16
+  %565 = load <4 x float>, ptr %43, align 16
+  %566 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %563, <4 x float> %564, <4 x float> %565)
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %44, <4 x float> noundef %566)
+  %567 = load <4 x float>, ptr %44, align 16
+  store <4 x float> %567, ptr %58, align 16
+  %568 = load <4 x float>, ptr %58, align 16
+  store <4 x float> %568, ptr %74, align 16
+  %569 = load i64, ptr %73, align 8
+  %570 = getelementptr inbounds [2 x %"struct.mitsuba::Spectrum"], ptr %72, i64 0, i64 %569
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %570, ptr align 16 %74, i64 16, i1 false)
+  %571 = load i64, ptr %73, align 8
+  %572 = add i64 %571, 1
+  store i64 %572, ptr %73, align 8
+  br label %537, !llvm.loop !7
+
+573:                                              ; preds = %537
+  %574 = load ptr, ptr %69, align 8
+  %575 = getelementptr inbounds [3 x %"struct.mitsuba::Spectrum"], ptr %574, i64 0, i64 2
+  %576 = getelementptr inbounds [2 x %"struct.mitsuba::Spectrum"], ptr %72, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %576, ptr align 16 %575, i64 16, i1 false)
+  %577 = load ptr, ptr %68, align 8
+  store ptr %577, ptr %66, align 8
+  %578 = load ptr, ptr %66, align 8
+  %579 = load ptr, ptr %66, align 8
+  store ptr %578, ptr %63, align 8
+  store ptr %579, ptr %64, align 8
+  %580 = load ptr, ptr %63, align 8
+  store ptr %580, ptr %53, align 8
+  %581 = load ptr, ptr %53, align 8
+  %582 = load ptr, ptr %64, align 8
+  store ptr %582, ptr %54, align 8
+  %583 = load ptr, ptr %54, align 8
+  store ptr %581, ptr %51, align 8
+  store ptr %583, ptr %52, align 8
+  %584 = load ptr, ptr %51, align 8
+  %585 = load <4 x float>, ptr %584, align 16
+  %586 = load ptr, ptr %52, align 8
+  %587 = load <4 x float>, ptr %586, align 16
+  store <4 x float> %585, ptr %48, align 16
+  store <4 x float> %587, ptr %49, align 16
+  %588 = load <4 x float>, ptr %48, align 16
+  %589 = load <4 x float>, ptr %49, align 16
+  %590 = fmul contract <4 x float> %588, %589
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %50, <4 x float> noundef %590)
+  %591 = load <4 x float>, ptr %50, align 16
+  store <4 x float> %591, ptr %62, align 16
+  %592 = load <4 x float>, ptr %62, align 16
+  store <4 x float> %592, ptr %65, align 16
+  %593 = load <4 x float>, ptr %65, align 16
+  store <4 x float> %593, ptr %75, align 16
+  store ptr %75, ptr %34, align 8
+  store ptr %72, ptr %35, align 8
+  store i64 0, ptr %36, align 8
+  store i64 1, ptr %37, align 8
+  store i64 0, ptr %39, align 8
+  br label %594
+
+594:                                              ; preds = %597, %573
+  %595 = load i64, ptr %39, align 8
+  %596 = icmp ult i64 %595, 1
+  br i1 %596, label %597, label %630
+
+597:                                              ; preds = %594
+  %598 = load ptr, ptr %34, align 8
+  %599 = load ptr, ptr %35, align 8
+  %600 = load i64, ptr %39, align 8
+  %601 = mul i64 2, %600
+  %602 = add i64 %601, 1
+  %603 = getelementptr inbounds [2 x %"struct.mitsuba::Spectrum"], ptr %599, i64 0, i64 %602
+  %604 = load ptr, ptr %35, align 8
+  %605 = load i64, ptr %39, align 8
+  %606 = mul i64 2, %605
+  %607 = getelementptr inbounds [2 x %"struct.mitsuba::Spectrum"], ptr %604, i64 0, i64 %606
+  store ptr %598, ptr %30, align 8
+  store ptr %603, ptr %31, align 8
+  store ptr %607, ptr %32, align 8
+  %608 = load ptr, ptr %30, align 8
+  store ptr %608, ptr %26, align 8
+  %609 = load ptr, ptr %26, align 8
+  %610 = load ptr, ptr %31, align 8
+  store ptr %610, ptr %27, align 8
+  %611 = load ptr, ptr %27, align 8
+  %612 = load ptr, ptr %32, align 8
+  store ptr %612, ptr %28, align 8
+  %613 = load ptr, ptr %28, align 8
+  store ptr %609, ptr %23, align 8
+  store ptr %611, ptr %24, align 8
+  store ptr %613, ptr %25, align 8
+  %614 = load ptr, ptr %23, align 8
+  %615 = load <4 x float>, ptr %614, align 16
+  %616 = load ptr, ptr %24, align 8
+  %617 = load <4 x float>, ptr %616, align 16
+  %618 = load ptr, ptr %25, align 8
+  %619 = load <4 x float>, ptr %618, align 16
+  store <4 x float> %615, ptr %19, align 16
+  store <4 x float> %617, ptr %20, align 16
+  store <4 x float> %619, ptr %21, align 16
+  %620 = load <4 x float>, ptr %19, align 16
+  %621 = load <4 x float>, ptr %20, align 16
+  %622 = load <4 x float>, ptr %21, align 16
+  %623 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %620, <4 x float> %621, <4 x float> %622)
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %22, <4 x float> noundef %623)
+  %624 = load <4 x float>, ptr %22, align 16
+  store <4 x float> %624, ptr %29, align 16
+  %625 = load <4 x float>, ptr %29, align 16
+  store <4 x float> %625, ptr %40, align 16
+  %626 = load i64, ptr %39, align 8
+  %627 = getelementptr inbounds [1 x %"struct.mitsuba::Spectrum"], ptr %38, i64 0, i64 %626
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %627, ptr align 16 %40, i64 16, i1 false)
+  %628 = load i64, ptr %39, align 8
+  %629 = add i64 %628, 1
+  store i64 %629, ptr %39, align 8
+  br label %594, !llvm.loop !8
+
+630:                                              ; preds = %594
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %33, ptr align 16 %38, i64 16, i1 false)
+  %631 = load <4 x float>, ptr %33, align 16
+  store <4 x float> %631, ptr %67, align 16
+  %632 = load <4 x float>, ptr %67, align 16
+  store <4 x float> %632, ptr %102, align 16
+  %633 = load <4 x float>, ptr %102, align 16
+  store <4 x float> %633, ptr %148, align 16
+  %634 = load <4 x float>, ptr %148, align 16
+  %635 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %303, i32 0, i32 0
+  %636 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %635, i32 0, i32 0
+  store <4 x float> %634, ptr %636, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %302, ptr align 16 %303, i64 16, i1 false)
+  store ptr %297, ptr %284, align 8
+  %637 = load ptr, ptr %284, align 8
+  %638 = load ptr, ptr %284, align 8
+  store ptr %637, ptr %276, align 8
+  store ptr %638, ptr %277, align 8
+  %639 = load ptr, ptr %276, align 8
+  store ptr %639, ptr %257, align 8
+  %640 = load ptr, ptr %257, align 8
+  %641 = load ptr, ptr %277, align 8
+  store ptr %641, ptr %258, align 8
+  %642 = load ptr, ptr %258, align 8
+  store ptr %640, ptr %253, align 8
+  store ptr %642, ptr %254, align 8
+  %643 = load ptr, ptr %253, align 8
+  %644 = load <4 x float>, ptr %643, align 16
+  %645 = load ptr, ptr %254, align 8
+  %646 = load <4 x float>, ptr %645, align 16
+  store <4 x float> %644, ptr %245, align 16
+  store <4 x float> %646, ptr %246, align 16
+  %647 = load <4 x float>, ptr %245, align 16
+  %648 = load <4 x float>, ptr %246, align 16
+  %649 = fmul contract <4 x float> %647, %648
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %252, <4 x float> noundef %649)
+  %650 = load <4 x float>, ptr %252, align 16
+  store <4 x float> %650, ptr %275, align 16
+  %651 = load <4 x float>, ptr %275, align 16
+  store <4 x float> %651, ptr %283, align 16
+  %652 = load <4 x float>, ptr %283, align 16
+  %653 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %305, i32 0, i32 0
+  %654 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %653, i32 0, i32 0
+  store <4 x float> %652, ptr %654, align 16
+  store float 1.000000e+00, ptr %307, align 4
+  store ptr %297, ptr %145, align 8
+  store ptr %307, ptr %146, align 8
+  %655 = load ptr, ptr %145, align 8
+  %656 = load ptr, ptr %146, align 8
+  %657 = load float, ptr %656, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %147, float noundef %657)
+  store ptr %655, ptr %142, align 8
+  store ptr %147, ptr %143, align 8
+  %658 = load ptr, ptr %142, align 8
+  store ptr %658, ptr %139, align 8
+  %659 = load ptr, ptr %139, align 8
+  %660 = load ptr, ptr %143, align 8
+  store ptr %660, ptr %140, align 8
+  %661 = load ptr, ptr %140, align 8
+  store ptr %659, ptr %137, align 8
+  store ptr %661, ptr %138, align 8
+  %662 = load ptr, ptr %137, align 8
+  %663 = load <4 x float>, ptr %662, align 16
+  %664 = load ptr, ptr %138, align 8
+  %665 = load <4 x float>, ptr %664, align 16
+  store <4 x float> %663, ptr %134, align 16
+  store <4 x float> %665, ptr %135, align 16
+  %666 = load <4 x float>, ptr %134, align 16
+  %667 = load <4 x float>, ptr %135, align 16
+  %668 = fadd contract <4 x float> %666, %667
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %136, <4 x float> noundef %668)
+  %669 = load <4 x float>, ptr %136, align 16
+  store <4 x float> %669, ptr %141, align 16
+  %670 = load <4 x float>, ptr %141, align 16
+  store <4 x float> %670, ptr %144, align 16
+  %671 = load <4 x float>, ptr %144, align 16
+  %672 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %306, i32 0, i32 0
+  %673 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %672, i32 0, i32 0
+  store <4 x float> %671, ptr %673, align 16
+  store ptr %302, ptr %272, align 8
+  store ptr %305, ptr %273, align 8
+  store ptr %306, ptr %274, align 8
+  %674 = load ptr, ptr %272, align 8
+  store ptr %674, ptr %259, align 8
+  %675 = load ptr, ptr %259, align 8
+  %676 = load ptr, ptr %273, align 8
+  store ptr %676, ptr %260, align 8
+  %677 = load ptr, ptr %260, align 8
+  %678 = load ptr, ptr %274, align 8
+  store ptr %678, ptr %261, align 8
+  %679 = load ptr, ptr %261, align 8
+  store ptr %675, ptr %242, align 8
+  store ptr %677, ptr %243, align 8
+  store ptr %679, ptr %244, align 8
+  %680 = load ptr, ptr %242, align 8
+  %681 = load <4 x float>, ptr %680, align 16
+  %682 = load ptr, ptr %243, align 8
+  %683 = load <4 x float>, ptr %682, align 16
+  %684 = load ptr, ptr %244, align 8
+  %685 = load <4 x float>, ptr %684, align 16
+  store <4 x float> %681, ptr %238, align 16
+  store <4 x float> %683, ptr %239, align 16
+  store <4 x float> %685, ptr %240, align 16
+  %686 = load <4 x float>, ptr %238, align 16
+  %687 = load <4 x float>, ptr %239, align 16
+  %688 = load <4 x float>, ptr %240, align 16
+  %689 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %686, <4 x float> %687, <4 x float> %688)
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %241, <4 x float> noundef %689)
+  %690 = load <4 x float>, ptr %241, align 16
+  store <4 x float> %690, ptr %271, align 16
+  %691 = load <4 x float>, ptr %271, align 16
+  %692 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %304, i32 0, i32 0
+  %693 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %692, i32 0, i32 0
+  store <4 x float> %691, ptr %693, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %302, ptr align 16 %304, i64 16, i1 false)
+  store i64 1, ptr %114, align 8
+  %694 = load i64, ptr %114, align 8
+  store i64 %694, ptr %4, align 8
+  store <4 x float> zeroinitializer, ptr %2, align 16
+  %695 = load <4 x float>, ptr %2, align 16
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %3, <4 x float> noundef %695)
+  %696 = load <4 x float>, ptr %3, align 16
+  store <4 x float> %696, ptr %113, align 16
+  %697 = load <4 x float>, ptr %113, align 16
+  %698 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %309, i32 0, i32 0
+  %699 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %698, i32 0, i32 0
+  store <4 x float> %697, ptr %699, align 16
+  %700 = call contract <4 x float> @_ZN5drjit5ldexpIN7mitsuba8SpectrumIfLm4EEES3_EENS_6detail14replace_scalarINS4_7deepestIJT_T0_EE4typeENS4_4exprIJNS4_6scalarIS7_iE4typeENSC_IS8_iE4typeEEE4typeEiE4typeERKS7_RKS8_(ptr noundef nonnull align 16 dereferenceable(16) %302, ptr noundef nonnull align 16 dereferenceable(16) %292)
+  %701 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %310, i32 0, i32 0
+  %702 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %701, i32 0, i32 0
+  store <4 x float> %700, ptr %702, align 16
+  store ptr %290, ptr %119, align 8
+  store ptr %309, ptr %120, align 8
+  store ptr %310, ptr %121, align 8
+  %703 = load ptr, ptr %119, align 8
+  store ptr %703, ptr %115, align 8
+  %704 = load ptr, ptr %115, align 8
+  %705 = load ptr, ptr %120, align 8
+  store ptr %705, ptr %116, align 8
+  %706 = load ptr, ptr %116, align 8
+  %707 = load ptr, ptr %121, align 8
+  store ptr %707, ptr %117, align 8
+  %708 = load ptr, ptr %117, align 8
+  store ptr %704, ptr %16, align 8
+  store ptr %706, ptr %17, align 8
+  store ptr %708, ptr %18, align 8
+  %709 = load ptr, ptr %16, align 8
+  %710 = load i8, ptr %709, align 1
+  %711 = load ptr, ptr %18, align 8
+  %712 = load <4 x float>, ptr %711, align 16
+  %713 = load ptr, ptr %17, align 8
+  %714 = load <4 x float>, ptr %713, align 16
+  store i8 %710, ptr %5, align 1
+  store <4 x float> %712, ptr %6, align 16
+  store <4 x float> %714, ptr %7, align 16
+  %715 = load i8, ptr %5, align 1
+  %716 = load <4 x float>, ptr %7, align 16
+  %717 = load <4 x float>, ptr %6, align 16
+  %718 = bitcast i8 %715 to <8 x i1>
+  %719 = shufflevector <8 x i1> %718, <8 x i1> %718, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %720 = select contract <4 x i1> %719, <4 x float> %716, <4 x float> %717
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %15, <4 x float> noundef %720)
+  %721 = load <4 x float>, ptr %15, align 16
+  store <4 x float> %721, ptr %118, align 16
+  %722 = load <4 x float>, ptr %118, align 16
+  %723 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %308, i32 0, i32 0
+  %724 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %723, i32 0, i32 0
+  store <4 x float> %722, ptr %724, align 16
+  store ptr %289, ptr %130, align 8
+  store ptr @_ZN5drjit8InfinityIN7mitsuba8SpectrumIfLm4EEEEE, ptr %131, align 8
+  store ptr %308, ptr %132, align 8
+  %725 = load ptr, ptr %130, align 8
+  %726 = load ptr, ptr %131, align 8
+  %727 = load float, ptr %726, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %133, float noundef %727)
+  %728 = load ptr, ptr %132, align 8
+  store ptr %725, ptr %126, align 8
+  store ptr %133, ptr %127, align 8
+  store ptr %728, ptr %128, align 8
+  %729 = load ptr, ptr %126, align 8
+  store ptr %729, ptr %122, align 8
+  %730 = load ptr, ptr %122, align 8
+  %731 = load ptr, ptr %127, align 8
+  store ptr %731, ptr %123, align 8
+  %732 = load ptr, ptr %123, align 8
+  %733 = load ptr, ptr %128, align 8
+  store ptr %733, ptr %124, align 8
+  %734 = load ptr, ptr %124, align 8
+  store ptr %730, ptr %12, align 8
+  store ptr %732, ptr %13, align 8
+  store ptr %734, ptr %14, align 8
+  %735 = load ptr, ptr %12, align 8
+  %736 = load i8, ptr %735, align 1
+  %737 = load ptr, ptr %14, align 8
+  %738 = load <4 x float>, ptr %737, align 16
+  %739 = load ptr, ptr %13, align 8
+  %740 = load <4 x float>, ptr %739, align 16
+  store i8 %736, ptr %8, align 1
+  store <4 x float> %738, ptr %9, align 16
+  store <4 x float> %740, ptr %10, align 16
+  %741 = load i8, ptr %8, align 1
+  %742 = load <4 x float>, ptr %10, align 16
+  %743 = load <4 x float>, ptr %9, align 16
+  %744 = bitcast i8 %741 to <8 x i1>
+  %745 = shufflevector <8 x i1> %744, <8 x i1> %744, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %746 = select contract <4 x i1> %745, <4 x float> %742, <4 x float> %743
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %11, <4 x float> noundef %746)
+  %747 = load <4 x float>, ptr %11, align 16
+  store <4 x float> %747, ptr %125, align 16
+  %748 = load <4 x float>, ptr %125, align 16
+  store <4 x float> %748, ptr %129, align 16
+  %749 = load <4 x float>, ptr %129, align 16
+  %750 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %285, i32 0, i32 0
+  %751 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %750, i32 0, i32 0
+  store <4 x float> %749, ptr %751, align 16
+  %752 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %285, i32 0, i32 0
+  %753 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %752, i32 0, i32 0
+  %754 = load <4 x float>, ptr %753, align 16
+  ret <4 x float> %754
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4evalERKNS_18SurfaceInteractionIfS5_EEb(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(240) %1, i1 noundef zeroext %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"struct.mitsuba::Spectrum", align 16
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca %"struct.mitsuba::ScopedPhase", align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  %11 = zext i1 %2 to i8
+  store i8 %11, ptr %7, align 1
+  %12 = load ptr, ptr %5, align 8
+  call void @_ZN7mitsuba11ScopedPhaseC2ENS_13ProfilerPhaseE(ptr noundef nonnull align 1 dereferenceable(1) %8, i32 noundef 25)
+  store i8 1, ptr %7, align 1
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds %"struct.mitsuba::Interaction", ptr %13, i32 0, i32 2
+  %15 = load i8, ptr %7, align 1
+  %16 = trunc i8 %15 to i1
+  %17 = invoke <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE9eval_implERKS4_b(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 16 dereferenceable(16) %14, i1 noundef zeroext %16)
+          to label %18 unwind label %24
+
+18:                                               ; preds = %3
+  %19 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %4, i32 0, i32 0
+  %20 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %19, i32 0, i32 0
+  store <4 x float> %17, ptr %20, align 16
+  call void @_ZN7mitsuba11ScopedPhaseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
+  %21 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %4, i32 0, i32 0
+  %22 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %21, i32 0, i32 0
+  %23 = load <4 x float>, ptr %22, align 16
+  ret <4 x float> %23
+
+24:                                               ; preds = %3
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %9, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %10, align 4
+  call void @_ZN7mitsuba11ScopedPhaseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
+  br label %28
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %9, align 8
+  %30 = load i32, ptr %10, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN7mitsuba11ScopedPhaseC2ENS_13ProfilerPhaseE(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN7mitsuba11ScopedPhaseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE12pdf_spectrumERKNS_18SurfaceInteractionIfS5_EEb(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(240) %1, i1 noundef zeroext %2) unnamed_addr #6 comdat align 2 {
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca %"struct.drjit::Mask", align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca %"struct.drjit::Mask", align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %"struct.drjit::Mask", align 1
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca <4 x float>, align 16
+  %18 = alloca <4 x float>, align 16
+  %19 = alloca <4 x float>, align 16
+  %20 = alloca <4 x float>, align 16
+  %21 = alloca %"struct.mitsuba::Spectrum", align 16
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca %"struct.mitsuba::Spectrum", align 16
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca <4 x float>, align 16
+  %28 = alloca i8, align 1
+  %29 = alloca <4 x float>, align 16
+  %30 = alloca %"struct.mitsuba::Spectrum", align 16
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca %"struct.drjit::Mask", align 1
+  %34 = alloca ptr, align 8
+  %35 = alloca %"struct.drjit::Mask", align 1
+  %36 = alloca ptr, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca i8, align 1
+  %39 = alloca ptr, align 8
+  %40 = alloca ptr, align 8
+  %41 = alloca %"struct.drjit::Mask", align 1
+  %42 = alloca ptr, align 8
+  %43 = alloca ptr, align 8
+  %44 = alloca ptr, align 8
+  %45 = alloca i64, align 8
+  %46 = alloca ptr, align 8
+  %47 = alloca i64, align 8
+  %48 = alloca ptr, align 8
+  %49 = alloca ptr, align 8
+  %50 = alloca %"struct.drjit::Mask", align 1
+  %51 = alloca ptr, align 8
+  %52 = alloca %"struct.drjit::Mask", align 1
+  %53 = alloca ptr, align 8
+  %54 = alloca ptr, align 8
+  %55 = alloca i8, align 1
+  %56 = alloca ptr, align 8
+  %57 = alloca ptr, align 8
+  %58 = alloca %"struct.drjit::Mask", align 1
+  %59 = alloca ptr, align 8
+  %60 = alloca ptr, align 8
+  %61 = alloca i8, align 1
+  %62 = alloca i8, align 1
+  %63 = alloca %"struct.drjit::Mask", align 1
+  %64 = alloca ptr, align 8
+  %65 = alloca %"struct.drjit::Mask", align 1
+  %66 = alloca ptr, align 8
+  %67 = alloca ptr, align 8
+  %68 = alloca i8, align 1
+  %69 = alloca ptr, align 8
+  %70 = alloca ptr, align 8
+  %71 = alloca ptr, align 8
+  %72 = alloca <4 x float>, align 16
+  %73 = alloca <4 x float>, align 16
+  %74 = alloca <4 x float>, align 16
+  %75 = alloca <4 x float>, align 16
+  %76 = alloca <4 x float>, align 16
+  %77 = alloca <4 x float>, align 16
+  %78 = alloca <4 x float>, align 16
+  %79 = alloca <4 x float>, align 16
+  %80 = alloca <4 x float>, align 16
+  %81 = alloca <4 x float>, align 16
+  %82 = alloca <4 x float>, align 16
+  %83 = alloca <4 x float>, align 16
+  %84 = alloca <4 x float>, align 16
+  %85 = alloca <4 x float>, align 16
+  %86 = alloca %"struct.mitsuba::Spectrum", align 16
+  %87 = alloca ptr, align 8
+  %88 = alloca ptr, align 8
+  %89 = alloca %"struct.mitsuba::Spectrum", align 16
+  %90 = alloca ptr, align 8
+  %91 = alloca ptr, align 8
+  %92 = alloca %"struct.mitsuba::Spectrum", align 16
+  %93 = alloca ptr, align 8
+  %94 = alloca ptr, align 8
+  %95 = alloca %"struct.mitsuba::Spectrum", align 16
+  %96 = alloca ptr, align 8
+  %97 = alloca ptr, align 8
+  %98 = alloca %"struct.mitsuba::Spectrum", align 16
+  %99 = alloca ptr, align 8
+  %100 = alloca ptr, align 8
+  %101 = alloca %"struct.mitsuba::Spectrum", align 16
+  %102 = alloca ptr, align 8
+  %103 = alloca ptr, align 8
+  %104 = alloca %"struct.mitsuba::Spectrum", align 16
+  %105 = alloca ptr, align 8
+  %106 = alloca ptr, align 8
+  %107 = alloca ptr, align 8
+  %108 = alloca ptr, align 8
+  %109 = alloca ptr, align 8
+  %110 = alloca ptr, align 8
+  %111 = alloca ptr, align 8
+  %112 = alloca ptr, align 8
+  %113 = alloca ptr, align 8
+  %114 = alloca ptr, align 8
+  %115 = alloca ptr, align 8
+  %116 = alloca ptr, align 8
+  %117 = alloca ptr, align 8
+  %118 = alloca ptr, align 8
+  %119 = alloca ptr, align 8
+  %120 = alloca ptr, align 8
+  %121 = alloca ptr, align 8
+  %122 = alloca ptr, align 8
+  %123 = alloca ptr, align 8
+  %124 = alloca ptr, align 8
+  %125 = alloca ptr, align 8
+  %126 = alloca %"struct.mitsuba::Spectrum", align 16
+  %127 = alloca ptr, align 8
+  %128 = alloca ptr, align 8
+  %129 = alloca %"struct.mitsuba::Spectrum", align 16
+  %130 = alloca ptr, align 8
+  %131 = alloca ptr, align 8
+  %132 = alloca %"struct.mitsuba::Spectrum", align 16
+  %133 = alloca %"struct.mitsuba::Spectrum", align 16
+  %134 = alloca ptr, align 8
+  %135 = alloca ptr, align 8
+  %136 = alloca %"struct.mitsuba::Spectrum", align 16
+  %137 = alloca ptr, align 8
+  %138 = alloca ptr, align 8
+  %139 = alloca %"struct.mitsuba::Spectrum", align 16
+  %140 = alloca ptr, align 8
+  %141 = alloca ptr, align 8
+  %142 = alloca %"struct.mitsuba::Spectrum", align 16
+  %143 = alloca ptr, align 8
+  %144 = alloca ptr, align 8
+  %145 = alloca %"struct.mitsuba::Spectrum", align 16
+  %146 = alloca ptr, align 8
+  %147 = alloca %"struct.drjit::Mask", align 1
+  %148 = alloca ptr, align 8
+  %149 = alloca ptr, align 8
+  %150 = alloca %"struct.mitsuba::Spectrum", align 16
+  %151 = alloca ptr, align 8
+  %152 = alloca %"struct.drjit::Mask", align 1
+  %153 = alloca ptr, align 8
+  %154 = alloca ptr, align 8
+  %155 = alloca %"struct.mitsuba::Spectrum", align 16
+  %156 = alloca %"struct.drjit::Mask", align 1
+  %157 = alloca ptr, align 8
+  %158 = alloca ptr, align 8
+  %159 = alloca ptr, align 8
+  %160 = alloca ptr, align 8
+  %161 = alloca %"struct.drjit::Mask", align 1
+  %162 = alloca %"struct.mitsuba::Spectrum", align 16
+  %163 = alloca ptr, align 8
+  %164 = alloca ptr, align 8
+  %165 = alloca %"struct.mitsuba::Spectrum", align 16
+  %166 = alloca ptr, align 8
+  %167 = alloca ptr, align 8
+  %168 = alloca %"struct.mitsuba::Spectrum", align 16
+  %169 = alloca ptr, align 8
+  %170 = alloca ptr, align 8
+  %171 = alloca %"struct.mitsuba::Spectrum", align 16
+  %172 = alloca ptr, align 8
+  %173 = alloca ptr, align 8
+  %174 = alloca %"struct.mitsuba::Spectrum", align 16
+  %175 = alloca ptr, align 8
+  %176 = alloca ptr, align 8
+  %177 = alloca %"struct.mitsuba::Spectrum", align 16
+  %178 = alloca ptr, align 8
+  %179 = alloca ptr, align 8
+  %180 = alloca %"struct.mitsuba::Spectrum", align 16
+  %181 = alloca ptr, align 8
+  %182 = alloca %"struct.mitsuba::Spectrum", align 16
+  %183 = alloca ptr, align 8
+  %184 = alloca %"struct.mitsuba::Spectrum", align 16
+  %185 = alloca ptr, align 8
+  %186 = alloca ptr, align 8
+  %187 = alloca %"struct.mitsuba::Spectrum", align 16
+  %188 = alloca %"struct.mitsuba::Spectrum", align 16
+  %189 = alloca ptr, align 8
+  %190 = alloca ptr, align 8
+  %191 = alloca %"struct.mitsuba::Spectrum", align 16
+  %192 = alloca %"struct.mitsuba::Spectrum", align 16
+  %193 = alloca ptr, align 8
+  %194 = alloca ptr, align 8
+  %195 = alloca %"struct.mitsuba::Spectrum", align 16
+  %196 = alloca %"struct.mitsuba::Spectrum", align 16
+  %197 = alloca ptr, align 8
+  %198 = alloca ptr, align 8
+  %199 = alloca i8, align 1
+  %200 = alloca %"struct.mitsuba::Spectrum", align 16
+  %201 = alloca float, align 4
+  %202 = alloca %"struct.mitsuba::Spectrum", align 16
+  %203 = alloca %"struct.mitsuba::Spectrum", align 16
+  %204 = alloca %"struct.mitsuba::Spectrum", align 16
+  %205 = alloca %"struct.drjit::Mask", align 1
+  %206 = alloca %"struct.drjit::Mask", align 1
+  %207 = alloca %"struct.drjit::Mask", align 1
+  %208 = alloca %"struct.drjit::Mask", align 1
+  %209 = alloca %"struct.mitsuba::Spectrum", align 16
+  %210 = alloca %"struct.mitsuba::Spectrum", align 16
+  %211 = alloca float, align 4
+  %212 = alloca %"struct.mitsuba::Spectrum", align 16
+  %213 = alloca %"struct.mitsuba::Spectrum", align 16
+  %214 = alloca float, align 4
+  %215 = alloca %"struct.mitsuba::Spectrum", align 16
+  %216 = alloca %"struct.mitsuba::Spectrum", align 16
+  store ptr %0, ptr %197, align 8
+  store ptr %1, ptr %198, align 8
+  %217 = zext i1 %2 to i8
+  store i8 %217, ptr %199, align 1
+  %218 = load ptr, ptr %197, align 8
+  %219 = load ptr, ptr %198, align 8
+  %220 = getelementptr inbounds %"struct.mitsuba::Interaction", ptr %219, i32 0, i32 2
+  store float 0x3E112E0BE0000000, ptr %201, align 4
+  store ptr %220, ptr %185, align 8
+  store ptr %201, ptr %186, align 8
+  %221 = load ptr, ptr %185, align 8
+  %222 = load ptr, ptr %186, align 8
+  %223 = load float, ptr %222, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %187, float noundef %223)
+  store ptr %221, ptr %172, align 8
+  store ptr %187, ptr %173, align 8
+  %224 = load ptr, ptr %172, align 8
+  store ptr %224, ptr %111, align 8
+  %225 = load ptr, ptr %111, align 8
+  %226 = load ptr, ptr %173, align 8
+  store ptr %226, ptr %112, align 8
+  %227 = load ptr, ptr %112, align 8
+  store ptr %225, ptr %93, align 8
+  store ptr %227, ptr %94, align 8
+  %228 = load ptr, ptr %93, align 8
+  %229 = load <4 x float>, ptr %228, align 16
+  %230 = load ptr, ptr %94, align 8
+  %231 = load <4 x float>, ptr %230, align 16
+  store <4 x float> %229, ptr %80, align 16
+  store <4 x float> %231, ptr %81, align 16
+  %232 = load <4 x float>, ptr %80, align 16
+  %233 = load <4 x float>, ptr %81, align 16
+  %234 = fmul contract <4 x float> %232, %233
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %92, <4 x float> noundef %234)
+  %235 = load <4 x float>, ptr %92, align 16
+  store <4 x float> %235, ptr %171, align 16
+  %236 = load <4 x float>, ptr %171, align 16
+  store <4 x float> %236, ptr %184, align 16
+  %237 = load <4 x float>, ptr %184, align 16
+  %238 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %200, i32 0, i32 0
+  %239 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %238, i32 0, i32 0
+  store <4 x float> %237, ptr %239, align 16
+  store ptr %200, ptr %181, align 8
+  %240 = load ptr, ptr %181, align 8
+  %241 = load ptr, ptr %181, align 8
+  store ptr %240, ptr %178, align 8
+  store ptr %241, ptr %179, align 8
+  %242 = load ptr, ptr %178, align 8
+  store ptr %242, ptr %107, align 8
+  %243 = load ptr, ptr %107, align 8
+  %244 = load ptr, ptr %179, align 8
+  store ptr %244, ptr %108, align 8
+  %245 = load ptr, ptr %108, align 8
+  store ptr %243, ptr %87, align 8
+  store ptr %245, ptr %88, align 8
+  %246 = load ptr, ptr %87, align 8
+  %247 = load <4 x float>, ptr %246, align 16
+  %248 = load ptr, ptr %88, align 8
+  %249 = load <4 x float>, ptr %248, align 16
+  store <4 x float> %247, ptr %84, align 16
+  store <4 x float> %249, ptr %85, align 16
+  %250 = load <4 x float>, ptr %84, align 16
+  %251 = load <4 x float>, ptr %85, align 16
+  %252 = fmul contract <4 x float> %250, %251
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %86, <4 x float> noundef %252)
+  %253 = load <4 x float>, ptr %86, align 16
+  store <4 x float> %253, ptr %177, align 16
+  %254 = load <4 x float>, ptr %177, align 16
+  store <4 x float> %254, ptr %180, align 16
+  %255 = load <4 x float>, ptr %180, align 16
+  %256 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %202, i32 0, i32 0
+  %257 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %256, i32 0, i32 0
+  store <4 x float> %255, ptr %257, align 16
+  store ptr %202, ptr %183, align 8
+  %258 = load ptr, ptr %183, align 8
+  %259 = load ptr, ptr %183, align 8
+  store ptr %258, ptr %175, align 8
+  store ptr %259, ptr %176, align 8
+  %260 = load ptr, ptr %175, align 8
+  store ptr %260, ptr %109, align 8
+  %261 = load ptr, ptr %109, align 8
+  %262 = load ptr, ptr %176, align 8
+  store ptr %262, ptr %110, align 8
+  %263 = load ptr, ptr %110, align 8
+  store ptr %261, ptr %90, align 8
+  store ptr %263, ptr %91, align 8
+  %264 = load ptr, ptr %90, align 8
+  %265 = load <4 x float>, ptr %264, align 16
+  %266 = load ptr, ptr %91, align 8
+  %267 = load <4 x float>, ptr %266, align 16
+  store <4 x float> %265, ptr %82, align 16
+  store <4 x float> %267, ptr %83, align 16
+  %268 = load <4 x float>, ptr %82, align 16
+  %269 = load <4 x float>, ptr %83, align 16
+  %270 = fmul contract <4 x float> %268, %269
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %89, <4 x float> noundef %270)
+  %271 = load <4 x float>, ptr %89, align 16
+  store <4 x float> %271, ptr %174, align 16
+  %272 = load <4 x float>, ptr %174, align 16
+  store <4 x float> %272, ptr %182, align 16
+  %273 = load <4 x float>, ptr %182, align 16
+  %274 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %204, i32 0, i32 0
+  %275 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %274, i32 0, i32 0
+  store <4 x float> %273, ptr %275, align 16
+  store ptr %204, ptr %163, align 8
+  store ptr %200, ptr %164, align 8
+  %276 = load ptr, ptr %163, align 8
+  store ptr %276, ptr %117, align 8
+  %277 = load ptr, ptr %117, align 8
+  %278 = load ptr, ptr %164, align 8
+  store ptr %278, ptr %118, align 8
+  %279 = load ptr, ptr %118, align 8
+  store ptr %277, ptr %102, align 8
+  store ptr %279, ptr %103, align 8
+  %280 = load ptr, ptr %102, align 8
+  %281 = load <4 x float>, ptr %280, align 16
+  %282 = load ptr, ptr %103, align 8
+  %283 = load <4 x float>, ptr %282, align 16
+  store <4 x float> %281, ptr %74, align 16
+  store <4 x float> %283, ptr %75, align 16
+  %284 = load <4 x float>, ptr %74, align 16
+  %285 = load <4 x float>, ptr %75, align 16
+  %286 = fmul contract <4 x float> %284, %285
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %101, <4 x float> noundef %286)
+  %287 = load <4 x float>, ptr %101, align 16
+  store <4 x float> %287, ptr %162, align 16
+  %288 = load <4 x float>, ptr %162, align 16
+  %289 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %203, i32 0, i32 0
+  %290 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %289, i32 0, i32 0
+  store <4 x float> %288, ptr %290, align 16
+  call void @_ZN5drjit4MaskIfLm4EECI2NS_8MaskBaseIfLm4ES1_EEIRbNS2_IfLm4ES1_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %205, ptr noundef nonnull align 1 dereferenceable(1) %199)
+  %291 = load ptr, ptr %198, align 8
+  %292 = getelementptr inbounds %"struct.mitsuba::Interaction", ptr %291, i32 0, i32 2
+  %293 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %218, i32 0, i32 4
+  store ptr %293, ptr %151, align 8
+  %294 = load ptr, ptr %151, align 8
+  store ptr %294, ptr %48, align 8
+  %295 = load ptr, ptr %48, align 8
+  store ptr %295, ptr %44, align 8
+  store i64 0, ptr %45, align 8
+  %296 = load ptr, ptr %44, align 8
+  %297 = load i64, ptr %45, align 8
+  %298 = getelementptr inbounds [2 x float], ptr %296, i64 0, i64 %297
+  store ptr %292, ptr %153, align 8
+  store ptr %298, ptr %154, align 8
+  %299 = load ptr, ptr %153, align 8
+  %300 = load ptr, ptr %154, align 8
+  %301 = load float, ptr %300, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %155, float noundef %301)
+  store ptr %299, ptr %59, align 8
+  store ptr %155, ptr %60, align 8
+  %302 = load ptr, ptr %59, align 8
+  store ptr %302, ptr %56, align 8
+  %303 = load ptr, ptr %56, align 8
+  %304 = load ptr, ptr %60, align 8
+  store ptr %304, ptr %57, align 8
+  %305 = load ptr, ptr %57, align 8
+  store ptr %303, ptr %53, align 8
+  store ptr %305, ptr %54, align 8
+  %306 = load ptr, ptr %53, align 8
+  %307 = load <4 x float>, ptr %306, align 16
+  %308 = load ptr, ptr %54, align 8
+  %309 = load <4 x float>, ptr %308, align 16
+  %310 = fcmp contract oge <4 x float> %307, %309
+  %311 = shufflevector <4 x i1> %310, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %312 = bitcast <8 x i1> %311 to i8
+  store i8 %312, ptr %55, align 1
+  store ptr %55, ptr %51, align 8
+  %313 = load ptr, ptr %51, align 8
+  %314 = load i8, ptr %313, align 1
+  store i8 %314, ptr %50, align 1
+  %315 = load i8, ptr %50, align 1
+  store i8 %315, ptr %52, align 1
+  %316 = load i8, ptr %52, align 1
+  store i8 %316, ptr %58, align 1
+  %317 = load i8, ptr %58, align 1
+  store i8 %317, ptr %152, align 1
+  %318 = load i8, ptr %152, align 1
+  %319 = getelementptr inbounds %"struct.drjit::Mask", ptr %207, i32 0, i32 0
+  %320 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %319, i32 0, i32 0
+  %321 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %320, i32 0, i32 0
+  %322 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %321, i32 0, i32 0
+  store i8 %318, ptr %322, align 1
+  %323 = load ptr, ptr %198, align 8
+  %324 = getelementptr inbounds %"struct.mitsuba::Interaction", ptr %323, i32 0, i32 2
+  %325 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %218, i32 0, i32 4
+  store ptr %325, ptr %146, align 8
+  %326 = load ptr, ptr %146, align 8
+  store ptr %326, ptr %49, align 8
+  %327 = load ptr, ptr %49, align 8
+  store ptr %327, ptr %46, align 8
+  store i64 1, ptr %47, align 8
+  %328 = load ptr, ptr %46, align 8
+  %329 = load i64, ptr %47, align 8
+  %330 = getelementptr inbounds [2 x float], ptr %328, i64 0, i64 %329
+  store ptr %324, ptr %148, align 8
+  store ptr %330, ptr %149, align 8
+  %331 = load ptr, ptr %148, align 8
+  %332 = load ptr, ptr %149, align 8
+  %333 = load float, ptr %332, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %150, float noundef %333)
+  store ptr %331, ptr %42, align 8
+  store ptr %150, ptr %43, align 8
+  %334 = load ptr, ptr %42, align 8
+  store ptr %334, ptr %39, align 8
+  %335 = load ptr, ptr %39, align 8
+  %336 = load ptr, ptr %43, align 8
+  store ptr %336, ptr %40, align 8
+  %337 = load ptr, ptr %40, align 8
+  store ptr %335, ptr %36, align 8
+  store ptr %337, ptr %37, align 8
+  %338 = load ptr, ptr %36, align 8
+  %339 = load <4 x float>, ptr %338, align 16
+  %340 = load ptr, ptr %37, align 8
+  %341 = load <4 x float>, ptr %340, align 16
+  %342 = fcmp contract ole <4 x float> %339, %341
+  %343 = shufflevector <4 x i1> %342, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %344 = bitcast <8 x i1> %343 to i8
+  store i8 %344, ptr %38, align 1
+  store ptr %38, ptr %34, align 8
+  %345 = load ptr, ptr %34, align 8
+  %346 = load i8, ptr %345, align 1
+  store i8 %346, ptr %33, align 1
+  %347 = load i8, ptr %33, align 1
+  store i8 %347, ptr %35, align 1
+  %348 = load i8, ptr %35, align 1
+  store i8 %348, ptr %41, align 1
+  %349 = load i8, ptr %41, align 1
+  store i8 %349, ptr %147, align 1
+  %350 = load i8, ptr %147, align 1
+  %351 = getelementptr inbounds %"struct.drjit::Mask", ptr %208, i32 0, i32 0
+  %352 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %351, i32 0, i32 0
+  %353 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %352, i32 0, i32 0
+  %354 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %353, i32 0, i32 0
+  store i8 %350, ptr %354, align 1
+  store ptr %207, ptr %157, align 8
+  store ptr %208, ptr %158, align 8
+  %355 = load ptr, ptr %157, align 8
+  store ptr %355, ptr %69, align 8
+  %356 = load ptr, ptr %69, align 8
+  %357 = load ptr, ptr %158, align 8
+  store ptr %357, ptr %70, align 8
+  %358 = load ptr, ptr %70, align 8
+  store ptr %356, ptr %66, align 8
+  store ptr %358, ptr %67, align 8
+  %359 = load ptr, ptr %66, align 8
+  %360 = load i8, ptr %359, align 1
+  %361 = load ptr, ptr %67, align 8
+  %362 = load i8, ptr %361, align 1
+  store i8 %360, ptr %61, align 1
+  store i8 %362, ptr %62, align 1
+  %363 = load i8, ptr %61, align 1
+  %364 = load i8, ptr %62, align 1
+  %365 = bitcast i8 %363 to <8 x i1>
+  %366 = bitcast i8 %364 to <8 x i1>
+  %367 = and <8 x i1> %365, %366
+  %368 = bitcast <8 x i1> %367 to i8
+  store i8 %368, ptr %68, align 1
+  store ptr %68, ptr %64, align 8
+  %369 = load ptr, ptr %64, align 8
+  %370 = load i8, ptr %369, align 1
+  store i8 %370, ptr %63, align 1
+  %371 = load i8, ptr %63, align 1
+  store i8 %371, ptr %65, align 1
+  %372 = load i8, ptr %65, align 1
+  store i8 %372, ptr %156, align 1
+  %373 = load i8, ptr %156, align 1
+  %374 = getelementptr inbounds %"struct.drjit::Mask", ptr %206, i32 0, i32 0
+  %375 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %374, i32 0, i32 0
+  %376 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %375, i32 0, i32 0
+  %377 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %376, i32 0, i32 0
+  store i8 %373, ptr %377, align 1
+  store ptr %205, ptr %159, align 8
+  store ptr %206, ptr %160, align 8
+  %378 = load ptr, ptr %159, align 8
+  %379 = load ptr, ptr %160, align 8
+  store ptr %378, ptr %15, align 8
+  store ptr %379, ptr %16, align 8
+  %380 = load ptr, ptr %15, align 8
+  store ptr %380, ptr %12, align 8
+  %381 = load ptr, ptr %12, align 8
+  %382 = load ptr, ptr %16, align 8
+  store ptr %382, ptr %13, align 8
+  %383 = load ptr, ptr %13, align 8
+  store ptr %381, ptr %9, align 8
+  store ptr %383, ptr %10, align 8
+  %384 = load ptr, ptr %9, align 8
+  %385 = load i8, ptr %384, align 1
+  %386 = load ptr, ptr %10, align 8
+  %387 = load i8, ptr %386, align 1
+  store i8 %385, ptr %4, align 1
+  store i8 %387, ptr %5, align 1
+  %388 = load i8, ptr %4, align 1
+  %389 = load i8, ptr %5, align 1
+  %390 = bitcast i8 %388 to <8 x i1>
+  %391 = bitcast i8 %389 to <8 x i1>
+  %392 = and <8 x i1> %390, %391
+  %393 = bitcast <8 x i1> %392 to i8
+  store i8 %393, ptr %11, align 1
+  store ptr %11, ptr %7, align 8
+  %394 = load ptr, ptr %7, align 8
+  %395 = load i8, ptr %394, align 1
+  store i8 %395, ptr %6, align 1
+  %396 = load i8, ptr %6, align 1
+  store i8 %396, ptr %8, align 1
+  %397 = load i8, ptr %8, align 1
+  store i8 %397, ptr %14, align 1
+  %398 = load i8, ptr %14, align 1
+  store i8 %398, ptr %161, align 1
+  %399 = load ptr, ptr %159, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %399, ptr align 1 %161, i64 1, i1 false)
+  store float 0x3AC26E3500000000, ptr %211, align 4
+  store float 0xBF8D775620000000, ptr %214, align 4
+  %400 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %218, i32 0, i32 1
+  store ptr %200, ptr %189, align 8
+  store ptr %400, ptr %190, align 8
+  %401 = load ptr, ptr %189, align 8
+  %402 = load ptr, ptr %190, align 8
+  %403 = load float, ptr %402, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %191, float noundef %403)
+  store ptr %401, ptr %169, align 8
+  store ptr %191, ptr %170, align 8
+  %404 = load ptr, ptr %169, align 8
+  store ptr %404, ptr %113, align 8
+  %405 = load ptr, ptr %113, align 8
+  %406 = load ptr, ptr %170, align 8
+  store ptr %406, ptr %114, align 8
+  %407 = load ptr, ptr %114, align 8
+  store ptr %405, ptr %96, align 8
+  store ptr %407, ptr %97, align 8
+  %408 = load ptr, ptr %96, align 8
+  %409 = load <4 x float>, ptr %408, align 16
+  %410 = load ptr, ptr %97, align 8
+  %411 = load <4 x float>, ptr %410, align 16
+  store <4 x float> %409, ptr %78, align 16
+  store <4 x float> %411, ptr %79, align 16
+  %412 = load <4 x float>, ptr %78, align 16
+  %413 = load <4 x float>, ptr %79, align 16
+  %414 = fmul contract <4 x float> %412, %413
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %95, <4 x float> noundef %414)
+  %415 = load <4 x float>, ptr %95, align 16
+  store <4 x float> %415, ptr %168, align 16
+  %416 = load <4 x float>, ptr %168, align 16
+  store <4 x float> %416, ptr %188, align 16
+  %417 = load <4 x float>, ptr %188, align 16
+  %418 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %215, i32 0, i32 0
+  %419 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %418, i32 0, i32 0
+  store <4 x float> %417, ptr %419, align 16
+  store ptr %214, ptr %143, align 8
+  store ptr %215, ptr %144, align 8
+  %420 = load ptr, ptr %143, align 8
+  %421 = load float, ptr %420, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %145, float noundef %421)
+  %422 = load ptr, ptr %144, align 8
+  store ptr %145, ptr %137, align 8
+  store ptr %422, ptr %138, align 8
+  %423 = load ptr, ptr %137, align 8
+  store ptr %423, ptr %120, align 8
+  %424 = load ptr, ptr %120, align 8
+  %425 = load ptr, ptr %138, align 8
+  store ptr %425, ptr %121, align 8
+  %426 = load ptr, ptr %121, align 8
+  store ptr %424, ptr %22, align 8
+  store ptr %426, ptr %23, align 8
+  %427 = load ptr, ptr %22, align 8
+  %428 = load <4 x float>, ptr %427, align 16
+  %429 = load ptr, ptr %23, align 8
+  %430 = load <4 x float>, ptr %429, align 16
+  store <4 x float> %428, ptr %19, align 16
+  store <4 x float> %430, ptr %20, align 16
+  %431 = load <4 x float>, ptr %19, align 16
+  %432 = load <4 x float>, ptr %20, align 16
+  %433 = fdiv contract <4 x float> %431, %432
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %21, <4 x float> noundef %433)
+  %434 = load <4 x float>, ptr %21, align 16
+  store <4 x float> %434, ptr %136, align 16
+  %435 = load <4 x float>, ptr %136, align 16
+  store <4 x float> %435, ptr %142, align 16
+  %436 = load <4 x float>, ptr %142, align 16
+  %437 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %213, i32 0, i32 0
+  %438 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %437, i32 0, i32 0
+  store <4 x float> %436, ptr %438, align 16
+  %439 = call contract <4 x float> @_ZN5drjit3expIN7mitsuba8SpectrumIfLm4EEEEET_RKS4_(ptr noundef nonnull align 16 dereferenceable(16) %213)
+  %440 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %212, i32 0, i32 0
+  %441 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %440, i32 0, i32 0
+  store <4 x float> %439, ptr %441, align 16
+  store ptr %211, ptr %130, align 8
+  store ptr %212, ptr %131, align 8
+  %442 = load ptr, ptr %130, align 8
+  %443 = load float, ptr %442, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %132, float noundef %443)
+  %444 = load ptr, ptr %131, align 8
+  store ptr %132, ptr %127, align 8
+  store ptr %444, ptr %128, align 8
+  %445 = load ptr, ptr %127, align 8
+  store ptr %445, ptr %124, align 8
+  %446 = load ptr, ptr %124, align 8
+  %447 = load ptr, ptr %128, align 8
+  store ptr %447, ptr %125, align 8
+  %448 = load ptr, ptr %125, align 8
+  store ptr %446, ptr %105, align 8
+  store ptr %448, ptr %106, align 8
+  %449 = load ptr, ptr %105, align 8
+  %450 = load <4 x float>, ptr %449, align 16
+  %451 = load ptr, ptr %106, align 8
+  %452 = load <4 x float>, ptr %451, align 16
+  store <4 x float> %450, ptr %72, align 16
+  store <4 x float> %452, ptr %73, align 16
+  %453 = load <4 x float>, ptr %72, align 16
+  %454 = load <4 x float>, ptr %73, align 16
+  %455 = fmul contract <4 x float> %453, %454
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %104, <4 x float> noundef %455)
+  %456 = load <4 x float>, ptr %104, align 16
+  store <4 x float> %456, ptr %126, align 16
+  %457 = load <4 x float>, ptr %126, align 16
+  store <4 x float> %457, ptr %129, align 16
+  %458 = load <4 x float>, ptr %129, align 16
+  %459 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %210, i32 0, i32 0
+  %460 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %459, i32 0, i32 0
+  store <4 x float> %458, ptr %460, align 16
+  %461 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %218, i32 0, i32 3
+  store ptr %203, ptr %193, align 8
+  store ptr %461, ptr %194, align 8
+  %462 = load ptr, ptr %193, align 8
+  %463 = load ptr, ptr %194, align 8
+  %464 = load float, ptr %463, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %195, float noundef %464)
+  store ptr %462, ptr %166, align 8
+  store ptr %195, ptr %167, align 8
+  %465 = load ptr, ptr %166, align 8
+  store ptr %465, ptr %115, align 8
+  %466 = load ptr, ptr %115, align 8
+  %467 = load ptr, ptr %167, align 8
+  store ptr %467, ptr %116, align 8
+  %468 = load ptr, ptr %116, align 8
+  store ptr %466, ptr %99, align 8
+  store ptr %468, ptr %100, align 8
+  %469 = load ptr, ptr %99, align 8
+  %470 = load <4 x float>, ptr %469, align 16
+  %471 = load ptr, ptr %100, align 8
+  %472 = load <4 x float>, ptr %471, align 16
+  store <4 x float> %470, ptr %76, align 16
+  store <4 x float> %472, ptr %77, align 16
+  %473 = load <4 x float>, ptr %76, align 16
+  %474 = load <4 x float>, ptr %77, align 16
+  %475 = fmul contract <4 x float> %473, %474
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %98, <4 x float> noundef %475)
+  %476 = load <4 x float>, ptr %98, align 16
+  store <4 x float> %476, ptr %165, align 16
+  %477 = load <4 x float>, ptr %165, align 16
+  store <4 x float> %477, ptr %192, align 16
+  %478 = load <4 x float>, ptr %192, align 16
+  %479 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %216, i32 0, i32 0
+  %480 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %479, i32 0, i32 0
+  store <4 x float> %478, ptr %480, align 16
+  store ptr %210, ptr %134, align 8
+  store ptr %216, ptr %135, align 8
+  %481 = load ptr, ptr %134, align 8
+  store ptr %481, ptr %122, align 8
+  %482 = load ptr, ptr %122, align 8
+  %483 = load ptr, ptr %135, align 8
+  store ptr %483, ptr %123, align 8
+  %484 = load ptr, ptr %123, align 8
+  store ptr %482, ptr %25, align 8
+  store ptr %484, ptr %26, align 8
+  %485 = load ptr, ptr %25, align 8
+  %486 = load <4 x float>, ptr %485, align 16
+  %487 = load ptr, ptr %26, align 8
+  %488 = load <4 x float>, ptr %487, align 16
+  store <4 x float> %486, ptr %17, align 16
+  store <4 x float> %488, ptr %18, align 16
+  %489 = load <4 x float>, ptr %17, align 16
+  %490 = load <4 x float>, ptr %18, align 16
+  %491 = fdiv contract <4 x float> %489, %490
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %24, <4 x float> noundef %491)
+  %492 = load <4 x float>, ptr %24, align 16
+  store <4 x float> %492, ptr %133, align 16
+  %493 = load <4 x float>, ptr %133, align 16
+  %494 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %209, i32 0, i32 0
+  %495 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %494, i32 0, i32 0
+  store <4 x float> %493, ptr %495, align 16
+  store ptr %209, ptr %140, align 8
+  store ptr %205, ptr %141, align 8
+  %496 = load ptr, ptr %140, align 8
+  store ptr %496, ptr %119, align 8
+  %497 = load ptr, ptr %119, align 8
+  %498 = load ptr, ptr %141, align 8
+  store ptr %498, ptr %71, align 8
+  %499 = load ptr, ptr %71, align 8
+  store ptr %497, ptr %31, align 8
+  store ptr %499, ptr %32, align 8
+  %500 = load ptr, ptr %31, align 8
+  %501 = load ptr, ptr %32, align 8
+  %502 = load i8, ptr %501, align 1
+  %503 = load <4 x float>, ptr %500, align 16
+  store i8 %502, ptr %28, align 1
+  store <4 x float> %503, ptr %29, align 16
+  %504 = load i8, ptr %28, align 1
+  %505 = load <4 x float>, ptr %29, align 16
+  store <4 x float> zeroinitializer, ptr %27, align 16
+  %506 = load <4 x float>, ptr %27, align 16
+  %507 = bitcast i8 %504 to <8 x i1>
+  %508 = shufflevector <8 x i1> %507, <8 x i1> %507, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %509 = select contract <4 x i1> %508, <4 x float> %505, <4 x float> %506
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %30, <4 x float> noundef %509)
+  %510 = load <4 x float>, ptr %30, align 16
+  store <4 x float> %510, ptr %139, align 16
+  %511 = load <4 x float>, ptr %139, align 16
+  %512 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %196, i32 0, i32 0
+  %513 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %512, i32 0, i32 0
+  store <4 x float> %511, ptr %513, align 16
+  %514 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %196, i32 0, i32 0
+  %515 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %514, i32 0, i32 0
+  %516 = load <4 x float>, ptr %515, align 16
+  ret <4 x float> %516
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr void @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15sample_spectrumERKNS_18SurfaceInteractionIfS5_EERKS4_b(ptr dead_on_unwind noalias writable sret(%"struct.std::__1::pair.35") align 16 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 16 dereferenceable(240) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, i1 noundef zeroext %4) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca i8, align 1
+  %7 = alloca <4 x float>, align 16
+  %8 = alloca <4 x float>, align 16
+  %9 = alloca i8, align 1
+  %10 = alloca <4 x float>, align 16
+  %11 = alloca <4 x float>, align 16
+  %12 = alloca i8, align 1
+  %13 = alloca <4 x float>, align 16
+  %14 = alloca <4 x float>, align 16
+  %15 = alloca i8, align 1
+  %16 = alloca <4 x float>, align 16
+  %17 = alloca <4 x float>, align 16
+  %18 = alloca %"struct.mitsuba::Spectrum", align 16
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca %"struct.mitsuba::Spectrum", align 16
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca %"struct.mitsuba::Spectrum", align 16
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca %"struct.mitsuba::Spectrum", align 16
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca ptr, align 8
+  %37 = alloca %"struct.mitsuba::Spectrum", align 16
+  %38 = alloca ptr, align 8
+  %39 = alloca ptr, align 8
+  %40 = alloca ptr, align 8
+  %41 = alloca ptr, align 8
+  %42 = alloca ptr, align 8
+  %43 = alloca ptr, align 8
+  %44 = alloca %"struct.mitsuba::Spectrum", align 16
+  %45 = alloca ptr, align 8
+  %46 = alloca ptr, align 8
+  %47 = alloca ptr, align 8
+  %48 = alloca ptr, align 8
+  %49 = alloca ptr, align 8
+  %50 = alloca ptr, align 8
+  %51 = alloca %"struct.mitsuba::Spectrum", align 16
+  %52 = alloca ptr, align 8
+  %53 = alloca ptr, align 8
+  %54 = alloca ptr, align 8
+  %55 = alloca ptr, align 8
+  %56 = alloca ptr, align 8
+  %57 = alloca ptr, align 8
+  %58 = alloca %"struct.mitsuba::Spectrum", align 16
+  %59 = alloca ptr, align 8
+  %60 = alloca ptr, align 8
+  %61 = alloca ptr, align 8
+  %62 = alloca ptr, align 8
+  %63 = alloca <4 x float>, align 16
+  %64 = alloca <4 x float>, align 16
+  %65 = alloca <4 x float>, align 16
+  %66 = alloca <4 x float>, align 16
+  %67 = alloca <4 x float>, align 16
+  %68 = alloca <4 x float>, align 16
+  %69 = alloca %"struct.mitsuba::Spectrum", align 16
+  %70 = alloca ptr, align 8
+  %71 = alloca ptr, align 8
+  %72 = alloca %"struct.mitsuba::Spectrum", align 16
+  %73 = alloca ptr, align 8
+  %74 = alloca ptr, align 8
+  %75 = alloca %"struct.mitsuba::Spectrum", align 16
+  %76 = alloca ptr, align 8
+  %77 = alloca ptr, align 8
+  %78 = alloca <4 x float>, align 16
+  %79 = alloca <4 x float>, align 16
+  %80 = alloca float, align 4
+  %81 = alloca <4 x float>, align 16
+  %82 = alloca %"struct.mitsuba::Spectrum", align 16
+  %83 = alloca ptr, align 8
+  %84 = alloca <4 x float>, align 16
+  %85 = alloca <4 x float>, align 16
+  %86 = alloca %"struct.mitsuba::Spectrum", align 16
+  %87 = alloca ptr, align 8
+  %88 = alloca ptr, align 8
+  %89 = alloca %"struct.drjit::Mask", align 1
+  %90 = alloca ptr, align 8
+  %91 = alloca %"struct.drjit::Mask", align 1
+  %92 = alloca ptr, align 8
+  %93 = alloca ptr, align 8
+  %94 = alloca i8, align 1
+  %95 = alloca %"struct.drjit::Mask", align 1
+  %96 = alloca ptr, align 8
+  %97 = alloca %"struct.drjit::Mask", align 1
+  %98 = alloca ptr, align 8
+  %99 = alloca ptr, align 8
+  %100 = alloca i8, align 1
+  %101 = alloca %"struct.drjit::Mask", align 1
+  %102 = alloca ptr, align 8
+  %103 = alloca %"struct.drjit::Mask", align 1
+  %104 = alloca ptr, align 8
+  %105 = alloca ptr, align 8
+  %106 = alloca i8, align 1
+  %107 = alloca %"struct.drjit::Mask", align 1
+  %108 = alloca ptr, align 8
+  %109 = alloca %"struct.drjit::Mask", align 1
+  %110 = alloca ptr, align 8
+  %111 = alloca ptr, align 8
+  %112 = alloca i8, align 1
+  %113 = alloca i8, align 1
+  %114 = alloca i8, align 1
+  %115 = alloca %"struct.drjit::Mask", align 1
+  %116 = alloca ptr, align 8
+  %117 = alloca %"struct.drjit::Mask", align 1
+  %118 = alloca ptr, align 8
+  %119 = alloca i8, align 1
+  %120 = alloca %"struct.drjit::Mask", align 1
+  %121 = alloca ptr, align 8
+  %122 = alloca %"struct.drjit::Mask", align 1
+  %123 = alloca ptr, align 8
+  %124 = alloca i8, align 1
+  %125 = alloca <4 x float>, align 16
+  %126 = alloca <4 x float>, align 16
+  %127 = alloca <4 x float>, align 16
+  %128 = alloca %"struct.mitsuba::Spectrum", align 16
+  %129 = alloca ptr, align 8
+  %130 = alloca ptr, align 8
+  %131 = alloca ptr, align 8
+  %132 = alloca <4 x float>, align 16
+  %133 = alloca <4 x float>, align 16
+  %134 = alloca <4 x float>, align 16
+  %135 = alloca <4 x float>, align 16
+  %136 = alloca %"struct.mitsuba::Spectrum", align 16
+  %137 = alloca ptr, align 8
+  %138 = alloca ptr, align 8
+  %139 = alloca %"struct.mitsuba::Spectrum", align 16
+  %140 = alloca ptr, align 8
+  %141 = alloca ptr, align 8
+  %142 = alloca %"struct.drjit::Mask", align 1
+  %143 = alloca ptr, align 8
+  %144 = alloca %"struct.drjit::Mask", align 1
+  %145 = alloca ptr, align 8
+  %146 = alloca ptr, align 8
+  %147 = alloca i8, align 1
+  %148 = alloca ptr, align 8
+  %149 = alloca ptr, align 8
+  %150 = alloca %"struct.drjit::Mask", align 1
+  %151 = alloca ptr, align 8
+  %152 = alloca ptr, align 8
+  %153 = alloca ptr, align 8
+  %154 = alloca i64, align 8
+  %155 = alloca ptr, align 8
+  %156 = alloca i64, align 8
+  %157 = alloca ptr, align 8
+  %158 = alloca i64, align 8
+  %159 = alloca ptr, align 8
+  %160 = alloca i64, align 8
+  %161 = alloca ptr, align 8
+  %162 = alloca i64, align 8
+  %163 = alloca ptr, align 8
+  %164 = alloca i64, align 8
+  %165 = alloca ptr, align 8
+  %166 = alloca ptr, align 8
+  %167 = alloca ptr, align 8
+  %168 = alloca ptr, align 8
+  %169 = alloca ptr, align 8
+  %170 = alloca ptr, align 8
+  %171 = alloca i8, align 1
+  %172 = alloca i8, align 1
+  %173 = alloca i8, align 1
+  %174 = alloca i8, align 1
+  %175 = alloca i8, align 1
+  %176 = alloca i8, align 1
+  %177 = alloca i8, align 1
+  %178 = alloca i8, align 1
+  %179 = alloca %"struct.drjit::Mask", align 1
+  %180 = alloca ptr, align 8
+  %181 = alloca %"struct.drjit::Mask", align 1
+  %182 = alloca ptr, align 8
+  %183 = alloca %"struct.drjit::Mask", align 1
+  %184 = alloca ptr, align 8
+  %185 = alloca %"struct.drjit::Mask", align 1
+  %186 = alloca ptr, align 8
+  %187 = alloca %"struct.drjit::Mask", align 1
+  %188 = alloca ptr, align 8
+  %189 = alloca ptr, align 8
+  %190 = alloca i8, align 1
+  %191 = alloca %"struct.drjit::Mask", align 1
+  %192 = alloca ptr, align 8
+  %193 = alloca ptr, align 8
+  %194 = alloca i8, align 1
+  %195 = alloca %"struct.drjit::Mask", align 1
+  %196 = alloca ptr, align 8
+  %197 = alloca ptr, align 8
+  %198 = alloca i8, align 1
+  %199 = alloca %"struct.drjit::Mask", align 1
+  %200 = alloca ptr, align 8
+  %201 = alloca ptr, align 8
+  %202 = alloca i8, align 1
+  %203 = alloca ptr, align 8
+  %204 = alloca ptr, align 8
+  %205 = alloca ptr, align 8
+  %206 = alloca ptr, align 8
+  %207 = alloca ptr, align 8
+  %208 = alloca ptr, align 8
+  %209 = alloca ptr, align 8
+  %210 = alloca ptr, align 8
+  %211 = alloca <4 x float>, align 16
+  %212 = alloca <4 x float>, align 16
+  %213 = alloca <4 x float>, align 16
+  %214 = alloca <4 x float>, align 16
+  %215 = alloca %"struct.mitsuba::Spectrum", align 16
+  %216 = alloca ptr, align 8
+  %217 = alloca ptr, align 8
+  %218 = alloca %"struct.mitsuba::Spectrum", align 16
+  %219 = alloca ptr, align 8
+  %220 = alloca ptr, align 8
+  %221 = alloca ptr, align 8
+  %222 = alloca ptr, align 8
+  %223 = alloca ptr, align 8
+  %224 = alloca ptr, align 8
+  %225 = alloca ptr, align 8
+  %226 = alloca ptr, align 8
+  %227 = alloca ptr, align 8
+  %228 = alloca ptr, align 8
+  %229 = alloca ptr, align 8
+  %230 = alloca ptr, align 8
+  %231 = alloca ptr, align 8
+  %232 = alloca ptr, align 8
+  %233 = alloca ptr, align 8
+  %234 = alloca ptr, align 8
+  %235 = alloca ptr, align 8
+  %236 = alloca ptr, align 8
+  %237 = alloca ptr, align 8
+  %238 = alloca ptr, align 8
+  %239 = alloca ptr, align 8
+  %240 = alloca ptr, align 8
+  %241 = alloca ptr, align 8
+  %242 = alloca ptr, align 8
+  %243 = alloca ptr, align 8
+  %244 = alloca ptr, align 8
+  %245 = alloca ptr, align 8
+  %246 = alloca ptr, align 8
+  %247 = alloca ptr, align 8
+  %248 = alloca %"struct.mitsuba::Spectrum", align 16
+  %249 = alloca ptr, align 8
+  %250 = alloca ptr, align 8
+  %251 = alloca %"struct.mitsuba::Spectrum", align 16
+  %252 = alloca ptr, align 8
+  %253 = alloca ptr, align 8
+  %254 = alloca %"struct.mitsuba::Spectrum", align 16
+  %255 = alloca %"struct.mitsuba::Spectrum", align 16
+  %256 = alloca ptr, align 8
+  %257 = alloca ptr, align 8
+  %258 = alloca float, align 4
+  %259 = alloca float, align 4
+  %260 = alloca %"struct.mitsuba::Spectrum", align 16
+  %261 = alloca ptr, align 8
+  %262 = alloca ptr, align 8
+  %263 = alloca %"struct.mitsuba::Spectrum", align 16
+  %264 = alloca ptr, align 8
+  %265 = alloca ptr, align 8
+  %266 = alloca %"struct.mitsuba::Spectrum", align 16
+  %267 = alloca ptr, align 8
+  %268 = alloca ptr, align 8
+  %269 = alloca %"struct.mitsuba::Spectrum", align 16
+  %270 = alloca ptr, align 8
+  %271 = alloca %"struct.drjit::Mask", align 1
+  %272 = alloca ptr, align 8
+  %273 = alloca ptr, align 8
+  %274 = alloca %"struct.drjit::Mask", align 1
+  %275 = alloca ptr, align 8
+  %276 = alloca ptr, align 8
+  %277 = alloca %"struct.mitsuba::Spectrum", align 16
+  %278 = alloca %"struct.drjit::Mask", align 1
+  %279 = alloca ptr, align 8
+  %280 = alloca ptr, align 8
+  %281 = alloca %"struct.drjit::Mask", align 1
+  %282 = alloca ptr, align 8
+  %283 = alloca ptr, align 8
+  %284 = alloca %"struct.mitsuba::Spectrum", align 16
+  %285 = alloca ptr, align 8
+  %286 = alloca ptr, align 8
+  %287 = alloca %"struct.mitsuba::Spectrum", align 16
+  %288 = alloca ptr, align 8
+  %289 = alloca ptr, align 8
+  %290 = alloca %"struct.mitsuba::Spectrum", align 16
+  %291 = alloca ptr, align 8
+  %292 = alloca ptr, align 8
+  %293 = alloca %"struct.mitsuba::Spectrum", align 16
+  %294 = alloca ptr, align 8
+  %295 = alloca ptr, align 8
+  %296 = alloca %"struct.mitsuba::Spectrum", align 16
+  %297 = alloca ptr, align 8
+  %298 = alloca ptr, align 8
+  %299 = alloca %"struct.mitsuba::Spectrum", align 16
+  %300 = alloca ptr, align 8
+  %301 = alloca ptr, align 8
+  %302 = alloca ptr, align 8
+  %303 = alloca ptr, align 8
+  %304 = alloca ptr, align 8
+  %305 = alloca ptr, align 8
+  %306 = alloca ptr, align 8
+  %307 = alloca ptr, align 8
+  %308 = alloca ptr, align 8
+  %309 = alloca ptr, align 8
+  %310 = alloca ptr, align 8
+  %311 = alloca ptr, align 8
+  %312 = alloca %"struct.mitsuba::Spectrum", align 16
+  %313 = alloca ptr, align 8
+  %314 = alloca ptr, align 8
+  %315 = alloca %"struct.drjit::Mask", align 1
+  %316 = alloca ptr, align 8
+  %317 = alloca ptr, align 8
+  %318 = alloca %"struct.drjit::Mask", align 1
+  %319 = alloca ptr, align 8
+  %320 = alloca ptr, align 8
+  %321 = alloca %"struct.drjit::Mask", align 1
+  %322 = alloca ptr, align 8
+  %323 = alloca %"struct.drjit::Mask", align 1
+  %324 = alloca ptr, align 8
+  %325 = alloca %"struct.mitsuba::Spectrum", align 16
+  %326 = alloca ptr, align 8
+  %327 = alloca ptr, align 8
+  %328 = alloca ptr, align 8
+  %329 = alloca %"struct.mitsuba::Spectrum", align 16
+  %330 = alloca ptr, align 8
+  %331 = alloca ptr, align 8
+  %332 = alloca %"struct.mitsuba::Spectrum", align 16
+  %333 = alloca ptr, align 8
+  %334 = alloca ptr, align 8
+  %335 = alloca %"struct.mitsuba::Spectrum", align 16
+  %336 = alloca %"struct.mitsuba::Spectrum", align 16
+  %337 = alloca ptr, align 8
+  %338 = alloca ptr, align 8
+  %339 = alloca %"struct.mitsuba::Spectrum", align 16
+  %340 = alloca ptr, align 8
+  %341 = alloca ptr, align 8
+  %342 = alloca ptr, align 8
+  %343 = alloca ptr, align 8
+  %344 = alloca ptr, align 8
+  %345 = alloca %"struct.drjit::Mask", align 1
+  %346 = alloca ptr, align 8
+  %347 = alloca ptr, align 8
+  %348 = alloca %"struct.mitsuba::Spectrum", align 16
+  %349 = alloca ptr, align 8
+  %350 = alloca ptr, align 8
+  %351 = alloca ptr, align 8
+  %352 = alloca %"struct.drjit::Mask", align 1
+  %353 = alloca ptr, align 8
+  %354 = alloca ptr, align 8
+  %355 = alloca %"struct.drjit::Mask", align 1
+  %356 = alloca ptr, align 8
+  %357 = alloca ptr, align 8
+  %358 = alloca %"struct.drjit::Mask", align 1
+  %359 = alloca ptr, align 8
+  %360 = alloca ptr, align 8
+  %361 = alloca %"struct.drjit::Mask", align 1
+  %362 = alloca ptr, align 8
+  %363 = alloca ptr, align 8
+  %364 = alloca ptr, align 8
+  %365 = alloca ptr, align 8
+  %366 = alloca ptr, align 8
+  %367 = alloca i8, align 1
+  %368 = alloca %"struct.mitsuba::ScopedPhase", align 1
+  %369 = alloca %"struct.drjit::Mask", align 1
+  %370 = alloca ptr, align 8
+  %371 = alloca i32, align 4
+  %372 = alloca %"struct.mitsuba::Spectrum", align 16
+  %373 = alloca %"struct.mitsuba::Spectrum", align 16
+  %374 = alloca %"struct.mitsuba::Spectrum", align 16
+  %375 = alloca float, align 4
+  %376 = alloca float, align 4
+  %377 = alloca float, align 4
+  %378 = alloca %"struct.mitsuba::Spectrum", align 16
+  %379 = alloca %"struct.mitsuba::Spectrum", align 16
+  %380 = alloca %"struct.mitsuba::Spectrum", align 16
+  %381 = alloca %"struct.mitsuba::Spectrum", align 16
+  %382 = alloca %"struct.mitsuba::Spectrum", align 16
+  %383 = alloca %"struct.drjit::Mask", align 1
+  %384 = alloca %"struct.drjit::Mask", align 1
+  %385 = alloca %"struct.drjit::Mask", align 1
+  %386 = alloca %"struct.drjit::Mask", align 1
+  %387 = alloca %"struct.mitsuba::Spectrum", align 16
+  %388 = alloca float, align 4
+  %389 = alloca %"struct.mitsuba::Spectrum", align 16
+  %390 = alloca %"struct.drjit::detail::MaskedArray", align 8
+  %391 = alloca %"struct.drjit::Mask", align 1
+  %392 = alloca %"struct.std::__1::pair.35", align 16
+  %393 = alloca %"struct.mitsuba::Spectrum", align 16
+  %394 = alloca %"class.std::__1::tuple", align 8
+  %395 = alloca %"struct.drjit::Mask", align 1
+  %396 = alloca %"struct.drjit::Mask", align 1
+  %397 = alloca %"struct.drjit::Mask", align 1
+  %398 = alloca %"struct.mitsuba::Spectrum", align 16
+  %399 = alloca %"struct.drjit::Mask", align 1
+  %400 = alloca %"struct.mitsuba::Spectrum", align 16
+  %401 = alloca %"struct.drjit::Mask", align 1
+  %402 = alloca float, align 4
+  %403 = alloca %"struct.drjit::detail::MaskedArray", align 8
+  %404 = alloca %"struct.drjit::detail::MaskedArray", align 8
+  %405 = alloca %"struct.drjit::Mask", align 1
+  %406 = alloca %"struct.mitsuba::Spectrum", align 16
+  %407 = alloca %"struct.mitsuba::Spectrum", align 16
+  %408 = alloca %"struct.drjit::detail::MaskedArray", align 8
+  %409 = alloca %"struct.mitsuba::Spectrum", align 16
+  %410 = alloca %"struct.mitsuba::Spectrum", align 16
+  %411 = alloca %"struct.mitsuba::Spectrum", align 16
+  store ptr %1, ptr %364, align 8
+  store ptr %2, ptr %365, align 8
+  store ptr %3, ptr %366, align 8
+  %412 = zext i1 %4 to i8
+  store i8 %412, ptr %367, align 1
+  %413 = load ptr, ptr %364, align 8
+  call void @_ZN7mitsuba11ScopedPhaseC2ENS_13ProfilerPhaseE(ptr noundef nonnull align 1 dereferenceable(1) %368, i32 noundef 24)
+  store i8 1, ptr %367, align 1
+  invoke void @_ZN5drjit4MaskIfLm4EECI2NS_8MaskBaseIfLm4ES1_EEIRbNS2_IfLm4ES1_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %369, ptr noundef nonnull align 1 dereferenceable(1) %367)
+          to label %414 unwind label %867
+
+414:                                              ; preds = %5
+  %415 = load ptr, ptr %366, align 8
+  %416 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %413, i32 0, i32 3
+  %417 = load float, ptr %416, align 8
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %373, float noundef %417)
+          to label %418 unwind label %867
+
+418:                                              ; preds = %414
+  %419 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %413, i32 0, i32 2
+  %420 = load float, ptr %419, align 4
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %374, float noundef %420)
+          to label %421 unwind label %867
+
+421:                                              ; preds = %418
+  store ptr %415, ptr %326, align 8
+  store ptr %373, ptr %327, align 8
+  store ptr %374, ptr %328, align 8
+  %422 = load ptr, ptr %326, align 8
+  store ptr %422, ptr %227, align 8
+  %423 = load ptr, ptr %227, align 8
+  %424 = load ptr, ptr %327, align 8
+  store ptr %424, ptr %228, align 8
+  %425 = load ptr, ptr %228, align 8
+  %426 = load ptr, ptr %328, align 8
+  store ptr %426, ptr %229, align 8
+  %427 = load ptr, ptr %229, align 8
+  store ptr %423, ptr %129, align 8
+  store ptr %425, ptr %130, align 8
+  store ptr %427, ptr %131, align 8
+  %428 = load ptr, ptr %129, align 8
+  %429 = load <4 x float>, ptr %428, align 16
+  %430 = load ptr, ptr %130, align 8
+  %431 = load <4 x float>, ptr %430, align 16
+  %432 = load ptr, ptr %131, align 8
+  %433 = load <4 x float>, ptr %432, align 16
+  store <4 x float> %429, ptr %125, align 16
+  store <4 x float> %431, ptr %126, align 16
+  store <4 x float> %433, ptr %127, align 16
+  %434 = load <4 x float>, ptr %125, align 16
+  %435 = load <4 x float>, ptr %126, align 16
+  %436 = load <4 x float>, ptr %127, align 16
+  %437 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %434, <4 x float> %435, <4 x float> %436)
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %128, <4 x float> noundef %437)
+          to label %438 unwind label %867
+
+438:                                              ; preds = %421
+  %439 = load <4 x float>, ptr %128, align 16
+  br label %440
+
+440:                                              ; preds = %438
+  store <4 x float> %439, ptr %325, align 16
+  %441 = load <4 x float>, ptr %325, align 16
+  br label %442
+
+442:                                              ; preds = %440
+  %443 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %372, i32 0, i32 0
+  %444 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %443, i32 0, i32 0
+  store <4 x float> %441, ptr %444, align 16
+  store float 0x3EE4F8B580000000, ptr %375, align 4
+  %445 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %413, i32 0, i32 4
+  store ptr %445, ptr %342, align 8
+  %446 = load ptr, ptr %342, align 8
+  store ptr %446, ptr %170, align 8
+  %447 = load ptr, ptr %170, align 8
+  store ptr %447, ptr %163, align 8
+  store i64 1, ptr %164, align 8
+  %448 = load ptr, ptr %163, align 8
+  %449 = load i64, ptr %164, align 8
+  %450 = getelementptr inbounds [2 x float], ptr %448, i64 0, i64 %449
+  br label %451
+
+451:                                              ; preds = %442
+  %452 = load float, ptr %450, align 4
+  %453 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %413, i32 0, i32 4
+  store ptr %453, ptr %349, align 8
+  %454 = load ptr, ptr %349, align 8
+  store ptr %454, ptr %167, align 8
+  %455 = load ptr, ptr %167, align 8
+  store ptr %455, ptr %157, align 8
+  store i64 0, ptr %158, align 8
+  %456 = load ptr, ptr %157, align 8
+  %457 = load i64, ptr %158, align 8
+  %458 = getelementptr inbounds [2 x float], ptr %456, i64 0, i64 %457
+  br label %459
+
+459:                                              ; preds = %451
+  %460 = load float, ptr %458, align 4
+  %461 = fsub contract float %452, %460
+  %462 = fmul contract float 0x3EE4F8B580000000, %461
+  store float %462, ptr %376, align 4
+  %463 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %413, i32 0, i32 3
+  %464 = load float, ptr %463, align 8
+  %465 = fmul contract float 0x3EE4F8B580000000, %464
+  store float %465, ptr %377, align 4
+  %466 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %413, i32 0, i32 4
+  store ptr %466, ptr %350, align 8
+  %467 = load ptr, ptr %350, align 8
+  store ptr %467, ptr %166, align 8
+  %468 = load ptr, ptr %166, align 8
+  store ptr %468, ptr %155, align 8
+  store i64 0, ptr %156, align 8
+  %469 = load ptr, ptr %155, align 8
+  %470 = load i64, ptr %156, align 8
+  %471 = getelementptr inbounds [2 x float], ptr %469, i64 0, i64 %470
+  br label %472
+
+472:                                              ; preds = %459
+  %473 = load float, ptr %471, align 4
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %378, float noundef %473)
+          to label %474 unwind label %867
+
+474:                                              ; preds = %472
+  %475 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %413, i32 0, i32 4
+  store ptr %475, ptr %343, align 8
+  %476 = load ptr, ptr %343, align 8
+  store ptr %476, ptr %169, align 8
+  %477 = load ptr, ptr %169, align 8
+  store ptr %477, ptr %161, align 8
+  store i64 1, ptr %162, align 8
+  %478 = load ptr, ptr %161, align 8
+  %479 = load i64, ptr %162, align 8
+  %480 = getelementptr inbounds [2 x float], ptr %478, i64 0, i64 %479
+  br label %481
+
+481:                                              ; preds = %474
+  %482 = load float, ptr %480, align 4
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %379, float noundef %482)
+          to label %483 unwind label %867
+
+483:                                              ; preds = %481
+  %484 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %413, i32 0, i32 4
+  store ptr %484, ptr %351, align 8
+  %485 = load ptr, ptr %351, align 8
+  store ptr %485, ptr %165, align 8
+  %486 = load ptr, ptr %165, align 8
+  store ptr %486, ptr %153, align 8
+  store i64 0, ptr %154, align 8
+  %487 = load ptr, ptr %153, align 8
+  %488 = load i64, ptr %154, align 8
+  %489 = getelementptr inbounds [2 x float], ptr %487, i64 0, i64 %488
+  br label %490
+
+490:                                              ; preds = %483
+  %491 = load float, ptr %489, align 4
+  %492 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %413, i32 0, i32 4
+  store ptr %492, ptr %344, align 8
+  %493 = load ptr, ptr %344, align 8
+  store ptr %493, ptr %168, align 8
+  %494 = load ptr, ptr %168, align 8
+  store ptr %494, ptr %159, align 8
+  store i64 1, ptr %160, align 8
+  %495 = load ptr, ptr %159, align 8
+  %496 = load i64, ptr %160, align 8
+  %497 = getelementptr inbounds [2 x float], ptr %495, i64 0, i64 %496
+  br label %498
+
+498:                                              ; preds = %490
+  %499 = load float, ptr %497, align 4
+  %500 = fadd contract float %491, %499
+  %501 = fmul contract float 5.000000e-01, %500
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %380, float noundef %501)
+          to label %502 unwind label %867
+
+502:                                              ; preds = %498
+  br label %503
+
+503:                                              ; preds = %1049, %502
+  store ptr %380, ptr %319, align 8
+  store ptr %378, ptr %320, align 8
+  %504 = load ptr, ptr %319, align 8
+  store ptr %504, ptr %230, align 8
+  %505 = load ptr, ptr %230, align 8
+  %506 = load ptr, ptr %320, align 8
+  store ptr %506, ptr %231, align 8
+  %507 = load ptr, ptr %231, align 8
+  store ptr %505, ptr %98, align 8
+  store ptr %507, ptr %99, align 8
+  %508 = load ptr, ptr %98, align 8
+  %509 = load <4 x float>, ptr %508, align 16
+  %510 = load ptr, ptr %99, align 8
+  %511 = load <4 x float>, ptr %510, align 16
+  %512 = fcmp contract ogt <4 x float> %509, %511
+  %513 = shufflevector <4 x i1> %512, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %514 = bitcast <8 x i1> %513 to i8
+  store i8 %514, ptr %100, align 1
+  store ptr %100, ptr %96, align 8
+  %515 = load ptr, ptr %96, align 8
+  %516 = load i8, ptr %515, align 1
+  store i8 %516, ptr %95, align 1
+  %517 = load i8, ptr %95, align 1
+  store i8 %517, ptr %97, align 1
+  %518 = load i8, ptr %97, align 1
+  store i8 %518, ptr %318, align 1
+  %519 = load i8, ptr %318, align 1
+  br label %520
+
+520:                                              ; preds = %503
+  %521 = getelementptr inbounds %"struct.drjit::Mask", ptr %385, i32 0, i32 0
+  %522 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %521, i32 0, i32 0
+  %523 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %522, i32 0, i32 0
+  %524 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %523, i32 0, i32 0
+  store i8 %519, ptr %524, align 1
+  store ptr %380, ptr %316, align 8
+  store ptr %379, ptr %317, align 8
+  %525 = load ptr, ptr %316, align 8
+  store ptr %525, ptr %232, align 8
+  %526 = load ptr, ptr %232, align 8
+  %527 = load ptr, ptr %317, align 8
+  store ptr %527, ptr %233, align 8
+  %528 = load ptr, ptr %233, align 8
+  store ptr %526, ptr %92, align 8
+  store ptr %528, ptr %93, align 8
+  %529 = load ptr, ptr %92, align 8
+  %530 = load <4 x float>, ptr %529, align 16
+  %531 = load ptr, ptr %93, align 8
+  %532 = load <4 x float>, ptr %531, align 16
+  %533 = fcmp contract olt <4 x float> %530, %532
+  %534 = shufflevector <4 x i1> %533, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %535 = bitcast <8 x i1> %534 to i8
+  store i8 %535, ptr %94, align 1
+  store ptr %94, ptr %90, align 8
+  %536 = load ptr, ptr %90, align 8
+  %537 = load i8, ptr %536, align 1
+  store i8 %537, ptr %89, align 1
+  %538 = load i8, ptr %89, align 1
+  store i8 %538, ptr %91, align 1
+  %539 = load i8, ptr %91, align 1
+  store i8 %539, ptr %315, align 1
+  %540 = load i8, ptr %315, align 1
+  br label %541
+
+541:                                              ; preds = %520
+  %542 = getelementptr inbounds %"struct.drjit::Mask", ptr %386, i32 0, i32 0
+  %543 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %542, i32 0, i32 0
+  %544 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %543, i32 0, i32 0
+  %545 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %544, i32 0, i32 0
+  store i8 %540, ptr %545, align 1
+  store ptr %385, ptr %353, align 8
+  store ptr %386, ptr %354, align 8
+  %546 = load ptr, ptr %353, align 8
+  store ptr %546, ptr %209, align 8
+  %547 = load ptr, ptr %209, align 8
+  %548 = load ptr, ptr %354, align 8
+  store ptr %548, ptr %210, align 8
+  %549 = load ptr, ptr %210, align 8
+  store ptr %547, ptr %200, align 8
+  store ptr %549, ptr %201, align 8
+  %550 = load ptr, ptr %200, align 8
+  %551 = load i8, ptr %550, align 1
+  %552 = load ptr, ptr %201, align 8
+  %553 = load i8, ptr %552, align 1
+  store i8 %551, ptr %171, align 1
+  store i8 %553, ptr %172, align 1
+  %554 = load i8, ptr %171, align 1
+  %555 = load i8, ptr %172, align 1
+  %556 = bitcast i8 %554 to <8 x i1>
+  %557 = bitcast i8 %555 to <8 x i1>
+  %558 = and <8 x i1> %556, %557
+  %559 = bitcast <8 x i1> %558 to i8
+  store i8 %559, ptr %202, align 1
+  store ptr %202, ptr %180, align 8
+  %560 = load ptr, ptr %180, align 8
+  %561 = load i8, ptr %560, align 1
+  store i8 %561, ptr %179, align 1
+  %562 = load i8, ptr %179, align 1
+  store i8 %562, ptr %199, align 1
+  %563 = load i8, ptr %199, align 1
+  br label %564
+
+564:                                              ; preds = %541
+  store i8 %563, ptr %352, align 1
+  %565 = load i8, ptr %352, align 1
+  br label %566
+
+566:                                              ; preds = %564
+  %567 = getelementptr inbounds %"struct.drjit::Mask", ptr %384, i32 0, i32 0
+  %568 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %567, i32 0, i32 0
+  %569 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %568, i32 0, i32 0
+  %570 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %569, i32 0, i32 0
+  store i8 %565, ptr %570, align 1
+  store ptr %384, ptr %322, align 8
+  %571 = load ptr, ptr %322, align 8
+  store ptr %571, ptr %123, align 8
+  %572 = load ptr, ptr %123, align 8
+  %573 = load i8, ptr %572, align 1
+  store i8 %573, ptr %113, align 1
+  %574 = load i8, ptr %113, align 1
+  %575 = bitcast i8 %574 to <8 x i1>
+  %576 = xor <8 x i1> %575, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %577 = bitcast <8 x i1> %576 to i8
+  store i8 %577, ptr %124, align 1
+  store ptr %124, ptr %121, align 8
+  %578 = load ptr, ptr %121, align 8
+  %579 = load i8, ptr %578, align 1
+  store i8 %579, ptr %120, align 1
+  %580 = load i8, ptr %120, align 1
+  store i8 %580, ptr %122, align 1
+  %581 = load i8, ptr %122, align 1
+  br label %582
+
+582:                                              ; preds = %566
+  store i8 %581, ptr %321, align 1
+  %583 = load i8, ptr %321, align 1
+  br label %584
+
+584:                                              ; preds = %582
+  %585 = getelementptr inbounds %"struct.drjit::Mask", ptr %383, i32 0, i32 0
+  %586 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %585, i32 0, i32 0
+  %587 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %586, i32 0, i32 0
+  %588 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %587, i32 0, i32 0
+  store i8 %583, ptr %588, align 1
+  store float 5.000000e-01, ptr %388, align 4
+  store ptr %378, ptr %313, align 8
+  store ptr %379, ptr %314, align 8
+  %589 = load ptr, ptr %313, align 8
+  store ptr %589, ptr %234, align 8
+  %590 = load ptr, ptr %234, align 8
+  %591 = load ptr, ptr %314, align 8
+  store ptr %591, ptr %235, align 8
+  %592 = load ptr, ptr %235, align 8
+  store ptr %590, ptr %87, align 8
+  store ptr %592, ptr %88, align 8
+  %593 = load ptr, ptr %87, align 8
+  %594 = load <4 x float>, ptr %593, align 16
+  %595 = load ptr, ptr %88, align 8
+  %596 = load <4 x float>, ptr %595, align 16
+  store <4 x float> %594, ptr %84, align 16
+  store <4 x float> %596, ptr %85, align 16
+  %597 = load <4 x float>, ptr %84, align 16
+  %598 = load <4 x float>, ptr %85, align 16
+  %599 = fadd contract <4 x float> %597, %598
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %86, <4 x float> noundef %599)
+          to label %600 unwind label %867
+
+600:                                              ; preds = %584
+  %601 = load <4 x float>, ptr %86, align 16
+  br label %602
+
+602:                                              ; preds = %600
+  store <4 x float> %601, ptr %312, align 16
+  %603 = load <4 x float>, ptr %312, align 16
+  br label %604
+
+604:                                              ; preds = %602
+  %605 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %389, i32 0, i32 0
+  %606 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %605, i32 0, i32 0
+  store <4 x float> %603, ptr %606, align 16
+  store ptr %388, ptr %333, align 8
+  store ptr %389, ptr %334, align 8
+  %607 = load ptr, ptr %333, align 8
+  %608 = load float, ptr %607, align 4
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %335, float noundef %608)
+          to label %609 unwind label %867
+
+609:                                              ; preds = %604
+  %610 = load ptr, ptr %334, align 8
+  store ptr %335, ptr %330, align 8
+  store ptr %610, ptr %331, align 8
+  %611 = load ptr, ptr %330, align 8
+  store ptr %611, ptr %225, align 8
+  %612 = load ptr, ptr %225, align 8
+  %613 = load ptr, ptr %331, align 8
+  store ptr %613, ptr %226, align 8
+  %614 = load ptr, ptr %226, align 8
+  store ptr %612, ptr %216, align 8
+  store ptr %614, ptr %217, align 8
+  %615 = load ptr, ptr %216, align 8
+  %616 = load <4 x float>, ptr %615, align 16
+  %617 = load ptr, ptr %217, align 8
+  %618 = load <4 x float>, ptr %617, align 16
+  store <4 x float> %616, ptr %213, align 16
+  store <4 x float> %618, ptr %214, align 16
+  %619 = load <4 x float>, ptr %213, align 16
+  %620 = load <4 x float>, ptr %214, align 16
+  %621 = fmul contract <4 x float> %619, %620
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %215, <4 x float> noundef %621)
+          to label %622 unwind label %867
+
+622:                                              ; preds = %609
+  %623 = load <4 x float>, ptr %215, align 16
+  br label %624
+
+624:                                              ; preds = %622
+  store <4 x float> %623, ptr %329, align 16
+  %625 = load <4 x float>, ptr %329, align 16
+  store <4 x float> %625, ptr %332, align 16
+  %626 = load <4 x float>, ptr %332, align 16
+  br label %627
+
+627:                                              ; preds = %624
+  %628 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %387, i32 0, i32 0
+  %629 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %628, i32 0, i32 0
+  store <4 x float> %626, ptr %629, align 16
+  store ptr %383, ptr %356, align 8
+  store ptr %369, ptr %357, align 8
+  %630 = load ptr, ptr %356, align 8
+  store ptr %630, ptr %207, align 8
+  %631 = load ptr, ptr %207, align 8
+  %632 = load ptr, ptr %357, align 8
+  store ptr %632, ptr %208, align 8
+  %633 = load ptr, ptr %208, align 8
+  store ptr %631, ptr %196, align 8
+  store ptr %633, ptr %197, align 8
+  %634 = load ptr, ptr %196, align 8
+  %635 = load i8, ptr %634, align 1
+  %636 = load ptr, ptr %197, align 8
+  %637 = load i8, ptr %636, align 1
+  store i8 %635, ptr %173, align 1
+  store i8 %637, ptr %174, align 1
+  %638 = load i8, ptr %173, align 1
+  %639 = load i8, ptr %174, align 1
+  %640 = bitcast i8 %638 to <8 x i1>
+  %641 = bitcast i8 %639 to <8 x i1>
+  %642 = and <8 x i1> %640, %641
+  %643 = bitcast <8 x i1> %642 to i8
+  store i8 %643, ptr %198, align 1
+  store ptr %198, ptr %182, align 8
+  %644 = load ptr, ptr %182, align 8
+  %645 = load i8, ptr %644, align 1
+  store i8 %645, ptr %181, align 1
+  %646 = load i8, ptr %181, align 1
+  store i8 %646, ptr %195, align 1
+  %647 = load i8, ptr %195, align 1
+  br label %648
+
+648:                                              ; preds = %627
+  store i8 %647, ptr %355, align 1
+  %649 = load i8, ptr %355, align 1
+  br label %650
+
+650:                                              ; preds = %648
+  %651 = getelementptr inbounds %"struct.drjit::Mask", ptr %391, i32 0, i32 0
+  %652 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %651, i32 0, i32 0
+  %653 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %652, i32 0, i32 0
+  %654 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %653, i32 0, i32 0
+  store i8 %649, ptr %654, align 1
+  call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  store ptr %390, ptr %300, align 8, !noalias !9
+  store ptr %380, ptr %301, align 8, !noalias !9
+  store ptr %391, ptr %302, align 8, !noalias !9
+  %655 = load ptr, ptr %301, align 8, !noalias !9
+  %656 = load ptr, ptr %302, align 8, !noalias !9
+  call void @_ZN5drjit6detail11MaskedArrayIN7mitsuba8SpectrumIfLm4EEEEC2ERS4_RKNS_4MaskIfLm4EEE(ptr noundef nonnull align 8 dereferenceable(9) %390, ptr noundef nonnull align 16 dereferenceable(16) %655, ptr noundef nonnull align 1 dereferenceable(1) %656)
+  br label %657
+
+657:                                              ; preds = %650
+  store ptr %390, ptr %288, align 8
+  store ptr %387, ptr %289, align 8
+  %658 = load ptr, ptr %288, align 8
+  %659 = getelementptr inbounds %"struct.drjit::detail::MaskedArray", ptr %658, i32 0, i32 1
+  %660 = load ptr, ptr %289, align 8
+  %661 = load ptr, ptr %658, align 8
+  store ptr %659, ptr %59, align 8
+  store ptr %660, ptr %60, align 8
+  store ptr %661, ptr %61, align 8
+  %662 = load ptr, ptr %59, align 8
+  store ptr %662, ptr %55, align 8
+  %663 = load ptr, ptr %55, align 8
+  %664 = load ptr, ptr %60, align 8
+  store ptr %664, ptr %56, align 8
+  %665 = load ptr, ptr %56, align 8
+  %666 = load ptr, ptr %61, align 8
+  store ptr %666, ptr %57, align 8
+  %667 = load ptr, ptr %57, align 8
+  store ptr %663, ptr %19, align 8
+  store ptr %665, ptr %20, align 8
+  store ptr %667, ptr %21, align 8
+  %668 = load ptr, ptr %19, align 8
+  %669 = load i8, ptr %668, align 1
+  %670 = load ptr, ptr %21, align 8
+  %671 = load <4 x float>, ptr %670, align 16
+  %672 = load ptr, ptr %20, align 8
+  %673 = load <4 x float>, ptr %672, align 16
+  store i8 %669, ptr %15, align 1
+  store <4 x float> %671, ptr %16, align 16
+  store <4 x float> %673, ptr %17, align 16
+  %674 = load i8, ptr %15, align 1
+  %675 = load <4 x float>, ptr %17, align 16
+  %676 = load <4 x float>, ptr %16, align 16
+  %677 = bitcast i8 %674 to <8 x i1>
+  %678 = shufflevector <8 x i1> %677, <8 x i1> %677, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %679 = select contract <4 x i1> %678, <4 x float> %675, <4 x float> %676
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %18, <4 x float> noundef %679)
+          to label %680 unwind label %867
+
+680:                                              ; preds = %657
+  %681 = load <4 x float>, ptr %18, align 16
+  br label %682
+
+682:                                              ; preds = %680
+  store <4 x float> %681, ptr %58, align 16
+  %683 = load <4 x float>, ptr %58, align 16
+  br label %684
+
+684:                                              ; preds = %682
+  store <4 x float> %683, ptr %290, align 16
+  %685 = load ptr, ptr %658, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %685, ptr align 16 %290, i64 16, i1 false)
+  br label %686
+
+686:                                              ; preds = %684
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %393, ptr align 16 %380, i64 16, i1 false)
+  %687 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %393, i32 0, i32 0
+  %688 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %687, i32 0, i32 0
+  %689 = load <4 x float>, ptr %688, align 16
+  invoke void @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11cdf_and_pdfIS4_EENSt3__14pairIT_SA_EESA_(ptr dead_on_unwind writable sret(%"struct.std::__1::pair.35") align 16 %392, ptr noundef nonnull align 8 dereferenceable(64) %413, <4 x float> %689)
+          to label %690 unwind label %867
+
+690:                                              ; preds = %686
+  %691 = call { ptr, ptr } @_ZNSt3__13tieB8ne190000IJN7mitsuba8SpectrumIfLm4EEES3_EEENS_5tupleIJDpRT_EEES7_(ptr noundef nonnull align 16 dereferenceable(16) %381, ptr noundef nonnull align 16 dereferenceable(16) %382) #20
+  %692 = getelementptr inbounds %"class.std::__1::tuple", ptr %394, i32 0, i32 0
+  %693 = getelementptr inbounds { ptr, ptr }, ptr %692, i32 0, i32 0
+  %694 = extractvalue { ptr, ptr } %691, 0
+  store ptr %694, ptr %693, align 8
+  %695 = getelementptr inbounds { ptr, ptr }, ptr %692, i32 0, i32 1
+  %696 = extractvalue { ptr, ptr } %691, 1
+  store ptr %696, ptr %695, align 8
+  %697 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3__15tupleIJRN7mitsuba8SpectrumIfLm4EEES4_EEaSB8ne190000IS3_S3_TnNS_9enable_ifIXsr21_EnableAssignFromPairILb0EONS_4pairIT_T0_EEEE5valueEiE4typeELi0EEERS5_SC_(ptr noundef nonnull align 8 dereferenceable(16) %394, ptr noundef nonnull align 16 dereferenceable(32) %392) #20
+  store ptr %381, ptr %285, align 8
+  store ptr %372, ptr %286, align 8
+  %698 = load ptr, ptr %285, align 8
+  %699 = load ptr, ptr %286, align 8
+  store ptr %698, ptr %267, align 8
+  store ptr %699, ptr %268, align 8
+  %700 = load ptr, ptr %267, align 8
+  store ptr %700, ptr %240, align 8
+  %701 = load ptr, ptr %240, align 8
+  %702 = load ptr, ptr %268, align 8
+  store ptr %702, ptr %241, align 8
+  %703 = load ptr, ptr %241, align 8
+  store ptr %701, ptr %70, align 8
+  store ptr %703, ptr %71, align 8
+  %704 = load ptr, ptr %70, align 8
+  %705 = load <4 x float>, ptr %704, align 16
+  %706 = load ptr, ptr %71, align 8
+  %707 = load <4 x float>, ptr %706, align 16
+  store <4 x float> %705, ptr %67, align 16
+  store <4 x float> %707, ptr %68, align 16
+  %708 = load <4 x float>, ptr %67, align 16
+  %709 = load <4 x float>, ptr %68, align 16
+  %710 = fsub contract <4 x float> %708, %709
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %69, <4 x float> noundef %710)
+          to label %711 unwind label %867
+
+711:                                              ; preds = %690
+  %712 = load <4 x float>, ptr %69, align 16
+  br label %713
+
+713:                                              ; preds = %711
+  store <4 x float> %712, ptr %266, align 16
+  %714 = load <4 x float>, ptr %266, align 16
+  br label %715
+
+715:                                              ; preds = %713
+  store <4 x float> %714, ptr %287, align 16
+  %716 = load ptr, ptr %285, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %716, ptr align 16 %287, i64 16, i1 false)
+  br label %717
+
+717:                                              ; preds = %715
+  store ptr %381, ptr %270, align 8
+  %718 = load ptr, ptr %270, align 8
+  store ptr %718, ptr %83, align 8
+  %719 = load ptr, ptr %83, align 8
+  store float -0.000000e+00, ptr %80, align 4
+  %720 = load float, ptr %80, align 4
+  %721 = insertelement <4 x float> poison, float %720, i32 0
+  %722 = load float, ptr %80, align 4
+  %723 = insertelement <4 x float> %721, float %722, i32 1
+  %724 = load float, ptr %80, align 4
+  %725 = insertelement <4 x float> %723, float %724, i32 2
+  %726 = load float, ptr %80, align 4
+  %727 = insertelement <4 x float> %725, float %726, i32 3
+  store <4 x float> %727, ptr %81, align 16
+  %728 = load <4 x float>, ptr %81, align 16
+  %729 = load <4 x float>, ptr %719, align 16
+  store <4 x float> %728, ptr %78, align 16
+  store <4 x float> %729, ptr %79, align 16
+  %730 = load <4 x float>, ptr %78, align 16
+  %731 = bitcast <4 x float> %730 to <4 x i32>
+  %732 = xor <4 x i32> %731, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %733 = load <4 x float>, ptr %79, align 16
+  %734 = bitcast <4 x float> %733 to <4 x i32>
+  %735 = and <4 x i32> %732, %734
+  %736 = bitcast <4 x i32> %735 to <4 x float>
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %82, <4 x float> noundef %736)
+          to label %737 unwind label %867
+
+737:                                              ; preds = %717
+  %738 = load <4 x float>, ptr %82, align 16
+  br label %739
+
+739:                                              ; preds = %737
+  store <4 x float> %738, ptr %269, align 16
+  %740 = load <4 x float>, ptr %269, align 16
+  br label %741
+
+741:                                              ; preds = %739
+  %742 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %398, i32 0, i32 0
+  %743 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %742, i32 0, i32 0
+  store <4 x float> %740, ptr %743, align 16
+  store ptr %398, ptr %275, align 8
+  store ptr %377, ptr %276, align 8
+  %744 = load ptr, ptr %275, align 8
+  %745 = load ptr, ptr %276, align 8
+  %746 = load float, ptr %745, align 4
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %277, float noundef %746)
+          to label %747 unwind label %867
+
+747:                                              ; preds = %741
+  store ptr %744, ptr %272, align 8
+  store ptr %277, ptr %273, align 8
+  %748 = load ptr, ptr %272, align 8
+  store ptr %748, ptr %238, align 8
+  %749 = load ptr, ptr %238, align 8
+  %750 = load ptr, ptr %273, align 8
+  store ptr %750, ptr %239, align 8
+  %751 = load ptr, ptr %239, align 8
+  store ptr %749, ptr %110, align 8
+  store ptr %751, ptr %111, align 8
+  %752 = load ptr, ptr %110, align 8
+  %753 = load <4 x float>, ptr %752, align 16
+  %754 = load ptr, ptr %111, align 8
+  %755 = load <4 x float>, ptr %754, align 16
+  %756 = fcmp contract ogt <4 x float> %753, %755
+  %757 = shufflevector <4 x i1> %756, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %758 = bitcast <8 x i1> %757 to i8
+  store i8 %758, ptr %112, align 1
+  store ptr %112, ptr %108, align 8
+  %759 = load ptr, ptr %108, align 8
+  %760 = load i8, ptr %759, align 1
+  store i8 %760, ptr %107, align 1
+  %761 = load i8, ptr %107, align 1
+  store i8 %761, ptr %109, align 1
+  %762 = load i8, ptr %109, align 1
+  store i8 %762, ptr %271, align 1
+  %763 = load i8, ptr %271, align 1
+  store i8 %763, ptr %274, align 1
+  %764 = load i8, ptr %274, align 1
+  br label %765
+
+765:                                              ; preds = %747
+  %766 = getelementptr inbounds %"struct.drjit::Mask", ptr %397, i32 0, i32 0
+  %767 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %766, i32 0, i32 0
+  %768 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %767, i32 0, i32 0
+  %769 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %768, i32 0, i32 0
+  store i8 %764, ptr %769, align 1
+  store ptr %369, ptr %359, align 8
+  store ptr %397, ptr %360, align 8
+  %770 = load ptr, ptr %359, align 8
+  store ptr %770, ptr %205, align 8
+  %771 = load ptr, ptr %205, align 8
+  %772 = load ptr, ptr %360, align 8
+  store ptr %772, ptr %206, align 8
+  %773 = load ptr, ptr %206, align 8
+  store ptr %771, ptr %192, align 8
+  store ptr %773, ptr %193, align 8
+  %774 = load ptr, ptr %192, align 8
+  %775 = load i8, ptr %774, align 1
+  %776 = load ptr, ptr %193, align 8
+  %777 = load i8, ptr %776, align 1
+  store i8 %775, ptr %175, align 1
+  store i8 %777, ptr %176, align 1
+  %778 = load i8, ptr %175, align 1
+  %779 = load i8, ptr %176, align 1
+  %780 = bitcast i8 %778 to <8 x i1>
+  %781 = bitcast i8 %779 to <8 x i1>
+  %782 = and <8 x i1> %780, %781
+  %783 = bitcast <8 x i1> %782 to i8
+  store i8 %783, ptr %194, align 1
+  store ptr %194, ptr %184, align 8
+  %784 = load ptr, ptr %184, align 8
+  %785 = load i8, ptr %784, align 1
+  store i8 %785, ptr %183, align 1
+  %786 = load i8, ptr %183, align 1
+  store i8 %786, ptr %191, align 1
+  %787 = load i8, ptr %191, align 1
+  br label %788
+
+788:                                              ; preds = %765
+  store i8 %787, ptr %358, align 1
+  %789 = load i8, ptr %358, align 1
+  br label %790
+
+790:                                              ; preds = %788
+  %791 = getelementptr inbounds %"struct.drjit::Mask", ptr %396, i32 0, i32 0
+  %792 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %791, i32 0, i32 0
+  %793 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %792, i32 0, i32 0
+  %794 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %793, i32 0, i32 0
+  store i8 %789, ptr %794, align 1
+  store ptr %379, ptr %261, align 8
+  store ptr %378, ptr %262, align 8
+  %795 = load ptr, ptr %261, align 8
+  store ptr %795, ptr %244, align 8
+  %796 = load ptr, ptr %244, align 8
+  %797 = load ptr, ptr %262, align 8
+  store ptr %797, ptr %245, align 8
+  %798 = load ptr, ptr %245, align 8
+  store ptr %796, ptr %76, align 8
+  store ptr %798, ptr %77, align 8
+  %799 = load ptr, ptr %76, align 8
+  %800 = load <4 x float>, ptr %799, align 16
+  %801 = load ptr, ptr %77, align 8
+  %802 = load <4 x float>, ptr %801, align 16
+  store <4 x float> %800, ptr %63, align 16
+  store <4 x float> %802, ptr %64, align 16
+  %803 = load <4 x float>, ptr %63, align 16
+  %804 = load <4 x float>, ptr %64, align 16
+  %805 = fsub contract <4 x float> %803, %804
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %75, <4 x float> noundef %805)
+          to label %806 unwind label %867
+
+806:                                              ; preds = %790
+  %807 = load <4 x float>, ptr %75, align 16
+  br label %808
+
+808:                                              ; preds = %806
+  store <4 x float> %807, ptr %260, align 16
+  %809 = load <4 x float>, ptr %260, align 16
+  br label %810
+
+810:                                              ; preds = %808
+  %811 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %400, i32 0, i32 0
+  %812 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %811, i32 0, i32 0
+  store <4 x float> %809, ptr %812, align 16
+  store ptr %400, ptr %282, align 8
+  store ptr %376, ptr %283, align 8
+  %813 = load ptr, ptr %282, align 8
+  %814 = load ptr, ptr %283, align 8
+  %815 = load float, ptr %814, align 4
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %284, float noundef %815)
+          to label %816 unwind label %867
+
+816:                                              ; preds = %810
+  store ptr %813, ptr %279, align 8
+  store ptr %284, ptr %280, align 8
+  %817 = load ptr, ptr %279, align 8
+  store ptr %817, ptr %236, align 8
+  %818 = load ptr, ptr %236, align 8
+  %819 = load ptr, ptr %280, align 8
+  store ptr %819, ptr %237, align 8
+  %820 = load ptr, ptr %237, align 8
+  store ptr %818, ptr %104, align 8
+  store ptr %820, ptr %105, align 8
+  %821 = load ptr, ptr %104, align 8
+  %822 = load <4 x float>, ptr %821, align 16
+  %823 = load ptr, ptr %105, align 8
+  %824 = load <4 x float>, ptr %823, align 16
+  %825 = fcmp contract ogt <4 x float> %822, %824
+  %826 = shufflevector <4 x i1> %825, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %827 = bitcast <8 x i1> %826 to i8
+  store i8 %827, ptr %106, align 1
+  store ptr %106, ptr %102, align 8
+  %828 = load ptr, ptr %102, align 8
+  %829 = load i8, ptr %828, align 1
+  store i8 %829, ptr %101, align 1
+  %830 = load i8, ptr %101, align 1
+  store i8 %830, ptr %103, align 1
+  %831 = load i8, ptr %103, align 1
+  store i8 %831, ptr %278, align 1
+  %832 = load i8, ptr %278, align 1
+  store i8 %832, ptr %281, align 1
+  %833 = load i8, ptr %281, align 1
+  br label %834
+
+834:                                              ; preds = %816
+  %835 = getelementptr inbounds %"struct.drjit::Mask", ptr %399, i32 0, i32 0
+  %836 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %835, i32 0, i32 0
+  %837 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %836, i32 0, i32 0
+  %838 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %837, i32 0, i32 0
+  store i8 %833, ptr %838, align 1
+  store ptr %396, ptr %362, align 8
+  store ptr %399, ptr %363, align 8
+  %839 = load ptr, ptr %362, align 8
+  store ptr %839, ptr %203, align 8
+  %840 = load ptr, ptr %203, align 8
+  %841 = load ptr, ptr %363, align 8
+  store ptr %841, ptr %204, align 8
+  %842 = load ptr, ptr %204, align 8
+  store ptr %840, ptr %188, align 8
+  store ptr %842, ptr %189, align 8
+  %843 = load ptr, ptr %188, align 8
+  %844 = load i8, ptr %843, align 1
+  %845 = load ptr, ptr %189, align 8
+  %846 = load i8, ptr %845, align 1
+  store i8 %844, ptr %177, align 1
+  store i8 %846, ptr %178, align 1
+  %847 = load i8, ptr %177, align 1
+  %848 = load i8, ptr %178, align 1
+  %849 = bitcast i8 %847 to <8 x i1>
+  %850 = bitcast i8 %848 to <8 x i1>
+  %851 = and <8 x i1> %849, %850
+  %852 = bitcast <8 x i1> %851 to i8
+  store i8 %852, ptr %190, align 1
+  store ptr %190, ptr %186, align 8
+  %853 = load ptr, ptr %186, align 8
+  %854 = load i8, ptr %853, align 1
+  store i8 %854, ptr %185, align 1
+  %855 = load i8, ptr %185, align 1
+  store i8 %855, ptr %187, align 1
+  %856 = load i8, ptr %187, align 1
+  br label %857
+
+857:                                              ; preds = %834
+  store i8 %856, ptr %361, align 1
+  %858 = load i8, ptr %361, align 1
+  br label %859
+
+859:                                              ; preds = %857
+  %860 = getelementptr inbounds %"struct.drjit::Mask", ptr %395, i32 0, i32 0
+  %861 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %860, i32 0, i32 0
+  %862 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %861, i32 0, i32 0
+  %863 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %862, i32 0, i32 0
+  store i8 %858, ptr %863, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %369, ptr align 1 %395, i64 1, i1 false)
+  %864 = invoke noundef zeroext i1 @_ZN5drjit11none_nestedINS_4MaskIfLm4EEEEEDaRKT_(ptr noundef nonnull align 1 dereferenceable(1) %369)
+          to label %865 unwind label %867
+
+865:                                              ; preds = %859
+  br i1 %864, label %866, label %871
+
+866:                                              ; preds = %865
+  br label %1050
+
+867:                                              ; preds = %1085, %1079, %1061, %1057, %1019, %996, %980, %951, %901, %871, %859, %810, %790, %741, %717, %690, %686, %657, %609, %604, %584, %498, %481, %472, %421, %418, %414, %5
+  %868 = landingpad { ptr, i32 }
+          cleanup
+  %869 = extractvalue { ptr, i32 } %868, 0
+  store ptr %869, ptr %370, align 8
+  %870 = extractvalue { ptr, i32 } %868, 1
+  store i32 %870, ptr %371, align 4
+  call void @_ZN7mitsuba11ScopedPhaseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %368) #20
+  br label %1106
+
+871:                                              ; preds = %865
+  store float 0.000000e+00, ptr %402, align 4
+  store ptr %381, ptr %346, align 8
+  store ptr %402, ptr %347, align 8
+  %872 = load ptr, ptr %346, align 8
+  %873 = load ptr, ptr %347, align 8
+  %874 = load float, ptr %873, align 4
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %348, float noundef %874)
+          to label %875 unwind label %867
+
+875:                                              ; preds = %871
+  store ptr %872, ptr %151, align 8
+  store ptr %348, ptr %152, align 8
+  %876 = load ptr, ptr %151, align 8
+  store ptr %876, ptr %148, align 8
+  %877 = load ptr, ptr %148, align 8
+  %878 = load ptr, ptr %152, align 8
+  store ptr %878, ptr %149, align 8
+  %879 = load ptr, ptr %149, align 8
+  store ptr %877, ptr %145, align 8
+  store ptr %879, ptr %146, align 8
+  %880 = load ptr, ptr %145, align 8
+  %881 = load <4 x float>, ptr %880, align 16
+  %882 = load ptr, ptr %146, align 8
+  %883 = load <4 x float>, ptr %882, align 16
+  %884 = fcmp contract ole <4 x float> %881, %883
+  %885 = shufflevector <4 x i1> %884, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %886 = bitcast <8 x i1> %885 to i8
+  store i8 %886, ptr %147, align 1
+  store ptr %147, ptr %143, align 8
+  %887 = load ptr, ptr %143, align 8
+  %888 = load i8, ptr %887, align 1
+  store i8 %888, ptr %142, align 1
+  %889 = load i8, ptr %142, align 1
+  store i8 %889, ptr %144, align 1
+  %890 = load i8, ptr %144, align 1
+  store i8 %890, ptr %150, align 1
+  %891 = load i8, ptr %150, align 1
+  br label %892
+
+892:                                              ; preds = %875
+  store i8 %891, ptr %345, align 1
+  %893 = load i8, ptr %345, align 1
+  br label %894
+
+894:                                              ; preds = %892
+  %895 = getelementptr inbounds %"struct.drjit::Mask", ptr %401, i32 0, i32 0
+  %896 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %895, i32 0, i32 0
+  %897 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %896, i32 0, i32 0
+  %898 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %897, i32 0, i32 0
+  store i8 %893, ptr %898, align 1
+  call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  store ptr %403, ptr %303, align 8, !noalias !12
+  store ptr %378, ptr %304, align 8, !noalias !12
+  store ptr %401, ptr %305, align 8, !noalias !12
+  %899 = load ptr, ptr %304, align 8, !noalias !12
+  %900 = load ptr, ptr %305, align 8, !noalias !12
+  call void @_ZN5drjit6detail11MaskedArrayIN7mitsuba8SpectrumIfLm4EEEEC2ERS4_RKNS_4MaskIfLm4EEE(ptr noundef nonnull align 8 dereferenceable(9) %403, ptr noundef nonnull align 16 dereferenceable(16) %899, ptr noundef nonnull align 1 dereferenceable(1) %900)
+  br label %901
+
+901:                                              ; preds = %894
+  store ptr %403, ptr %291, align 8
+  store ptr %380, ptr %292, align 8
+  %902 = load ptr, ptr %291, align 8
+  %903 = getelementptr inbounds %"struct.drjit::detail::MaskedArray", ptr %902, i32 0, i32 1
+  %904 = load ptr, ptr %292, align 8
+  %905 = load ptr, ptr %902, align 8
+  store ptr %903, ptr %52, align 8
+  store ptr %904, ptr %53, align 8
+  store ptr %905, ptr %54, align 8
+  %906 = load ptr, ptr %52, align 8
+  store ptr %906, ptr %48, align 8
+  %907 = load ptr, ptr %48, align 8
+  %908 = load ptr, ptr %53, align 8
+  store ptr %908, ptr %49, align 8
+  %909 = load ptr, ptr %49, align 8
+  %910 = load ptr, ptr %54, align 8
+  store ptr %910, ptr %50, align 8
+  %911 = load ptr, ptr %50, align 8
+  store ptr %907, ptr %23, align 8
+  store ptr %909, ptr %24, align 8
+  store ptr %911, ptr %25, align 8
+  %912 = load ptr, ptr %23, align 8
+  %913 = load i8, ptr %912, align 1
+  %914 = load ptr, ptr %25, align 8
+  %915 = load <4 x float>, ptr %914, align 16
+  %916 = load ptr, ptr %24, align 8
+  %917 = load <4 x float>, ptr %916, align 16
+  store i8 %913, ptr %12, align 1
+  store <4 x float> %915, ptr %13, align 16
+  store <4 x float> %917, ptr %14, align 16
+  %918 = load i8, ptr %12, align 1
+  %919 = load <4 x float>, ptr %14, align 16
+  %920 = load <4 x float>, ptr %13, align 16
+  %921 = bitcast i8 %918 to <8 x i1>
+  %922 = shufflevector <8 x i1> %921, <8 x i1> %921, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %923 = select contract <4 x i1> %922, <4 x float> %919, <4 x float> %920
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %22, <4 x float> noundef %923)
+          to label %924 unwind label %867
+
+924:                                              ; preds = %901
+  %925 = load <4 x float>, ptr %22, align 16
+  br label %926
+
+926:                                              ; preds = %924
+  store <4 x float> %925, ptr %51, align 16
+  %927 = load <4 x float>, ptr %51, align 16
+  br label %928
+
+928:                                              ; preds = %926
+  store <4 x float> %927, ptr %293, align 16
+  %929 = load ptr, ptr %902, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %929, ptr align 16 %293, i64 16, i1 false)
+  br label %930
+
+930:                                              ; preds = %928
+  store ptr %401, ptr %324, align 8
+  %931 = load ptr, ptr %324, align 8
+  store ptr %931, ptr %118, align 8
+  %932 = load ptr, ptr %118, align 8
+  %933 = load i8, ptr %932, align 1
+  store i8 %933, ptr %114, align 1
+  %934 = load i8, ptr %114, align 1
+  %935 = bitcast i8 %934 to <8 x i1>
+  %936 = xor <8 x i1> %935, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %937 = bitcast <8 x i1> %936 to i8
+  store i8 %937, ptr %119, align 1
+  store ptr %119, ptr %116, align 8
+  %938 = load ptr, ptr %116, align 8
+  %939 = load i8, ptr %938, align 1
+  store i8 %939, ptr %115, align 1
+  %940 = load i8, ptr %115, align 1
+  store i8 %940, ptr %117, align 1
+  %941 = load i8, ptr %117, align 1
+  br label %942
+
+942:                                              ; preds = %930
+  store i8 %941, ptr %323, align 1
+  %943 = load i8, ptr %323, align 1
+  br label %944
+
+944:                                              ; preds = %942
+  %945 = getelementptr inbounds %"struct.drjit::Mask", ptr %405, i32 0, i32 0
+  %946 = getelementptr inbounds %"struct.drjit::MaskBase", ptr %945, i32 0, i32 0
+  %947 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.15", ptr %946, i32 0, i32 0
+  %948 = getelementptr inbounds %"struct.drjit::KMaskBase", ptr %947, i32 0, i32 0
+  store i8 %943, ptr %948, align 1
+  call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  store ptr %404, ptr %306, align 8, !noalias !15
+  store ptr %379, ptr %307, align 8, !noalias !15
+  store ptr %405, ptr %308, align 8, !noalias !15
+  %949 = load ptr, ptr %307, align 8, !noalias !15
+  %950 = load ptr, ptr %308, align 8, !noalias !15
+  call void @_ZN5drjit6detail11MaskedArrayIN7mitsuba8SpectrumIfLm4EEEEC2ERS4_RKNS_4MaskIfLm4EEE(ptr noundef nonnull align 8 dereferenceable(9) %404, ptr noundef nonnull align 16 dereferenceable(16) %949, ptr noundef nonnull align 1 dereferenceable(1) %950)
+  br label %951
+
+951:                                              ; preds = %944
+  store ptr %404, ptr %294, align 8
+  store ptr %380, ptr %295, align 8
+  %952 = load ptr, ptr %294, align 8
+  %953 = getelementptr inbounds %"struct.drjit::detail::MaskedArray", ptr %952, i32 0, i32 1
+  %954 = load ptr, ptr %295, align 8
+  %955 = load ptr, ptr %952, align 8
+  store ptr %953, ptr %45, align 8
+  store ptr %954, ptr %46, align 8
+  store ptr %955, ptr %47, align 8
+  %956 = load ptr, ptr %45, align 8
+  store ptr %956, ptr %41, align 8
+  %957 = load ptr, ptr %41, align 8
+  %958 = load ptr, ptr %46, align 8
+  store ptr %958, ptr %42, align 8
+  %959 = load ptr, ptr %42, align 8
+  %960 = load ptr, ptr %47, align 8
+  store ptr %960, ptr %43, align 8
+  %961 = load ptr, ptr %43, align 8
+  store ptr %957, ptr %27, align 8
+  store ptr %959, ptr %28, align 8
+  store ptr %961, ptr %29, align 8
+  %962 = load ptr, ptr %27, align 8
+  %963 = load i8, ptr %962, align 1
+  %964 = load ptr, ptr %29, align 8
+  %965 = load <4 x float>, ptr %964, align 16
+  %966 = load ptr, ptr %28, align 8
+  %967 = load <4 x float>, ptr %966, align 16
+  store i8 %963, ptr %9, align 1
+  store <4 x float> %965, ptr %10, align 16
+  store <4 x float> %967, ptr %11, align 16
+  %968 = load i8, ptr %9, align 1
+  %969 = load <4 x float>, ptr %11, align 16
+  %970 = load <4 x float>, ptr %10, align 16
+  %971 = bitcast i8 %968 to <8 x i1>
+  %972 = shufflevector <8 x i1> %971, <8 x i1> %971, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %973 = select contract <4 x i1> %972, <4 x float> %969, <4 x float> %970
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %26, <4 x float> noundef %973)
+          to label %974 unwind label %867
+
+974:                                              ; preds = %951
+  %975 = load <4 x float>, ptr %26, align 16
+  br label %976
+
+976:                                              ; preds = %974
+  store <4 x float> %975, ptr %44, align 16
+  %977 = load <4 x float>, ptr %44, align 16
+  br label %978
+
+978:                                              ; preds = %976
+  store <4 x float> %977, ptr %296, align 16
+  %979 = load ptr, ptr %952, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %979, ptr align 16 %296, i64 16, i1 false)
+  br label %980
+
+980:                                              ; preds = %978
+  store ptr %381, ptr %337, align 8
+  store ptr %382, ptr %338, align 8
+  %981 = load ptr, ptr %337, align 8
+  store ptr %981, ptr %223, align 8
+  %982 = load ptr, ptr %223, align 8
+  %983 = load ptr, ptr %338, align 8
+  store ptr %983, ptr %224, align 8
+  %984 = load ptr, ptr %224, align 8
+  store ptr %982, ptr %140, align 8
+  store ptr %984, ptr %141, align 8
+  %985 = load ptr, ptr %140, align 8
+  %986 = load <4 x float>, ptr %985, align 16
+  %987 = load ptr, ptr %141, align 8
+  %988 = load <4 x float>, ptr %987, align 16
+  store <4 x float> %986, ptr %132, align 16
+  store <4 x float> %988, ptr %133, align 16
+  %989 = load <4 x float>, ptr %132, align 16
+  %990 = load <4 x float>, ptr %133, align 16
+  %991 = fdiv contract <4 x float> %989, %990
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %139, <4 x float> noundef %991)
+          to label %992 unwind label %867
+
+992:                                              ; preds = %980
+  %993 = load <4 x float>, ptr %139, align 16
+  br label %994
+
+994:                                              ; preds = %992
+  store <4 x float> %993, ptr %336, align 16
+  %995 = load <4 x float>, ptr %336, align 16
+  br label %996
+
+996:                                              ; preds = %994
+  %997 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %407, i32 0, i32 0
+  %998 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %997, i32 0, i32 0
+  store <4 x float> %995, ptr %998, align 16
+  store ptr %380, ptr %264, align 8
+  store ptr %407, ptr %265, align 8
+  %999 = load ptr, ptr %264, align 8
+  store ptr %999, ptr %242, align 8
+  %1000 = load ptr, ptr %242, align 8
+  %1001 = load ptr, ptr %265, align 8
+  store ptr %1001, ptr %243, align 8
+  %1002 = load ptr, ptr %243, align 8
+  store ptr %1000, ptr %73, align 8
+  store ptr %1002, ptr %74, align 8
+  %1003 = load ptr, ptr %73, align 8
+  %1004 = load <4 x float>, ptr %1003, align 16
+  %1005 = load ptr, ptr %74, align 8
+  %1006 = load <4 x float>, ptr %1005, align 16
+  store <4 x float> %1004, ptr %65, align 16
+  store <4 x float> %1006, ptr %66, align 16
+  %1007 = load <4 x float>, ptr %65, align 16
+  %1008 = load <4 x float>, ptr %66, align 16
+  %1009 = fsub contract <4 x float> %1007, %1008
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %72, <4 x float> noundef %1009)
+          to label %1010 unwind label %867
+
+1010:                                             ; preds = %996
+  %1011 = load <4 x float>, ptr %72, align 16
+  br label %1012
+
+1012:                                             ; preds = %1010
+  store <4 x float> %1011, ptr %263, align 16
+  %1013 = load <4 x float>, ptr %263, align 16
+  br label %1014
+
+1014:                                             ; preds = %1012
+  %1015 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %406, i32 0, i32 0
+  %1016 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %1015, i32 0, i32 0
+  store <4 x float> %1013, ptr %1016, align 16
+  call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  store ptr %408, ptr %309, align 8, !noalias !18
+  store ptr %380, ptr %310, align 8, !noalias !18
+  store ptr %369, ptr %311, align 8, !noalias !18
+  %1017 = load ptr, ptr %310, align 8, !noalias !18
+  %1018 = load ptr, ptr %311, align 8, !noalias !18
+  call void @_ZN5drjit6detail11MaskedArrayIN7mitsuba8SpectrumIfLm4EEEEC2ERS4_RKNS_4MaskIfLm4EEE(ptr noundef nonnull align 8 dereferenceable(9) %408, ptr noundef nonnull align 16 dereferenceable(16) %1017, ptr noundef nonnull align 1 dereferenceable(1) %1018)
+  br label %1019
+
+1019:                                             ; preds = %1014
+  store ptr %408, ptr %297, align 8
+  store ptr %406, ptr %298, align 8
+  %1020 = load ptr, ptr %297, align 8
+  %1021 = getelementptr inbounds %"struct.drjit::detail::MaskedArray", ptr %1020, i32 0, i32 1
+  %1022 = load ptr, ptr %298, align 8
+  %1023 = load ptr, ptr %1020, align 8
+  store ptr %1021, ptr %38, align 8
+  store ptr %1022, ptr %39, align 8
+  store ptr %1023, ptr %40, align 8
+  %1024 = load ptr, ptr %38, align 8
+  store ptr %1024, ptr %34, align 8
+  %1025 = load ptr, ptr %34, align 8
+  %1026 = load ptr, ptr %39, align 8
+  store ptr %1026, ptr %35, align 8
+  %1027 = load ptr, ptr %35, align 8
+  %1028 = load ptr, ptr %40, align 8
+  store ptr %1028, ptr %36, align 8
+  %1029 = load ptr, ptr %36, align 8
+  store ptr %1025, ptr %31, align 8
+  store ptr %1027, ptr %32, align 8
+  store ptr %1029, ptr %33, align 8
+  %1030 = load ptr, ptr %31, align 8
+  %1031 = load i8, ptr %1030, align 1
+  %1032 = load ptr, ptr %33, align 8
+  %1033 = load <4 x float>, ptr %1032, align 16
+  %1034 = load ptr, ptr %32, align 8
+  %1035 = load <4 x float>, ptr %1034, align 16
+  store i8 %1031, ptr %6, align 1
+  store <4 x float> %1033, ptr %7, align 16
+  store <4 x float> %1035, ptr %8, align 16
+  %1036 = load i8, ptr %6, align 1
+  %1037 = load <4 x float>, ptr %8, align 16
+  %1038 = load <4 x float>, ptr %7, align 16
+  %1039 = bitcast i8 %1036 to <8 x i1>
+  %1040 = shufflevector <8 x i1> %1039, <8 x i1> %1039, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %1041 = select contract <4 x i1> %1040, <4 x float> %1037, <4 x float> %1038
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %30, <4 x float> noundef %1041)
+          to label %1042 unwind label %867
+
+1042:                                             ; preds = %1019
+  %1043 = load <4 x float>, ptr %30, align 16
+  br label %1044
+
+1044:                                             ; preds = %1042
+  store <4 x float> %1043, ptr %37, align 16
+  %1045 = load <4 x float>, ptr %37, align 16
+  br label %1046
+
+1046:                                             ; preds = %1044
+  store <4 x float> %1045, ptr %299, align 16
+  %1047 = load ptr, ptr %1020, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %1047, ptr align 16 %299, i64 16, i1 false)
+  br label %1048
+
+1048:                                             ; preds = %1046
+  br label %1049
+
+1049:                                             ; preds = %1048
+  br i1 true, label %503, label %1050, !llvm.loop !21
+
+1050:                                             ; preds = %1049, %866
+  %1051 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %413, i32 0, i32 3
+  store ptr %382, ptr %256, align 8
+  store ptr %1051, ptr %257, align 8
+  %1052 = load ptr, ptr %256, align 8
+  %1053 = load ptr, ptr %257, align 8
+  %1054 = load float, ptr %1053, align 4
+  store float %1054, ptr %259, align 4
+  store ptr %259, ptr %62, align 8
+  %1055 = load ptr, ptr %62, align 8
+  %1056 = call contract noundef float @_ZN5drjit6detail4rcp_IfEET_RKS2_(ptr noundef nonnull align 4 dereferenceable(4) %1055)
+  br label %1057
+
+1057:                                             ; preds = %1050
+  store float %1056, ptr %258, align 4
+  store ptr %1052, ptr %252, align 8
+  store ptr %258, ptr %253, align 8
+  %1058 = load ptr, ptr %252, align 8
+  %1059 = load ptr, ptr %253, align 8
+  %1060 = load float, ptr %1059, align 4
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %254, float noundef %1060)
+          to label %1061 unwind label %867
+
+1061:                                             ; preds = %1057
+  store ptr %1058, ptr %249, align 8
+  store ptr %254, ptr %250, align 8
+  %1062 = load ptr, ptr %249, align 8
+  store ptr %1062, ptr %246, align 8
+  %1063 = load ptr, ptr %246, align 8
+  %1064 = load ptr, ptr %250, align 8
+  store ptr %1064, ptr %247, align 8
+  %1065 = load ptr, ptr %247, align 8
+  store ptr %1063, ptr %219, align 8
+  store ptr %1065, ptr %220, align 8
+  %1066 = load ptr, ptr %219, align 8
+  %1067 = load <4 x float>, ptr %1066, align 16
+  %1068 = load ptr, ptr %220, align 8
+  %1069 = load <4 x float>, ptr %1068, align 16
+  store <4 x float> %1067, ptr %211, align 16
+  store <4 x float> %1069, ptr %212, align 16
+  %1070 = load <4 x float>, ptr %211, align 16
+  %1071 = load <4 x float>, ptr %212, align 16
+  %1072 = fmul contract <4 x float> %1070, %1071
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %218, <4 x float> noundef %1072)
+          to label %1073 unwind label %867
+
+1073:                                             ; preds = %1061
+  %1074 = load <4 x float>, ptr %218, align 16
+  br label %1075
+
+1075:                                             ; preds = %1073
+  store <4 x float> %1074, ptr %248, align 16
+  %1076 = load <4 x float>, ptr %248, align 16
+  store <4 x float> %1076, ptr %251, align 16
+  %1077 = load <4 x float>, ptr %251, align 16
+  store <4 x float> %1077, ptr %255, align 16
+  %1078 = load <4 x float>, ptr %255, align 16
+  br label %1079
+
+1079:                                             ; preds = %1075
+  %1080 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %409, i32 0, i32 0
+  %1081 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %1080, i32 0, i32 0
+  store <4 x float> %1078, ptr %1081, align 16
+  %1082 = load i8, ptr %367, align 1
+  %1083 = trunc i8 %1082 to i1
+  %1084 = invoke <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE9eval_implERKS4_b(ptr noundef nonnull align 8 dereferenceable(64) %413, ptr noundef nonnull align 16 dereferenceable(16) %380, i1 noundef zeroext %1083)
+          to label %1085 unwind label %867
+
+1085:                                             ; preds = %1079
+  %1086 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %411, i32 0, i32 0
+  %1087 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %1086, i32 0, i32 0
+  store <4 x float> %1084, ptr %1087, align 16
+  store ptr %411, ptr %340, align 8
+  store ptr %409, ptr %341, align 8
+  %1088 = load ptr, ptr %340, align 8
+  store ptr %1088, ptr %221, align 8
+  %1089 = load ptr, ptr %221, align 8
+  %1090 = load ptr, ptr %341, align 8
+  store ptr %1090, ptr %222, align 8
+  %1091 = load ptr, ptr %222, align 8
+  store ptr %1089, ptr %137, align 8
+  store ptr %1091, ptr %138, align 8
+  %1092 = load ptr, ptr %137, align 8
+  %1093 = load <4 x float>, ptr %1092, align 16
+  %1094 = load ptr, ptr %138, align 8
+  %1095 = load <4 x float>, ptr %1094, align 16
+  store <4 x float> %1093, ptr %134, align 16
+  store <4 x float> %1095, ptr %135, align 16
+  %1096 = load <4 x float>, ptr %134, align 16
+  %1097 = load <4 x float>, ptr %135, align 16
+  %1098 = fdiv contract <4 x float> %1096, %1097
+  invoke void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %136, <4 x float> noundef %1098)
+          to label %1099 unwind label %867
+
+1099:                                             ; preds = %1085
+  %1100 = load <4 x float>, ptr %136, align 16
+  br label %1101
+
+1101:                                             ; preds = %1099
+  store <4 x float> %1100, ptr %339, align 16
+  %1102 = load <4 x float>, ptr %339, align 16
+  br label %1103
+
+1103:                                             ; preds = %1101
+  %1104 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %410, i32 0, i32 0
+  %1105 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %1104, i32 0, i32 0
+  store <4 x float> %1102, ptr %1105, align 16
+  call void @_ZNSt3__14pairIN7mitsuba8SpectrumIfLm4EEES3_EC2B8ne190000IRS3_S3_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOS8_OS9_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(16) %380, ptr noundef nonnull align 16 dereferenceable(16) %410) #20
+  call void @_ZN7mitsuba11ScopedPhaseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %368) #20
+  ret void
+
+1106:                                             ; preds = %867
+  %1107 = load ptr, ptr %370, align 8
+  %1108 = load i32, ptr %371, align 4
+  %1109 = insertvalue { ptr, i32 } poison, ptr %1107, 0
+  %1110 = insertvalue { ptr, i32 } %1109, i32 %1108, 1
+  resume { ptr, i32 } %1110
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %0, float noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca float, align 4
+  %4 = alloca <4 x float>, align 16
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca float, align 4
+  store ptr %0, ptr %7, align 8
+  store float %1, ptr %8, align 4
+  %9 = load ptr, ptr %7, align 8
+  %10 = load float, ptr %8, align 4
+  store ptr %9, ptr %5, align 8
+  store float %10, ptr %6, align 4
+  %11 = load ptr, ptr %5, align 8
+  %12 = load float, ptr %6, align 4
+  store float %12, ptr %3, align 4
+  %13 = load float, ptr %3, align 4
+  %14 = insertelement <4 x float> poison, float %13, i32 0
+  %15 = load float, ptr %3, align 4
+  %16 = insertelement <4 x float> %14, float %15, i32 1
+  %17 = load float, ptr %3, align 4
+  %18 = insertelement <4 x float> %16, float %17, i32 2
+  %19 = load float, ptr %3, align 4
+  %20 = insertelement <4 x float> %18, float %19, i32 3
+  store <4 x float> %20, ptr %4, align 16
+  %21 = load <4 x float>, ptr %4, align 16
+  store <4 x float> %21, ptr %11, align 16
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11cdf_and_pdfIS4_EENSt3__14pairIT_SA_EESA_(ptr dead_on_unwind noalias writable sret(%"struct.std::__1::pair.35") align 16 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, <4 x float> %2) #6 comdat align 2 {
+  %4 = alloca <4 x float>, align 16
+  %5 = alloca <4 x float>, align 16
+  %6 = alloca %"struct.mitsuba::Spectrum", align 16
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"struct.mitsuba::Spectrum", align 16
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %"struct.mitsuba::Spectrum", align 16
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca %"struct.mitsuba::Spectrum", align 16
+  %18 = alloca <4 x float>, align 16
+  %19 = alloca <4 x float>, align 16
+  %20 = alloca %"struct.mitsuba::Spectrum", align 16
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca %"struct.mitsuba::Spectrum", align 16
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca %"struct.mitsuba::Spectrum", align 16
+  %29 = alloca ptr, align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca %"struct.mitsuba::Spectrum", align 16
+  %32 = alloca <4 x float>, align 16
+  %33 = alloca <4 x float>, align 16
+  %34 = alloca %"struct.mitsuba::Spectrum", align 16
+  %35 = alloca ptr, align 8
+  %36 = alloca ptr, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca ptr, align 8
+  %39 = alloca %"struct.mitsuba::Spectrum", align 16
+  %40 = alloca ptr, align 8
+  %41 = alloca ptr, align 8
+  %42 = alloca %"struct.mitsuba::Spectrum", align 16
+  %43 = alloca ptr, align 8
+  %44 = alloca ptr, align 8
+  %45 = alloca %"struct.mitsuba::Spectrum", align 16
+  %46 = alloca ptr, align 8
+  %47 = alloca ptr, align 8
+  %48 = alloca %"struct.mitsuba::Spectrum", align 16
+  %49 = alloca <4 x float>, align 16
+  %50 = alloca <4 x float>, align 16
+  %51 = alloca <4 x float>, align 16
+  %52 = alloca <4 x float>, align 16
+  %53 = alloca <4 x float>, align 16
+  %54 = alloca <4 x float>, align 16
+  %55 = alloca %"struct.mitsuba::Spectrum", align 16
+  %56 = alloca ptr, align 8
+  %57 = alloca ptr, align 8
+  %58 = alloca %"struct.mitsuba::Spectrum", align 16
+  %59 = alloca ptr, align 8
+  %60 = alloca ptr, align 8
+  %61 = alloca %"struct.mitsuba::Spectrum", align 16
+  %62 = alloca ptr, align 8
+  %63 = alloca ptr, align 8
+  %64 = alloca <4 x float>, align 16
+  %65 = alloca <4 x float>, align 16
+  %66 = alloca <4 x float>, align 16
+  %67 = alloca <4 x float>, align 16
+  %68 = alloca <4 x float>, align 16
+  %69 = alloca <4 x float>, align 16
+  %70 = alloca %"struct.mitsuba::Spectrum", align 16
+  %71 = alloca ptr, align 8
+  %72 = alloca ptr, align 8
+  %73 = alloca %"struct.mitsuba::Spectrum", align 16
+  %74 = alloca ptr, align 8
+  %75 = alloca ptr, align 8
+  %76 = alloca %"struct.mitsuba::Spectrum", align 16
+  %77 = alloca ptr, align 8
+  %78 = alloca ptr, align 8
+  %79 = alloca <4 x float>, align 16
+  %80 = alloca <4 x float>, align 16
+  %81 = alloca <4 x float>, align 16
+  %82 = alloca <4 x float>, align 16
+  %83 = alloca <4 x float>, align 16
+  %84 = alloca <4 x float>, align 16
+  %85 = alloca <4 x float>, align 16
+  %86 = alloca <4 x float>, align 16
+  %87 = alloca <4 x float>, align 16
+  %88 = alloca <4 x float>, align 16
+  %89 = alloca <4 x float>, align 16
+  %90 = alloca <4 x float>, align 16
+  %91 = alloca <4 x float>, align 16
+  %92 = alloca <4 x float>, align 16
+  %93 = alloca <4 x float>, align 16
+  %94 = alloca <4 x float>, align 16
+  %95 = alloca <4 x float>, align 16
+  %96 = alloca <4 x float>, align 16
+  %97 = alloca <4 x float>, align 16
+  %98 = alloca <4 x float>, align 16
+  %99 = alloca <4 x float>, align 16
+  %100 = alloca <4 x float>, align 16
+  %101 = alloca <4 x float>, align 16
+  %102 = alloca <4 x float>, align 16
+  %103 = alloca <4 x float>, align 16
+  %104 = alloca <4 x float>, align 16
+  %105 = alloca <4 x float>, align 16
+  %106 = alloca <4 x float>, align 16
+  %107 = alloca <4 x float>, align 16
+  %108 = alloca <4 x float>, align 16
+  %109 = alloca <4 x float>, align 16
+  %110 = alloca <4 x float>, align 16
+  %111 = alloca <4 x float>, align 16
+  %112 = alloca <4 x float>, align 16
+  %113 = alloca <4 x float>, align 16
+  %114 = alloca <4 x float>, align 16
+  %115 = alloca %"struct.mitsuba::Spectrum", align 16
+  %116 = alloca ptr, align 8
+  %117 = alloca ptr, align 8
+  %118 = alloca %"struct.mitsuba::Spectrum", align 16
+  %119 = alloca ptr, align 8
+  %120 = alloca ptr, align 8
+  %121 = alloca %"struct.mitsuba::Spectrum", align 16
+  %122 = alloca ptr, align 8
+  %123 = alloca ptr, align 8
+  %124 = alloca %"struct.mitsuba::Spectrum", align 16
+  %125 = alloca ptr, align 8
+  %126 = alloca ptr, align 8
+  %127 = alloca %"struct.mitsuba::Spectrum", align 16
+  %128 = alloca ptr, align 8
+  %129 = alloca ptr, align 8
+  %130 = alloca %"struct.mitsuba::Spectrum", align 16
+  %131 = alloca ptr, align 8
+  %132 = alloca ptr, align 8
+  %133 = alloca %"struct.mitsuba::Spectrum", align 16
+  %134 = alloca ptr, align 8
+  %135 = alloca ptr, align 8
+  %136 = alloca %"struct.mitsuba::Spectrum", align 16
+  %137 = alloca ptr, align 8
+  %138 = alloca ptr, align 8
+  %139 = alloca %"struct.mitsuba::Spectrum", align 16
+  %140 = alloca ptr, align 8
+  %141 = alloca ptr, align 8
+  %142 = alloca %"struct.mitsuba::Spectrum", align 16
+  %143 = alloca ptr, align 8
+  %144 = alloca ptr, align 8
+  %145 = alloca %"struct.mitsuba::Spectrum", align 16
+  %146 = alloca ptr, align 8
+  %147 = alloca ptr, align 8
+  %148 = alloca %"struct.mitsuba::Spectrum", align 16
+  %149 = alloca ptr, align 8
+  %150 = alloca ptr, align 8
+  %151 = alloca %"struct.mitsuba::Spectrum", align 16
+  %152 = alloca ptr, align 8
+  %153 = alloca ptr, align 8
+  %154 = alloca %"struct.mitsuba::Spectrum", align 16
+  %155 = alloca ptr, align 8
+  %156 = alloca ptr, align 8
+  %157 = alloca %"struct.mitsuba::Spectrum", align 16
+  %158 = alloca ptr, align 8
+  %159 = alloca ptr, align 8
+  %160 = alloca %"struct.mitsuba::Spectrum", align 16
+  %161 = alloca ptr, align 8
+  %162 = alloca ptr, align 8
+  %163 = alloca %"struct.mitsuba::Spectrum", align 16
+  %164 = alloca ptr, align 8
+  %165 = alloca ptr, align 8
+  %166 = alloca %"struct.mitsuba::Spectrum", align 16
+  %167 = alloca ptr, align 8
+  %168 = alloca ptr, align 8
+  %169 = alloca ptr, align 8
+  %170 = alloca ptr, align 8
+  %171 = alloca ptr, align 8
+  %172 = alloca ptr, align 8
+  %173 = alloca ptr, align 8
+  %174 = alloca ptr, align 8
+  %175 = alloca ptr, align 8
+  %176 = alloca ptr, align 8
+  %177 = alloca ptr, align 8
+  %178 = alloca ptr, align 8
+  %179 = alloca ptr, align 8
+  %180 = alloca ptr, align 8
+  %181 = alloca ptr, align 8
+  %182 = alloca ptr, align 8
+  %183 = alloca ptr, align 8
+  %184 = alloca ptr, align 8
+  %185 = alloca ptr, align 8
+  %186 = alloca ptr, align 8
+  %187 = alloca ptr, align 8
+  %188 = alloca ptr, align 8
+  %189 = alloca ptr, align 8
+  %190 = alloca ptr, align 8
+  %191 = alloca ptr, align 8
+  %192 = alloca ptr, align 8
+  %193 = alloca ptr, align 8
+  %194 = alloca ptr, align 8
+  %195 = alloca ptr, align 8
+  %196 = alloca ptr, align 8
+  %197 = alloca ptr, align 8
+  %198 = alloca ptr, align 8
+  %199 = alloca ptr, align 8
+  %200 = alloca ptr, align 8
+  %201 = alloca ptr, align 8
+  %202 = alloca ptr, align 8
+  %203 = alloca ptr, align 8
+  %204 = alloca ptr, align 8
+  %205 = alloca ptr, align 8
+  %206 = alloca ptr, align 8
+  %207 = alloca ptr, align 8
+  %208 = alloca ptr, align 8
+  %209 = alloca ptr, align 8
+  %210 = alloca ptr, align 8
+  %211 = alloca ptr, align 8
+  %212 = alloca ptr, align 8
+  %213 = alloca ptr, align 8
+  %214 = alloca ptr, align 8
+  %215 = alloca ptr, align 8
+  %216 = alloca ptr, align 8
+  %217 = alloca ptr, align 8
+  %218 = alloca %"struct.mitsuba::Spectrum", align 16
+  %219 = alloca ptr, align 8
+  %220 = alloca ptr, align 8
+  %221 = alloca %"struct.mitsuba::Spectrum", align 16
+  %222 = alloca ptr, align 8
+  %223 = alloca ptr, align 8
+  %224 = alloca %"struct.mitsuba::Spectrum", align 16
+  %225 = alloca ptr, align 8
+  %226 = alloca ptr, align 8
+  %227 = alloca %"struct.mitsuba::Spectrum", align 16
+  %228 = alloca ptr, align 8
+  %229 = alloca ptr, align 8
+  %230 = alloca %"struct.mitsuba::Spectrum", align 16
+  %231 = alloca ptr, align 8
+  %232 = alloca ptr, align 8
+  %233 = alloca %"struct.mitsuba::Spectrum", align 16
+  %234 = alloca %"struct.mitsuba::Spectrum", align 16
+  %235 = alloca ptr, align 8
+  %236 = alloca ptr, align 8
+  %237 = alloca %"struct.mitsuba::Spectrum", align 16
+  %238 = alloca ptr, align 8
+  %239 = alloca ptr, align 8
+  %240 = alloca %"struct.mitsuba::Spectrum", align 16
+  %241 = alloca %"struct.mitsuba::Spectrum", align 16
+  %242 = alloca ptr, align 8
+  %243 = alloca ptr, align 8
+  %244 = alloca %"struct.mitsuba::Spectrum", align 16
+  %245 = alloca ptr, align 8
+  %246 = alloca ptr, align 8
+  %247 = alloca %"struct.mitsuba::Spectrum", align 16
+  %248 = alloca %"struct.mitsuba::Spectrum", align 16
+  %249 = alloca ptr, align 8
+  %250 = alloca ptr, align 8
+  %251 = alloca %"struct.mitsuba::Spectrum", align 16
+  %252 = alloca ptr, align 8
+  %253 = alloca ptr, align 8
+  %254 = alloca %"struct.mitsuba::Spectrum", align 16
+  %255 = alloca ptr, align 8
+  %256 = alloca ptr, align 8
+  %257 = alloca %"struct.mitsuba::Spectrum", align 16
+  %258 = alloca ptr, align 8
+  %259 = alloca ptr, align 8
+  %260 = alloca %"struct.mitsuba::Spectrum", align 16
+  %261 = alloca %"struct.mitsuba::Spectrum", align 16
+  %262 = alloca ptr, align 8
+  %263 = alloca ptr, align 8
+  %264 = alloca %"struct.mitsuba::Spectrum", align 16
+  %265 = alloca ptr, align 8
+  %266 = alloca ptr, align 8
+  %267 = alloca %"struct.mitsuba::Spectrum", align 16
+  %268 = alloca ptr, align 8
+  %269 = alloca ptr, align 8
+  %270 = alloca %"struct.mitsuba::Spectrum", align 16
+  %271 = alloca ptr, align 8
+  %272 = alloca ptr, align 8
+  %273 = alloca %"struct.mitsuba::Spectrum", align 16
+  %274 = alloca ptr, align 8
+  %275 = alloca ptr, align 8
+  %276 = alloca %"struct.mitsuba::Spectrum", align 16
+  %277 = alloca ptr, align 8
+  %278 = alloca ptr, align 8
+  %279 = alloca %"struct.mitsuba::Spectrum", align 16
+  %280 = alloca ptr, align 8
+  %281 = alloca ptr, align 8
+  %282 = alloca %"struct.mitsuba::Spectrum", align 16
+  %283 = alloca ptr, align 8
+  %284 = alloca ptr, align 8
+  %285 = alloca %"struct.mitsuba::Spectrum", align 16
+  %286 = alloca ptr, align 8
+  %287 = alloca ptr, align 8
+  %288 = alloca %"struct.mitsuba::Spectrum", align 16
+  %289 = alloca ptr, align 8
+  %290 = alloca ptr, align 8
+  %291 = alloca %"struct.mitsuba::Spectrum", align 16
+  %292 = alloca ptr, align 8
+  %293 = alloca ptr, align 8
+  %294 = alloca %"struct.mitsuba::Spectrum", align 16
+  %295 = alloca ptr, align 8
+  %296 = alloca ptr, align 8
+  %297 = alloca %"struct.mitsuba::Spectrum", align 16
+  %298 = alloca ptr, align 8
+  %299 = alloca ptr, align 8
+  %300 = alloca %"struct.mitsuba::Spectrum", align 16
+  %301 = alloca ptr, align 8
+  %302 = alloca ptr, align 8
+  %303 = alloca %"struct.mitsuba::Spectrum", align 16
+  %304 = alloca ptr, align 8
+  %305 = alloca ptr, align 8
+  %306 = alloca %"struct.mitsuba::Spectrum", align 16
+  %307 = alloca ptr, align 8
+  %308 = alloca %"struct.mitsuba::Spectrum", align 16
+  %309 = alloca ptr, align 8
+  %310 = alloca %"struct.mitsuba::Spectrum", align 16
+  %311 = alloca ptr, align 8
+  %312 = alloca %"struct.mitsuba::Spectrum", align 16
+  %313 = alloca ptr, align 8
+  %314 = alloca ptr, align 8
+  %315 = alloca %"struct.mitsuba::Spectrum", align 16
+  %316 = alloca %"struct.mitsuba::Spectrum", align 16
+  %317 = alloca ptr, align 8
+  %318 = alloca %"struct.mitsuba::Spectrum", align 16
+  %319 = alloca %"struct.mitsuba::Spectrum", align 16
+  %320 = alloca %"struct.mitsuba::Spectrum", align 16
+  %321 = alloca %"struct.mitsuba::Spectrum", align 16
+  %322 = alloca %"struct.mitsuba::Spectrum", align 16
+  %323 = alloca %"struct.mitsuba::Spectrum", align 16
+  %324 = alloca float, align 4
+  %325 = alloca %"struct.mitsuba::Spectrum", align 16
+  %326 = alloca %"struct.mitsuba::Spectrum", align 16
+  %327 = alloca %"struct.mitsuba::Spectrum", align 16
+  %328 = alloca %"struct.mitsuba::Spectrum", align 16
+  %329 = alloca %"struct.mitsuba::Spectrum", align 16
+  %330 = alloca float, align 4
+  %331 = alloca %"struct.mitsuba::Spectrum", align 16
+  %332 = alloca %"struct.mitsuba::Spectrum", align 16
+  %333 = alloca %"struct.mitsuba::Spectrum", align 16
+  %334 = alloca %"struct.mitsuba::Spectrum", align 16
+  %335 = alloca %"struct.mitsuba::Spectrum", align 16
+  %336 = alloca %"struct.mitsuba::Spectrum", align 16
+  %337 = alloca %"struct.mitsuba::Spectrum", align 16
+  %338 = alloca %"struct.mitsuba::Spectrum", align 16
+  %339 = alloca %"struct.mitsuba::Spectrum", align 16
+  %340 = alloca %"struct.mitsuba::Spectrum", align 16
+  %341 = alloca %"struct.mitsuba::Spectrum", align 16
+  %342 = alloca i32, align 4
+  %343 = alloca %"struct.mitsuba::Spectrum", align 16
+  %344 = alloca %"struct.mitsuba::Spectrum", align 16
+  %345 = alloca float, align 4
+  %346 = alloca %"struct.mitsuba::Spectrum", align 16
+  %347 = alloca %"struct.mitsuba::Spectrum", align 16
+  %348 = alloca i32, align 4
+  %349 = alloca %"struct.mitsuba::Spectrum", align 16
+  %350 = alloca %"struct.mitsuba::Spectrum", align 16
+  %351 = alloca %"struct.mitsuba::Spectrum", align 16
+  %352 = alloca float, align 4
+  %353 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %316, i32 0, i32 0
+  %354 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %353, i32 0, i32 0
+  store <4 x float> %2, ptr %354, align 16
+  store ptr %1, ptr %317, align 8
+  %355 = load ptr, ptr %317, align 8
+  store ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE2c1E, ptr %217, align 8
+  %356 = load ptr, ptr %217, align 8
+  %357 = load float, ptr %356, align 4
+  %358 = load ptr, ptr %217, align 8
+  %359 = load float, ptr %358, align 4
+  %360 = fmul contract float %357, %359
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %318, float noundef %360)
+  store ptr %318, ptr %313, align 8
+  store ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE2c1E, ptr %314, align 8
+  %361 = load ptr, ptr %313, align 8
+  %362 = load ptr, ptr %314, align 8
+  %363 = load float, ptr %362, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %315, float noundef %363)
+  store ptr %361, ptr %295, align 8
+  store ptr %315, ptr %296, align 8
+  %364 = load ptr, ptr %295, align 8
+  store ptr %364, ptr %175, align 8
+  %365 = load ptr, ptr %175, align 8
+  %366 = load ptr, ptr %296, align 8
+  store ptr %366, ptr %176, align 8
+  %367 = load ptr, ptr %176, align 8
+  store ptr %365, ptr %125, align 8
+  store ptr %367, ptr %126, align 8
+  %368 = load ptr, ptr %125, align 8
+  %369 = load <4 x float>, ptr %368, align 16
+  %370 = load ptr, ptr %126, align 8
+  %371 = load <4 x float>, ptr %370, align 16
+  store <4 x float> %369, ptr %107, align 16
+  store <4 x float> %371, ptr %108, align 16
+  %372 = load <4 x float>, ptr %107, align 16
+  %373 = load <4 x float>, ptr %108, align 16
+  %374 = fmul contract <4 x float> %372, %373
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %124, <4 x float> noundef %374)
+  %375 = load <4 x float>, ptr %124, align 16
+  store <4 x float> %375, ptr %294, align 16
+  %376 = load <4 x float>, ptr %294, align 16
+  store <4 x float> %376, ptr %312, align 16
+  %377 = load <4 x float>, ptr %312, align 16
+  %378 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %319, i32 0, i32 0
+  %379 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %378, i32 0, i32 0
+  store <4 x float> %377, ptr %379, align 16
+  store ptr %318, ptr %307, align 8
+  %380 = load ptr, ptr %307, align 8
+  %381 = load ptr, ptr %307, align 8
+  store ptr %380, ptr %304, align 8
+  store ptr %381, ptr %305, align 8
+  %382 = load ptr, ptr %304, align 8
+  store ptr %382, ptr %169, align 8
+  %383 = load ptr, ptr %169, align 8
+  %384 = load ptr, ptr %305, align 8
+  store ptr %384, ptr %170, align 8
+  %385 = load ptr, ptr %170, align 8
+  store ptr %383, ptr %116, align 8
+  store ptr %385, ptr %117, align 8
+  %386 = load ptr, ptr %116, align 8
+  %387 = load <4 x float>, ptr %386, align 16
+  %388 = load ptr, ptr %117, align 8
+  %389 = load <4 x float>, ptr %388, align 16
+  store <4 x float> %387, ptr %113, align 16
+  store <4 x float> %389, ptr %114, align 16
+  %390 = load <4 x float>, ptr %113, align 16
+  %391 = load <4 x float>, ptr %114, align 16
+  %392 = fmul contract <4 x float> %390, %391
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %115, <4 x float> noundef %392)
+  %393 = load <4 x float>, ptr %115, align 16
+  store <4 x float> %393, ptr %303, align 16
+  %394 = load <4 x float>, ptr %303, align 16
+  store <4 x float> %394, ptr %306, align 16
+  %395 = load <4 x float>, ptr %306, align 16
+  %396 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %320, i32 0, i32 0
+  %397 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %396, i32 0, i32 0
+  store <4 x float> %395, ptr %397, align 16
+  %398 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %355, i32 0, i32 1
+  %399 = load float, ptr %398, align 8
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %321, float noundef %399)
+  store ptr %321, ptr %309, align 8
+  %400 = load ptr, ptr %309, align 8
+  %401 = load ptr, ptr %309, align 8
+  store ptr %400, ptr %301, align 8
+  store ptr %401, ptr %302, align 8
+  %402 = load ptr, ptr %301, align 8
+  store ptr %402, ptr %171, align 8
+  %403 = load ptr, ptr %171, align 8
+  %404 = load ptr, ptr %302, align 8
+  store ptr %404, ptr %172, align 8
+  %405 = load ptr, ptr %172, align 8
+  store ptr %403, ptr %119, align 8
+  store ptr %405, ptr %120, align 8
+  %406 = load ptr, ptr %119, align 8
+  %407 = load <4 x float>, ptr %406, align 16
+  %408 = load ptr, ptr %120, align 8
+  %409 = load <4 x float>, ptr %408, align 16
+  store <4 x float> %407, ptr %111, align 16
+  store <4 x float> %409, ptr %112, align 16
+  %410 = load <4 x float>, ptr %111, align 16
+  %411 = load <4 x float>, ptr %112, align 16
+  %412 = fmul contract <4 x float> %410, %411
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %118, <4 x float> noundef %412)
+  %413 = load <4 x float>, ptr %118, align 16
+  store <4 x float> %413, ptr %300, align 16
+  %414 = load <4 x float>, ptr %300, align 16
+  store <4 x float> %414, ptr %308, align 16
+  %415 = load <4 x float>, ptr %308, align 16
+  %416 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %322, i32 0, i32 0
+  %417 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %416, i32 0, i32 0
+  store <4 x float> %415, ptr %417, align 16
+  store ptr %322, ptr %262, align 8
+  store ptr %321, ptr %263, align 8
+  %418 = load ptr, ptr %262, align 8
+  store ptr %418, ptr %197, align 8
+  %419 = load ptr, ptr %197, align 8
+  %420 = load ptr, ptr %263, align 8
+  store ptr %420, ptr %198, align 8
+  %421 = load ptr, ptr %198, align 8
+  store ptr %419, ptr %158, align 8
+  store ptr %421, ptr %159, align 8
+  %422 = load ptr, ptr %158, align 8
+  %423 = load <4 x float>, ptr %422, align 16
+  %424 = load ptr, ptr %159, align 8
+  %425 = load <4 x float>, ptr %424, align 16
+  store <4 x float> %423, ptr %85, align 16
+  store <4 x float> %425, ptr %86, align 16
+  %426 = load <4 x float>, ptr %85, align 16
+  %427 = load <4 x float>, ptr %86, align 16
+  %428 = fmul contract <4 x float> %426, %427
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %157, <4 x float> noundef %428)
+  %429 = load <4 x float>, ptr %157, align 16
+  store <4 x float> %429, ptr %261, align 16
+  %430 = load <4 x float>, ptr %261, align 16
+  %431 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %323, i32 0, i32 0
+  %432 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %431, i32 0, i32 0
+  store <4 x float> %430, ptr %432, align 16
+  store float 0x3E112E0BE0000000, ptr %324, align 4
+  store ptr %316, ptr %46, align 8
+  store ptr %324, ptr %47, align 8
+  %433 = load ptr, ptr %46, align 8
+  %434 = load ptr, ptr %47, align 8
+  store ptr %433, ptr %43, align 8
+  store ptr %434, ptr %44, align 8
+  %435 = load ptr, ptr %43, align 8
+  %436 = load ptr, ptr %44, align 8
+  %437 = load float, ptr %436, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %45, float noundef %437)
+  store ptr %435, ptr %40, align 8
+  store ptr %45, ptr %41, align 8
+  %438 = load ptr, ptr %40, align 8
+  store ptr %438, ptr %37, align 8
+  %439 = load ptr, ptr %37, align 8
+  %440 = load ptr, ptr %41, align 8
+  store ptr %440, ptr %38, align 8
+  %441 = load ptr, ptr %38, align 8
+  store ptr %439, ptr %35, align 8
+  store ptr %441, ptr %36, align 8
+  %442 = load ptr, ptr %35, align 8
+  %443 = load <4 x float>, ptr %442, align 16
+  %444 = load ptr, ptr %36, align 8
+  %445 = load <4 x float>, ptr %444, align 16
+  store <4 x float> %443, ptr %32, align 16
+  store <4 x float> %445, ptr %33, align 16
+  %446 = load <4 x float>, ptr %32, align 16
+  %447 = load <4 x float>, ptr %33, align 16
+  %448 = fmul contract <4 x float> %446, %447
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %34, <4 x float> noundef %448)
+  %449 = load <4 x float>, ptr %34, align 16
+  store <4 x float> %449, ptr %39, align 16
+  %450 = load <4 x float>, ptr %39, align 16
+  store <4 x float> %450, ptr %42, align 16
+  %451 = load <4 x float>, ptr %42, align 16
+  store <4 x float> %451, ptr %48, align 16
+  %452 = load ptr, ptr %46, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %452, ptr align 16 %48, i64 16, i1 false)
+  store ptr %316, ptr %311, align 8
+  %453 = load ptr, ptr %311, align 8
+  %454 = load ptr, ptr %311, align 8
+  store ptr %453, ptr %298, align 8
+  store ptr %454, ptr %299, align 8
+  %455 = load ptr, ptr %298, align 8
+  store ptr %455, ptr %173, align 8
+  %456 = load ptr, ptr %173, align 8
+  %457 = load ptr, ptr %299, align 8
+  store ptr %457, ptr %174, align 8
+  %458 = load ptr, ptr %174, align 8
+  store ptr %456, ptr %122, align 8
+  store ptr %458, ptr %123, align 8
+  %459 = load ptr, ptr %122, align 8
+  %460 = load <4 x float>, ptr %459, align 16
+  %461 = load ptr, ptr %123, align 8
+  %462 = load <4 x float>, ptr %461, align 16
+  store <4 x float> %460, ptr %109, align 16
+  store <4 x float> %462, ptr %110, align 16
+  %463 = load <4 x float>, ptr %109, align 16
+  %464 = load <4 x float>, ptr %110, align 16
+  %465 = fmul contract <4 x float> %463, %464
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %121, <4 x float> noundef %465)
+  %466 = load <4 x float>, ptr %121, align 16
+  store <4 x float> %466, ptr %297, align 16
+  %467 = load <4 x float>, ptr %297, align 16
+  store <4 x float> %467, ptr %310, align 16
+  %468 = load <4 x float>, ptr %310, align 16
+  %469 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %325, i32 0, i32 0
+  %470 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %469, i32 0, i32 0
+  store <4 x float> %468, ptr %470, align 16
+  store ptr %325, ptr %265, align 8
+  store ptr %316, ptr %266, align 8
+  %471 = load ptr, ptr %265, align 8
+  store ptr %471, ptr %195, align 8
+  %472 = load ptr, ptr %195, align 8
+  %473 = load ptr, ptr %266, align 8
+  store ptr %473, ptr %196, align 8
+  %474 = load ptr, ptr %196, align 8
+  store ptr %472, ptr %155, align 8
+  store ptr %474, ptr %156, align 8
+  %475 = load ptr, ptr %155, align 8
+  %476 = load <4 x float>, ptr %475, align 16
+  %477 = load ptr, ptr %156, align 8
+  %478 = load <4 x float>, ptr %477, align 16
+  store <4 x float> %476, ptr %87, align 16
+  store <4 x float> %478, ptr %88, align 16
+  %479 = load <4 x float>, ptr %87, align 16
+  %480 = load <4 x float>, ptr %88, align 16
+  %481 = fmul contract <4 x float> %479, %480
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %154, <4 x float> noundef %481)
+  %482 = load <4 x float>, ptr %154, align 16
+  store <4 x float> %482, ptr %264, align 16
+  %483 = load <4 x float>, ptr %264, align 16
+  %484 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %326, i32 0, i32 0
+  %485 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %484, i32 0, i32 0
+  store <4 x float> %483, ptr %485, align 16
+  store ptr %325, ptr %268, align 8
+  store ptr %326, ptr %269, align 8
+  %486 = load ptr, ptr %268, align 8
+  store ptr %486, ptr %193, align 8
+  %487 = load ptr, ptr %193, align 8
+  %488 = load ptr, ptr %269, align 8
+  store ptr %488, ptr %194, align 8
+  %489 = load ptr, ptr %194, align 8
+  store ptr %487, ptr %152, align 8
+  store ptr %489, ptr %153, align 8
+  %490 = load ptr, ptr %152, align 8
+  %491 = load <4 x float>, ptr %490, align 16
+  %492 = load ptr, ptr %153, align 8
+  %493 = load <4 x float>, ptr %492, align 16
+  store <4 x float> %491, ptr %89, align 16
+  store <4 x float> %493, ptr %90, align 16
+  %494 = load <4 x float>, ptr %89, align 16
+  %495 = load <4 x float>, ptr %90, align 16
+  %496 = fmul contract <4 x float> %494, %495
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %151, <4 x float> noundef %496)
+  %497 = load <4 x float>, ptr %151, align 16
+  store <4 x float> %497, ptr %267, align 16
+  %498 = load <4 x float>, ptr %267, align 16
+  %499 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %327, i32 0, i32 0
+  %500 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %499, i32 0, i32 0
+  store <4 x float> %498, ptr %500, align 16
+  store float 0xBF8D775620000000, ptr %330, align 4
+  store ptr %321, ptr %271, align 8
+  store ptr %316, ptr %272, align 8
+  %501 = load ptr, ptr %271, align 8
+  store ptr %501, ptr %191, align 8
+  %502 = load ptr, ptr %191, align 8
+  %503 = load ptr, ptr %272, align 8
+  store ptr %503, ptr %192, align 8
+  %504 = load ptr, ptr %192, align 8
+  store ptr %502, ptr %149, align 8
+  store ptr %504, ptr %150, align 8
+  %505 = load ptr, ptr %149, align 8
+  %506 = load <4 x float>, ptr %505, align 16
+  %507 = load ptr, ptr %150, align 8
+  %508 = load <4 x float>, ptr %507, align 16
+  store <4 x float> %506, ptr %91, align 16
+  store <4 x float> %508, ptr %92, align 16
+  %509 = load <4 x float>, ptr %91, align 16
+  %510 = load <4 x float>, ptr %92, align 16
+  %511 = fmul contract <4 x float> %509, %510
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %148, <4 x float> noundef %511)
+  %512 = load <4 x float>, ptr %148, align 16
+  store <4 x float> %512, ptr %270, align 16
+  %513 = load <4 x float>, ptr %270, align 16
+  %514 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %331, i32 0, i32 0
+  %515 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %514, i32 0, i32 0
+  store <4 x float> %513, ptr %515, align 16
+  store ptr %330, ptr %258, align 8
+  store ptr %331, ptr %259, align 8
+  %516 = load ptr, ptr %258, align 8
+  %517 = load float, ptr %516, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %260, float noundef %517)
+  %518 = load ptr, ptr %259, align 8
+  store ptr %260, ptr %255, align 8
+  store ptr %518, ptr %256, align 8
+  %519 = load ptr, ptr %255, align 8
+  store ptr %519, ptr %199, align 8
+  %520 = load ptr, ptr %199, align 8
+  %521 = load ptr, ptr %256, align 8
+  store ptr %521, ptr %200, align 8
+  %522 = load ptr, ptr %200, align 8
+  store ptr %520, ptr %71, align 8
+  store ptr %522, ptr %72, align 8
+  %523 = load ptr, ptr %71, align 8
+  %524 = load <4 x float>, ptr %523, align 16
+  %525 = load ptr, ptr %72, align 8
+  %526 = load <4 x float>, ptr %525, align 16
+  store <4 x float> %524, ptr %68, align 16
+  store <4 x float> %526, ptr %69, align 16
+  %527 = load <4 x float>, ptr %68, align 16
+  %528 = load <4 x float>, ptr %69, align 16
+  %529 = fdiv contract <4 x float> %527, %528
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %70, <4 x float> noundef %529)
+  %530 = load <4 x float>, ptr %70, align 16
+  store <4 x float> %530, ptr %254, align 16
+  %531 = load <4 x float>, ptr %254, align 16
+  store <4 x float> %531, ptr %257, align 16
+  %532 = load <4 x float>, ptr %257, align 16
+  %533 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %329, i32 0, i32 0
+  %534 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %533, i32 0, i32 0
+  store <4 x float> %532, ptr %534, align 16
+  %535 = call contract <4 x float> @_ZN5drjit3expIN7mitsuba8SpectrumIfLm4EEEEET_RKS4_(ptr noundef nonnull align 16 dereferenceable(16) %329)
+  %536 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %328, i32 0, i32 0
+  %537 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %536, i32 0, i32 0
+  store <4 x float> %535, ptr %537, align 16
+  store ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE2c0E, ptr %231, align 8
+  store ptr %321, ptr %232, align 8
+  %538 = load ptr, ptr %231, align 8
+  %539 = load float, ptr %538, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %233, float noundef %539)
+  %540 = load ptr, ptr %232, align 8
+  store ptr %233, ptr %228, align 8
+  store ptr %540, ptr %229, align 8
+  %541 = load ptr, ptr %228, align 8
+  store ptr %541, ptr %209, align 8
+  %542 = load ptr, ptr %209, align 8
+  %543 = load ptr, ptr %229, align 8
+  store ptr %543, ptr %210, align 8
+  %544 = load ptr, ptr %210, align 8
+  store ptr %542, ptr %167, align 8
+  store ptr %544, ptr %168, align 8
+  %545 = load ptr, ptr %167, align 8
+  %546 = load <4 x float>, ptr %545, align 16
+  %547 = load ptr, ptr %168, align 8
+  %548 = load <4 x float>, ptr %547, align 16
+  store <4 x float> %546, ptr %79, align 16
+  store <4 x float> %548, ptr %80, align 16
+  %549 = load <4 x float>, ptr %79, align 16
+  %550 = load <4 x float>, ptr %80, align 16
+  %551 = fmul contract <4 x float> %549, %550
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %166, <4 x float> noundef %551)
+  %552 = load <4 x float>, ptr %166, align 16
+  store <4 x float> %552, ptr %227, align 16
+  %553 = load <4 x float>, ptr %227, align 16
+  store <4 x float> %553, ptr %230, align 16
+  %554 = load <4 x float>, ptr %230, align 16
+  %555 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %335, i32 0, i32 0
+  %556 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %555, i32 0, i32 0
+  store <4 x float> %554, ptr %556, align 16
+  store ptr %335, ptr %274, align 8
+  store ptr %328, ptr %275, align 8
+  %557 = load ptr, ptr %274, align 8
+  store ptr %557, ptr %189, align 8
+  %558 = load ptr, ptr %189, align 8
+  %559 = load ptr, ptr %275, align 8
+  store ptr %559, ptr %190, align 8
+  %560 = load ptr, ptr %190, align 8
+  store ptr %558, ptr %146, align 8
+  store ptr %560, ptr %147, align 8
+  %561 = load ptr, ptr %146, align 8
+  %562 = load <4 x float>, ptr %561, align 16
+  %563 = load ptr, ptr %147, align 8
+  %564 = load <4 x float>, ptr %563, align 16
+  store <4 x float> %562, ptr %93, align 16
+  store <4 x float> %564, ptr %94, align 16
+  %565 = load <4 x float>, ptr %93, align 16
+  %566 = load <4 x float>, ptr %94, align 16
+  %567 = fmul contract <4 x float> %565, %566
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %145, <4 x float> noundef %567)
+  %568 = load <4 x float>, ptr %145, align 16
+  store <4 x float> %568, ptr %273, align 16
+  %569 = load <4 x float>, ptr %273, align 16
+  %570 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %334, i32 0, i32 0
+  %571 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %570, i32 0, i32 0
+  store <4 x float> %569, ptr %571, align 16
+  store i32 3, ptr %342, align 4
+  store ptr %342, ptr %15, align 8
+  store ptr %318, ptr %16, align 8
+  %572 = load ptr, ptr %15, align 8
+  %573 = load i32, ptr %572, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %17, i32 noundef %573)
+  %574 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %12, align 8
+  store ptr %574, ptr %13, align 8
+  %575 = load ptr, ptr %12, align 8
+  store ptr %575, ptr %9, align 8
+  %576 = load ptr, ptr %9, align 8
+  %577 = load ptr, ptr %13, align 8
+  store ptr %577, ptr %10, align 8
+  %578 = load ptr, ptr %10, align 8
+  store ptr %576, ptr %7, align 8
+  store ptr %578, ptr %8, align 8
+  %579 = load ptr, ptr %7, align 8
+  %580 = load <4 x float>, ptr %579, align 16
+  %581 = load ptr, ptr %8, align 8
+  %582 = load <4 x float>, ptr %581, align 16
+  store <4 x float> %580, ptr %4, align 16
+  store <4 x float> %582, ptr %5, align 16
+  %583 = load <4 x float>, ptr %4, align 16
+  %584 = load <4 x float>, ptr %5, align 16
+  %585 = fmul contract <4 x float> %583, %584
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %6, <4 x float> noundef %585)
+  %586 = load <4 x float>, ptr %6, align 16
+  store <4 x float> %586, ptr %11, align 16
+  %587 = load <4 x float>, ptr %11, align 16
+  store <4 x float> %587, ptr %14, align 16
+  %588 = load <4 x float>, ptr %14, align 16
+  %589 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %341, i32 0, i32 0
+  %590 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %589, i32 0, i32 0
+  store <4 x float> %588, ptr %590, align 16
+  store ptr %341, ptr %277, align 8
+  store ptr %321, ptr %278, align 8
+  %591 = load ptr, ptr %277, align 8
+  store ptr %591, ptr %187, align 8
+  %592 = load ptr, ptr %187, align 8
+  %593 = load ptr, ptr %278, align 8
+  store ptr %593, ptr %188, align 8
+  %594 = load ptr, ptr %188, align 8
+  store ptr %592, ptr %143, align 8
+  store ptr %594, ptr %144, align 8
+  %595 = load ptr, ptr %143, align 8
+  %596 = load <4 x float>, ptr %595, align 16
+  %597 = load ptr, ptr %144, align 8
+  %598 = load <4 x float>, ptr %597, align 16
+  store <4 x float> %596, ptr %95, align 16
+  store <4 x float> %598, ptr %96, align 16
+  %599 = load <4 x float>, ptr %95, align 16
+  %600 = load <4 x float>, ptr %96, align 16
+  %601 = fmul contract <4 x float> %599, %600
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %142, <4 x float> noundef %601)
+  %602 = load <4 x float>, ptr %142, align 16
+  store <4 x float> %602, ptr %276, align 16
+  %603 = load <4 x float>, ptr %276, align 16
+  %604 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %340, i32 0, i32 0
+  %605 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %604, i32 0, i32 0
+  store <4 x float> %603, ptr %605, align 16
+  store ptr %340, ptr %280, align 8
+  store ptr %316, ptr %281, align 8
+  %606 = load ptr, ptr %280, align 8
+  store ptr %606, ptr %185, align 8
+  %607 = load ptr, ptr %185, align 8
+  %608 = load ptr, ptr %281, align 8
+  store ptr %608, ptr %186, align 8
+  %609 = load ptr, ptr %186, align 8
+  store ptr %607, ptr %140, align 8
+  store ptr %609, ptr %141, align 8
+  %610 = load ptr, ptr %140, align 8
+  %611 = load <4 x float>, ptr %610, align 16
+  %612 = load ptr, ptr %141, align 8
+  %613 = load <4 x float>, ptr %612, align 16
+  store <4 x float> %611, ptr %97, align 16
+  store <4 x float> %613, ptr %98, align 16
+  %614 = load <4 x float>, ptr %97, align 16
+  %615 = load <4 x float>, ptr %98, align 16
+  %616 = fmul contract <4 x float> %614, %615
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %139, <4 x float> noundef %616)
+  %617 = load <4 x float>, ptr %139, align 16
+  store <4 x float> %617, ptr %279, align 16
+  %618 = load <4 x float>, ptr %279, align 16
+  %619 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %339, i32 0, i32 0
+  %620 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %619, i32 0, i32 0
+  store <4 x float> %618, ptr %620, align 16
+  store ptr %319, ptr %219, align 8
+  store ptr %339, ptr %220, align 8
+  %621 = load ptr, ptr %219, align 8
+  store ptr %621, ptr %215, align 8
+  %622 = load ptr, ptr %215, align 8
+  %623 = load ptr, ptr %220, align 8
+  store ptr %623, ptr %216, align 8
+  %624 = load ptr, ptr %216, align 8
+  store ptr %622, ptr %62, align 8
+  store ptr %624, ptr %63, align 8
+  %625 = load ptr, ptr %62, align 8
+  %626 = load <4 x float>, ptr %625, align 16
+  %627 = load ptr, ptr %63, align 8
+  %628 = load <4 x float>, ptr %627, align 16
+  store <4 x float> %626, ptr %49, align 16
+  store <4 x float> %628, ptr %50, align 16
+  %629 = load <4 x float>, ptr %49, align 16
+  %630 = load <4 x float>, ptr %50, align 16
+  %631 = fadd contract <4 x float> %629, %630
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %61, <4 x float> noundef %631)
+  %632 = load <4 x float>, ptr %61, align 16
+  store <4 x float> %632, ptr %218, align 16
+  %633 = load <4 x float>, ptr %218, align 16
+  %634 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %338, i32 0, i32 0
+  %635 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %634, i32 0, i32 0
+  store <4 x float> %633, ptr %635, align 16
+  store float 0x3FB61980A0000000, ptr %345, align 4
+  store ptr %345, ptr %238, align 8
+  store ptr %322, ptr %239, align 8
+  %636 = load ptr, ptr %238, align 8
+  %637 = load float, ptr %636, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %240, float noundef %637)
+  %638 = load ptr, ptr %239, align 8
+  store ptr %240, ptr %235, align 8
+  store ptr %638, ptr %236, align 8
+  %639 = load ptr, ptr %235, align 8
+  store ptr %639, ptr %207, align 8
+  %640 = load ptr, ptr %207, align 8
+  %641 = load ptr, ptr %236, align 8
+  store ptr %641, ptr %208, align 8
+  %642 = load ptr, ptr %208, align 8
+  store ptr %640, ptr %164, align 8
+  store ptr %642, ptr %165, align 8
+  %643 = load ptr, ptr %164, align 8
+  %644 = load <4 x float>, ptr %643, align 16
+  %645 = load ptr, ptr %165, align 8
+  %646 = load <4 x float>, ptr %645, align 16
+  store <4 x float> %644, ptr %81, align 16
+  store <4 x float> %646, ptr %82, align 16
+  %647 = load <4 x float>, ptr %81, align 16
+  %648 = load <4 x float>, ptr %82, align 16
+  %649 = fmul contract <4 x float> %647, %648
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %163, <4 x float> noundef %649)
+  %650 = load <4 x float>, ptr %163, align 16
+  store <4 x float> %650, ptr %234, align 16
+  %651 = load <4 x float>, ptr %234, align 16
+  store <4 x float> %651, ptr %237, align 16
+  %652 = load <4 x float>, ptr %237, align 16
+  %653 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %344, i32 0, i32 0
+  %654 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %653, i32 0, i32 0
+  store <4 x float> %652, ptr %654, align 16
+  store ptr %344, ptr %283, align 8
+  store ptr %325, ptr %284, align 8
+  %655 = load ptr, ptr %283, align 8
+  store ptr %655, ptr %183, align 8
+  %656 = load ptr, ptr %183, align 8
+  %657 = load ptr, ptr %284, align 8
+  store ptr %657, ptr %184, align 8
+  %658 = load ptr, ptr %184, align 8
+  store ptr %656, ptr %137, align 8
+  store ptr %658, ptr %138, align 8
+  %659 = load ptr, ptr %137, align 8
+  %660 = load <4 x float>, ptr %659, align 16
+  %661 = load ptr, ptr %138, align 8
+  %662 = load <4 x float>, ptr %661, align 16
+  store <4 x float> %660, ptr %99, align 16
+  store <4 x float> %662, ptr %100, align 16
+  %663 = load <4 x float>, ptr %99, align 16
+  %664 = load <4 x float>, ptr %100, align 16
+  %665 = fmul contract <4 x float> %663, %664
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %136, <4 x float> noundef %665)
+  %666 = load <4 x float>, ptr %136, align 16
+  store <4 x float> %666, ptr %282, align 16
+  %667 = load <4 x float>, ptr %282, align 16
+  %668 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %343, i32 0, i32 0
+  %669 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %668, i32 0, i32 0
+  store <4 x float> %667, ptr %669, align 16
+  store ptr %338, ptr %222, align 8
+  store ptr %343, ptr %223, align 8
+  %670 = load ptr, ptr %222, align 8
+  store ptr %670, ptr %213, align 8
+  %671 = load ptr, ptr %213, align 8
+  %672 = load ptr, ptr %223, align 8
+  store ptr %672, ptr %214, align 8
+  %673 = load ptr, ptr %214, align 8
+  store ptr %671, ptr %59, align 8
+  store ptr %673, ptr %60, align 8
+  %674 = load ptr, ptr %59, align 8
+  %675 = load <4 x float>, ptr %674, align 16
+  %676 = load ptr, ptr %60, align 8
+  %677 = load <4 x float>, ptr %676, align 16
+  store <4 x float> %675, ptr %51, align 16
+  store <4 x float> %677, ptr %52, align 16
+  %678 = load <4 x float>, ptr %51, align 16
+  %679 = load <4 x float>, ptr %52, align 16
+  %680 = fadd contract <4 x float> %678, %679
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %58, <4 x float> noundef %680)
+  %681 = load <4 x float>, ptr %58, align 16
+  store <4 x float> %681, ptr %221, align 16
+  %682 = load <4 x float>, ptr %221, align 16
+  %683 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %337, i32 0, i32 0
+  %684 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %683, i32 0, i32 0
+  store <4 x float> %682, ptr %684, align 16
+  store i32 6, ptr %348, align 4
+  store ptr %348, ptr %29, align 8
+  store ptr %323, ptr %30, align 8
+  %685 = load ptr, ptr %29, align 8
+  %686 = load i32, ptr %685, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %31, i32 noundef %686)
+  %687 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %26, align 8
+  store ptr %687, ptr %27, align 8
+  %688 = load ptr, ptr %26, align 8
+  store ptr %688, ptr %23, align 8
+  %689 = load ptr, ptr %23, align 8
+  %690 = load ptr, ptr %27, align 8
+  store ptr %690, ptr %24, align 8
+  %691 = load ptr, ptr %24, align 8
+  store ptr %689, ptr %21, align 8
+  store ptr %691, ptr %22, align 8
+  %692 = load ptr, ptr %21, align 8
+  %693 = load <4 x float>, ptr %692, align 16
+  %694 = load ptr, ptr %22, align 8
+  %695 = load <4 x float>, ptr %694, align 16
+  store <4 x float> %693, ptr %18, align 16
+  store <4 x float> %695, ptr %19, align 16
+  %696 = load <4 x float>, ptr %18, align 16
+  %697 = load <4 x float>, ptr %19, align 16
+  %698 = fmul contract <4 x float> %696, %697
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %20, <4 x float> noundef %698)
+  %699 = load <4 x float>, ptr %20, align 16
+  store <4 x float> %699, ptr %25, align 16
+  %700 = load <4 x float>, ptr %25, align 16
+  store <4 x float> %700, ptr %28, align 16
+  %701 = load <4 x float>, ptr %28, align 16
+  %702 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %347, i32 0, i32 0
+  %703 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %702, i32 0, i32 0
+  store <4 x float> %701, ptr %703, align 16
+  store ptr %347, ptr %286, align 8
+  store ptr %326, ptr %287, align 8
+  %704 = load ptr, ptr %286, align 8
+  store ptr %704, ptr %181, align 8
+  %705 = load ptr, ptr %181, align 8
+  %706 = load ptr, ptr %287, align 8
+  store ptr %706, ptr %182, align 8
+  %707 = load ptr, ptr %182, align 8
+  store ptr %705, ptr %134, align 8
+  store ptr %707, ptr %135, align 8
+  %708 = load ptr, ptr %134, align 8
+  %709 = load <4 x float>, ptr %708, align 16
+  %710 = load ptr, ptr %135, align 8
+  %711 = load <4 x float>, ptr %710, align 16
+  store <4 x float> %709, ptr %101, align 16
+  store <4 x float> %711, ptr %102, align 16
+  %712 = load <4 x float>, ptr %101, align 16
+  %713 = load <4 x float>, ptr %102, align 16
+  %714 = fmul contract <4 x float> %712, %713
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %133, <4 x float> noundef %714)
+  %715 = load <4 x float>, ptr %133, align 16
+  store <4 x float> %715, ptr %285, align 16
+  %716 = load <4 x float>, ptr %285, align 16
+  %717 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %346, i32 0, i32 0
+  %718 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %717, i32 0, i32 0
+  store <4 x float> %716, ptr %718, align 16
+  store ptr %337, ptr %225, align 8
+  store ptr %346, ptr %226, align 8
+  %719 = load ptr, ptr %225, align 8
+  store ptr %719, ptr %211, align 8
+  %720 = load ptr, ptr %211, align 8
+  %721 = load ptr, ptr %226, align 8
+  store ptr %721, ptr %212, align 8
+  %722 = load ptr, ptr %212, align 8
+  store ptr %720, ptr %56, align 8
+  store ptr %722, ptr %57, align 8
+  %723 = load ptr, ptr %56, align 8
+  %724 = load <4 x float>, ptr %723, align 16
+  %725 = load ptr, ptr %57, align 8
+  %726 = load <4 x float>, ptr %725, align 16
+  store <4 x float> %724, ptr %53, align 16
+  store <4 x float> %726, ptr %54, align 16
+  %727 = load <4 x float>, ptr %53, align 16
+  %728 = load <4 x float>, ptr %54, align 16
+  %729 = fadd contract <4 x float> %727, %728
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %55, <4 x float> noundef %729)
+  %730 = load <4 x float>, ptr %55, align 16
+  store <4 x float> %730, ptr %224, align 16
+  %731 = load <4 x float>, ptr %224, align 16
+  %732 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %336, i32 0, i32 0
+  %733 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %732, i32 0, i32 0
+  store <4 x float> %731, ptr %733, align 16
+  store ptr %334, ptr %289, align 8
+  store ptr %336, ptr %290, align 8
+  %734 = load ptr, ptr %289, align 8
+  store ptr %734, ptr %179, align 8
+  %735 = load ptr, ptr %179, align 8
+  %736 = load ptr, ptr %290, align 8
+  store ptr %736, ptr %180, align 8
+  %737 = load ptr, ptr %180, align 8
+  store ptr %735, ptr %131, align 8
+  store ptr %737, ptr %132, align 8
+  %738 = load ptr, ptr %131, align 8
+  %739 = load <4 x float>, ptr %738, align 16
+  %740 = load ptr, ptr %132, align 8
+  %741 = load <4 x float>, ptr %740, align 16
+  store <4 x float> %739, ptr %103, align 16
+  store <4 x float> %741, ptr %104, align 16
+  %742 = load <4 x float>, ptr %103, align 16
+  %743 = load <4 x float>, ptr %104, align 16
+  %744 = fmul contract <4 x float> %742, %743
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %130, <4 x float> noundef %744)
+  %745 = load <4 x float>, ptr %130, align 16
+  store <4 x float> %745, ptr %288, align 16
+  %746 = load <4 x float>, ptr %288, align 16
+  %747 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %333, i32 0, i32 0
+  %748 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %747, i32 0, i32 0
+  store <4 x float> %746, ptr %748, align 16
+  store ptr %320, ptr %292, align 8
+  store ptr %326, ptr %293, align 8
+  %749 = load ptr, ptr %292, align 8
+  store ptr %749, ptr %177, align 8
+  %750 = load ptr, ptr %177, align 8
+  %751 = load ptr, ptr %293, align 8
+  store ptr %751, ptr %178, align 8
+  %752 = load ptr, ptr %178, align 8
+  store ptr %750, ptr %128, align 8
+  store ptr %752, ptr %129, align 8
+  %753 = load ptr, ptr %128, align 8
+  %754 = load <4 x float>, ptr %753, align 16
+  %755 = load ptr, ptr %129, align 8
+  %756 = load <4 x float>, ptr %755, align 16
+  store <4 x float> %754, ptr %105, align 16
+  store <4 x float> %756, ptr %106, align 16
+  %757 = load <4 x float>, ptr %105, align 16
+  %758 = load <4 x float>, ptr %106, align 16
+  %759 = fmul contract <4 x float> %757, %758
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %127, <4 x float> noundef %759)
+  %760 = load <4 x float>, ptr %127, align 16
+  store <4 x float> %760, ptr %291, align 16
+  %761 = load <4 x float>, ptr %291, align 16
+  %762 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %349, i32 0, i32 0
+  %763 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %762, i32 0, i32 0
+  store <4 x float> %761, ptr %763, align 16
+  store ptr %333, ptr %249, align 8
+  store ptr %349, ptr %250, align 8
+  %764 = load ptr, ptr %249, align 8
+  store ptr %764, ptr %203, align 8
+  %765 = load ptr, ptr %203, align 8
+  %766 = load ptr, ptr %250, align 8
+  store ptr %766, ptr %204, align 8
+  %767 = load ptr, ptr %204, align 8
+  store ptr %765, ptr %77, align 8
+  store ptr %767, ptr %78, align 8
+  %768 = load ptr, ptr %77, align 8
+  %769 = load <4 x float>, ptr %768, align 16
+  %770 = load ptr, ptr %78, align 8
+  %771 = load <4 x float>, ptr %770, align 16
+  store <4 x float> %769, ptr %64, align 16
+  store <4 x float> %771, ptr %65, align 16
+  %772 = load <4 x float>, ptr %64, align 16
+  %773 = load <4 x float>, ptr %65, align 16
+  %774 = fdiv contract <4 x float> %772, %773
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %76, <4 x float> noundef %774)
+  %775 = load <4 x float>, ptr %76, align 16
+  store <4 x float> %775, ptr %248, align 16
+  %776 = load <4 x float>, ptr %248, align 16
+  %777 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %332, i32 0, i32 0
+  %778 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %777, i32 0, i32 0
+  store <4 x float> %776, ptr %778, align 16
+  store float 0x3AC26E3500000000, ptr %352, align 4
+  store ptr %352, ptr %245, align 8
+  store ptr %328, ptr %246, align 8
+  %779 = load ptr, ptr %245, align 8
+  %780 = load float, ptr %779, align 4
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %247, float noundef %780)
+  %781 = load ptr, ptr %246, align 8
+  store ptr %247, ptr %242, align 8
+  store ptr %781, ptr %243, align 8
+  %782 = load ptr, ptr %242, align 8
+  store ptr %782, ptr %205, align 8
+  %783 = load ptr, ptr %205, align 8
+  %784 = load ptr, ptr %243, align 8
+  store ptr %784, ptr %206, align 8
+  %785 = load ptr, ptr %206, align 8
+  store ptr %783, ptr %161, align 8
+  store ptr %785, ptr %162, align 8
+  %786 = load ptr, ptr %161, align 8
+  %787 = load <4 x float>, ptr %786, align 16
+  %788 = load ptr, ptr %162, align 8
+  %789 = load <4 x float>, ptr %788, align 16
+  store <4 x float> %787, ptr %83, align 16
+  store <4 x float> %789, ptr %84, align 16
+  %790 = load <4 x float>, ptr %83, align 16
+  %791 = load <4 x float>, ptr %84, align 16
+  %792 = fmul contract <4 x float> %790, %791
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %160, <4 x float> noundef %792)
+  %793 = load <4 x float>, ptr %160, align 16
+  store <4 x float> %793, ptr %241, align 16
+  %794 = load <4 x float>, ptr %241, align 16
+  store <4 x float> %794, ptr %244, align 16
+  %795 = load <4 x float>, ptr %244, align 16
+  %796 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %351, i32 0, i32 0
+  %797 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %796, i32 0, i32 0
+  store <4 x float> %795, ptr %797, align 16
+  store ptr %351, ptr %252, align 8
+  store ptr %327, ptr %253, align 8
+  %798 = load ptr, ptr %252, align 8
+  store ptr %798, ptr %201, align 8
+  %799 = load ptr, ptr %201, align 8
+  %800 = load ptr, ptr %253, align 8
+  store ptr %800, ptr %202, align 8
+  %801 = load ptr, ptr %202, align 8
+  store ptr %799, ptr %74, align 8
+  store ptr %801, ptr %75, align 8
+  %802 = load ptr, ptr %74, align 8
+  %803 = load <4 x float>, ptr %802, align 16
+  %804 = load ptr, ptr %75, align 8
+  %805 = load <4 x float>, ptr %804, align 16
+  store <4 x float> %803, ptr %66, align 16
+  store <4 x float> %805, ptr %67, align 16
+  %806 = load <4 x float>, ptr %66, align 16
+  %807 = load <4 x float>, ptr %67, align 16
+  %808 = fdiv contract <4 x float> %806, %807
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %73, <4 x float> noundef %808)
+  %809 = load <4 x float>, ptr %73, align 16
+  store <4 x float> %809, ptr %251, align 16
+  %810 = load <4 x float>, ptr %251, align 16
+  %811 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %350, i32 0, i32 0
+  %812 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %811, i32 0, i32 0
+  store <4 x float> %810, ptr %812, align 16
+  call void @_ZNSt3__14pairIN7mitsuba8SpectrumIfLm4EEES3_EC2B8ne190000IRS3_S6_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOS8_OS9_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(16) %332, ptr noundef nonnull align 16 dereferenceable(16) %350) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZNSt3__13tieB8ne190000IJN7mitsuba8SpectrumIfLm4EEES3_EEENS_5tupleIJDpRT_EEES7_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) #5 comdat {
+  %3 = alloca %"class.std::__1::tuple", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZNSt3__15tupleIJRN7mitsuba8SpectrumIfLm4EEES4_EEC2B8ne190000INS_4_AndETnNS_9enable_ifIXsrT_IJNS_17integral_constantIbLb1EEENS_21is_copy_constructibleIS4_EESD_EE5valueEiE4typeELi0EEES4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7) #20
+  %8 = getelementptr inbounds %"class.std::__1::tuple", ptr %3, i32 0, i32 0
+  %9 = load { ptr, ptr }, ptr %8, align 8
+  ret { ptr, ptr } %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3__15tupleIJRN7mitsuba8SpectrumIfLm4EEES4_EEaSB8ne190000IS3_S3_TnNS_9enable_ifIXsr21_EnableAssignFromPairILb0EONS_4pairIT_T0_EEEE5valueEiE4typeELi0EEERS5_SC_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(32) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %"struct.std::__1::pair.35", ptr %6, i32 0, i32 0
+  %8 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__13getB8ne190000ILm0EJRN7mitsuba8SpectrumIfLm4EEES4_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %8, ptr align 16 %7, i64 16, i1 false)
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"struct.std::__1::pair.35", ptr %9, i32 0, i32 1
+  %11 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__13getB8ne190000ILm1EJRN7mitsuba8SpectrumIfLm4EEES4_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %11, ptr align 16 %10, i64 16, i1 false)
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN5drjit11none_nestedINS_4MaskIfLm4EEEEEDaRKT_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZN5drjit10any_nestedIvNS_4MaskIfLm4EEEEEDaRKT0_(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %5 = xor i1 %4, true
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__14pairIN7mitsuba8SpectrumIfLm4EEES3_EC2B8ne190000IRS3_S3_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOS8_OS9_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2) unnamed_addr #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::__1::pair.35", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %8, ptr align 16 %9, i64 16, i1 false)
+  %10 = getelementptr inbounds %"struct.std::__1::pair.35", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %10, ptr align 16 %11, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr noundef float @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4meanEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %11, i32 0, i32 3
+  %13 = load float, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %11, i32 0, i32 4
+  store ptr %14, ptr %8, align 8
+  %15 = load ptr, ptr %8, align 8
+  store ptr %15, ptr %7, align 8
+  %16 = load ptr, ptr %7, align 8
+  store ptr %16, ptr %4, align 8
+  store i64 1, ptr %5, align 8
+  %17 = load ptr, ptr %4, align 8
+  %18 = load i64, ptr %5, align 8
+  %19 = getelementptr inbounds [2 x float], ptr %17, i64 0, i64 %18
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %11, i32 0, i32 4
+  store ptr %21, ptr %9, align 8
+  %22 = load ptr, ptr %9, align 8
+  store ptr %22, ptr %6, align 8
+  %23 = load ptr, ptr %6, align 8
+  store ptr %23, ptr %2, align 8
+  store i64 0, ptr %3, align 8
+  %24 = load ptr, ptr %2, align 8
+  %25 = load i64, ptr %3, align 8
+  %26 = getelementptr inbounds [2 x float], ptr %24, i64 0, i64 %25
+  %27 = load float, ptr %26, align 4
+  %28 = fsub contract float %20, %27
+  %29 = fdiv contract float %13, %28
+  ret float %29
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define weak_odr <2 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16wavelength_rangeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca %"struct.mitsuba::Vector", align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %4, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %5, i64 8, i1 false)
+  %6 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.drjit::StaticArrayImpl", ptr %6, i32 0, i32 0
+  %8 = load <2 x float>, ptr %7, align 4
+  ret <2 x float> %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define weak_odr noundef float @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19spectral_resolutionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret float 0.000000e+00
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr noundef float @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE3maxEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  %18 = alloca float, align 4
+  %19 = alloca float, align 4
+  %20 = alloca float, align 4
+  store ptr %0, ptr %12, align 8
+  %21 = load ptr, ptr %12, align 8
+  %22 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %21, i32 0, i32 1
+  %23 = load float, ptr %22, align 8
+  %24 = fdiv contract float 0x3F67BD1180000000, %23
+  store float %24, ptr %14, align 4
+  %25 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %21, i32 0, i32 4
+  store ptr %25, ptr %11, align 8
+  %26 = load ptr, ptr %11, align 8
+  store ptr %26, ptr %6, align 8
+  %27 = load ptr, ptr %6, align 8
+  store ptr %27, ptr %2, align 8
+  store i64 0, ptr %3, align 8
+  %28 = load ptr, ptr %2, align 8
+  %29 = load i64, ptr %3, align 8
+  %30 = getelementptr inbounds [2 x float], ptr %28, i64 0, i64 %29
+  %31 = load float, ptr %30, align 4
+  %32 = fmul contract float %31, 0x3E112E0BE0000000
+  store float %32, ptr %15, align 4
+  %33 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %21, i32 0, i32 4
+  store ptr %33, ptr %10, align 8
+  %34 = load ptr, ptr %10, align 8
+  store ptr %34, ptr %7, align 8
+  %35 = load ptr, ptr %7, align 8
+  store ptr %35, ptr %4, align 8
+  store i64 1, ptr %5, align 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i64, ptr %5, align 8
+  %38 = getelementptr inbounds [2 x float], ptr %36, i64 0, i64 %37
+  %39 = load float, ptr %38, align 4
+  %40 = fmul contract float %39, 0x3E112E0BE0000000
+  store float %40, ptr %16, align 4
+  %41 = call contract noundef float @_ZN5drjit5clampIfffEEDaRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  store float %41, ptr %13, align 4
+  store ptr %13, ptr %8, align 8
+  %42 = load ptr, ptr %8, align 8
+  %43 = load float, ptr %42, align 4
+  %44 = load ptr, ptr %8, align 8
+  %45 = load float, ptr %44, align 4
+  %46 = fmul contract float %43, %45
+  store float %46, ptr %17, align 4
+  store ptr %17, ptr %9, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load float, ptr %47, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = load float, ptr %49, align 4
+  %51 = fmul contract float %48, %50
+  %52 = load float, ptr %13, align 4
+  %53 = fmul contract float %51, %52
+  store float %53, ptr %18, align 4
+  %54 = load float, ptr %18, align 4
+  %55 = load float, ptr %13, align 4
+  %56 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %21, i32 0, i32 1
+  %57 = load float, ptr %56, align 8
+  %58 = fmul contract float %55, %57
+  %59 = fdiv contract float 0x3F8D775620000000, %58
+  store float %59, ptr %20, align 4
+  %60 = call contract noundef float @_ZN5drjit3expIfEET_RKS1_(ptr noundef nonnull align 4 dereferenceable(4) %20)
+  %61 = fsub contract float %60, 1.000000e+00
+  %62 = fmul contract float %54, %61
+  %63 = fdiv contract float 0x3AC26E3500000000, %62
+  store float %63, ptr %19, align 4
+  %64 = load float, ptr %19, align 4
+  ret float %64
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef float @_ZN5drjit5clampIfffEEDaRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #0 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca float, align 4
+  store ptr %0, ptr %12, align 8
+  store ptr %1, ptr %13, align 8
+  store ptr %2, ptr %14, align 8
+  %16 = load ptr, ptr %12, align 8
+  %17 = load ptr, ptr %14, align 8
+  store ptr %16, ptr %4, align 8
+  store ptr %17, ptr %5, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = load float, ptr %18, align 4
+  store float %19, ptr %6, align 4
+  %20 = load ptr, ptr %5, align 8
+  %21 = load float, ptr %20, align 4
+  store float %21, ptr %7, align 4
+  %22 = call contract noundef float @_ZN5drjit6detail8minimum_IfEET_RKS2_S4_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  store float %22, ptr %15, align 4
+  %23 = load ptr, ptr %13, align 8
+  store ptr %15, ptr %8, align 8
+  store ptr %23, ptr %9, align 8
+  %24 = load ptr, ptr %8, align 8
+  %25 = load float, ptr %24, align 4
+  store float %25, ptr %10, align 4
+  %26 = load ptr, ptr %9, align 8
+  %27 = load float, ptr %26, align 4
+  store float %27, ptr %11, align 4
+  %28 = call contract noundef float @_ZN5drjit6detail8maximum_IfEET_RKS2_S4_(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  ret float %28
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef float @_ZN5drjit3expIfEET_RKS1_(ptr noundef nonnull align 4 dereferenceable(4) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca float, align 4
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca [1 x float], align 4
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca float, align 4
+  %18 = alloca float, align 4
+  %19 = alloca float, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca [2 x float], align 4
+  %26 = alloca i64, align 8
+  %27 = alloca float, align 4
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca float, align 4
+  %32 = alloca float, align 4
+  %33 = alloca float, align 4
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca ptr, align 8
+  %37 = alloca i64, align 8
+  %38 = alloca i64, align 8
+  %39 = alloca [3 x float], align 4
+  %40 = alloca i64, align 8
+  %41 = alloca float, align 4
+  %42 = alloca i64, align 8
+  %43 = alloca ptr, align 8
+  %44 = alloca ptr, align 8
+  %45 = alloca ptr, align 8
+  %46 = alloca ptr, align 8
+  %47 = alloca ptr, align 8
+  %48 = alloca ptr, align 8
+  %49 = alloca ptr, align 8
+  %50 = alloca double, align 8
+  %51 = alloca double, align 8
+  %52 = alloca double, align 8
+  %53 = alloca double, align 8
+  %54 = alloca double, align 8
+  %55 = alloca double, align 8
+  %56 = alloca [6 x float], align 16
+  %57 = alloca ptr, align 8
+  %58 = alloca ptr, align 8
+  %59 = alloca ptr, align 8
+  %60 = alloca float, align 4
+  %61 = alloca float, align 4
+  %62 = alloca float, align 4
+  %63 = alloca ptr, align 8
+  %64 = alloca ptr, align 8
+  %65 = alloca ptr, align 8
+  %66 = alloca float, align 4
+  %67 = alloca float, align 4
+  %68 = alloca float, align 4
+  %69 = alloca ptr, align 8
+  %70 = alloca ptr, align 8
+  %71 = alloca ptr, align 8
+  %72 = alloca float, align 4
+  %73 = alloca float, align 4
+  %74 = alloca float, align 4
+  %75 = alloca ptr, align 8
+  %76 = alloca ptr, align 8
+  %77 = alloca ptr, align 8
+  %78 = alloca float, align 4
+  %79 = alloca float, align 4
+  %80 = alloca float, align 4
+  %81 = alloca ptr, align 8
+  %82 = alloca ptr, align 8
+  %83 = alloca ptr, align 8
+  %84 = alloca ptr, align 8
+  %85 = alloca i8, align 1
+  %86 = alloca float, align 4
+  %87 = alloca i8, align 1
+  %88 = alloca i8, align 1
+  %89 = alloca float, align 4
+  %90 = alloca float, align 4
+  %91 = alloca float, align 4
+  %92 = alloca float, align 4
+  %93 = alloca float, align 4
+  %94 = alloca float, align 4
+  %95 = alloca float, align 4
+  %96 = alloca float, align 4
+  %97 = alloca float, align 4
+  %98 = alloca float, align 4
+  %99 = alloca float, align 4
+  %100 = alloca float, align 4
+  %101 = alloca float, align 4
+  %102 = alloca float, align 4
+  store ptr %0, ptr %84, align 8
+  store i8 1, ptr %85, align 1
+  store float 0x40561814A0000000, ptr %86, align 4
+  %103 = load ptr, ptr %84, align 8
+  %104 = load float, ptr %103, align 4
+  %105 = fcmp contract ogt float %104, 0x40561814A0000000
+  %106 = zext i1 %105 to i8
+  store i8 %106, ptr %87, align 1
+  %107 = load ptr, ptr %84, align 8
+  %108 = load float, ptr %107, align 4
+  %109 = fcmp contract olt float %108, 0xC0561814A0000000
+  %110 = zext i1 %109 to i8
+  store i8 %110, ptr %88, align 1
+  %111 = load ptr, ptr %84, align 8
+  store float 5.000000e-01, ptr %91, align 4
+  store ptr @_ZN5drjit9InvLogTwoIfEE, ptr %57, align 8
+  store ptr %111, ptr %58, align 8
+  store ptr %91, ptr %59, align 8
+  %112 = load ptr, ptr %57, align 8
+  %113 = load float, ptr %112, align 4
+  store float %113, ptr %60, align 4
+  %114 = load ptr, ptr %58, align 8
+  %115 = load float, ptr %114, align 4
+  store float %115, ptr %61, align 4
+  %116 = load ptr, ptr %59, align 8
+  %117 = load float, ptr %116, align 4
+  store float %117, ptr %62, align 4
+  %118 = call contract noundef float @_ZN5drjit6detail6fmadd_IfEET_RKS2_S4_S4_(ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull align 4 dereferenceable(4) %61, ptr noundef nonnull align 4 dereferenceable(4) %62)
+  store float %118, ptr %90, align 4
+  store ptr %90, ptr %81, align 8
+  %119 = load ptr, ptr %81, align 8
+  %120 = call contract noundef float @_ZN5drjit6detail6floor_IfEET_RKS2_(ptr noundef nonnull align 4 dereferenceable(4) %119)
+  store float %120, ptr %89, align 4
+  store float 0xBFE6300000000000, ptr %92, align 4
+  store float 0x3F2BD01060000000, ptr %93, align 4
+  %121 = load ptr, ptr %84, align 8
+  %122 = load float, ptr %121, align 4
+  store float %122, ptr %94, align 4
+  store float 0xBFE6300000000000, ptr %95, align 4
+  store ptr %89, ptr %63, align 8
+  store ptr %95, ptr %64, align 8
+  store ptr %94, ptr %65, align 8
+  %123 = load ptr, ptr %63, align 8
+  %124 = load float, ptr %123, align 4
+  store float %124, ptr %66, align 4
+  %125 = load ptr, ptr %64, align 8
+  %126 = load float, ptr %125, align 4
+  store float %126, ptr %67, align 4
+  %127 = load ptr, ptr %65, align 8
+  %128 = load float, ptr %127, align 4
+  store float %128, ptr %68, align 4
+  %129 = call contract noundef float @_ZN5drjit6detail6fmadd_IfEET_RKS2_S4_S4_(ptr noundef nonnull align 4 dereferenceable(4) %66, ptr noundef nonnull align 4 dereferenceable(4) %67, ptr noundef nonnull align 4 dereferenceable(4) %68)
+  store float %129, ptr %94, align 4
+  store float 0x3F2BD01060000000, ptr %96, align 4
+  store ptr %89, ptr %69, align 8
+  store ptr %96, ptr %70, align 8
+  store ptr %94, ptr %71, align 8
+  %130 = load ptr, ptr %69, align 8
+  %131 = load float, ptr %130, align 4
+  store float %131, ptr %72, align 4
+  %132 = load ptr, ptr %70, align 8
+  %133 = load float, ptr %132, align 4
+  store float %133, ptr %73, align 4
+  %134 = load ptr, ptr %71, align 8
+  %135 = load float, ptr %134, align 4
+  store float %135, ptr %74, align 4
+  %136 = call contract noundef float @_ZN5drjit6detail6fmadd_IfEET_RKS2_S4_S4_(ptr noundef nonnull align 4 dereferenceable(4) %72, ptr noundef nonnull align 4 dereferenceable(4) %73, ptr noundef nonnull align 4 dereferenceable(4) %74)
+  store float %136, ptr %94, align 4
+  store ptr %94, ptr %82, align 8
+  %137 = load ptr, ptr %82, align 8
+  %138 = load float, ptr %137, align 4
+  %139 = load ptr, ptr %82, align 8
+  %140 = load float, ptr %139, align 4
+  %141 = fmul contract float %138, %140
+  store float %141, ptr %97, align 4
+  store ptr %94, ptr %49, align 8
+  store double 0x3FE000000672A44F, ptr %50, align 8
+  store double 0x3FC555553B661D99, ptr %51, align 8
+  store double 0x3FA555381D73FD31, ptr %52, align 8
+  store double 0x3F811120FB3CB51D, ptr %53, align 8
+  store double 0x3F56E879C3F007DD, ptr %54, align 8
+  store double 0x3F2A0D2CE64969E6, ptr %55, align 8
+  %142 = load double, ptr %50, align 8
+  %143 = fptrunc double %142 to float
+  store float %143, ptr %56, align 4
+  %144 = getelementptr inbounds float, ptr %56, i64 1
+  %145 = load double, ptr %51, align 8
+  %146 = fptrunc double %145 to float
+  store float %146, ptr %144, align 4
+  %147 = getelementptr inbounds float, ptr %144, i64 1
+  %148 = load double, ptr %52, align 8
+  %149 = fptrunc double %148 to float
+  store float %149, ptr %147, align 4
+  %150 = getelementptr inbounds float, ptr %147, i64 1
+  %151 = load double, ptr %53, align 8
+  %152 = fptrunc double %151 to float
+  store float %152, ptr %150, align 4
+  %153 = getelementptr inbounds float, ptr %150, i64 1
+  %154 = load double, ptr %54, align 8
+  %155 = fptrunc double %154 to float
+  store float %155, ptr %153, align 4
+  %156 = getelementptr inbounds float, ptr %153, i64 1
+  %157 = load double, ptr %55, align 8
+  %158 = fptrunc double %157 to float
+  store float %158, ptr %156, align 4
+  %159 = load ptr, ptr %49, align 8
+  store ptr %159, ptr %35, align 8
+  store ptr %56, ptr %36, align 8
+  store i64 2, ptr %37, align 8
+  store i64 3, ptr %38, align 8
+  store i64 0, ptr %40, align 8
+  br label %160
+
+160:                                              ; preds = %163, %1
+  %161 = load i64, ptr %40, align 8
+  %162 = icmp ult i64 %161, 3
+  br i1 %162, label %163, label %185
+
+163:                                              ; preds = %160
+  %164 = load ptr, ptr %35, align 8
+  %165 = load ptr, ptr %36, align 8
+  %166 = load i64, ptr %40, align 8
+  %167 = mul i64 2, %166
+  %168 = add i64 %167, 1
+  %169 = getelementptr inbounds [6 x float], ptr %165, i64 0, i64 %168
+  %170 = load ptr, ptr %36, align 8
+  %171 = load i64, ptr %40, align 8
+  %172 = mul i64 2, %171
+  %173 = getelementptr inbounds [6 x float], ptr %170, i64 0, i64 %172
+  store ptr %164, ptr %28, align 8
+  store ptr %169, ptr %29, align 8
+  store ptr %173, ptr %30, align 8
+  %174 = load ptr, ptr %28, align 8
+  %175 = load float, ptr %174, align 4
+  store float %175, ptr %31, align 4
+  %176 = load ptr, ptr %29, align 8
+  %177 = load float, ptr %176, align 4
+  store float %177, ptr %32, align 4
+  %178 = load ptr, ptr %30, align 8
+  %179 = load float, ptr %178, align 4
+  store float %179, ptr %33, align 4
+  %180 = call contract noundef float @_ZN5drjit6detail6fmadd_IfEET_RKS2_S4_S4_(ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(4) %33)
+  %181 = load i64, ptr %40, align 8
+  %182 = getelementptr inbounds [3 x float], ptr %39, i64 0, i64 %181
+  store float %180, ptr %182, align 4
+  %183 = load i64, ptr %40, align 8
+  %184 = add i64 %183, 1
+  store i64 %184, ptr %40, align 8
+  br label %160, !llvm.loop !22
+
+185:                                              ; preds = %160
+  %186 = load ptr, ptr %35, align 8
+  store ptr %186, ptr %34, align 8
+  %187 = load ptr, ptr %34, align 8
+  %188 = load float, ptr %187, align 4
+  %189 = load ptr, ptr %34, align 8
+  %190 = load float, ptr %189, align 4
+  %191 = fmul contract float %188, %190
+  store float %191, ptr %41, align 4
+  store ptr %41, ptr %21, align 8
+  store ptr %39, ptr %22, align 8
+  store i64 1, ptr %23, align 8
+  store i64 1, ptr %24, align 8
+  store i64 0, ptr %26, align 8
+  br label %192
+
+192:                                              ; preds = %195, %185
+  %193 = load i64, ptr %26, align 8
+  %194 = icmp ult i64 %193, 1
+  br i1 %194, label %195, label %217
+
+195:                                              ; preds = %192
+  %196 = load ptr, ptr %21, align 8
+  %197 = load ptr, ptr %22, align 8
+  %198 = load i64, ptr %26, align 8
+  %199 = mul i64 2, %198
+  %200 = add i64 %199, 1
+  %201 = getelementptr inbounds [3 x float], ptr %197, i64 0, i64 %200
+  %202 = load ptr, ptr %22, align 8
+  %203 = load i64, ptr %26, align 8
+  %204 = mul i64 2, %203
+  %205 = getelementptr inbounds [3 x float], ptr %202, i64 0, i64 %204
+  store ptr %196, ptr %14, align 8
+  store ptr %201, ptr %15, align 8
+  store ptr %205, ptr %16, align 8
+  %206 = load ptr, ptr %14, align 8
+  %207 = load float, ptr %206, align 4
+  store float %207, ptr %17, align 4
+  %208 = load ptr, ptr %15, align 8
+  %209 = load float, ptr %208, align 4
+  store float %209, ptr %18, align 4
+  %210 = load ptr, ptr %16, align 8
+  %211 = load float, ptr %210, align 4
+  store float %211, ptr %19, align 4
+  %212 = call contract noundef float @_ZN5drjit6detail6fmadd_IfEET_RKS2_S4_S4_(ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
+  %213 = load i64, ptr %26, align 8
+  %214 = getelementptr inbounds [2 x float], ptr %25, i64 0, i64 %213
+  store float %212, ptr %214, align 4
+  %215 = load i64, ptr %26, align 8
+  %216 = add i64 %215, 1
+  store i64 %216, ptr %26, align 8
+  br label %192, !llvm.loop !23
+
+217:                                              ; preds = %192
+  %218 = load ptr, ptr %22, align 8
+  %219 = getelementptr inbounds [3 x float], ptr %218, i64 0, i64 2
+  %220 = load float, ptr %219, align 4
+  %221 = getelementptr inbounds [2 x float], ptr %25, i64 0, i64 1
+  store float %220, ptr %221, align 4
+  %222 = load ptr, ptr %21, align 8
+  store ptr %222, ptr %20, align 8
+  %223 = load ptr, ptr %20, align 8
+  %224 = load float, ptr %223, align 4
+  %225 = load ptr, ptr %20, align 8
+  %226 = load float, ptr %225, align 4
+  %227 = fmul contract float %224, %226
+  store float %227, ptr %27, align 4
+  store ptr %27, ptr %8, align 8
+  store ptr %25, ptr %9, align 8
+  store i64 0, ptr %10, align 8
+  store i64 1, ptr %11, align 8
+  store i64 0, ptr %13, align 8
+  br label %228
+
+228:                                              ; preds = %231, %217
+  %229 = load i64, ptr %13, align 8
+  %230 = icmp ult i64 %229, 1
+  br i1 %230, label %231, label %253
+
+231:                                              ; preds = %228
+  %232 = load ptr, ptr %8, align 8
+  %233 = load ptr, ptr %9, align 8
+  %234 = load i64, ptr %13, align 8
+  %235 = mul i64 2, %234
+  %236 = add i64 %235, 1
+  %237 = getelementptr inbounds [2 x float], ptr %233, i64 0, i64 %236
+  %238 = load ptr, ptr %9, align 8
+  %239 = load i64, ptr %13, align 8
+  %240 = mul i64 2, %239
+  %241 = getelementptr inbounds [2 x float], ptr %238, i64 0, i64 %240
+  store ptr %232, ptr %2, align 8
+  store ptr %237, ptr %3, align 8
+  store ptr %241, ptr %4, align 8
+  %242 = load ptr, ptr %2, align 8
+  %243 = load float, ptr %242, align 4
+  store float %243, ptr %5, align 4
+  %244 = load ptr, ptr %3, align 8
+  %245 = load float, ptr %244, align 4
+  store float %245, ptr %6, align 4
+  %246 = load ptr, ptr %4, align 8
+  %247 = load float, ptr %246, align 4
+  store float %247, ptr %7, align 4
+  %248 = call contract noundef float @_ZN5drjit6detail6fmadd_IfEET_RKS2_S4_S4_(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %249 = load i64, ptr %13, align 8
+  %250 = getelementptr inbounds [1 x float], ptr %12, i64 0, i64 %249
+  store float %248, ptr %250, align 4
+  %251 = load i64, ptr %13, align 8
+  %252 = add i64 %251, 1
+  store i64 %252, ptr %13, align 8
+  br label %228, !llvm.loop !24
+
+253:                                              ; preds = %228
+  %254 = load float, ptr %12, align 4
+  store float %254, ptr %97, align 4
+  store ptr %94, ptr %83, align 8
+  %255 = load ptr, ptr %83, align 8
+  %256 = load float, ptr %255, align 4
+  %257 = load ptr, ptr %83, align 8
+  %258 = load float, ptr %257, align 4
+  %259 = fmul contract float %256, %258
+  store float %259, ptr %98, align 4
+  %260 = load float, ptr %94, align 4
+  %261 = fadd contract float %260, 1.000000e+00
+  store float %261, ptr %99, align 4
+  store ptr %97, ptr %75, align 8
+  store ptr %98, ptr %76, align 8
+  store ptr %99, ptr %77, align 8
+  %262 = load ptr, ptr %75, align 8
+  %263 = load float, ptr %262, align 4
+  store float %263, ptr %78, align 4
+  %264 = load ptr, ptr %76, align 8
+  %265 = load float, ptr %264, align 4
+  store float %265, ptr %79, align 4
+  %266 = load ptr, ptr %77, align 8
+  %267 = load float, ptr %266, align 4
+  store float %267, ptr %80, align 4
+  %268 = call contract noundef float @_ZN5drjit6detail6fmadd_IfEET_RKS2_S4_S4_(ptr noundef nonnull align 4 dereferenceable(4) %78, ptr noundef nonnull align 4 dereferenceable(4) %79, ptr noundef nonnull align 4 dereferenceable(4) %80)
+  store float %268, ptr %97, align 4
+  store i64 1, ptr %42, align 8
+  store float 0.000000e+00, ptr %101, align 4
+  %269 = call contract noundef float @_ZN5drjit5ldexpIffEENS_6detail14replace_scalarINS1_7deepestIJT_T0_EE4typeENS1_4exprIJNS1_6scalarIS4_iE4typeENS9_IS5_iE4typeEEE4typeEiE4typeERKS4_RKS5_(ptr noundef nonnull align 4 dereferenceable(4) %97, ptr noundef nonnull align 4 dereferenceable(4) %89)
+  store float %269, ptr %102, align 4
+  store ptr %88, ptr %43, align 8
+  store ptr %101, ptr %44, align 8
+  store ptr %102, ptr %45, align 8
+  %270 = load ptr, ptr %43, align 8
+  %271 = load i8, ptr %270, align 1
+  %272 = trunc i8 %271 to i1
+  br i1 %272, label %273, label %276
+
+273:                                              ; preds = %253
+  %274 = load ptr, ptr %44, align 8
+  %275 = load float, ptr %274, align 4
+  br label %279
+
+276:                                              ; preds = %253
+  %277 = load ptr, ptr %45, align 8
+  %278 = load float, ptr %277, align 4
+  br label %279
+
+279:                                              ; preds = %276, %273
+  %280 = phi contract float [ %275, %273 ], [ %278, %276 ]
+  store float %280, ptr %100, align 4
+  store ptr %87, ptr %46, align 8
+  store ptr @_ZN5drjit8InfinityIfEE, ptr %47, align 8
+  store ptr %100, ptr %48, align 8
+  %281 = load ptr, ptr %46, align 8
+  %282 = load i8, ptr %281, align 1
+  %283 = trunc i8 %282 to i1
+  br i1 %283, label %284, label %287
+
+284:                                              ; preds = %279
+  %285 = load ptr, ptr %47, align 8
+  %286 = load float, ptr %285, align 4
+  br label %290
+
+287:                                              ; preds = %279
+  %288 = load ptr, ptr %48, align 8
+  %289 = load float, ptr %288, align 4
+  br label %290
+
+290:                                              ; preds = %287, %284
+  %291 = phi contract float [ %286, %284 ], [ %289, %287 ]
+  ret float %291
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr void @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE9to_stringEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__1::basic_ostringstream", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.std::__1::basic_string", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
+  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.3)
+          to label %11 unwind label %25
+
+11:                                               ; preds = %2
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsB8ne190000EPFRS3_S4_E(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef @_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_)
+          to label %13 unwind label %25
+
+13:                                               ; preds = %11
+  %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef @.str.4)
+          to label %15 unwind label %25
+
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.mitsuba::BlackBodySpectrum", ptr %9, i32 0, i32 1
+  invoke void @_ZN7mitsuba6string6indentIfEENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERKT_m(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %8, ptr noundef nonnull align 4 dereferenceable(4) %16, i64 noundef 2)
+          to label %17 unwind label %25
+
+17:                                               ; preds = %15
+  %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %19 unwind label %29
+
+19:                                               ; preds = %17
+  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsB8ne190000EPFRS3_S4_E(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef @_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_)
+          to label %21 unwind label %29
+
+21:                                               ; preds = %19
+  %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef @.str.5)
+          to label %23 unwind label %29
+
+23:                                               ; preds = %21
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
+  invoke void @_ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne190000Ev(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %5)
+          to label %24 unwind label %25
+
+24:                                               ; preds = %23
+  call void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #20
+  ret void
+
+25:                                               ; preds = %23, %15, %13, %11, %2
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %6, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %7, align 4
+  br label %33
+
+29:                                               ; preds = %21, %19, %17
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %6, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %7, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
+  br label %33
+
+33:                                               ; preds = %29, %25
+  call void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #20
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %6, align 8
+  %36 = load i32, ptr %7, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 112
+  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %6)
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 112
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %7, align 8
+  %8 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1), ptr noundef %8)
+          to label %9 unwind label %13
+
+9:                                                ; preds = %1
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 112
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %10, align 8
+  %11 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %11, i32 noundef 16)
+          to label %12 unwind label %17
+
+12:                                               ; preds = %9
+  ret void
+
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
+  br label %21
+
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %3, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %4, align 4
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1)) #20
+  br label %21
+
+21:                                               ; preds = %17, %13
+  %22 = getelementptr inbounds i8, ptr %5, i64 112
+  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %22) #20
+  br label %23
+
+23:                                               ; preds = %21
+  %24 = load ptr, ptr %3, align 8
+  %25 = load i32, ptr %4, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef i64 @_ZNSt3__111char_traitsIcE6lengthB8ne190000EPKc(ptr noundef %7) #20
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, i64 noundef %8)
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7, i64 noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsB8ne190000EPFRS3_S4_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__14endlB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr i8, ptr %5, i64 -24
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 %7
+  %9 = call noundef signext i8 @_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec(ptr noundef nonnull align 8 dereferenceable(148) %8, i8 noundef signext 10)
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE3putEc(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %9)
+  %11 = load ptr, ptr %2, align 8
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %13 = load ptr, ptr %2, align 8
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN7mitsuba6string6indentIfEENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERKT_m(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i64 noundef %2) #0 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"class.std::__1::basic_ostringstream", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.std::__1::basic_string", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  call void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(112) %7)
+  %11 = load ptr, ptr %5, align 8
+  %12 = load float, ptr %11, align 4
+  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEf(ptr noundef nonnull align 8 dereferenceable(8) %7, float noundef %12)
+          to label %14 unwind label %18
+
+14:                                               ; preds = %3
+  invoke void @_ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne190000Ev(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(112) %7)
+          to label %15 unwind label %18
+
+15:                                               ; preds = %14
+  %16 = load i64, ptr %6, align 8
+  invoke void @_ZN7mitsuba6string6indentERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEm(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %16)
+          to label %17 unwind label %22
+
+17:                                               ; preds = %15
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #20
+  call void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #20
+  ret void
+
+18:                                               ; preds = %14, %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
+  br label %26
+
+22:                                               ; preds = %15
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %8, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %9, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #20
+  br label %26
+
+26:                                               ; preds = %22, %18
+  call void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #20
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i32, ptr %9, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne190000Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  call void @_ZNKSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(100) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE) #20
+  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %4) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define weak_odr noundef ptr @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE6class_Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+  ret ptr %3
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init() #8 section ".text.startup" comdat($_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE) personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"class.std::__1::basic_string", align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca %"class.std::__1::basic_string", align 8
+  %5 = alloca %"class.std::__1::basic_string", align 8
+  %6 = alloca %"class.std::__1::function", align 16
+  %7 = alloca %"class.std::__1::function.38", align 16
+  %8 = alloca %"class.std::__1::basic_string", align 8
+  %9 = alloca i1, align 1
+  %10 = load i8, ptr @_ZGVN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %12, label %23
+
+12:                                               ; preds = %0
+  store i8 1, ptr @_ZGVN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+  %13 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 208) #23
+  store i1 true, ptr %9, align 1
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef @.str.6)
+          to label %14 unwind label %24
+
+14:                                               ; preds = %12
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef @.str.7)
+          to label %15 unwind label %28
+
+15:                                               ; preds = %14
+  %16 = invoke noundef ptr @_ZN7mitsuba6detail11get_variantIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEPKcv()
+          to label %17 unwind label %32
+
+17:                                               ; preds = %15
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %16)
+          to label %18 unwind label %32
+
+18:                                               ; preds = %17
+  invoke void @_ZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEv(ptr dead_on_unwind writable sret(%"class.std::__1::function") align 16 %6)
+          to label %19 unwind label %36
+
+19:                                               ; preds = %18
+  invoke void @_ZN7mitsuba6detail23get_unserialize_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESD_EEEv(ptr dead_on_unwind writable sret(%"class.std::__1::function.38") align 16 %7)
+          to label %20 unwind label %40
+
+20:                                               ; preds = %19
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef @.str.8)
+          to label %21 unwind label %44
+
+21:                                               ; preds = %20
+  invoke void @_ZN7mitsuba5ClassC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_S9_NS1_8functionIFPNS_6ObjectERKNS_10PropertiesEEEENSA_IFSC_PNS_6StreamEEEES9_(ptr noundef nonnull align 16 dereferenceable(208) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %22 unwind label %48
+
+22:                                               ; preds = %21
+  store i1 false, ptr %9, align 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
+  call void @_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %7) #20
+  call void @_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %6) #20
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #20
+  store ptr %13, ptr @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+  br label %23
+
+23:                                               ; preds = %22, %0
+  ret void
+
+24:                                               ; preds = %12
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %2, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %3, align 4
+  br label %57
+
+28:                                               ; preds = %14
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %2, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %3, align 4
+  br label %56
+
+32:                                               ; preds = %17, %15
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %2, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %3, align 4
+  br label %55
+
+36:                                               ; preds = %18
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %2, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %3, align 4
+  br label %54
+
+40:                                               ; preds = %19
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %2, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %3, align 4
+  br label %53
+
+44:                                               ; preds = %20
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %2, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %3, align 4
+  br label %52
+
+48:                                               ; preds = %21
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %2, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %3, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
+  br label %52
+
+52:                                               ; preds = %48, %44
+  call void @_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %7) #20
+  br label %53
+
+53:                                               ; preds = %52, %40
+  call void @_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %6) #20
+  br label %54
+
+54:                                               ; preds = %53, %36
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
+  br label %55
+
+55:                                               ; preds = %54, %32
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  br label %56
+
+56:                                               ; preds = %55, %28
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #20
+  br label %57
+
+57:                                               ; preds = %56, %24
+  %58 = load i1, ptr %9, align 1
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %57
+  call void @_ZdlPv(ptr noundef %13) #24
+  br label %60
+
+60:                                               ; preds = %59, %57
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %2, align 8
+  %63 = load i32, ptr %3, align 4
+  %64 = insertvalue { ptr, i32 } poison, ptr %62, 0
+  %65 = insertvalue { ptr, i32 } %64, i32 %63, 1
+  resume { ptr, i32 } %65
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #9
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN7mitsuba6detail11get_variantIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEPKcv() #5 comdat {
+  ret ptr @.str.10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::function") align 16 %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEEC2IZNS1_6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_S6_EEiE4typeELi0EEES8_vEUlS6_E_vEESK_(ptr noundef nonnull align 16 dereferenceable(48) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN7mitsuba6detail23get_unserialize_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESD_EEEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::function.38") align 16 %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEEC2B8ne190000Ev(ptr noundef nonnull align 16 dereferenceable(48) %0) #20
+  ret void
+}
+
+declare void @_ZN7mitsuba5ClassC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_S9_NS1_8functionIFPNS_6ObjectERKNS_10PropertiesEEEENSA_IFSC_PNS_6StreamEEEES9_(ptr noundef nonnull align 16 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::function.38", ptr %3, i32 0, i32 0
+  call void @_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectEPNS2_6StreamEEED2B8ne190000Ev(ptr noundef nonnull align 16 dereferenceable(40) %4) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::function", ptr %3, i32 0, i32 0
+  call void @_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2B8ne190000Ev(ptr noundef nonnull align 16 dereferenceable(40) %4) #20
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) #10
+
+; Function Attrs: mustprogress nounwind uwtable
+define ptr @plugin_name() #5 {
+  ret ptr @.str.6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define ptr @plugin_descr() #5 {
+  ret ptr @.str.9
+}
+
+declare void @_ZNK7mitsuba6Object6expandEv() unnamed_addr
+
+declare void @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE2idEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
+
+declare void @_ZN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE6set_idERKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #20
+  call void @_ZdlPv(ptr noundef %3) #24
+  ret void
+}
+
+declare void @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15sample_positionERKNS_5PointIfLm2EEEb() unnamed_addr
+
+declare noundef float @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE12pdf_positionERKNS_5PointIfLm2EEEb(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) unnamed_addr #1
+
+declare noundef float @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE6eval_1ERKNS_18SurfaceInteractionIfS5_EEb(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 16 dereferenceable(240), i1 noundef zeroext) unnamed_addr #1
+
+declare <2 x float> @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE11eval_1_gradERKNS_18SurfaceInteractionIfS5_EEb(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 16 dereferenceable(240), i1 noundef zeroext) unnamed_addr #1
+
+declare void @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE6eval_3ERKNS_18SurfaceInteractionIfS5_EEb() unnamed_addr
+
+declare void @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE10resolutionEv() unnamed_addr
+
+declare noundef zeroext i1 @_ZNK7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_spatially_varyingEv(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %0, <4 x float> noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca <4 x float>, align 16
+  %5 = alloca ptr, align 8
+  %6 = alloca <4 x float>, align 16
+  store ptr %0, ptr %5, align 8
+  store <4 x float> %1, ptr %6, align 16
+  %7 = load ptr, ptr %5, align 8
+  %8 = load <4 x float>, ptr %6, align 16
+  store ptr %7, ptr %3, align 8
+  store <4 x float> %8, ptr %4, align 16
+  %9 = load ptr, ptr %3, align 8
+  %10 = load <4 x float>, ptr %4, align 16
+  store <4 x float> %10, ptr %9, align 16
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN5drjit8MaskBaseIfLm4ENS_4MaskIfLm4EEEEC2IRbS3_TnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i8, ptr %7, align 1
+  %9 = trunc i8 %8 to i1
+  %10 = zext i1 %9 to i8
+  store i8 %10, ptr %5, align 1
+  call void @_ZN5drjit15StaticArrayImplIfLm4ELb1ENS_4MaskIfLm4EEEiECI2NS_9KMaskBaseIfLm4ES2_EEIbTnNSt3__19enable_ifIXoosr3stdE9is_same_vIbT_Esr3stdE9is_same_vIiS7_EEiE4typeELi0EEERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN5drjit15StaticArrayImplIfLm4ELb1ENS_4MaskIfLm4EEEiECI2NS_9KMaskBaseIfLm4ES2_EEIbTnNSt3__19enable_ifIXoosr3stdE9is_same_vIbT_Esr3stdE9is_same_vIiS7_EEiE4typeELi0EEERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %3, align 8
+  store ptr %8, ptr %4, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = load i8, ptr %10, align 1
+  %12 = trunc i8 %11 to i1
+  %13 = select i1 %12, i8 15, i8 0
+  store i8 %13, ptr %9, align 1
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <4 x float> @llvm.fma.v4f32(<4 x float>, <4 x float>, <4 x float>) #11
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN5drjit6detail11MaskedArrayIN7mitsuba8SpectrumIfLm4EEEEC2ERS4_RKNS_4MaskIfLm4EEE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.drjit::detail::MaskedArray", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.drjit::detail::MaskedArray", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 1 %11, i64 1, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__15tupleIJRN7mitsuba8SpectrumIfLm4EEES4_EEC2B8ne190000INS_4_AndETnNS_9enable_ifIXsrT_IJNS_17integral_constantIbLb1EEENS_21is_copy_constructibleIS4_EESD_EE5valueEiE4typeELi0EEES4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2) unnamed_addr #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"class.std::__1::tuple", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  call void @_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0ELm1EEEEJRN7mitsuba8SpectrumIfLm4EEES6_EEC2B8ne190000IJLm0ELm1EEJS6_S6_ETpTnmJEJEJS6_S6_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSA_IJDpT2_EEEDpOT3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %10) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0ELm1EEEEJRN7mitsuba8SpectrumIfLm4EEES6_EEC2B8ne190000IJLm0ELm1EEJS6_S6_ETpTnmJEJEJS6_S6_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSA_IJDpT2_EEEDpOT3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2) unnamed_addr #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  call void @_ZNSt3__112__tuple_leafILm0ERN7mitsuba8SpectrumIfLm4EEELb0EEC2B8ne190000IS4_TnNS_9enable_ifIXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefIT_ES5_EEEENS_16is_constructibleIS4_JS9_EEEEE5valueEiE4typeELi0EEEOS9_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 16 dereferenceable(16) %8) #20
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = load ptr, ptr %6, align 8
+  call void @_ZNSt3__112__tuple_leafILm1ERN7mitsuba8SpectrumIfLm4EEELb0EEC2B8ne190000IS4_TnNS_9enable_ifIXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefIT_ES5_EEEENS_16is_constructibleIS4_JS9_EEEEE5valueEiE4typeELi0EEEOS9_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 16 dereferenceable(16) %10) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112__tuple_leafILm0ERN7mitsuba8SpectrumIfLm4EEELb0EEC2B8ne190000IS4_TnNS_9enable_ifIXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefIT_ES5_EEEENS_16is_constructibleIS4_JS9_EEEEE5valueEiE4typeELi0EEEOS9_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::__tuple_leaf", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112__tuple_leafILm1ERN7mitsuba8SpectrumIfLm4EEELb0EEC2B8ne190000IS4_TnNS_9enable_ifIXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefIT_ES5_EEEENS_16is_constructibleIS4_JS9_EEEEE5valueEiE4typeELi0EEEOS9_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::__tuple_leaf.37", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN5drjit10any_nestedIvNS_4MaskIfLm4EEEEEDaRKT0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8
+  store ptr %6, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8
+  store ptr %7, ptr %2, align 8
+  %8 = load ptr, ptr %2, align 8
+  %9 = load i8, ptr %8, align 1
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 15
+  %12 = icmp ne i32 %11, 0
+  %13 = zext i1 %12 to i8
+  store i8 %13, ptr %5, align 1
+  %14 = call noundef zeroext i1 @_ZN5drjit10any_nestedINS_4MaskIfLm4EEEbEEDaRKT0_(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret i1 %14
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN5drjit10any_nestedINS_4MaskIfLm4EEEbEEDaRKT0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  store ptr %4, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = load i8, ptr %5, align 1
+  %7 = trunc i8 %6 to i1
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef float @_ZN5drjit6detail4rcp_IfEET_RKS2_(ptr noundef nonnull align 4 dereferenceable(4) %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = load float, ptr %3, align 4
+  %5 = fdiv contract float 1.000000e+00, %4
+  ret float %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef float @_ZN5drjit6detail8maximum_IfEET_RKS2_S4_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load float, ptr %5, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = load float, ptr %7, align 4
+  %9 = fcmp contract olt float %6, %8
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8
+  %12 = load float, ptr %11, align 4
+  br label %16
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8
+  %15 = load float, ptr %14, align 4
+  br label %16
+
+16:                                               ; preds = %13, %10
+  %17 = phi contract float [ %12, %10 ], [ %15, %13 ]
+  ret float %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef float @_ZN5drjit6detail8minimum_IfEET_RKS2_S4_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load float, ptr %5, align 4
+  %7 = load ptr, ptr %3, align 8
+  %8 = load float, ptr %7, align 4
+  %9 = fcmp contract olt float %6, %8
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8
+  %12 = load float, ptr %11, align 4
+  br label %16
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8
+  %15 = load float, ptr %14, align 4
+  br label %16
+
+16:                                               ; preds = %13, %10
+  %17 = phi contract float [ %12, %10 ], [ %15, %13 ]
+  ret float %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds ptr, ptr %6, i64 3
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr i8, ptr %10, i64 -24
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 %12
+  store ptr %9, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  call void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %14) #20
+  %15 = getelementptr inbounds ptr, ptr %6, i64 1
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %15) #20
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148)) unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define linkonce_odr void @_ZTv0_n24_NSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 -24
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 %6
+  tail call void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %3, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #20
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %3)
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds ptr, ptr %8, i64 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = getelementptr i8, ptr %12, i64 -24
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 %14
+  store ptr %11, ptr %15, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr i8, ptr %16, i64 -24
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 %18
+  %20 = load ptr, ptr %6, align 8
+  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4initB8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(148) %19, ptr noundef %20)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
+  %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 2
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 3
+  %9 = load i32, ptr %4, align 4
+  store i32 %9, ptr %8, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVNSt3__18ios_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds %"class.std::__1::ios_base", ptr %3, i32 0, i32 7
+  store ptr null, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4initB8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef %6)
+  %7 = getelementptr inbounds %"class.std::__1::basic_ios", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8
+  %8 = call noundef i32 @_ZNSt3__111char_traitsIcE3eofB8ne190000Ev() #20
+  %9 = getelementptr inbounds %"class.std::__1::basic_ios", ptr %5, i32 0, i32 2
+  store i32 %8, ptr %9, align 8
+  ret void
+}
+
+declare void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNSt3__111char_traitsIcE3eofB8ne190000Ev() #5 comdat align 2 {
+  ret i32 -1
+}
+
+declare void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.std::__1::__value_init_tag", align 1
+  %4 = alloca %"struct.std::__1::__default_init_tag", align 1
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds %"class.std::__1::basic_string", ptr %5, i32 0, i32 0
+  invoke void @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2B8ne190000INS_16__value_init_tagENS_18__default_init_tagEEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %7 unwind label %8
+
+7:                                                ; preds = %1
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0) #20
+  ret void
+
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2B8ne190000INS_16__value_init_tagENS_18__default_init_tagEEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2B8ne190000ENS_16__value_init_tagE(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call void @_ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2B8ne190000ENS_18__default_init_tagE(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  ret void
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #20
+  call void @_ZSt9terminatev() #21
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE14__annotate_newB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2B8ne190000ENS_16__value_init_tagE(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem", ptr %3, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 24, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2B8ne190000ENS_18__default_init_tagE(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__19allocatorIcEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+declare void @_ZNKSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(100)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) #0 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"class.std::__1::basic_ostream<char>::sentry", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.std::__1::ostreambuf_iterator", align 8
+  %11 = alloca %"class.std::__1::ostreambuf_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %12 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %64
+
+13:                                               ; preds = %3
+  %14 = invoke noundef zeroext i1 @_ZNKSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentrycvbB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %15 unwind label %68
+
+15:                                               ; preds = %13
+  br i1 %14, label %16, label %84
+
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEC2B8ne190000ERNS_13basic_ostreamIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %17) #20
+  %18 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr i8, ptr %20, i64 -24
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %19, i64 %22
+  %24 = invoke noundef i32 @_ZNKSt3__18ios_base5flagsB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %23)
+          to label %25 unwind label %68
+
+25:                                               ; preds = %16
+  %26 = and i32 %24, 176
+  %27 = icmp eq i32 %26, 32
+  br i1 %27, label %28, label %32
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i64, ptr %6, align 8
+  %31 = getelementptr inbounds i8, ptr %29, i64 %30
+  br label %34
+
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %5, align 8
+  br label %34
+
+34:                                               ; preds = %32, %28
+  %35 = phi ptr [ %31, %28 ], [ %33, %32 ]
+  %36 = load ptr, ptr %5, align 8
+  %37 = load i64, ptr %6, align 8
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr i8, ptr %40, i64 -24
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %39, i64 %42
+  %44 = load ptr, ptr %4, align 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr i8, ptr %45, i64 -24
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %44, i64 %47
+  %49 = invoke noundef signext i8 @_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %48)
+          to label %50 unwind label %68
+
+50:                                               ; preds = %34
+  %51 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %11, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = invoke ptr @_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_(ptr %52, ptr noundef %18, ptr noundef %35, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(136) %43, i8 noundef signext %49)
+          to label %54 unwind label %68
+
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %10, i32 0, i32 0
+  store ptr %53, ptr %55, align 8
+  %56 = call noundef zeroext i1 @_ZNKSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEE6failedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #20
+  br i1 %56, label %57, label %83
+
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %4, align 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr i8, ptr %59, i64 -24
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %58, i64 %61
+  invoke void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE8setstateB8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(148) %62, i32 noundef 5)
+          to label %63 unwind label %68
+
+63:                                               ; preds = %57
+  br label %83
+
+64:                                               ; preds = %3
+  %65 = landingpad { ptr, i32 }
+          catch ptr null
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %8, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %9, align 4
+  br label %72
+
+68:                                               ; preds = %57, %50, %34, %16, %13
+  %69 = landingpad { ptr, i32 }
+          catch ptr null
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %8, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %9, align 4
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  br label %72
+
+72:                                               ; preds = %68, %64
+  %73 = load ptr, ptr %8, align 8
+  %74 = call ptr @__cxa_begin_catch(ptr %73) #20
+  %75 = load ptr, ptr %4, align 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr i8, ptr %76, i64 -24
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %75, i64 %78
+  invoke void @_ZNSt3__18ios_base33__set_badbit_and_consider_rethrowEv(ptr noundef nonnull align 8 dereferenceable(136) %79)
+          to label %80 unwind label %85
+
+80:                                               ; preds = %72
+  call void @__cxa_end_catch()
+  br label %81
+
+81:                                               ; preds = %84, %80
+  %82 = load ptr, ptr %4, align 8
+  ret ptr %82
+
+83:                                               ; preds = %63, %54
+  br label %84
+
+84:                                               ; preds = %83, %15
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  br label %81
+
+85:                                               ; preds = %72
+  %86 = landingpad { ptr, i32 }
+          cleanup
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %8, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %9, align 4
+  invoke void @__cxa_end_catch()
+          to label %89 unwind label %95
+
+89:                                               ; preds = %85
+  br label %90
+
+90:                                               ; preds = %89
+  %91 = load ptr, ptr %8, align 8
+  %92 = load i32, ptr %9, align 4
+  %93 = insertvalue { ptr, i32 } poison, ptr %91, 0
+  %94 = insertvalue { ptr, i32 } %93, i32 %92, 1
+  resume { ptr, i32 } %94
+
+95:                                               ; preds = %85
+  %96 = landingpad { ptr, i32 }
+          catch ptr null
+  %97 = extractvalue { ptr, i32 } %96, 0
+  call void @__clang_call_terminate(ptr %97) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  %5 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IKcEEPT_S3_(ptr noundef %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  br i1 %4, label %5, label %7
+
+5:                                                ; preds = %1
+  %6 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE15__get_long_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  br label %9
+
+7:                                                ; preds = %1
+  %8 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__get_short_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  br label %9
+
+9:                                                ; preds = %7, %5
+  %10 = phi i64 [ %6, %5 ], [ %8, %7 ]
+  ret i64 %10
+}
+
+declare void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentrycvbB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::basic_ostream<char>::sentry", ptr %3, i32 0, i32 0
+  %5 = load i8, ptr %4, align 8
+  %6 = trunc i8 %5 to i1
+  ret i1 %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden ptr @_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_(ptr %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(136) %4, i8 noundef signext %5) #0 comdat personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.std::__1::ostreambuf_iterator", align 8
+  %8 = alloca %"class.std::__1::ostreambuf_iterator", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca %"class.std::__1::basic_string", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %8, i32 0, i32 0
+  store ptr %0, ptr %21, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store i8 %5, ptr %13, align 1
+  %22 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %8, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
+  br label %107
+
+26:                                               ; preds = %6
+  %27 = load ptr, ptr %11, align 8
+  %28 = load ptr, ptr %9, align 8
+  %29 = ptrtoint ptr %27 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = sub i64 %29, %30
+  store i64 %31, ptr %14, align 8
+  %32 = load ptr, ptr %12, align 8
+  %33 = call noundef i64 @_ZNKSt3__18ios_base5widthB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %32)
+  store i64 %33, ptr %15, align 8
+  %34 = load i64, ptr %15, align 8
+  %35 = load i64, ptr %14, align 8
+  %36 = icmp sgt i64 %34, %35
+  br i1 %36, label %37, label %41
+
+37:                                               ; preds = %26
+  %38 = load i64, ptr %14, align 8
+  %39 = load i64, ptr %15, align 8
+  %40 = sub nsw i64 %39, %38
+  store i64 %40, ptr %15, align 8
+  br label %42
+
+41:                                               ; preds = %26
+  store i64 0, ptr %15, align 8
+  br label %42
+
+42:                                               ; preds = %41, %37
+  %43 = load ptr, ptr %10, align 8
+  %44 = load ptr, ptr %9, align 8
+  %45 = ptrtoint ptr %43 to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  store i64 %47, ptr %16, align 8
+  %48 = load i64, ptr %16, align 8
+  %49 = icmp sgt i64 %48, 0
+  br i1 %49, label %50, label %61
+
+50:                                               ; preds = %42
+  %51 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %8, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %9, align 8
+  %54 = load i64, ptr %16, align 8
+  %55 = call noundef i64 @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl(ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef %53, i64 noundef %54)
+  %56 = load i64, ptr %16, align 8
+  %57 = icmp ne i64 %55, %56
+  br i1 %57, label %58, label %60
+
+58:                                               ; preds = %50
+  %59 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %8, i32 0, i32 0
+  store ptr null, ptr %59, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
+  br label %107
+
+60:                                               ; preds = %50
+  br label %61
+
+61:                                               ; preds = %60, %42
+  %62 = load i64, ptr %15, align 8
+  %63 = icmp sgt i64 %62, 0
+  br i1 %63, label %64, label %85
+
+64:                                               ; preds = %61
+  %65 = load i64, ptr %15, align 8
+  %66 = load i8, ptr %13, align 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %65, i8 noundef signext %66)
+  %67 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %8, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #20
+  %70 = load i64, ptr %15, align 8
+  %71 = invoke noundef i64 @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl(ptr noundef nonnull align 8 dereferenceable(64) %68, ptr noundef %69, i64 noundef %70)
+          to label %72 unwind label %77
+
+72:                                               ; preds = %64
+  %73 = load i64, ptr %15, align 8
+  %74 = icmp ne i64 %71, %73
+  br i1 %74, label %75, label %81
+
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %8, i32 0, i32 0
+  store ptr null, ptr %76, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
+  store i32 1, ptr %20, align 4
+  br label %82
+
+77:                                               ; preds = %64
+  %78 = landingpad { ptr, i32 }
+          cleanup
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %18, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %19, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #20
+  br label %110
+
+81:                                               ; preds = %72
+  store i32 0, ptr %20, align 4
+  br label %82
+
+82:                                               ; preds = %81, %75
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #20
+  %83 = load i32, ptr %20, align 4
+  switch i32 %83, label %115 [
+    i32 0, label %84
+    i32 1, label %107
+  ]
+
+84:                                               ; preds = %82
+  br label %85
+
+85:                                               ; preds = %84, %61
+  %86 = load ptr, ptr %11, align 8
+  %87 = load ptr, ptr %10, align 8
+  %88 = ptrtoint ptr %86 to i64
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  store i64 %90, ptr %16, align 8
+  %91 = load i64, ptr %16, align 8
+  %92 = icmp sgt i64 %91, 0
+  br i1 %92, label %93, label %104
+
+93:                                               ; preds = %85
+  %94 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %8, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8
+  %96 = load ptr, ptr %10, align 8
+  %97 = load i64, ptr %16, align 8
+  %98 = call noundef i64 @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl(ptr noundef nonnull align 8 dereferenceable(64) %95, ptr noundef %96, i64 noundef %97)
+  %99 = load i64, ptr %16, align 8
+  %100 = icmp ne i64 %98, %99
+  br i1 %100, label %101, label %103
+
+101:                                              ; preds = %93
+  %102 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %8, i32 0, i32 0
+  store ptr null, ptr %102, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
+  br label %107
+
+103:                                              ; preds = %93
+  br label %104
+
+104:                                              ; preds = %103, %85
+  %105 = load ptr, ptr %12, align 8
+  %106 = call noundef i64 @_ZNSt3__18ios_base5widthB8ne190000El(ptr noundef nonnull align 8 dereferenceable(136) %105, i64 noundef 0)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
+  br label %107
+
+107:                                              ; preds = %104, %101, %82, %58, %25
+  %108 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %7, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  ret ptr %109
+
+110:                                              ; preds = %77
+  %111 = load ptr, ptr %18, align 8
+  %112 = load i32, ptr %19, align 4
+  %113 = insertvalue { ptr, i32 } poison, ptr %111, 0
+  %114 = insertvalue { ptr, i32 } %113, i32 %112, 1
+  resume { ptr, i32 } %114
+
+115:                                              ; preds = %82
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEEC2B8ne190000ERNS_13basic_ostreamIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr i8, ptr %8, i64 -24
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 %10
+  %12 = invoke noundef ptr @_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5rdbufB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %11)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %2
+  store ptr %12, ptr %6, align 8
+  ret void
+
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNKSt3__18ios_base5flagsB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::ios_base", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef signext i8 @_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNSt3__111char_traitsIcE3eofB8ne190000Ev() #20
+  %5 = getelementptr inbounds %"class.std::__1::basic_ios", ptr %3, i32 0, i32 2
+  %6 = load i32, ptr %5, align 8
+  %7 = call noundef zeroext i1 @_ZNSt3__111char_traitsIcE11eq_int_typeB8ne190000Eii(i32 noundef %4, i32 noundef %6) #20
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %1
+  %9 = call noundef signext i8 @_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec(ptr noundef nonnull align 8 dereferenceable(148) %3, i8 noundef signext 32)
+  %10 = sext i8 %9 to i32
+  %11 = getelementptr inbounds %"class.std::__1::basic_ios", ptr %3, i32 0, i32 2
+  store i32 %10, ptr %11, align 8
+  br label %12
+
+12:                                               ; preds = %8, %1
+  %13 = getelementptr inbounds %"class.std::__1::basic_ios", ptr %3, i32 0, i32 2
+  %14 = load i32, ptr %13, align 8
+  %15 = trunc i32 %14 to i8
+  ret i8 %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt3__119ostreambuf_iteratorIcNS_11char_traitsIcEEE6failedB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::ostreambuf_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  ret i1 %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE8setstateB8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(148) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_ZNSt3__18ios_base8setstateB8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(136) %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
+
+declare void @_ZNSt3__18ios_base33__set_badbit_and_consider_rethrowEv(ptr noundef nonnull align 8 dereferenceable(136)) #1
+
+declare void @__cxa_end_catch()
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt3__18ios_base5widthB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::ios_base", ptr %3, i32 0, i32 3
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds ptr, ptr %10, i64 12
+  %12 = load ptr, ptr %11, align 8
+  %13 = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %8, i64 noundef %9)
+  ret i64 %13
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i8 noundef signext %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca %"struct.std::__1::__default_init_tag", align 1
+  %8 = alloca %"struct.std::__1::__default_init_tag", align 1
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i8 %2, ptr %6, align 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.std::__1::basic_string", ptr %9, i32 0, i32 0
+  call void @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2B8ne190000INS_18__default_init_tagESA_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %11 = load i64, ptr %5, align 8
+  %12 = load i8, ptr %6, align 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEmc(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %11, i8 noundef signext %12)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  %5 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt3__18ios_base5widthB8ne190000El(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds %"class.std::__1::ios_base", ptr %6, i32 0, i32 3
+  %8 = load i64, ptr %7, align 8
+  store i64 %8, ptr %5, align 8
+  %9 = load i64, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.std::__1::ios_base", ptr %6, i32 0, i32 3
+  store i64 %9, ptr %10, align 8
+  %11 = load i64, ptr %5, align 8
+  ret i64 %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2B8ne190000INS_18__default_init_tagESA_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2B8ne190000ENS_18__default_init_tagE(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call void @_ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2B8ne190000ENS_18__default_init_tagE(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  ret void
+}
+
+declare void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEmc(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i8 noundef signext) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2B8ne190000ENS_18__default_init_tagE(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__112__to_addressB8ne190000IcEEPT_S2_(ptr noundef %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  br i1 %4, label %5, label %7
+
+5:                                                ; preds = %1
+  %6 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  br label %9
+
+7:                                                ; preds = %1
+  %8 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  br label %9
+
+9:                                                ; preds = %7, %5
+  %10 = phi ptr [ %6, %5 ], [ %8, %7 ]
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__short", ptr %6, i32 0, i32 0
+  %8 = load i8, ptr %7, align 8
+  %9 = and i8 %8, 1
+  %10 = icmp ne i8 %9, 0
+  ret i1 %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__long", ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__short", ptr %6, i32 0, i32 2
+  %8 = getelementptr inbounds [23 x i8], ptr %7, i64 0, i64 0
+  %9 = call noundef ptr @_ZNSt3__114pointer_traitsIPcE10pointer_toB8ne190000ERc(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__114pointer_traitsIPcE10pointer_toB8ne190000ERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5rdbufB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt3__18ios_base5rdbufB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt3__18ios_base5rdbufB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::ios_base", ptr %3, i32 0, i32 6
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__111char_traitsIcE11eq_int_typeB8ne190000Eii(i32 noundef %0, i32 noundef %1) #5 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %3, align 4
+  %6 = load i32, ptr %4, align 4
+  %7 = icmp eq i32 %5, %6
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef signext i8 @_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec(ptr noundef nonnull align 8 dereferenceable(148) %0, i8 noundef signext %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca %"class.std::__1::locale", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %8 = load ptr, ptr %3, align 8
+  call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind writable sret(%"class.std::__1::locale") align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) %8)
+  %9 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %10 unwind label %14
+
+10:                                               ; preds = %2
+  %11 = load i8, ptr %4, align 1
+  %12 = invoke noundef signext i8 @_ZNKSt3__15ctypeIcE5widenB8ne190000Ec(ptr noundef nonnull align 8 dereferenceable(25) %9, i8 noundef signext %11)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %10
+  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  ret i8 %12
+
+14:                                               ; preds = %10, %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(25) ptr @_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
+  ret ptr %4
+}
+
+declare void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind writable sret(%"class.std::__1::locale") align 8, ptr noundef nonnull align 8 dereferenceable(136)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef signext i8 @_ZNKSt3__15ctypeIcE5widenB8ne190000Ec(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 noundef signext %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i8, ptr %4, align 1
+  %7 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds ptr, ptr %7, i64 7
+  %9 = load ptr, ptr %8, align 8
+  %10 = call noundef signext i8 %9(ptr noundef nonnull align 8 dereferenceable(25) %5, i8 noundef signext %6)
+  ret i8 %10
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+
+declare noundef ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(12)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__18ios_base8setstateB8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::ios_base", ptr %5, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = load i32, ptr %4, align 4
+  %9 = or i32 %7, %8
+  call void @_ZNSt3__18ios_base5clearEj(ptr noundef nonnull align 8 dereferenceable(136) %5, i32 noundef %9)
+  ret void
+}
+
+declare void @_ZNSt3__18ios_base5clearEj(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__112__to_addressB8ne190000IKcEEPT_S3_(ptr noundef %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  br i1 %4, label %5, label %7
+
+5:                                                ; preds = %1
+  %6 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  br label %9
+
+7:                                                ; preds = %1
+  %8 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  br label %9
+
+9:                                                ; preds = %7, %5
+  %10 = phi ptr [ %6, %5 ], [ %8, %7 ]
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__long", ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__short", ptr %6, i32 0, i32 2
+  %8 = getelementptr inbounds [23 x i8], ptr %7, i64 0, i64 0
+  %9 = call noundef ptr @_ZNSt3__114pointer_traitsIPKcE10pointer_toB8ne190000ERS1_(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__114pointer_traitsIPKcE10pointer_toB8ne190000ERS1_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE15__get_long_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__long", ptr %6, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  ret i64 %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE16__get_short_sizeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  %6 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__rep", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::__1::basic_string<char>::__short", ptr %6, i32 0, i32 0
+  %8 = load i8, ptr %7, align 8
+  %9 = lshr i8 %8, 1
+  %10 = zext i8 %9 to i64
+  ret i64 %10
+}
+
+declare void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt3__111char_traitsIcE6lengthB8ne190000EPKc(ptr noundef %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = invoke noundef i64 @_ZNSt3__118__constexpr_strlenB8ne190000EPKc(ptr noundef %3)
+          to label %5 unwind label %6
+
+5:                                                ; preds = %1
+  ret i64 %4
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt3__118__constexpr_strlenB8ne190000EPKc(ptr noundef %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i64 @strlen(ptr noundef %3) #20
+  ret i64 %4
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__117__compressed_pairIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEEC2B8ne190000IDnNS_18__default_init_tagEEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  call void @_ZNSt3__122__compressed_pair_elemIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELi0ELb0EEC2B8ne190000IDnTnNS_9enable_ifIXntsr7is_sameIS8_u7__decayIT_EEE5valueEiE4typeELi0EEEOSB_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  call void @_ZNSt3__122__compressed_pair_elemINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEELi1ELb1EEC2B8ne190000ENS_18__default_init_tagE(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELi0ELb0EEC2B8ne190000IDnTnNS_9enable_ifIXntsr7is_sameIS8_u7__decayIT_EEE5valueEiE4typeELi0EEEOSB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem.7", ptr %5, i32 0, i32 0
+  store ptr null, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEELi1ELb1EEC2B8ne190000ENS_18__default_init_tagE(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt3__19allocatorINS_12basic_stringIcNS_11char_traitsIcEENS0_IcEEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__19allocatorINS_12basic_stringIcNS_11char_traitsIcEENS0_IcEEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE16__destroy_vectorC2B8ne190000ERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::vector<std::__1::string>::__destroy_vector", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE16__destroy_vectorclB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::vector<std::__1::string>::__destroy_vector", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.std::__1::vector", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %24
+
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %"class.std::__1::vector<std::__1::string>::__destroy_vector", ptr %3, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #20
+  %12 = getelementptr inbounds %"class.std::__1::vector<std::__1::string>::__destroy_vector", ptr %3, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  call void @_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE17__annotate_deleteB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #20
+  %14 = getelementptr inbounds %"class.std::__1::vector<std::__1::string>::__destroy_vector", ptr %3, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #20
+  %17 = getelementptr inbounds %"class.std::__1::vector<std::__1::string>::__destroy_vector", ptr %3, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.std::__1::vector", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %"class.std::__1::vector<std::__1::string>::__destroy_vector", ptr %3, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = call noundef i64 @_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE8capacityB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #20
+  call void @_ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEEE10deallocateB8ne190000ERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef %20, i64 noundef %23) #20
+  br label %24
+
+24:                                               ; preds = %9, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::vector", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE22__base_destruct_at_endB8ne190000EPS6_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE17__annotate_deleteB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEEE10deallocateB8ne190000ERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt3__19allocatorINS_12basic_stringIcNS_11char_traitsIcEENS0_IcEEEEE10deallocateB8ne190000EPS5_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::vector", ptr %3, i32 0, i32 2
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE8capacityB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE9__end_capB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.std::__1::vector", ptr %3, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %5 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = sdiv exact i64 %10, 24
+  ret i64 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE22__base_destruct_at_endB8ne190000EPS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds %"class.std::__1::vector", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %5, align 8
+  br label %9
+
+9:                                                ; preds = %18, %2
+  %10 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = icmp ne ptr %10, %11
+  br i1 %12, label %13, label %19
+
+13:                                               ; preds = %9
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__allocB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds %"class.std::__1::basic_string", ptr %15, i32 -1
+  store ptr %16, ptr %5, align 8
+  %17 = call noundef ptr @_ZNSt3__112__to_addressB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEPT_S8_(ptr noundef %16) #20
+  invoke void @_ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef %17)
+          to label %18 unwind label %22
+
+18:                                               ; preds = %13
+  br label %9, !llvm.loop !25
+
+19:                                               ; preds = %9
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"class.std::__1::vector", ptr %6, i32 0, i32 1
+  store ptr %20, ptr %21, align 8
+  ret void
+
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
+          catch ptr null
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__19allocatorINS_12basic_stringIcNS_11char_traitsIcEENS0_IcEEEEE7destroyB8ne190000EPS5_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__112__to_addressB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEPT_S8_(ptr noundef %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__19allocatorINS_12basic_stringIcNS_11char_traitsIcEENS0_IcEEEEE7destroyB8ne190000EPS5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__19allocatorINS_12basic_stringIcNS_11char_traitsIcEENS0_IcEEEEE10deallocateB8ne190000EPS5_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = mul i64 %8, 24
+  invoke void @_ZNSt3__119__libcpp_deallocateB8ne190000EPvmm(ptr noundef %7, i64 noundef %9, i64 noundef 8)
+          to label %10 unwind label %11
+
+10:                                               ; preds = %3
+  ret void
+
+11:                                               ; preds = %3
+  %12 = landingpad { ptr, i32 }
+          catch ptr null
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__119__libcpp_deallocateB8ne190000EPvmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = call noundef zeroext i1 @_ZNSt3__124__is_overaligned_for_newB8ne190000Em(i64 noundef %8) #20
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %3
+  %11 = load i64, ptr %6, align 8
+  store i64 %11, ptr %7, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load i64, ptr %5, align 8
+  %14 = load i64, ptr %7, align 8
+  call void @_ZNSt3__127__do_deallocate_handle_sizeB8ne190000IJSt11align_val_tEEEvPvmDpT_(ptr noundef %12, i64 noundef %13, i64 noundef %14)
+  br label %18
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i64, ptr %5, align 8
+  call void @_ZNSt3__127__do_deallocate_handle_sizeB8ne190000IJEEEvPvmDpT_(ptr noundef %16, i64 noundef %17)
+  br label %18
+
+18:                                               ; preds = %15, %10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__124__is_overaligned_for_newB8ne190000Em(i64 noundef %0) #5 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  %4 = icmp ugt i64 %3, 16
+  ret i1 %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__127__do_deallocate_handle_sizeB8ne190000IJSt11align_val_tEEEvPvmDpT_(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %6, align 8
+  call void @_ZNSt3__124__libcpp_operator_deleteB8ne190000IJPvSt11align_val_tEEEvDpT_(ptr noundef %7, i64 noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__127__do_deallocate_handle_sizeB8ne190000IJEEEvPvmDpT_(ptr noundef %0, i64 noundef %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt3__124__libcpp_operator_deleteB8ne190000IJPvEEEvDpT_(ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__124__libcpp_operator_deleteB8ne190000IJPvSt11align_val_tEEEvDpT_(ptr noundef %0, i64 noundef %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  call void @_ZdlPvSt11align_val_t(ptr noundef %5, i64 noundef %6) #24
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvSt11align_val_t(ptr noundef, i64 noundef) #10
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__124__libcpp_operator_deleteB8ne190000IJPvEEEvDpT_(ptr noundef %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZdlPv(ptr noundef %3) #24
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE9__end_capB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::vector", ptr %3, i32 0, i32 2
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem.7", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN7mitsubaanEjNS_10ParamFlagsE(i32 noundef %0, i32 noundef %1) #5 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %3, align 4
+  %6 = load i32, ptr %4, align 4
+  %7 = and i32 %5, %6
+  ret i32 %7
+}
+
+declare ptr @__cxa_allocate_exception(i64)
+
+declare void @__cxa_throw(ptr, ptr, ptr)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__14pairIffEC2B8ne190000IRfS3_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOS5_OS6_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::__1::pair", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = load float, ptr %9, align 4
+  store float %10, ptr %8, align 4
+  %11 = getelementptr inbounds %"struct.std::__1::pair", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  %13 = load float, ptr %12, align 4
+  store float %13, ptr %11, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden <4 x float> @_ZN5drjit5ldexpIN7mitsuba8SpectrumIfLm4EEES3_EENS_6detail14replace_scalarINS4_7deepestIJT_T0_EE4typeENS4_4exprIJNS4_6scalarIS7_iE4typeENSC_IS8_iE4typeEEE4typeEiE4typeERKS7_RKS8_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) #6 comdat {
+  %3 = alloca <4 x float>, align 16
+  %4 = alloca <4 x float>, align 16
+  %5 = alloca <4 x float>, align 16
+  %6 = alloca %"struct.mitsuba::Spectrum", align 16
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"struct.mitsuba::Spectrum", align 16
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %10, align 8
+  store ptr %1, ptr %11, align 8
+  %12 = load ptr, ptr %10, align 8
+  %13 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %7, align 8
+  store ptr %13, ptr %8, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load <4 x float>, ptr %14, align 16
+  %16 = load ptr, ptr %8, align 8
+  %17 = load <4 x float>, ptr %16, align 16
+  store <4 x float> %15, ptr %4, align 16
+  store <4 x float> %17, ptr %5, align 16
+  %18 = load <4 x float>, ptr %4, align 16
+  %19 = load <4 x float>, ptr %5, align 16
+  store <4 x float> zeroinitializer, ptr %3, align 16
+  %20 = load <4 x float>, ptr %3, align 16
+  %21 = call contract noundef <4 x float> @llvm.x86.avx512.mask.scalef.ps.128(<4 x float> %18, <4 x float> %19, <4 x float> %20, i8 -1)
+  call void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %6, <4 x float> noundef %21)
+  %22 = load <4 x float>, ptr %6, align 16
+  %23 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %9, i32 0, i32 0
+  %24 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %23, i32 0, i32 0
+  store <4 x float> %22, ptr %24, align 16
+  %25 = getelementptr inbounds %"struct.mitsuba::Spectrum", ptr %9, i32 0, i32 0
+  %26 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.12", ptr %25, i32 0, i32 0
+  %27 = load <4 x float>, ptr %26, align 16
+  ret <4 x float> %27
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare <4 x float> @llvm.x86.sse41.round.ps(<4 x float>, i32 immarg) #15
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare <4 x float> @llvm.x86.avx512.mask.scalef.ps.128(<4 x float>, <4 x float>, <4 x float>, i8) #15
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__14pairIN7mitsuba8SpectrumIfLm4EEES3_EC2B8ne190000IRS3_S6_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOS8_OS9_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2) unnamed_addr #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::__1::pair.35", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %8, ptr align 16 %9, i64 16, i1 false)
+  %10 = getelementptr inbounds %"struct.std::__1::pair.35", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %10, ptr align 16 %11, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN7mitsuba8SpectrumIfLm4EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca float, align 4
+  %4 = alloca <4 x float>, align 16
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  %9 = load ptr, ptr %7, align 8
+  %10 = load i32, ptr %8, align 4
+  store ptr %9, ptr %5, align 8
+  store i32 %10, ptr %6, align 4
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i32, ptr %6, align 4
+  %13 = sitofp i32 %12 to float
+  store float %13, ptr %3, align 4
+  %14 = load float, ptr %3, align 4
+  %15 = insertelement <4 x float> poison, float %14, i32 0
+  %16 = load float, ptr %3, align 4
+  %17 = insertelement <4 x float> %15, float %16, i32 1
+  %18 = load float, ptr %3, align 4
+  %19 = insertelement <4 x float> %17, float %18, i32 2
+  %20 = load float, ptr %3, align 4
+  %21 = insertelement <4 x float> %19, float %20, i32 3
+  store <4 x float> %21, ptr %4, align 16
+  %22 = load <4 x float>, ptr %4, align 16
+  store <4 x float> %22, ptr %11, align 16
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__13getB8ne190000ILm0EJRN7mitsuba8SpectrumIfLm4EEES4_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::tuple", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__112__tuple_leafILm0ERN7mitsuba8SpectrumIfLm4EEELb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__13getB8ne190000ILm1EJRN7mitsuba8SpectrumIfLm4EEES4_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::tuple", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__112__tuple_leafILm1ERN7mitsuba8SpectrumIfLm4EEELb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__112__tuple_leafILm0ERN7mitsuba8SpectrumIfLm4EEELb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__tuple_leaf", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__112__tuple_leafILm1ERN7mitsuba8SpectrumIfLm4EEELb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__tuple_leaf.37", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef float @_ZN5drjit5ldexpIffEENS_6detail14replace_scalarINS1_7deepestIJT_T0_EE4typeENS1_4exprIJNS1_6scalarIS4_iE4typeENS9_IS5_iE4typeEEE4typeEiE4typeERKS4_RKS5_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store i8 1, ptr %9, align 1
+  %12 = load ptr, ptr %7, align 8
+  %13 = load float, ptr %12, align 4
+  %14 = load ptr, ptr %8, align 8
+  %15 = load float, ptr %14, align 4
+  %16 = fptosi float %15 to i32
+  %17 = add nsw i32 %16, 127
+  store i32 %17, ptr %11, align 4
+  store ptr %11, ptr %5, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %18, align 4
+  %20 = shl i32 %19, 23
+  store i32 %20, ptr %10, align 4
+  store ptr %10, ptr %6, align 8
+  %21 = load ptr, ptr %6, align 8
+  store ptr %21, ptr %3, align 8
+  %22 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 4 %22, i64 4, i1 false)
+  %23 = load float, ptr %4, align 4
+  %24 = fmul contract float %13, %23
+  ret float %24
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef float @_ZN5drjit6detail6floor_IfEET_RKS2_(ptr noundef nonnull align 4 dereferenceable(4) %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = load float, ptr %3, align 4
+  %5 = call contract float @llvm.floor.f32(float %4)
+  ret float %5
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.floor.f32(float) #11
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef float @_ZN5drjit6detail6fmadd_IfEET_RKS2_S4_S4_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #5 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load float, ptr %7, align 4
+  %9 = load ptr, ptr %5, align 8
+  %10 = load float, ptr %9, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = load float, ptr %11, align 4
+  %13 = call contract float @llvm.fma.f32(float %8, float %10, float %12)
+  ret float %13
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fma.f32(float, float, float) #11
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) #1
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5flushEv(ptr noundef nonnull align 8 dereferenceable(8)) #1
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEf(ptr noundef nonnull align 8 dereferenceable(8), float noundef) #1
+
+declare void @_ZN7mitsuba6string6indentERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEm(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEEC2IZNS1_6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_S6_EEiE4typeELi0EEES8_vEUlS6_E_vEESK_(ptr noundef nonnull align 16 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca %class.anon, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__1::function", ptr %4, i32 0, i32 0
+  call void @_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000IZNS2_6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_S7_EEiE4typeELi0EEENS_8functionIS8_EEvEUlS7_E_TnNSK_IXntsr7is_sameIu7__decayISL_ES9_EE5valueEiE4typeELi0EEEOSL_(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000IZNS2_6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_S7_EEiE4typeELi0EEENS_8functionIS8_EEvEUlS7_E_TnNSK_IXntsr7is_sameIu7__decayISL_ES9_EE5valueEiE4typeELi0EEEOSL_(ptr noundef nonnull align 16 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__1::allocator.46", align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__19allocatorIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
+  call void @_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000IZNS2_6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_S7_EEiE4typeELi0EEENS_8functionIS8_EEvEUlS7_E_NS_9allocatorISQ_EEEEOSL_RKT0_(ptr noundef nonnull align 16 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__19allocatorIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000IZNS2_6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_S7_EEiE4typeELi0EEENS_8functionIS8_EEvEUlS7_E_NS_9allocatorISQ_EEEEOSL_RKT0_(ptr noundef nonnull align 16 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::__1::allocator.49", align 1
+  %8 = alloca %"class.std::__1::allocator.46", align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.std::__1::__function::__value_func", ptr %9, i32 0, i32 1
+  store ptr null, ptr %10, align 16
+  %11 = load ptr, ptr %5, align 8
+  %12 = call noundef zeroext i1 @_ZNSt3__110__function10__not_nullB8ne190000IZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEbRKSD_(ptr noundef nonnull align 1 dereferenceable(1) %11)
+  br i1 %12, label %13, label %18
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8
+  call void @_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEEC2B8ne190000ISP_EERKNS0_ISE_EE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %14) #20
+  %15 = getelementptr inbounds %"class.std::__1::__function::__value_func", ptr %9, i32 0, i32 0
+  %16 = load ptr, ptr %5, align 8
+  call void @_ZNSt3__19allocatorIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EC2B8ne190000INS_10__function6__funcISN_SO_SL_EEEERKNS0_ISC_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %7) #20
+  call void @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_(ptr noundef nonnull align 8 dereferenceable(9) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %17 = getelementptr inbounds %"class.std::__1::__function::__value_func", ptr %9, i32 0, i32 1
+  store ptr %15, ptr %17, align 16
+  br label %18
+
+18:                                               ; preds = %13, %3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__110__function10__not_nullB8ne190000IZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEbRKSD_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEEC2B8ne190000ISP_EERKNS0_ISE_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__19allocatorIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EC2B8ne190000INS_10__function6__funcISN_SO_SL_EEEERKNS0_ISC_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %3
+  ret void
+
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::__1::tuple.55", align 8
+  %8 = alloca %"class.std::__1::tuple.58", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.std::__1::__function::__alloc_func", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %5, align 8
+  %12 = call ptr @_ZNSt3__116forward_as_tupleB8ne190000IJZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEENS_5tupleIJDpOT_EEESR_(ptr noundef nonnull align 1 dereferenceable(1) %11) #20
+  %13 = getelementptr inbounds %"class.std::__1::tuple.55", ptr %7, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::__1::__tuple_impl.56", ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds %"class.std::__1::__tuple_leaf.57", ptr %14, i32 0, i32 0
+  store ptr %12, ptr %15, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = call ptr @_ZNSt3__116forward_as_tupleB8ne190000IJNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEENS_5tupleIJDpOT_EEEST_(ptr noundef nonnull align 1 dereferenceable(1) %16) #20
+  %18 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %8, i32 0, i32 0
+  %19 = getelementptr inbounds %"struct.std::__1::__tuple_impl.59", ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %19, i32 0, i32 0
+  store ptr %17, ptr %20, align 8
+  %21 = getelementptr inbounds %"class.std::__1::tuple.55", ptr %7, i32 0, i32 0
+  %22 = getelementptr inbounds %"struct.std::__1::__tuple_impl.56", ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds %"class.std::__1::__tuple_leaf.57", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %8, i32 0, i32 0
+  %26 = getelementptr inbounds %"struct.std::__1::__tuple_impl.59", ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  call void @_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEEC2B8ne190000IJOSN_EJOSP_EEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENSV_IJDpT0_EEE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr %24, ptr %28)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_ED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_ED0Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_ED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %3) #20
+  call void @_ZdlPv(ptr noundef %3) #24
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7__cloneEv(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::__1::allocator.49", align 1
+  %4 = alloca %"class.std::__1::unique_ptr.64", align 8
+  %5 = alloca %"class.std::__1::__allocator_destructor", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.std::__1::allocator.46", align 1
+  store ptr %0, ptr %2, align 8
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E15__get_allocatorB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  call void @_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEEC2B8ne190000ISP_EERKNS0_ISE_EE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %11) #20
+  %12 = call noundef ptr @_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEE8allocateB8ne190000Em(ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef 1)
+  call void @_ZNSt3__122__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEEC2B8ne190000ERST_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef 1) #20
+  call void @_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEEC2B8ne190000ILb1EvEEPSS_NS_16__dependent_typeINS_27__unique_ptr_deleter_sfinaeISV_EEXT_EE20__good_rval_ref_typeE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  %13 = call noundef ptr @_ZNKSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  %14 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %15 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E8__targetB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %14)
+          to label %16 unwind label %19
+
+16:                                               ; preds = %1
+  call void @_ZNSt3__19allocatorIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EC2B8ne190000INS_10__function6__funcISN_SO_SL_EEEERKNS0_ISC_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  invoke void @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_(ptr noundef nonnull align 8 dereferenceable(9) %13, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %17 unwind label %19
+
+17:                                               ; preds = %16
+  %18 = call noundef ptr @_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE7releaseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  call void @_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  ret ptr %18
+
+19:                                               ; preds = %16, %1
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %6, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %7, align 4
+  call void @_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  br label %23
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i32, ptr %7, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7__cloneEPNS0_6__baseISM_EE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %5, i32 0, i32 1
+  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E8__targetB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %9 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %5, i32 0, i32 1
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E15__get_allocatorB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  call void @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_(ptr noundef nonnull align 8 dereferenceable(9) %6, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7destroyEv(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %3, i32 0, i32 1
+  call void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7destroyB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E18destroy_deallocateEv(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::__1::allocator.49", align 1
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %4, i32 0, i32 1
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E15__get_allocatorB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEEC2B8ne190000ISP_EERKNS0_ISE_EE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %6) #20
+  %7 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %4, i32 0, i32 1
+  call void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7destroyB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
+  call void @_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEE10deallocateB8ne190000EPSR_m(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %4, i64 noundef 1) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EclESG_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EclB8ne190000ESG_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E6targetERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = call noundef zeroext i1 @_ZNKSt9type_infoeqB8ne190000ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEvEUlSE_E_) #20
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %6, i32 0, i32 1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E8__targetB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  store ptr %11, ptr %3, align 8
+  br label %13
+
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %13
+
+13:                                               ; preds = %12, %9
+  %14 = load ptr, ptr %3, align 8
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E11target_typeEv(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret ptr @_ZTIZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEvEUlSE_E_
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.trap() #21
+  unreachable
+}
+
+declare void @__cxa_pure_virtual() unnamed_addr
+
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
+declare void @llvm.trap() #16
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNSt3__116forward_as_tupleB8ne190000IJZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEENS_5tupleIJDpOT_EEESR_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat {
+  %2 = alloca %"class.std::__1::tuple.55", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZNSt3__15tupleIJOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEC2B8ne190000IJSN_ETnNSB_IXsr4_AndINS_17integral_constantIbXeqsZT_sZT_EEENSP_17_EnableUTypesCtorIJDpT_EEEEE5valueEiE4typeELi0EEEDpOSU_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %4) #20
+  %5 = getelementptr inbounds %"class.std::__1::tuple.55", ptr %2, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::__1::__tuple_impl.56", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"class.std::__1::__tuple_leaf.57", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNSt3__116forward_as_tupleB8ne190000IJNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEENS_5tupleIJDpOT_EEEST_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat {
+  %2 = alloca %"class.std::__1::tuple.58", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZNSt3__15tupleIJONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEC2B8ne190000IJSP_ETnNSC_IXsr4_AndINS_17integral_constantIbXeqsZT_sZT_EEENSR_17_EnableUTypesCtorIJDpT_EEEEE5valueEiE4typeELi0EEEDpOSW_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %4) #20
+  %5 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %2, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::__1::__tuple_impl.59", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEEC2B8ne190000IJOSN_EJOSP_EEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENSV_IJDpT0_EEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1, ptr %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca %"class.std::__1::tuple.55", align 8
+  %5 = alloca %"class.std::__1::tuple.58", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::__1::tuple.55", align 8
+  %8 = alloca %"class.std::__1::tuple.58", align 8
+  %9 = getelementptr inbounds %"class.std::__1::tuple.55", ptr %4, i32 0, i32 0
+  %10 = getelementptr inbounds %"struct.std::__1::__tuple_impl.56", ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds %"class.std::__1::__tuple_leaf.57", ptr %10, i32 0, i32 0
+  store ptr %1, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %5, i32 0, i32 0
+  %13 = getelementptr inbounds %"struct.std::__1::__tuple_impl.59", ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %13, i32 0, i32 0
+  store ptr %2, ptr %14, align 8
+  store ptr %0, ptr %6, align 8
+  %15 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  %16 = getelementptr inbounds %"class.std::__1::tuple.55", ptr %7, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::__1::__tuple_impl.56", ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::__1::__tuple_leaf.57", ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  call void @_ZNSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EEC2B8ne190000IJOSN_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr %19)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
+  %20 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %8, i32 0, i32 0
+  %21 = getelementptr inbounds %"struct.std::__1::__tuple_impl.59", ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  call void @_ZNSt3__122__compressed_pair_elemINS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELi1ELb1EEC2B8ne190000IJOSP_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr %23)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__15tupleIJOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEC2B8ne190000IJSN_ETnNSB_IXsr4_AndINS_17integral_constantIbXeqsZT_sZT_EEENSP_17_EnableUTypesCtorIJDpT_EEEEE5valueEiE4typeELi0EEEDpOSU_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::tuple.55", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJOZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_EEC2B8ne190000IJLm0EEJSQ_ETpTnmJEJEJSP_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSU_IJDpT2_EEEDpOT3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJOZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_EEC2B8ne190000IJLm0EEJSQ_ETpTnmJEJEJSP_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSU_IJDpT2_EEEDpOT3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__112__tuple_leafILm0EOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EEC2B8ne190000ISN_TnNSB_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISC_ESP_EEEENS_16is_constructibleISO_JSC_EEEEE5valueEiE4typeELi0EEEOSC_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112__tuple_leafILm0EOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EEC2B8ne190000ISN_TnNSB_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISC_ESP_EEEENS_16is_constructibleISO_JSC_EEEEE5valueEiE4typeELi0EEEOSC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::__tuple_leaf.57", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__15tupleIJONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEC2B8ne190000IJSP_ETnNSC_IXsr4_AndINS_17integral_constantIbXeqsZT_sZT_EEENSR_17_EnableUTypesCtorIJDpT_EEEEE5valueEiE4typeELi0EEEDpOSW_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_EEEEC2B8ne190000IJLm0EEJSS_ETpTnmJEJEJSR_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSW_IJDpT2_EEEDpOT3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_EEEEC2B8ne190000IJLm0EEJSS_ETpTnmJEJEJSR_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSW_IJDpT2_EEEDpOT3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__112__tuple_leafILm0EONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EEC2B8ne190000ISP_TnNSC_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISD_ESR_EEEENS_16is_constructibleISQ_JSD_EEEEE5valueEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112__tuple_leafILm0EONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EEC2B8ne190000ISP_TnNSC_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISD_ESR_EEEENS_16is_constructibleISQ_JSD_EEEEE5valueEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EEC2B8ne190000IJOSN_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca %"class.std::__1::tuple.55", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds %"class.std::__1::tuple.55", ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::__1::__tuple_impl.56", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"class.std::__1::__tuple_leaf.57", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %7, align 8
+  store ptr %0, ptr %4, align 8
+  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__13getB8ne190000ILm0EJOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERST_(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELi1ELb1EEC2B8ne190000IJOSP_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca %"class.std::__1::tuple.58", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::__1::__tuple_impl.59", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %7, align 8
+  store ptr %0, ptr %4, align 8
+  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__13getB8ne190000ILm0EJONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERSV_(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__13getB8ne190000ILm0EJOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERST_(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::tuple.55", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112__tuple_leafILm0EOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112__tuple_leafILm0EOZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__tuple_leaf.57", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__13getB8ne190000ILm0EJONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERSV_(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112__tuple_leafILm0EONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112__tuple_leafILm0EONS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E15__get_allocatorB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__function::__alloc_func", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEE6secondB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEE8allocateB8ne190000Em(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEE8max_sizeB8ne190000IST_TnNSE_IXsr14__has_max_sizeIKSF_EE5valueEiE4typeELi0EEEmRKST_(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
+  %8 = icmp ugt i64 %6, %7
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %2
+  call void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #22
+  unreachable
+
+10:                                               ; preds = %2
+  %11 = load i64, ptr %4, align 8
+  %12 = mul i64 %11, 16
+  %13 = call noundef ptr @_ZNSt3__117__libcpp_allocateB8ne190000Emm(i64 noundef %12, i64 noundef 8)
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEEC2B8ne190000ERST_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 noundef %2) unnamed_addr #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"class.std::__1::__allocator_destructor", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::__1::__allocator_destructor", ptr %7, i32 0, i32 1
+  %11 = load i64, ptr %6, align 8
+  store i64 %11, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEEC2B8ne190000ILb1EvEEPSS_NS_16__dependent_typeINS_27__unique_ptr_deleter_sfinaeISV_EEXT_EE20__good_rval_ref_typeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"class.std::__1::unique_ptr.64", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEEC2B8ne190000IRST_SW_EEOSE_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %10 unwind label %11
+
+10:                                               ; preds = %3
+  ret void
+
+11:                                               ; preds = %3
+  %12 = landingpad { ptr, i32 }
+          catch ptr null
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::unique_ptr.64", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E8__targetB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__function::__alloc_func", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEE5firstB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %3
+  ret void
+
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE7releaseB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds %"class.std::__1::unique_ptr.64", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %3, align 8
+  %8 = getelementptr inbounds %"class.std::__1::unique_ptr.64", ptr %4, i32 0, i32 0
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
+  store ptr null, ptr %9, align 8
+  %10 = load ptr, ptr %3, align 8
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5resetB8ne190000EPSS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef null) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEE6secondB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemINS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELi1ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt3__116allocator_traitsINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEE8max_sizeB8ne190000IST_TnNSE_IXsr14__has_max_sizeIKSF_EE5valueEiE4typeELi0EEEmRKST_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEE8max_sizeB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress noreturn uwtable
+define linkonce_odr hidden void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #17 comdat {
+  %1 = call ptr @__cxa_allocate_exception(i64 8) #20
+  call void @_ZNSt20bad_array_new_lengthC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #20
+  call void @__cxa_throw(ptr %1, ptr @_ZTISt20bad_array_new_length, ptr @_ZNSt20bad_array_new_lengthD1Ev) #22
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__117__libcpp_allocateB8ne190000Emm(i64 noundef %0, i64 noundef %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  %7 = load i64, ptr %5, align 8
+  %8 = call noundef zeroext i1 @_ZNSt3__124__is_overaligned_for_newB8ne190000Em(i64 noundef %7) #20
+  br i1 %8, label %9, label %14
+
+9:                                                ; preds = %2
+  %10 = load i64, ptr %5, align 8
+  store i64 %10, ptr %6, align 8
+  %11 = load i64, ptr %4, align 8
+  %12 = load i64, ptr %6, align 8
+  %13 = call noundef ptr @_ZNSt3__121__libcpp_operator_newB8ne190000IJmSt11align_val_tEEEPvDpT_(i64 noundef %11, i64 noundef %12)
+  store ptr %13, ptr %3, align 8
+  br label %17
+
+14:                                               ; preds = %2
+  %15 = load i64, ptr %4, align 8
+  %16 = call noundef ptr @_ZNSt3__121__libcpp_operator_newB8ne190000IJmEEEPvDpT_(i64 noundef %15)
+  store ptr %16, ptr %3, align 8
+  br label %17
+
+17:                                               ; preds = %14, %9
+  %18 = load ptr, ptr %3, align 8
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNKSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEE8max_sizeB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 1152921504606846975
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt20bad_array_new_lengthC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare void @_ZNSt20bad_array_new_lengthD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__121__libcpp_operator_newB8ne190000IJmSt11align_val_tEEEPvDpT_(i64 noundef %0, i64 noundef %1) #0 comdat {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load i64, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %5, i64 noundef %6) #23
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 %6) ]
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__121__libcpp_operator_newB8ne190000IJmEEEPvDpT_(i64 noundef %0) #0 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  %4 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #23
+  ret ptr %4
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef, i64 noundef) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #18
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEEC2B8ne190000IRST_SW_EEOSE_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  call void @_ZNSt3__122__compressed_pair_elemIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EELi0ELb0EEC2B8ne190000IRST_TnNSD_IXntsr7is_sameISU_u7__decayISE_EEE5valueEiE4typeELi0EEEOSE_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = load ptr, ptr %6, align 8
+  call void @_ZNSt3__122__compressed_pair_elemINS_22__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS5_17BlackBodySpectrumIfN5drjit6MatrixINS5_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS5_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS5_6ObjectESJ_EEEvEUlSJ_E_NS2_ISR_EESP_EEEEEELi1ELb0EEC2B8ne190000ISV_TnNSF_IXntsr7is_sameISW_u7__decayISG_EEE5valueEiE4typeELi0EEEOSG_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EELi0ELb0EEC2B8ne190000IRST_TnNSD_IXntsr7is_sameISU_u7__decayISE_EEE5valueEiE4typeELi0EEEOSE_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem.66", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_22__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS5_17BlackBodySpectrumIfN5drjit6MatrixINS5_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS5_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS5_6ObjectESJ_EEEvEUlSJ_E_NS2_ISR_EESP_EEEEEELi1ELb0EEC2B8ne190000ISV_TnNSF_IXntsr7is_sameISW_u7__decayISG_EEE5valueEiE4typeELi0EEEOSG_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem.67", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt3__122__compressed_pair_elemIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem.66", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEE5firstB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::__1::tuple.68", align 8
+  %8 = alloca %"class.std::__1::tuple.58", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.std::__1::__function::__alloc_func", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %5, align 8
+  %12 = call ptr @_ZNSt3__116forward_as_tupleB8ne190000IJRKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEENS_5tupleIJDpOT_EEEST_(ptr noundef nonnull align 1 dereferenceable(1) %11) #20
+  %13 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %7, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::__1::__tuple_impl.69", ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %14, i32 0, i32 0
+  store ptr %12, ptr %15, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = call ptr @_ZNSt3__116forward_as_tupleB8ne190000IJNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEENS_5tupleIJDpOT_EEEST_(ptr noundef nonnull align 1 dereferenceable(1) %16) #20
+  %18 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %8, i32 0, i32 0
+  %19 = getelementptr inbounds %"struct.std::__1::__tuple_impl.59", ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %19, i32 0, i32 0
+  store ptr %17, ptr %20, align 8
+  %21 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %7, i32 0, i32 0
+  %22 = getelementptr inbounds %"struct.std::__1::__tuple_impl.69", ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %8, i32 0, i32 0
+  %26 = getelementptr inbounds %"struct.std::__1::__tuple_impl.59", ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  call void @_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEEC2B8ne190000IJRKSN_EJOSP_EEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENSW_IJDpT0_EEE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr %24, ptr %28)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNSt3__116forward_as_tupleB8ne190000IJRKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEENS_5tupleIJDpOT_EEEST_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat {
+  %2 = alloca %"class.std::__1::tuple.68", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZNSt3__15tupleIJRKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEC2B8ne190000INS_4_AndETnNSB_IXsrT_IJNS_17integral_constantIbLb1EEENS_21is_copy_constructibleISP_EEEE5valueEiE4typeELi0EEESP_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %4) #20
+  %5 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %2, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::__1::__tuple_impl.69", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEEC2B8ne190000IJRKSN_EJOSP_EEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENSW_IJDpT0_EEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1, ptr %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca %"class.std::__1::tuple.68", align 8
+  %5 = alloca %"class.std::__1::tuple.58", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::__1::tuple.68", align 8
+  %8 = alloca %"class.std::__1::tuple.58", align 8
+  %9 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %4, i32 0, i32 0
+  %10 = getelementptr inbounds %"struct.std::__1::__tuple_impl.69", ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %10, i32 0, i32 0
+  store ptr %1, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %5, i32 0, i32 0
+  %13 = getelementptr inbounds %"struct.std::__1::__tuple_impl.59", ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %13, i32 0, i32 0
+  store ptr %2, ptr %14, align 8
+  store ptr %0, ptr %6, align 8
+  %15 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  %16 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %7, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::__1::__tuple_impl.69", ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  call void @_ZNSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EEC2B8ne190000IJRKSN_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr %19)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
+  %20 = getelementptr inbounds %"class.std::__1::tuple.58", ptr %8, i32 0, i32 0
+  %21 = getelementptr inbounds %"struct.std::__1::__tuple_impl.59", ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds %"class.std::__1::__tuple_leaf.60", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  call void @_ZNSt3__122__compressed_pair_elemINS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELi1ELb1EEC2B8ne190000IJOSP_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr %23)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__15tupleIJRKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEC2B8ne190000INS_4_AndETnNSB_IXsrT_IJNS_17integral_constantIbLb1EEENS_21is_copy_constructibleISP_EEEE5valueEiE4typeELi0EEESP_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJRKZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_EEC2B8ne190000IJLm0EEJSR_ETpTnmJEJEJSR_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSV_IJDpT2_EEEDpOT3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJRKZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_EEC2B8ne190000IJLm0EEJSR_ETpTnmJEJEJSR_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSV_IJDpT2_EEEDpOT3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__112__tuple_leafILm0ERKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EEC2B8ne190000ISP_TnNSB_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISC_ESQ_EEEENS_16is_constructibleISP_JSC_EEEEE5valueEiE4typeELi0EEEOSC_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112__tuple_leafILm0ERKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EEC2B8ne190000ISP_TnNSB_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISC_ESQ_EEEENS_16is_constructibleISP_JSC_EEEEE5valueEiE4typeELi0EEEOSC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EEC2B8ne190000IJRKSN_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca %"class.std::__1::tuple.68", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::__1::__tuple_impl.69", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %7, align 8
+  store ptr %0, ptr %4, align 8
+  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__13getB8ne190000ILm0EJRKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERSU_(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__13getB8ne190000ILm0EJRKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERSU_(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112__tuple_leafILm0ERKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112__tuple_leafILm0ERKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Lb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__122__compressed_pair_elemIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EELi0ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem.66", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5resetB8ne190000EPSS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds %"class.std::__1::unique_ptr.64", ptr %6, i32 0, i32 0
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %5, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"class.std::__1::unique_ptr.64", ptr %6, i32 0, i32 0
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #20
+  store ptr %10, ptr %12, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %19
+
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds %"class.std::__1::unique_ptr.64", ptr %6, i32 0, i32 0
+  %17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #20
+  %18 = load ptr, ptr %5, align 8
+  call void @_ZNSt3__122__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEEclB8ne190000EPSS_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %18) #20
+  br label %19
+
+19:                                               ; preds = %15, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3__117__compressed_pairIPNS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS_9allocatorISP_EESN_EENS_22__allocator_destructorINSQ_ISS_EEEEE6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3__122__compressed_pair_elemINS_22__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS5_17BlackBodySpectrumIfN5drjit6MatrixINS5_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS5_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS5_6ObjectESJ_EEEvEUlSJ_E_NS2_ISR_EESP_EEEEEELi1ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEEclB8ne190000EPSS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::__allocator_destructor", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"class.std::__1::__allocator_destructor", ptr %5, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  call void @_ZNSt3__116allocator_traitsINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEE10deallocateB8ne190000ERST_PSS_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %10) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3__122__compressed_pair_elemINS_22__allocator_destructorINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS5_17BlackBodySpectrumIfN5drjit6MatrixINS5_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS5_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS5_6ObjectESJ_EEEvEUlSJ_E_NS2_ISR_EESP_EEEEEELi1ELb0EE5__getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::__1::__compressed_pair_elem.67", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__116allocator_traitsINS_9allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_NS1_ISQ_EESO_EEEEE10deallocateB8ne190000ERST_PSS_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEE10deallocateB8ne190000EPSR_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__19allocatorINS_10__function6__funcIZN7mitsuba6detail21get_construct_functorINS3_17BlackBodySpectrumIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS3_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESH_EEEvEUlSH_E_NS0_ISP_EESN_EEE10deallocateB8ne190000EPSR_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = mul i64 %8, 16
+  invoke void @_ZNSt3__119__libcpp_deallocateB8ne190000EPvmm(ptr noundef %7, i64 noundef %9, i64 noundef 8)
+          to label %10 unwind label %11
+
+10:                                               ; preds = %3
+  ret void
+
+11:                                               ; preds = %3
+  %12 = landingpad { ptr, i32 }
+          catch ptr null
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %3
+  ret void
+
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::__1::tuple.68", align 8
+  %8 = alloca %"class.std::__1::tuple.72", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.std::__1::__function::__alloc_func", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %5, align 8
+  %12 = call ptr @_ZNSt3__116forward_as_tupleB8ne190000IJRKZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_EEENS_5tupleIJDpOT_EEEST_(ptr noundef nonnull align 1 dereferenceable(1) %11) #20
+  %13 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %7, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::__1::__tuple_impl.69", ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %14, i32 0, i32 0
+  store ptr %12, ptr %15, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = call ptr @_ZNSt3__116forward_as_tupleB8ne190000IJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEENS_5tupleIJDpOT_EEESV_(ptr noundef nonnull align 1 dereferenceable(1) %16) #20
+  %18 = getelementptr inbounds %"class.std::__1::tuple.72", ptr %8, i32 0, i32 0
+  %19 = getelementptr inbounds %"struct.std::__1::__tuple_impl.73", ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds %"class.std::__1::__tuple_leaf.74", ptr %19, i32 0, i32 0
+  store ptr %17, ptr %20, align 8
+  %21 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %7, i32 0, i32 0
+  %22 = getelementptr inbounds %"struct.std::__1::__tuple_impl.69", ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds %"class.std::__1::tuple.72", ptr %8, i32 0, i32 0
+  %26 = getelementptr inbounds %"struct.std::__1::__tuple_impl.73", ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds %"class.std::__1::__tuple_leaf.74", ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  call void @_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEEC2B8ne190000IJRKSN_EJRKSP_EEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENSX_IJDpT0_EEE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr %24, ptr %28)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNSt3__116forward_as_tupleB8ne190000IJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEENS_5tupleIJDpOT_EEESV_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat {
+  %2 = alloca %"class.std::__1::tuple.72", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZNSt3__15tupleIJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEC2B8ne190000INS_4_AndETnNSC_IXsrT_IJNS_17integral_constantIbLb1EEENS_21is_copy_constructibleISR_EEEE5valueEiE4typeELi0EEESR_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %4) #20
+  %5 = getelementptr inbounds %"class.std::__1::tuple.72", ptr %2, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::__1::__tuple_impl.73", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"class.std::__1::__tuple_leaf.74", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEEC2B8ne190000IJRKSN_EJRKSP_EEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENSX_IJDpT0_EEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1, ptr %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca %"class.std::__1::tuple.68", align 8
+  %5 = alloca %"class.std::__1::tuple.72", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::__1::tuple.68", align 8
+  %8 = alloca %"class.std::__1::tuple.72", align 8
+  %9 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %4, i32 0, i32 0
+  %10 = getelementptr inbounds %"struct.std::__1::__tuple_impl.69", ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %10, i32 0, i32 0
+  store ptr %1, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.std::__1::tuple.72", ptr %5, i32 0, i32 0
+  %13 = getelementptr inbounds %"struct.std::__1::__tuple_impl.73", ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds %"class.std::__1::__tuple_leaf.74", ptr %13, i32 0, i32 0
+  store ptr %2, ptr %14, align 8
+  store ptr %0, ptr %6, align 8
+  %15 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  %16 = getelementptr inbounds %"class.std::__1::tuple.68", ptr %7, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::__1::__tuple_impl.69", ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::__1::__tuple_leaf.70", ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  call void @_ZNSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EEC2B8ne190000IJRKSN_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr %19)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
+  %20 = getelementptr inbounds %"class.std::__1::tuple.72", ptr %8, i32 0, i32 0
+  %21 = getelementptr inbounds %"struct.std::__1::__tuple_impl.73", ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds %"class.std::__1::__tuple_leaf.74", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  call void @_ZNSt3__122__compressed_pair_elemINS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELi1ELb1EEC2B8ne190000IJRKSP_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr %23)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__15tupleIJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEC2B8ne190000INS_4_AndETnNSC_IXsrT_IJNS_17integral_constantIbLb1EEENS_21is_copy_constructibleISR_EEEE5valueEiE4typeELi0EEESR_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::tuple.72", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_EEEEC2B8ne190000IJLm0EEJST_ETpTnmJEJEJST_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSX_IJDpT2_EEEDpOT3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112__tuple_implINS_15__tuple_indicesIJLm0EEEEJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS4_17BlackBodySpectrumIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS4_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS4_6ObjectESI_EEEvEUlSI_E_EEEEC2B8ne190000IJLm0EEJST_ETpTnmJEJEJST_EEENS1_IJXspT_EEEENS_13__tuple_typesIJDpT0_EEENS1_IJXspT1_EEEENSX_IJDpT2_EEEDpOT3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt3__112__tuple_leafILm0ERKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EEC2B8ne190000ISR_TnNSC_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISD_ESS_EEEENS_16is_constructibleISR_JSD_EEEEE5valueEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__112__tuple_leafILm0ERKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EEC2B8ne190000ISR_TnNSC_IXsr4_AndINS_17integral_constantIbXntu9__is_sameu14__remove_cvrefISD_ESS_EEEENS_16is_constructibleISR_JSD_EEEEE5valueEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::__tuple_leaf.74", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELi1ELb1EEC2B8ne190000IJRKSP_EJLm0EEEENS_21piecewise_construct_tENS_5tupleIJDpT_EEENS_15__tuple_indicesIJXspT0_EEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca %"class.std::__1::tuple.72", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds %"class.std::__1::tuple.72", ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::__1::__tuple_impl.73", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"class.std::__1::__tuple_leaf.74", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %7, align 8
+  store ptr %0, ptr %4, align 8
+  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__13getB8ne190000ILm0EJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERSW_(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__13getB8ne190000ILm0EJRKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EEEEERNS_13tuple_elementIXT_ENS_5tupleIJDpT0_EEEE4typeERSW_(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::tuple.72", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112__tuple_leafILm0ERKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112__tuple_leafILm0ERKNS_9allocatorIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_EELb0EE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__tuple_leaf.74", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_E7destroyB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_17BlackBodySpectrumIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EclB8ne190000ESG_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__1::__function::__alloc_func", ptr %5, i32 0, i32 0
+  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEE5firstB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNSt3__128__invoke_void_return_wrapperIPN7mitsuba6ObjectELb0EE6__callB8ne190000IJRZNS1_6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFS3_SJ_EEEvEUlSJ_E_SJ_EEES3_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__128__invoke_void_return_wrapperIPN7mitsuba6ObjectELb0EE6__callB8ne190000IJRZNS1_6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFS3_SJ_EEEvEUlSJ_E_SJ_EEES3_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt3__18__invokeB8ne190000IRZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_JSF_EEEDTclclsr3stdE7declvalISC_EEspclsr3stdE7declvalIT0_EEEEOSC_DpOSP_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_NS_9allocatorISN_EEE5firstB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt3__18__invokeB8ne190000IRZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_JSF_EEEDTclclsr3stdE7declvalISC_EEspclsr3stdE7declvalIT0_EEEEOSC_DpOSP_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef ptr @_ZZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEvENKUlSE_E_clESE_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZZN7mitsuba6detail21get_construct_functorINS_17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEvENKUlSE_E_clESE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #23
+  %8 = load ptr, ptr %4, align 8
+  invoke void @_ZN7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %9 unwind label %10
+
+9:                                                ; preds = %2
+  ret ptr %7
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %5, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %7) #24
+  br label %14
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %5, align 8
+  %16 = load i32, ptr %6, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__122__compressed_pair_elemIZN7mitsuba6detail21get_construct_functorINS1_17BlackBodySpectrumIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS1_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS1_6ObjectESF_EEEvEUlSF_E_Li0ELb1EE5__getB8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt9type_infoeqB8ne190000ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.std::type_info", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = getelementptr inbounds %"class.std::type_info", ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  store ptr %9, ptr %3, align 8
+  store ptr %12, ptr %4, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %4, align 8
+  %15 = icmp eq ptr %13, %14
+  ret i1 %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2B8ne190000Ev(ptr noundef nonnull align 16 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__function::__value_func", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 16
+  %6 = getelementptr inbounds %"class.std::__1::__function::__value_func", ptr %3, i32 0, i32 0
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.std::__1::__function::__value_func", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds ptr, ptr %11, i64 4
+  %13 = load ptr, ptr %12, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #20
+  br label %25
+
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds %"class.std::__1::__function::__value_func", ptr %3, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 16
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %24
+
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds %"class.std::__1::__function::__value_func", ptr %3, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds ptr, ptr %21, i64 5
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20) #20
+  br label %24
+
+24:                                               ; preds = %18, %14
+  br label %25
+
+25:                                               ; preds = %24, %8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEEC2B8ne190000Ev(ptr noundef nonnull align 16 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::function.38", ptr %3, i32 0, i32 0
+  call void @_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectEPNS2_6StreamEEEC2B8ne190000Ev(ptr noundef nonnull align 16 dereferenceable(40) %4) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectEPNS2_6StreamEEEC2B8ne190000Ev(ptr noundef nonnull align 16 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__function::__value_func.42", ptr %3, i32 0, i32 1
+  store ptr null, ptr %4, align 16
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3__110__function12__value_funcIFPN7mitsuba6ObjectEPNS2_6StreamEEED2B8ne190000Ev(ptr noundef nonnull align 16 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__1::__function::__value_func.42", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 16
+  %6 = getelementptr inbounds %"class.std::__1::__function::__value_func.42", ptr %3, i32 0, i32 0
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.std::__1::__function::__value_func.42", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds ptr, ptr %11, i64 4
+  %13 = load ptr, ptr %12, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #20
+  br label %25
+
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds %"class.std::__1::__function::__value_func.42", ptr %3, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 16
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %24
+
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds %"class.std::__1::__function::__value_func.42", ptr %3, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds ptr, ptr %21, i64 5
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20) #20
+  br label %24
+
+24:                                               ; preds = %18, %14
+  br label %25
+
+25:                                               ; preds = %24, %8
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #17 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { noreturn }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5, !6}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{!"llvm.loop.unroll.enable"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN5drjit6maskedIN7mitsuba8SpectrumIfLm4EEENS_4MaskIfLm4EEEEEDaRT_RKT0_: argument 0"}
+!11 = distinct !{!11, !"_ZN5drjit6maskedIN7mitsuba8SpectrumIfLm4EEENS_4MaskIfLm4EEEEEDaRT_RKT0_"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN5drjit6maskedIN7mitsuba8SpectrumIfLm4EEENS_4MaskIfLm4EEEEEDaRT_RKT0_: argument 0"}
+!14 = distinct !{!14, !"_ZN5drjit6maskedIN7mitsuba8SpectrumIfLm4EEENS_4MaskIfLm4EEEEEDaRT_RKT0_"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN5drjit6maskedIN7mitsuba8SpectrumIfLm4EEENS_4MaskIfLm4EEEEEDaRT_RKT0_: argument 0"}
+!17 = distinct !{!17, !"_ZN5drjit6maskedIN7mitsuba8SpectrumIfLm4EEENS_4MaskIfLm4EEEEEDaRT_RKT0_"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZN5drjit6maskedIN7mitsuba8SpectrumIfLm4EEENS_4MaskIfLm4EEEEEDaRT_RKT0_: argument 0"}
+!20 = distinct !{!20, !"_ZN5drjit6maskedIN7mitsuba8SpectrumIfLm4EEENS_4MaskIfLm4EEEEEDaRT_RKT0_"}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5}

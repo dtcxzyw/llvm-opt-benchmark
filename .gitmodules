@@ -472,3 +472,6 @@
 [submodule "bench/verilator/verilator"]
 	path = bench/verilator/verilator
 	url = git@github.com:verilator/verilator.git
+[submodule "bench/mitsuba3/mitsuba3"]
+	path = bench/mitsuba3/mitsuba3
+	url = git@github.com:mitsuba-renderer/mitsuba3.git
