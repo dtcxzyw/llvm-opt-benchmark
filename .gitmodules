@@ -478,3 +478,6 @@
 [submodule "bench/darktable/darktable"]
 	path = bench/darktable/darktable
 	url = git@github.com:darktable-org/darktable.git
+[submodule "bench/mixbox/mixbox"]
+	path = bench/mixbox/mixbox
+	url = git@github.com:scrtwpns/mixbox.git
