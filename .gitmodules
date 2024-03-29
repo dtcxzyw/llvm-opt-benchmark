@@ -469,3 +469,6 @@
 [submodule "bench/qdrant-rs/qdrant"]
 	path = bench/qdrant-rs/qdrant
 	url = git@github.com:qdrant/qdrant.git
+[submodule "bench/verilator/verilator"]
+	path = bench/verilator/verilator
+	url = git@github.com:verilator/verilator.git
