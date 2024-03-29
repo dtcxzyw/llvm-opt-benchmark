@@ -32,6 +32,7 @@ Currently, this repository contains the following libraries/applications:
 |[coremark](https://github.com/eembc/coremark)|C|
 |[cpython](https://github.com/python/cpython)|C|
 |[curl](https://github.com/curl/curl)|C|
+|[darktable](https://github.com/darktable-org/darktable)|C|
 |[flac](https://github.com/xiph/flac)|C|
 |[git](https://github.com/git/git)|C|
 |[graphviz](https://gitlab.com/graphviz/graphviz)|C|
@@ -116,6 +117,8 @@ Currently, this repository contains the following libraries/applications:
 |[meshlab](https://github.com/cnr-isti-vclab/meshlab)|C++|
 |[meshoptimizer](https://github.com/zeux/meshoptimizer)|C++|
 |[minetest](https://github.com/minetest/minetest)|C++|
+|[mitsuba3](https://github.com/mitsuba-renderer/mitsuba3)|C++|
+|[mixbox](https://github.com/scrtwpns/mixbox)|C++|
 |[mold](https://github.com/rui314/mold)|C++|
 |[msdfgen](https://github.com/Chlumsky/msdfgen)|C++|
 |[nanobind](https://github.com/wjakob/nanobind)|C++|
@@ -148,6 +151,7 @@ Currently, this repository contains the following libraries/applications:
 |[tomlplusplus](https://github.com/marzer/tomlplusplus)|C++|
 |[vcpkg-tool](https://github.com/microsoft/vcpkg-tool)|C++|
 |[velox](https://github.com/facebookincubator/velox)|C++|
+|[verilator](https://github.com/verilator/verilator)|C++|
 |[yalantinglibs](https://github.com/alibaba/yalantinglibs)|C++|
 |[yaml-cpp](https://github.com/jbeder/yaml-cpp)|C++|
 |[yoga](https://github.com/facebook/yoga)|C++|
@@ -162,10 +166,12 @@ Currently, this repository contains the following libraries/applications:
 |[log](https://github.com/rust-lang/log)|Rust|
 |[mini-lsm](https://github.com/skyzh/mini-lsm)|Rust|
 |[mio](https://github.com/tokio-rs/mio)|Rust|
+|[qdrant](https://github.com/qdrant/qdrant)|Rust|
 |[rand](https://github.com/rust-random/rand)|Rust|
 |[rayon](https://github.com/rayon-rs/rayon)|Rust|
 |[regex](https://github.com/rust-lang/regex)|Rust|
 |[ring](https://github.com/briansmith/ring)|Rust|
+|[ripgrep](https://github.com/BurntSushi/ripgrep)|Rust|
 |[rust-base64](https://github.com/marshallpierce/rust-base64)|Rust|
 |[rustfmt](https://github.com/rust-lang/rustfmt)|Rust|
 |[rustls](https://github.com/rustls/rustls)|Rust|
@@ -174,4 +180,5 @@ Currently, this repository contains the following libraries/applications:
 |[syn](https://github.com/dtolnay/syn)|Rust|
 |[tokio](https://github.com/tokio-rs/tokio)|Rust|
 |[tree-sitter](https://github.com/tree-sitter/tree-sitter)|Rust|
+|[typst](https://github.com/typst/typst)|Rust|
 |[unicode-normalization](https://github.com/unicode-rs/unicode-normalization)|Rust|
