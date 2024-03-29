@@ -475,3 +475,6 @@
 [submodule "bench/mitsuba3/mitsuba3"]
 	path = bench/mitsuba3/mitsuba3
 	url = git@github.com:mitsuba-renderer/mitsuba3.git
+[submodule "bench/darktable/darktable"]
+	path = bench/darktable/darktable
+	url = git@github.com:darktable-org/darktable.git
