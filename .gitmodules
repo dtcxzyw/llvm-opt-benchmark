@@ -463,3 +463,6 @@
 [submodule "bench/typst-rs/typst"]
 	path = bench/typst-rs/typst
 	url = git@github.com:typst/typst.git
+[submodule "bench/ripgrep-rs/ripgrep"]
+	path = bench/ripgrep-rs/ripgrep
+	url = git@github.com:BurntSushi/ripgrep.git
