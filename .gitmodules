@@ -466,3 +466,6 @@
 [submodule "bench/ripgrep-rs/ripgrep"]
 	path = bench/ripgrep-rs/ripgrep
 	url = git@github.com:BurntSushi/ripgrep.git
+[submodule "bench/qdrant-rs/qdrant"]
+	path = bench/qdrant-rs/qdrant
+	url = git@github.com:qdrant/qdrant.git
