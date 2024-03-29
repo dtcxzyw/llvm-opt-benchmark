@@ -12,7 +12,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @BN_CTX_new() #5
+  %call = tail call ptr @BN_CTX_new() #6
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %err, label %if.end3
 
@@ -25,12 +25,12 @@ if.end3:                                          ; preds = %if.then, %entry
   br i1 %cmp14.not, label %if.end22, label %if.then16
 
 if.then16:                                        ; preds = %if.end3
-  %call17 = tail call ptr @EC_GROUP_get0_generator(ptr noundef %group) #5
+  %call17 = tail call ptr @EC_GROUP_get0_generator(ptr noundef %group) #6
   %cmp18 = icmp eq ptr %call17, null
   br i1 %cmp18, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.then16
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 122, ptr noundef nonnull @.str, i32 noundef 266) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 122, ptr noundef nonnull @.str, i32 noundef 266) #6
   br label %err
 
 if.end21:                                         ; preds = %if.then16
@@ -41,11 +41,11 @@ if.end22:                                         ; preds = %if.end21, %if.end3
   %total_num.0 = phi i64 [ %inc, %if.end21 ], [ %conv, %if.end3 ]
   %generator.0 = phi ptr [ %call17, %if.end21 ], [ null, %if.end3 ]
   %mul = shl nuw nsw i64 %total_num.0, 3
-  %call23 = tail call noalias ptr @malloc(i64 noundef %mul) #6
-  %call25 = tail call noalias ptr @malloc(i64 noundef %mul) #6
+  %call23 = tail call noalias ptr @malloc(i64 noundef %mul) #7
+  %call25 = tail call noalias ptr @malloc(i64 noundef %mul) #7
   %mul26 = add nuw nsw i64 %mul, 8
-  %call27 = tail call noalias ptr @malloc(i64 noundef %mul26) #6
-  %call29 = tail call noalias ptr @malloc(i64 noundef %mul) #6
+  %call27 = tail call noalias ptr @malloc(i64 noundef %mul26) #7
+  %call29 = tail call noalias ptr @malloc(i64 noundef %mul) #7
   %tobool.not = icmp eq ptr %call27, null
   br i1 %tobool.not, label %if.then38, label %if.end31
 
@@ -63,7 +63,7 @@ for.cond.preheader:                               ; preds = %if.end31
   br i1 %cmp40233.not, label %for.end, label %for.body
 
 if.then38:                                        ; preds = %if.end22, %if.end31
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 286) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 286) #6
   br label %err
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end101
@@ -72,7 +72,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.0234 = phi i64 [ %add83, %if.end101 ], [ 0, %for.cond.preheader ]
   %cmp42.not = icmp ult i64 %i.0234, %conv
   %spec.select371 = select i1 %cmp42.not, ptr %p_scalar, ptr %g_scalar
-  %call48 = tail call i32 @BN_num_bits(ptr noundef %spec.select371) #5
+  %call48 = tail call i32 @BN_num_bits(ptr noundef %spec.select371) #6
   %cmp52 = icmp ugt i32 %call48, 1999
   br i1 %cmp52, label %cond.end77, label %cond.false55
 
@@ -104,28 +104,24 @@ cond.end77:                                       ; preds = %cond.false55, %cond
   %g_scalar.mux = select i1 %cmp42.not, ptr %p_scalar, ptr %g_scalar
   %conv93 = trunc i64 %cond78 to i32
   %arrayidx94 = getelementptr inbounds i64, ptr %call25, i64 %i.0234
-  %call.i = tail call i32 @BN_is_zero(ptr noundef %g_scalar.mux) #5
+  %call.i = tail call i32 @BN_is_zero(ptr noundef %g_scalar.mux) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.end77
-  %call1.i = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #6
-  %tobool2.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i
+  %calloc.i = tail call dereferenceable_or_null(1) ptr @calloc(i64 1, i64 1)
+  %tobool2.not.i = icmp eq ptr %calloc.i, null
+  br i1 %tobool2.not.i, label %if.then3.i, label %if.end101
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 104) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 104) #6
   br label %compute_wNAF.exit
-
-if.end.i:                                         ; preds = %if.then.i
-  store i8 0, ptr %call1.i, align 1
-  br label %if.end101
 
 if.end7.i:                                        ; preds = %cond.end77
   %shl.i = shl nuw nsw i32 1, %conv93
   %shl8.i = shl nuw nsw i32 2, %conv93
   %sub.i = add nsw i32 %shl8.i, -1
-  %call9.i = tail call i32 @BN_is_negative(ptr noundef %g_scalar.mux) #5
+  %call9.i = tail call i32 @BN_is_negative(ptr noundef %g_scalar.mux) #6
   %call9.fr.i = freeze i32 %call9.i
   %tobool10.not.i = icmp eq i32 %call9.fr.i, 0
   %1 = load ptr, ptr %g_scalar.mux, align 8
@@ -139,19 +135,19 @@ lor.lhs.false14.i:                                ; preds = %if.end7.i
   br i1 %cmp15.i, label %if.then16.i, label %if.end17.i
 
 if.then16.i:                                      ; preds = %lor.lhs.false14.i, %if.end7.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 127) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 127) #6
   br label %compute_wNAF.exit
 
 if.end17.i:                                       ; preds = %lor.lhs.false14.i
-  %call18.i = tail call i32 @BN_num_bits(ptr noundef nonnull %g_scalar.mux) #5
+  %call18.i = tail call i32 @BN_num_bits(ptr noundef nonnull %g_scalar.mux) #6
   %conv.i = zext i32 %call18.i to i64
   %add.i = add nuw nsw i64 %conv.i, 1
-  %call19.i = tail call noalias ptr @malloc(i64 noundef %add.i) #6
+  %call19.i = tail call noalias ptr @malloc(i64 noundef %add.i) #7
   %cmp20.i = icmp eq ptr %call19.i, null
   br i1 %cmp20.i, label %if.then22.i, label %if.end23.i
 
 if.then22.i:                                      ; preds = %if.end17.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 138) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 138) #6
   br label %compute_wNAF.exit
 
 if.end23.i:                                       ; preds = %if.end17.i
@@ -225,7 +221,7 @@ if.end72.us.i:                                    ; preds = %lor.rhs.us.i, %land
   %shr75.us.i = ashr i32 %window_val.1.us.i, 1
   %6 = trunc i64 %inc.us.i to i32
   %conv78.us.i = add i32 %6, %conv93
-  %call79.us.i = tail call i32 @BN_is_bit_set(ptr noundef nonnull %g_scalar.mux, i32 noundef %conv78.us.i) #5
+  %call79.us.i = tail call i32 @BN_is_bit_set(ptr noundef nonnull %g_scalar.mux, i32 noundef %conv78.us.i) #6
   %mul8054.us.i = shl nsw i32 %call79.us.i, %conv93
   %add81.us.i = add nsw i32 %mul8054.us.i, %shr75.us.i
   %cmp82.us.i = icmp sgt i32 %add81.us.i, %shl8.i
@@ -272,7 +268,7 @@ if.end50.i:                                       ; preds = %if.then40.i, %if.th
   br i1 %or.cond56.i, label %if.then60.i, label %if.end61.i
 
 if.then60.i:                                      ; preds = %if.end50.i, %if.end50.us.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 171) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 171) #6
   br label %compute_wNAF.exit
 
 if.end61.i:                                       ; preds = %if.end50.i
@@ -287,7 +283,7 @@ land.lhs.true.i:                                  ; preds = %if.end61.i
   br i1 %or.cond57.i, label %if.end72.i, label %if.then70.i
 
 if.then70.i:                                      ; preds = %land.lhs.true.i, %land.lhs.true.us.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 181) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 181) #6
   br label %compute_wNAF.exit
 
 if.end72.i:                                       ; preds = %land.lhs.true.i, %if.end61.i, %while.body.i, %lor.rhs.i
@@ -301,14 +297,14 @@ if.end72.i:                                       ; preds = %land.lhs.true.i, %i
   %shr75.i = ashr i32 %window_val.1.i, 1
   %8 = trunc i64 %inc.i to i32
   %conv78.i = add i32 %8, %conv93
-  %call79.i = tail call i32 @BN_is_bit_set(ptr noundef nonnull %g_scalar.mux, i32 noundef %conv78.i) #5
+  %call79.i = tail call i32 @BN_is_bit_set(ptr noundef nonnull %g_scalar.mux, i32 noundef %conv78.i) #6
   %mul8054.i = shl nsw i32 %call79.i, %conv93
   %add81.i = add nsw i32 %mul8054.i, %shr75.i
   %cmp82.i = icmp sgt i32 %add81.i, %shl8.i
   br i1 %cmp82.i, label %if.then84.i, label %while.cond.i, !llvm.loop !7
 
 if.then84.i:                                      ; preds = %if.end72.i, %if.end72.us.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 192) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 192) #6
   br label %compute_wNAF.exit
 
 while.end.i:                                      ; preds = %lor.rhs.i, %lor.rhs.us.i
@@ -317,19 +313,19 @@ while.end.i:                                      ; preds = %lor.rhs.i, %lor.rhs
   br i1 %cmp87.i, label %if.then89.i, label %if.end101
 
 if.then89.i:                                      ; preds = %while.end.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 198) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 198) #6
   br label %compute_wNAF.exit
 
 compute_wNAF.exit:                                ; preds = %if.then3.i, %if.then16.i, %if.then22.i, %if.then60.i, %if.then70.i, %if.then84.i, %if.then89.i
   %r.0.ph.i = phi ptr [ %call19.i, %if.then89.i ], [ %call19.i, %if.then84.i ], [ %call19.i, %if.then70.i ], [ %call19.i, %if.then60.i ], [ null, %if.then22.i ], [ null, %if.then16.i ], [ null, %if.then3.i ]
-  tail call void @free(ptr noundef %r.0.ph.i) #5
+  tail call void @free(ptr noundef %r.0.ph.i) #6
   %arrayidx96 = getelementptr inbounds ptr, ptr %call27, i64 %i.0234
   store ptr null, ptr %arrayidx96, align 8
   br label %err
 
-if.end101:                                        ; preds = %while.end.i, %if.end.i
-  %storemerge = phi i64 [ 1, %if.end.i ], [ %.us-phi.i, %while.end.i ]
-  %retval.0.i.ph = phi ptr [ %call1.i, %if.end.i ], [ %call19.i, %while.end.i ]
+if.end101:                                        ; preds = %while.end.i, %if.then.i
+  %storemerge = phi i64 [ 1, %if.then.i ], [ %.us-phi.i, %while.end.i ]
+  %retval.0.i.ph = phi ptr [ %calloc.i, %if.then.i ], [ %call19.i, %while.end.i ]
   store i64 %storemerge, ptr %arrayidx94, align 8
   %arrayidx96165 = getelementptr inbounds ptr, ptr %call27, i64 %i.0234
   store ptr %retval.0.i.ph, ptr %arrayidx96165, align 8
@@ -342,12 +338,12 @@ for.end:                                          ; preds = %if.end101, %for.con
   %num_val.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %add82, %if.end101 ]
   %add109 = shl i64 %num_val.0.lcssa, 3
   %mul110 = add i64 %add109, 8
-  %call111 = tail call noalias ptr @malloc(i64 noundef %mul110) #6
+  %call111 = tail call noalias ptr @malloc(i64 noundef %mul110) #7
   %cmp112 = icmp eq ptr %call111, null
   br i1 %cmp112, label %if.then114, label %if.end115
 
 if.then114:                                       ; preds = %for.end
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 314) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 314) #6
   br label %err
 
 if.end115:                                        ; preds = %for.end
@@ -366,7 +362,7 @@ for.body120:                                      ; preds = %if.end115, %for.inc
 for.body128:                                      ; preds = %for.body120, %if.end133
   %v.1240 = phi ptr [ %v.0243, %for.body120 ], [ %incdec.ptr, %if.end133 ]
   %j.0239 = phi i64 [ 0, %for.body120 ], [ %inc135, %if.end133 ]
-  %call129 = tail call ptr @EC_POINT_new(ptr noundef %group) #5
+  %call129 = tail call ptr @EC_POINT_new(ptr noundef %group) #6
   store ptr %call129, ptr %v.1240, align 8
   %cmp130 = icmp eq ptr %call129, null
   br i1 %cmp130, label %err, label %if.end133
@@ -391,11 +387,11 @@ for.end139:                                       ; preds = %for.inc137, %if.end
   br i1 %cmp140, label %if.end143, label %if.then142
 
 if.then142:                                       ; preds = %for.end139
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 332) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 332) #6
   br label %err
 
 if.end143:                                        ; preds = %for.end139
-  %call144 = tail call ptr @EC_POINT_new(ptr noundef %group) #5
+  %call144 = tail call ptr @EC_POINT_new(ptr noundef %group) #6
   %tobool145.not = icmp eq ptr %call144, null
   br i1 %tobool145.not, label %err, label %for.cond148.preheader
 
@@ -410,7 +406,7 @@ for.body151:                                      ; preds = %for.cond148.prehead
 if.then154:                                       ; preds = %for.body151
   %10 = load ptr, ptr %call29, align 8
   %11 = load ptr, ptr %10, align 8
-  %call158 = tail call i32 @EC_POINT_copy(ptr noundef %11, ptr noundef %p) #5
+  %call158 = tail call i32 @EC_POINT_copy(ptr noundef %11, ptr noundef %p) #6
   %tobool159.not = icmp eq i32 %call158, 0
   br i1 %tobool159.not, label %err, label %if.end168
 
@@ -418,7 +414,7 @@ if.else:                                          ; preds = %for.body151
   %arrayidx162 = getelementptr inbounds ptr, ptr %call29, i64 %i.2249
   %12 = load ptr, ptr %arrayidx162, align 8
   %13 = load ptr, ptr %12, align 8
-  %call164 = tail call i32 @EC_POINT_copy(ptr noundef %13, ptr noundef %generator.0) #5
+  %call164 = tail call i32 @EC_POINT_copy(ptr noundef %13, ptr noundef %generator.0) #6
   %tobool165.not = icmp eq i32 %call164, 0
   br i1 %tobool165.not, label %err, label %if.end168
 
@@ -432,7 +428,7 @@ if.then172:                                       ; preds = %if.end168
   %arrayidx173 = getelementptr inbounds ptr, ptr %call29, i64 %i.2249
   %15 = load ptr, ptr %arrayidx173, align 8
   %16 = load ptr, ptr %15, align 8
-  %call175 = tail call i32 @EC_POINT_dbl(ptr noundef %group, ptr noundef nonnull %call144, ptr noundef %16, ptr noundef nonnull %ctx.addr.0) #5
+  %call175 = tail call i32 @EC_POINT_dbl(ptr noundef %group, ptr noundef nonnull %call144, ptr noundef %16, ptr noundef nonnull %ctx.addr.0) #6
   %tobool176.not = icmp eq i32 %call175, 0
   br i1 %tobool176.not, label %err, label %for.body185.preheader
 
@@ -452,7 +448,7 @@ for.body185:                                      ; preds = %for.body185.prehead
   %17 = load ptr, ptr %arrayidx187, align 8
   %arrayidx190 = getelementptr i8, ptr %arrayidx187, i64 -8
   %18 = load ptr, ptr %arrayidx190, align 8
-  %call191 = tail call i32 @EC_POINT_add(ptr noundef %group, ptr noundef %17, ptr noundef %18, ptr noundef nonnull %call144, ptr noundef nonnull %ctx.addr.0) #5
+  %call191 = tail call i32 @EC_POINT_add(ptr noundef %group, ptr noundef %17, ptr noundef %18, ptr noundef nonnull %call144, ptr noundef nonnull %ctx.addr.0) #6
   %tobool192.not = icmp eq i32 %call191, 0
   br i1 %tobool192.not, label %err, label %for.cond179
 
@@ -462,7 +458,7 @@ for.inc199:                                       ; preds = %for.cond179, %if.en
   br i1 %exitcond318.not, label %for.end201, label %for.body151, !llvm.loop !13
 
 for.end201:                                       ; preds = %for.inc199, %for.cond148.preheader
-  %call202 = tail call i32 @EC_POINTs_make_affine(ptr noundef %group, i64 noundef %num_val.0.lcssa, ptr noundef nonnull %call111, ptr noundef nonnull %ctx.addr.0) #5
+  %call202 = tail call i32 @EC_POINTs_make_affine(ptr noundef %group, i64 noundef %num_val.0.lcssa, ptr noundef nonnull %call111, ptr noundef nonnull %ctx.addr.0) #6
   %tobool203.not = icmp eq i32 %call202, 0
   br i1 %tobool203.not, label %err, label %if.end205
 
@@ -485,7 +481,7 @@ for.body211.us:                                   ; preds = %for.body211.us.preh
   br i1 %tobool212.not.us, label %land.lhs.true.us, label %for.body220.us.preheader
 
 land.lhs.true.us:                                 ; preds = %for.body211.us
-  %call213.us = tail call i32 @EC_POINT_dbl(ptr noundef %group, ptr noundef %r, ptr noundef %r, ptr noundef nonnull %ctx.addr.0) #5
+  %call213.us = tail call i32 @EC_POINT_dbl(ptr noundef %group, ptr noundef %r, ptr noundef %r, ptr noundef nonnull %ctx.addr.0) #6
   %tobool214.not.us = icmp eq i32 %call213.us, 0
   br i1 %tobool214.not.us, label %err, label %for.body220.us.preheader
 
@@ -521,7 +517,7 @@ if.then239.us:                                    ; preds = %if.then230.us
   br i1 %tobool240.not.us, label %land.lhs.true241.us, label %if.end245.us
 
 land.lhs.true241.us:                              ; preds = %if.then239.us
-  %call242.us = tail call i32 @EC_POINT_invert(ptr noundef %group, ptr noundef %r, ptr noundef nonnull %ctx.addr.0) #5
+  %call242.us = tail call i32 @EC_POINT_invert(ptr noundef %group, ptr noundef %r, ptr noundef nonnull %ctx.addr.0) #6
   %tobool243.not.us = icmp eq i32 %call242.us, 0
   br i1 %tobool243.not.us, label %err, label %if.end245.us
 
@@ -542,12 +538,12 @@ if.end247.us:                                     ; preds = %if.end245.us, %if.t
   br i1 %tobool248.not.us, label %if.else257.us, label %if.then249.us
 
 if.then249.us:                                    ; preds = %if.end247.us
-  %call253.us = tail call i32 @EC_POINT_copy(ptr noundef %r, ptr noundef %27) #5
+  %call253.us = tail call i32 @EC_POINT_copy(ptr noundef %r, ptr noundef %27) #6
   %tobool254.not.us = icmp eq i32 %call253.us, 0
   br i1 %tobool254.not.us, label %err, label %for.inc269.us
 
 if.else257.us:                                    ; preds = %if.end247.us
-  %call262.us = tail call i32 @EC_POINT_add(ptr noundef %group, ptr noundef %r, ptr noundef %r, ptr noundef %27, ptr noundef nonnull %ctx.addr.0) #5
+  %call262.us = tail call i32 @EC_POINT_add(ptr noundef %group, ptr noundef %r, ptr noundef %r, ptr noundef %27, ptr noundef nonnull %ctx.addr.0) #6
   %tobool263.not.us = icmp eq i32 %call262.us, 0
   br i1 %tobool263.not.us, label %err, label %for.inc269.us
 
@@ -568,7 +564,7 @@ for.end273:                                       ; preds = %for.cond217.for.con
   br i1 %28, label %if.else280, label %if.then275
 
 if.then275:                                       ; preds = %if.end205, %for.end273
-  %call276 = tail call i32 @EC_POINT_set_to_infinity(ptr noundef %group, ptr noundef %r) #5
+  %call276 = tail call i32 @EC_POINT_set_to_infinity(ptr noundef %group, ptr noundef %r) #6
   %tobool277.not = icmp eq i32 %call276, 0
   br i1 %tobool277.not, label %err, label %if.end287
 
@@ -577,7 +573,7 @@ if.else280:                                       ; preds = %for.end273
   br i1 %29, label %if.end287, label %land.lhs.true282
 
 land.lhs.true282:                                 ; preds = %if.else280
-  %call283 = tail call i32 @EC_POINT_invert(ptr noundef %group, ptr noundef %r, ptr noundef nonnull %ctx.addr.0) #5
+  %call283 = tail call i32 @EC_POINT_invert(ptr noundef %group, ptr noundef %r, ptr noundef nonnull %ctx.addr.0) #6
   %tobool284.not = icmp eq i32 %call283, 0
   br i1 %tobool284.not, label %err, label %if.end287
 
@@ -593,10 +589,10 @@ err:                                              ; preds = %for.body128, %if.th
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then20 ], [ 0, %compute_wNAF.exit ], [ 0, %if.then114 ], [ 1, %if.end287 ], [ 0, %if.then275 ], [ 0, %land.lhs.true282 ], [ 0, %for.end201 ], [ 0, %if.end143 ], [ 0, %if.then142 ], [ 0, %if.then38 ], [ 0, %land.lhs.true241.us ], [ 0, %if.then249.us ], [ 0, %if.else257.us ], [ 0, %land.lhs.true.us ], [ 0, %for.body185 ], [ 0, %if.then154 ], [ 0, %if.else ], [ 0, %if.then172 ], [ 0, %for.body128 ]
   %tmp.0 = phi ptr [ null, %if.then ], [ null, %if.then20 ], [ null, %compute_wNAF.exit ], [ null, %if.then114 ], [ %call144, %if.end287 ], [ %call144, %if.then275 ], [ %call144, %land.lhs.true282 ], [ %call144, %for.end201 ], [ null, %if.end143 ], [ null, %if.then142 ], [ null, %if.then38 ], [ %call144, %land.lhs.true241.us ], [ %call144, %if.then249.us ], [ %call144, %if.else257.us ], [ %call144, %land.lhs.true.us ], [ %call144, %for.body185 ], [ %call144, %if.then154 ], [ %call144, %if.else ], [ %call144, %if.then172 ], [ null, %for.body128 ]
   %new_ctx.1 = phi ptr [ null, %if.then ], [ %new_ctx.0, %if.then20 ], [ %new_ctx.0, %compute_wNAF.exit ], [ %new_ctx.0, %if.then114 ], [ %new_ctx.0, %if.end287 ], [ %new_ctx.0, %if.then275 ], [ %new_ctx.0, %land.lhs.true282 ], [ %new_ctx.0, %for.end201 ], [ %new_ctx.0, %if.end143 ], [ %new_ctx.0, %if.then142 ], [ %new_ctx.0, %if.then38 ], [ %new_ctx.0, %land.lhs.true241.us ], [ %new_ctx.0, %if.then249.us ], [ %new_ctx.0, %if.else257.us ], [ %new_ctx.0, %land.lhs.true.us ], [ %new_ctx.0, %for.body185 ], [ %new_ctx.0, %if.then154 ], [ %new_ctx.0, %if.else ], [ %new_ctx.0, %if.then172 ], [ %new_ctx.0, %for.body128 ]
-  tail call void @BN_CTX_free(ptr noundef %new_ctx.1) #5
-  tail call void @EC_POINT_free(ptr noundef %tmp.0) #5
-  tail call void @free(ptr noundef %wsize.0) #5
-  tail call void @free(ptr noundef %wNAF_len.0) #5
+  tail call void @BN_CTX_free(ptr noundef %new_ctx.1) #6
+  tail call void @EC_POINT_free(ptr noundef %tmp.0) #6
+  tail call void @free(ptr noundef %wsize.0) #6
+  tail call void @free(ptr noundef %wNAF_len.0) #6
   %cmp288.not = icmp eq ptr %wNAF.0, null
   br i1 %cmp288.not, label %if.end298, label %for.cond291.preheader
 
@@ -608,14 +604,14 @@ for.cond291.preheader:                            ; preds = %err
 for.body294:                                      ; preds = %for.cond291.preheader, %for.body294
   %31 = phi ptr [ %32, %for.body294 ], [ %30, %for.cond291.preheader ]
   %w.0265 = phi ptr [ %incdec.ptr296, %for.body294 ], [ %wNAF.0, %for.cond291.preheader ]
-  tail call void @free(ptr noundef nonnull %31) #5
+  tail call void @free(ptr noundef nonnull %31) #6
   %incdec.ptr296 = getelementptr inbounds i8, ptr %w.0265, i64 8
   %32 = load ptr, ptr %incdec.ptr296, align 8
   %cmp292.not = icmp eq ptr %32, null
   br i1 %cmp292.not, label %for.end297, label %for.body294, !llvm.loop !16
 
 for.end297:                                       ; preds = %for.body294, %for.cond291.preheader
-  tail call void @free(ptr noundef %wNAF.0) #5
+  tail call void @free(ptr noundef %wNAF.0) #6
   br label %if.end298
 
 if.end298:                                        ; preds = %for.end297, %err
@@ -630,18 +626,18 @@ for.cond302.preheader:                            ; preds = %if.end298
 for.body305:                                      ; preds = %for.cond302.preheader, %for.body305
   %34 = phi ptr [ %35, %for.body305 ], [ %33, %for.cond302.preheader ]
   %v.2267 = phi ptr [ %incdec.ptr307, %for.body305 ], [ %val.0, %for.cond302.preheader ]
-  tail call void @EC_POINT_clear_free(ptr noundef nonnull %34) #5
+  tail call void @EC_POINT_clear_free(ptr noundef nonnull %34) #6
   %incdec.ptr307 = getelementptr inbounds i8, ptr %v.2267, i64 8
   %35 = load ptr, ptr %incdec.ptr307, align 8
   %cmp303.not = icmp eq ptr %35, null
   br i1 %cmp303.not, label %for.end308, label %for.body305, !llvm.loop !17
 
 for.end308:                                       ; preds = %for.body305, %for.cond302.preheader
-  tail call void @free(ptr noundef %val.0) #5
+  tail call void @free(ptr noundef %val.0) #6
   br label %if.end309
 
 if.end309:                                        ; preds = %for.end308, %if.end298
-  tail call void @free(ptr noundef %val_sub.0) #5
+  tail call void @free(ptr noundef %val_sub.0) #6
   ret i32 %ret.0
 }
 
@@ -685,19 +681,23 @@ declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #1
 
 declare i32 @BN_is_bit_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.abs.i8(i8, i1 immarg) #4
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #4
+declare i8 @llvm.abs.i8(i8, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind allocsize(0) }
+attributes #4 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

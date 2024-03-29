@@ -92067,194 +92067,193 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_
   store i64 -1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = getelementptr inbounds i8, ptr %2, i64 24
-  %8 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #41
+  %calloc.i = tail call dereferenceable_or_null(4) ptr @calloc(i64 1, i64 4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
-  store ptr %8, ptr %7, align 8
-  %.not6.i.i = icmp eq ptr %8, null
-  br i1 %.not6.i.i, label %9, label %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEEC2Ev.exit.i
+  store ptr %calloc.i, ptr %7, align 8
+  %.not6.i.i = icmp eq ptr %calloc.i, null
+  br i1 %.not6.i.i, label %8, label %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEEC2Ev.exit.i
 
-9:                                                ; preds = %1
-  %10 = tail call ptr @__cxa_allocate_exception(i64 8) #35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %10, align 8
-  invoke void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #40
-          to label %.noexc.i unwind label %11
+8:                                                ; preds = %1
+  %9 = tail call ptr @__cxa_allocate_exception(i64 8) #35
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %9, align 8
+  invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #40
+          to label %.noexc.i unwind label %10
 
-.noexc.i:                                         ; preds = %9
+.noexc.i:                                         ; preds = %8
   unreachable
 
-common.resume.i:                                  ; preds = %.body.i, %11
-  %common.resume.op.i = phi { ptr, i32 } [ %12, %11 ], [ %.pn.i, %.body.i ]
+common.resume.i:                                  ; preds = %.body.i, %10
+  %common.resume.op.i = phi { ptr, i32 } [ %11, %10 ], [ %.pn.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op.i
 
-11:                                               ; preds = %9
-  %12 = landingpad { ptr, i32 }
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
-  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #35
+  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #35
   br label %common.resume.i
 
 _ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEEC2Ev.exit.i: ; preds = %1
   store i64 0, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
-  store i32 0, ptr %8, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i64, ptr %18, align 8
-  %20 = and i64 %19, 1
-  %21 = icmp ne i64 %20, 0
-  %22 = invoke noundef zeroext i1 @_ZN8pybind116detail11type_casterIN5Eigen12SparseMatrixIfLi1EiEEvE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %21)
-          to label %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE9load_argsERNS0_13function_callE.exit.i unwind label %23
+  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, 1
+  %20 = icmp ne i64 %19, 0
+  %21 = invoke noundef zeroext i1 @_ZN8pybind116detail11type_casterIN5Eigen12SparseMatrixIfLi1EiEEvE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %20)
+          to label %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE9load_argsERNS0_13function_callE.exit.i unwind label %22
 
 _ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE9load_argsERNS0_13function_callE.exit.i: ; preds = %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEEC2Ev.exit.i
-  br i1 %22, label %25, label %_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i
+  br i1 %21, label %24, label %_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i
 
-23:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEEC2Ev.exit.i
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEEC2Ev.exit.i
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-25:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE9load_argsERNS0_13function_callE.exit.i
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 88
-  %28 = load i8, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 89
-  %30 = load i16, ptr %29, align 1
-  %31 = and i16 %30, 32
-  %.not.i = icmp eq i16 %31, 0
-  br i1 %.not.i, label %53, label %32
+24:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE9load_argsERNS0_13function_callE.exit.i
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 88
+  %27 = load i8, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %25, i64 89
+  %29 = load i16, ptr %28, align 1
+  %30 = and i16 %29, 32
+  %.not.i = icmp eq i16 %30, 0
+  br i1 %.not.i, label %52, label %31
 
-32:                                               ; preds = %25
+31:                                               ; preds = %24
   store i8 0, ptr %3, align 8, !alias.scope !3177
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %33, i8 0, i64 64, i1 false), !alias.scope !3177
-  %34 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIfLi1EiEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %2)
-          to label %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i" unwind label %35
+  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %32, i8 0, i64 64, i1 false), !alias.scope !3177
+  %33 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIfLi1EiEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %2)
+          to label %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i" unwind label %34
 
-35:                                               ; preds = %32
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %31
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %37 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #35
+  %36 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #35
   br label %.body.i
 
-"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i": ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %3, i64 24
-  %39 = load ptr, ptr %38, align 8
-  call void @free(ptr noundef %39) #35
-  %40 = getelementptr inbounds i8, ptr %3, i64 32
-  %41 = load ptr, ptr %40, align 8
-  call void @free(ptr noundef %41) #35
-  %42 = getelementptr inbounds i8, ptr %3, i64 40
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %46, label %45
+"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i": ; preds = %31
+  %37 = getelementptr inbounds i8, ptr %3, i64 24
+  %38 = load ptr, ptr %37, align 8
+  call void @free(ptr noundef %38) #35
+  %39 = getelementptr inbounds i8, ptr %3, i64 32
+  %40 = load ptr, ptr %39, align 8
+  call void @free(ptr noundef %40) #35
+  %41 = getelementptr inbounds i8, ptr %3, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %45, label %44
 
-45:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i"
-  call void @_ZdaPv(ptr noundef nonnull %43) #39
-  br label %46
+44:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i"
+  call void @_ZdaPv(ptr noundef nonnull %42) #39
+  br label %45
 
-46:                                               ; preds = %45, %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i"
-  %47 = getelementptr inbounds i8, ptr %3, i64 48
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %_ZN8pybind114noneD2Ev.exit.i, label %50
+45:                                               ; preds = %44, %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i"
+  %46 = getelementptr inbounds i8, ptr %3, i64 48
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %_ZN8pybind114noneD2Ev.exit.i, label %49
 
-50:                                               ; preds = %46
-  call void @_ZdaPv(ptr noundef nonnull %48) #39
+49:                                               ; preds = %45
+  call void @_ZdaPv(ptr noundef nonnull %47) #39
   br label %_ZN8pybind114noneD2Ev.exit.i
 
-_ZN8pybind114noneD2Ev.exit.i:                     ; preds = %50, %46
-  %51 = load i64, ptr @_Py_NoneStruct, align 8
-  %52 = add nsw i64 %51, 1
-  store i64 %52, ptr @_Py_NoneStruct, align 8
+_ZN8pybind114noneD2Ev.exit.i:                     ; preds = %49, %45
+  %50 = load i64, ptr @_Py_NoneStruct, align 8
+  %51 = add nsw i64 %50, 1
+  store i64 %51, ptr @_Py_NoneStruct, align 8
   br label %_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i
 
-53:                                               ; preds = %25
+52:                                               ; preds = %24
   store i8 0, ptr %4, align 8, !alias.scope !3184
-  %54 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, i8 0, i64 64, i1 false), !alias.scope !3184
-  %55 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIfLi1EiEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2)
-          to label %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i" unwind label %56
+  %53 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false), !alias.scope !3184
+  %54 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIfLi1EiEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2)
+          to label %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i" unwind label %55
 
-56:                                               ; preds = %53
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %52
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %58 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #35
+  %57 = getelementptr inbounds i8, ptr %4, i64 40
+  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #35
   br label %.body.i
 
-"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i": ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %0, i64 88
-  %.sroa.01.0.copyload.i = load ptr, ptr %59, align 8
-  %60 = invoke ptr @_ZN8pybind116detail11type_casterIN5Eigen12SparseMatrixIfLi1EiEEvE4castERKS4_NS_19return_value_policyENS_6handleE(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 noundef zeroext %28, ptr %.sroa.01.0.copyload.i)
-          to label %61 unwind label %75
+"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i": ; preds = %52
+  %58 = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.01.0.copyload.i = load ptr, ptr %58, align 8
+  %59 = invoke ptr @_ZN8pybind116detail11type_casterIN5Eigen12SparseMatrixIfLi1EiEEvE4castERKS4_NS_19return_value_policyENS_6handleE(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 noundef zeroext %27, ptr %.sroa.01.0.copyload.i)
+          to label %60 unwind label %74
 
-61:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i"
-  %62 = getelementptr inbounds i8, ptr %4, i64 24
-  %63 = load ptr, ptr %62, align 8
-  call void @free(ptr noundef %63) #35
-  %64 = getelementptr inbounds i8, ptr %4, i64 32
-  %65 = load ptr, ptr %64, align 8
-  call void @free(ptr noundef %65) #35
-  %66 = getelementptr inbounds i8, ptr %4, i64 40
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %70, label %69
+60:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i"
+  %61 = getelementptr inbounds i8, ptr %4, i64 24
+  %62 = load ptr, ptr %61, align 8
+  call void @free(ptr noundef %62) #35
+  %63 = getelementptr inbounds i8, ptr %4, i64 32
+  %64 = load ptr, ptr %63, align 8
+  call void @free(ptr noundef %64) #35
+  %65 = getelementptr inbounds i8, ptr %4, i64 40
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %69, label %68
 
-69:                                               ; preds = %61
-  call void @_ZdaPv(ptr noundef nonnull %67) #39
-  br label %70
+68:                                               ; preds = %60
+  call void @_ZdaPv(ptr noundef nonnull %66) #39
+  br label %69
 
-70:                                               ; preds = %69, %61
-  %71 = getelementptr inbounds i8, ptr %4, i64 48
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i, label %74
+69:                                               ; preds = %68, %60
+  %70 = getelementptr inbounds i8, ptr %4, i64 48
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i, label %73
 
-74:                                               ; preds = %70
-  call void @_ZdaPv(ptr noundef nonnull %72) #39
+73:                                               ; preds = %69
+  call void @_ZdaPv(ptr noundef nonnull %71) #39
   br label %_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i
 
-75:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i"
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i"
+  %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Eigen12SparseMatrixIfLi1EiED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #35
   br label %.body.i
 
-_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i:     ; preds = %74, %70, %_ZN8pybind114noneD2Ev.exit.i, %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE9load_argsERNS0_13function_callE.exit.i
-  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ %60, %70 ], [ %60, %74 ]
-  %77 = load ptr, ptr %7, align 8
+_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i:     ; preds = %73, %69, %_ZN8pybind114noneD2Ev.exit.i, %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE9load_argsERNS0_13function_callE.exit.i
+  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ %59, %69 ], [ %59, %73 ]
+  %76 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %76) #35
+  %77 = load ptr, ptr %13, align 8
   call void @free(ptr noundef %77) #35
-  %78 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %78) #35
-  %79 = getelementptr inbounds i8, ptr %2, i64 40
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %83, label %82
+  %78 = getelementptr inbounds i8, ptr %2, i64 40
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %82, label %81
 
-82:                                               ; preds = %_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i
-  call void @_ZdaPv(ptr noundef nonnull %80) #39
-  br label %83
+81:                                               ; preds = %_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i
+  call void @_ZdaPv(ptr noundef nonnull %79) #39
+  br label %82
 
-83:                                               ; preds = %82, %_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i
-  %84 = getelementptr inbounds i8, ptr %2, i64 48
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_46N5Eigen12SparseMatrixIfLi1EiEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit", label %87
+82:                                               ; preds = %81, %_ZN5Eigen12SparseMatrixIfLi1EiED2Ev.exit20.i
+  %83 = getelementptr inbounds i8, ptr %2, i64 48
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_46N5Eigen12SparseMatrixIfLi1EiEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit", label %86
 
-87:                                               ; preds = %83
-  call void @_ZdaPv(ptr noundef nonnull %85) #39
+86:                                               ; preds = %82
+  call void @_ZdaPv(ptr noundef nonnull %84) #39
   br label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_46N5Eigen12SparseMatrixIfLi1EiEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit"
 
-.body.i:                                          ; preds = %75, %56, %35, %23
-  %.pn.i = phi { ptr, i32 } [ %76, %75 ], [ %36, %35 ], [ %24, %23 ], [ %57, %56 ]
+.body.i:                                          ; preds = %74, %55, %34, %22
+  %.pn.i = phi { ptr, i32 } [ %75, %74 ], [ %35, %34 ], [ %23, %22 ], [ %56, %55 ]
   call void @_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi1EiEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #35
   br label %common.resume.i
 
-"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_46N5Eigen12SparseMatrixIfLi1EiEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit": ; preds = %83, %87
+"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_46N5Eigen12SparseMatrixIfLi1EiEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit": ; preds = %82, %86
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
@@ -95255,194 +95254,193 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_
   store i64 -1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = getelementptr inbounds i8, ptr %2, i64 24
-  %8 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #41
+  %calloc.i = tail call dereferenceable_or_null(4) ptr @calloc(i64 1, i64 4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
-  store ptr %8, ptr %7, align 8
-  %.not6.i.i = icmp eq ptr %8, null
-  br i1 %.not6.i.i, label %9, label %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEEC2Ev.exit.i
+  store ptr %calloc.i, ptr %7, align 8
+  %.not6.i.i = icmp eq ptr %calloc.i, null
+  br i1 %.not6.i.i, label %8, label %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEEC2Ev.exit.i
 
-9:                                                ; preds = %1
-  %10 = tail call ptr @__cxa_allocate_exception(i64 8) #35
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %10, align 8
-  invoke void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #40
-          to label %.noexc.i unwind label %11
+8:                                                ; preds = %1
+  %9 = tail call ptr @__cxa_allocate_exception(i64 8) #35
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %9, align 8
+  invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #40
+          to label %.noexc.i unwind label %10
 
-.noexc.i:                                         ; preds = %9
+.noexc.i:                                         ; preds = %8
   unreachable
 
-common.resume.i:                                  ; preds = %.body.i, %11
-  %common.resume.op.i = phi { ptr, i32 } [ %12, %11 ], [ %.pn.i, %.body.i ]
+common.resume.i:                                  ; preds = %.body.i, %10
+  %common.resume.op.i = phi { ptr, i32 } [ %11, %10 ], [ %.pn.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op.i
 
-11:                                               ; preds = %9
-  %12 = landingpad { ptr, i32 }
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
-  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #35
+  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #35
   br label %common.resume.i
 
 _ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEEC2Ev.exit.i: ; preds = %1
   store i64 0, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
-  store i32 0, ptr %8, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i64, ptr %18, align 8
-  %20 = and i64 %19, 1
-  %21 = icmp ne i64 %20, 0
-  %22 = invoke noundef zeroext i1 @_ZN8pybind116detail11type_casterIN5Eigen12SparseMatrixIfLi0EiEEvE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %21)
-          to label %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE9load_argsERNS0_13function_callE.exit.i unwind label %23
+  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, 1
+  %20 = icmp ne i64 %19, 0
+  %21 = invoke noundef zeroext i1 @_ZN8pybind116detail11type_casterIN5Eigen12SparseMatrixIfLi0EiEEvE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %20)
+          to label %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE9load_argsERNS0_13function_callE.exit.i unwind label %22
 
 _ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE9load_argsERNS0_13function_callE.exit.i: ; preds = %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEEC2Ev.exit.i
-  br i1 %22, label %25, label %_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i
+  br i1 %21, label %24, label %_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i
 
-23:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEEC2Ev.exit.i
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEEC2Ev.exit.i
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-25:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE9load_argsERNS0_13function_callE.exit.i
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 88
-  %28 = load i8, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 89
-  %30 = load i16, ptr %29, align 1
-  %31 = and i16 %30, 32
-  %.not.i = icmp eq i16 %31, 0
-  br i1 %.not.i, label %53, label %32
+24:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE9load_argsERNS0_13function_callE.exit.i
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 88
+  %27 = load i8, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %25, i64 89
+  %29 = load i16, ptr %28, align 1
+  %30 = and i16 %29, 32
+  %.not.i = icmp eq i16 %30, 0
+  br i1 %.not.i, label %52, label %31
 
-32:                                               ; preds = %25
+31:                                               ; preds = %24
   store i8 0, ptr %3, align 8, !alias.scope !3266
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %33, i8 0, i64 64, i1 false), !alias.scope !3266
-  %34 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIfLi0EiEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %2)
-          to label %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i" unwind label %35
+  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %32, i8 0, i64 64, i1 false), !alias.scope !3266
+  %33 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIfLi0EiEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %2)
+          to label %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i" unwind label %34
 
-35:                                               ; preds = %32
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %31
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %37 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #35
+  %36 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #35
   br label %.body.i
 
-"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i": ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %3, i64 24
-  %39 = load ptr, ptr %38, align 8
-  call void @free(ptr noundef %39) #35
-  %40 = getelementptr inbounds i8, ptr %3, i64 32
-  %41 = load ptr, ptr %40, align 8
-  call void @free(ptr noundef %41) #35
-  %42 = getelementptr inbounds i8, ptr %3, i64 40
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %46, label %45
+"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i": ; preds = %31
+  %37 = getelementptr inbounds i8, ptr %3, i64 24
+  %38 = load ptr, ptr %37, align 8
+  call void @free(ptr noundef %38) #35
+  %39 = getelementptr inbounds i8, ptr %3, i64 32
+  %40 = load ptr, ptr %39, align 8
+  call void @free(ptr noundef %40) #35
+  %41 = getelementptr inbounds i8, ptr %3, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %45, label %44
 
-45:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i"
-  call void @_ZdaPv(ptr noundef nonnull %43) #39
-  br label %46
+44:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i"
+  call void @_ZdaPv(ptr noundef nonnull %42) #39
+  br label %45
 
-46:                                               ; preds = %45, %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i"
-  %47 = getelementptr inbounds i8, ptr %3, i64 48
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %_ZN8pybind114noneD2Ev.exit.i, label %50
+45:                                               ; preds = %44, %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit.i"
+  %46 = getelementptr inbounds i8, ptr %3, i64 48
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %_ZN8pybind114noneD2Ev.exit.i, label %49
 
-50:                                               ; preds = %46
-  call void @_ZdaPv(ptr noundef nonnull %48) #39
+49:                                               ; preds = %45
+  call void @_ZdaPv(ptr noundef nonnull %47) #39
   br label %_ZN8pybind114noneD2Ev.exit.i
 
-_ZN8pybind114noneD2Ev.exit.i:                     ; preds = %50, %46
-  %51 = load i64, ptr @_Py_NoneStruct, align 8
-  %52 = add nsw i64 %51, 1
-  store i64 %52, ptr @_Py_NoneStruct, align 8
+_ZN8pybind114noneD2Ev.exit.i:                     ; preds = %49, %45
+  %50 = load i64, ptr @_Py_NoneStruct, align 8
+  %51 = add nsw i64 %50, 1
+  store i64 %51, ptr @_Py_NoneStruct, align 8
   br label %_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i
 
-53:                                               ; preds = %25
+52:                                               ; preds = %24
   store i8 0, ptr %4, align 8, !alias.scope !3273
-  %54 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, i8 0, i64 64, i1 false), !alias.scope !3273
-  %55 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIfLi0EiEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2)
-          to label %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i" unwind label %56
+  %53 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false), !alias.scope !3273
+  %54 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIfLi0EiEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2)
+          to label %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i" unwind label %55
 
-56:                                               ; preds = %53
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %52
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %58 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #35
+  %57 = getelementptr inbounds i8, ptr %4, i64 40
+  call void @_ZN5Eigen8internal17CompressedStorageIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #35
   br label %.body.i
 
-"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i": ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %0, i64 88
-  %.sroa.01.0.copyload.i = load ptr, ptr %59, align 8
-  %60 = invoke ptr @_ZN8pybind116detail11type_casterIN5Eigen12SparseMatrixIfLi0EiEEvE4castERKS4_NS_19return_value_policyENS_6handleE(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 noundef zeroext %28, ptr %.sroa.01.0.copyload.i)
-          to label %61 unwind label %75
+"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i": ; preds = %52
+  %58 = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.01.0.copyload.i = load ptr, ptr %58, align 8
+  %59 = invoke ptr @_ZN8pybind116detail11type_casterIN5Eigen12SparseMatrixIfLi0EiEEvE4castERKS4_NS_19return_value_policyENS_6handleE(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 noundef zeroext %27, ptr %.sroa.01.0.copyload.i)
+          to label %60 unwind label %74
 
-61:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i"
-  %62 = getelementptr inbounds i8, ptr %4, i64 24
-  %63 = load ptr, ptr %62, align 8
-  call void @free(ptr noundef %63) #35
-  %64 = getelementptr inbounds i8, ptr %4, i64 32
-  %65 = load ptr, ptr %64, align 8
-  call void @free(ptr noundef %65) #35
-  %66 = getelementptr inbounds i8, ptr %4, i64 40
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %70, label %69
+60:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i"
+  %61 = getelementptr inbounds i8, ptr %4, i64 24
+  %62 = load ptr, ptr %61, align 8
+  call void @free(ptr noundef %62) #35
+  %63 = getelementptr inbounds i8, ptr %4, i64 32
+  %64 = load ptr, ptr %63, align 8
+  call void @free(ptr noundef %64) #35
+  %65 = getelementptr inbounds i8, ptr %4, i64 40
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %69, label %68
 
-69:                                               ; preds = %61
-  call void @_ZdaPv(ptr noundef nonnull %67) #39
-  br label %70
+68:                                               ; preds = %60
+  call void @_ZdaPv(ptr noundef nonnull %66) #39
+  br label %69
 
-70:                                               ; preds = %69, %61
-  %71 = getelementptr inbounds i8, ptr %4, i64 48
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i, label %74
+69:                                               ; preds = %68, %60
+  %70 = getelementptr inbounds i8, ptr %4, i64 48
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i, label %73
 
-74:                                               ; preds = %70
-  call void @_ZdaPv(ptr noundef nonnull %72) #39
+73:                                               ; preds = %69
+  call void @_ZdaPv(ptr noundef nonnull %71) #39
   br label %_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i
 
-75:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i"
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE4callIS4_NS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_47EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_.exit19.i"
+  %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Eigen12SparseMatrixIfLi0EiED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #35
   br label %.body.i
 
-_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i:     ; preds = %74, %70, %_ZN8pybind114noneD2Ev.exit.i, %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE9load_argsERNS0_13function_callE.exit.i
-  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ %60, %70 ], [ %60, %74 ]
-  %77 = load ptr, ptr %7, align 8
+_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i:     ; preds = %73, %69, %_ZN8pybind114noneD2Ev.exit.i, %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE9load_argsERNS0_13function_callE.exit.i
+  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ %59, %69 ], [ %59, %73 ]
+  %76 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %76) #35
+  %77 = load ptr, ptr %13, align 8
   call void @free(ptr noundef %77) #35
-  %78 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %78) #35
-  %79 = getelementptr inbounds i8, ptr %2, i64 40
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %83, label %82
+  %78 = getelementptr inbounds i8, ptr %2, i64 40
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %82, label %81
 
-82:                                               ; preds = %_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i
-  call void @_ZdaPv(ptr noundef nonnull %80) #39
-  br label %83
+81:                                               ; preds = %_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i
+  call void @_ZdaPv(ptr noundef nonnull %79) #39
+  br label %82
 
-83:                                               ; preds = %82, %_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i
-  %84 = getelementptr inbounds i8, ptr %2, i64 48
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_47N5Eigen12SparseMatrixIfLi0EiEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit", label %87
+82:                                               ; preds = %81, %_ZN5Eigen12SparseMatrixIfLi0EiED2Ev.exit20.i
+  %83 = getelementptr inbounds i8, ptr %2, i64 48
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_47N5Eigen12SparseMatrixIfLi0EiEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit", label %86
 
-87:                                               ; preds = %83
-  call void @_ZdaPv(ptr noundef nonnull %85) #39
+86:                                               ; preds = %82
+  call void @_ZdaPv(ptr noundef nonnull %84) #39
   br label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_47N5Eigen12SparseMatrixIfLi0EiEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit"
 
-.body.i:                                          ; preds = %75, %56, %35, %23
-  %.pn.i = phi { ptr, i32 } [ %76, %75 ], [ %36, %35 ], [ %24, %23 ], [ %57, %56 ]
+.body.i:                                          ; preds = %74, %55, %34, %22
+  %.pn.i = phi { ptr, i32 } [ %75, %74 ], [ %35, %34 ], [ %23, %22 ], [ %56, %55 ]
   call void @_ZN8pybind116detail15argument_loaderIJRKN5Eigen12SparseMatrixIfLi0EiEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #35
   br label %common.resume.i
 
-"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_47N5Eigen12SparseMatrixIfLi0EiEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit": ; preds = %83, %87
+"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_47N5Eigen12SparseMatrixIfLi0EiEEJRKS7_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESQ_.exit": ; preds = %82, %86
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)

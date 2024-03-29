@@ -2663,245 +2663,247 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   br i1 %29, label %url_encode.exit.thread, label %.lr.ph57.i
 
 ._crit_edge.thread.i:                             ; preds = %13
-  %30 = call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #19
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %url_encode.exit.thread, label %url_encode.exit.thread23
+  %calloc = call dereferenceable_or_null(1) ptr @calloc(i64 1, i64 1)
+  %30 = icmp eq ptr %calloc, null
+  br i1 %30, label %url_encode.exit.thread, label %url_encode.exit.thread23
 
-.lr.ph57.i:                                       ; preds = %._crit_edge.i, %47
-  %.fr4556.i = phi i8 [ %.fr45.i, %47 ], [ %.fr47.i, %._crit_edge.i ]
-  %.03155.i = phi ptr [ %.132.i, %47 ], [ %28, %._crit_edge.i ]
-  %.13454.i = phi ptr [ %48, %47 ], [ %16, %._crit_edge.i ]
-  %32 = icmp slt i8 %.fr4556.i, 33
-  br i1 %32, label %33, label %switch.early.test44.i
+.lr.ph57.i:                                       ; preds = %._crit_edge.i, %46
+  %.fr4556.i = phi i8 [ %.fr45.i, %46 ], [ %.fr47.i, %._crit_edge.i ]
+  %.03155.i = phi ptr [ %.132.i, %46 ], [ %28, %._crit_edge.i ]
+  %.13454.i = phi ptr [ %47, %46 ], [ %16, %._crit_edge.i ]
+  %31 = icmp slt i8 %.fr4556.i, 33
+  br i1 %31, label %32, label %switch.early.test44.i
 
 switch.early.test44.i:                            ; preds = %.lr.ph57.i
-  switch i8 %.fr4556.i, label %45 [
-    i8 127, label %33
-    i8 61, label %33
-    i8 37, label %33
+  switch i8 %.fr4556.i, label %44 [
+    i8 127, label %32
+    i8 61, label %32
+    i8 37, label %32
   ]
 
-33:                                               ; preds = %switch.early.test44.i, %switch.early.test44.i, %switch.early.test44.i, %.lr.ph57.i
-  %34 = getelementptr inbounds i8, ptr %.03155.i, i64 1
+32:                                               ; preds = %switch.early.test44.i, %switch.early.test44.i, %switch.early.test44.i, %.lr.ph57.i
+  %33 = getelementptr inbounds i8, ptr %.03155.i, i64 1
   store i8 37, ptr %.03155.i, align 1
-  %35 = lshr i8 %.fr4556.i, 4
-  %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds [17 x i8], ptr @.str.70, i64 0, i64 %36
-  %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %.03155.i, i64 2
-  store i8 %38, ptr %34, align 1
-  %40 = and i8 %.fr4556.i, 15
-  %41 = zext nneg i8 %40 to i64
-  %42 = getelementptr inbounds [17 x i8], ptr @.str.70, i64 0, i64 %41
-  %43 = load i8, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %.03155.i, i64 3
-  store i8 %43, ptr %39, align 1
-  br label %47
+  %34 = lshr i8 %.fr4556.i, 4
+  %35 = zext nneg i8 %34 to i64
+  %36 = getelementptr inbounds [17 x i8], ptr @.str.70, i64 0, i64 %35
+  %37 = load i8, ptr %36, align 1
+  %38 = getelementptr inbounds i8, ptr %.03155.i, i64 2
+  store i8 %37, ptr %33, align 1
+  %39 = and i8 %.fr4556.i, 15
+  %40 = zext nneg i8 %39 to i64
+  %41 = getelementptr inbounds [17 x i8], ptr @.str.70, i64 0, i64 %40
+  %42 = load i8, ptr %41, align 1
+  %43 = getelementptr inbounds i8, ptr %.03155.i, i64 3
+  store i8 %42, ptr %38, align 1
+  br label %46
 
-45:                                               ; preds = %switch.early.test44.i
-  %46 = getelementptr inbounds i8, ptr %.03155.i, i64 1
+44:                                               ; preds = %switch.early.test44.i
+  %45 = getelementptr inbounds i8, ptr %.03155.i, i64 1
   store i8 %.fr4556.i, ptr %.03155.i, align 1
-  br label %47
+  br label %46
 
-47:                                               ; preds = %45, %33
-  %.132.i = phi ptr [ %44, %33 ], [ %46, %45 ]
-  %48 = getelementptr inbounds i8, ptr %.13454.i, i64 1
-  %49 = load i8, ptr %48, align 1
-  %.fr45.i = freeze i8 %49
+46:                                               ; preds = %44, %32
+  %.132.i = phi ptr [ %43, %32 ], [ %45, %44 ]
+  %47 = getelementptr inbounds i8, ptr %.13454.i, i64 1
+  %48 = load i8, ptr %47, align 1
+  %.fr45.i = freeze i8 %48
   %.not38.i = icmp eq i8 %.fr45.i, 0
-  br i1 %.not38.i, label %url_encode.exit.thread23, label %.lr.ph57.i, !llvm.loop !22
+  br i1 %.not38.i, label %url_encode.exit, label %.lr.ph57.i, !llvm.loop !22
 
-url_encode.exit.thread23:                         ; preds = %47, %._crit_edge.thread.i
-  %.132.i.lcssa.sink = phi ptr [ %30, %._crit_edge.thread.i ], [ %.132.i, %47 ]
-  %50 = phi ptr [ %30, %._crit_edge.thread.i ], [ %28, %47 ]
-  store i8 0, ptr %.132.i.lcssa.sink, align 1
-  %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #17
-  %52 = load ptr, ptr %10, align 8
-  %53 = call i32 @archive_strncpy_l(ptr noundef nonnull %9, ptr noundef nonnull %50, i64 noundef %51, ptr noundef %52) #15
-  call void @free(ptr noundef nonnull %50) #15
-  switch i32 %53, label %160 [
-    i32 0, label %54
+url_encode.exit:                                  ; preds = %46
+  store i8 0, ptr %.132.i, align 1
+  br label %url_encode.exit.thread23
+
+url_encode.exit.thread23:                         ; preds = %._crit_edge.thread.i, %url_encode.exit
+  %49 = phi ptr [ %28, %url_encode.exit ], [ %calloc, %._crit_edge.thread.i ]
+  %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #17
+  %51 = load ptr, ptr %10, align 8
+  %52 = call i32 @archive_strncpy_l(ptr noundef nonnull %9, ptr noundef nonnull %49, i64 noundef %50, ptr noundef %51) #15
+  call void @free(ptr noundef nonnull %49) #15
+  switch i32 %52, label %159 [
+    i32 0, label %53
     i32 -1, label %url_encode.exit.thread
   ]
 
-54:                                               ; preds = %url_encode.exit.thread23
-  %55 = load ptr, ptr %9, align 8
-  %56 = load ptr, ptr %6, align 8
-  %57 = load i64, ptr %7, align 8
+53:                                               ; preds = %url_encode.exit.thread23
+  %54 = load ptr, ptr %9, align 8
+  %55 = load ptr, ptr %6, align 8
+  %56 = load i64, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %58 = icmp eq ptr %55, null
-  br i1 %58, label %archive_write_pax_header_xattr.exit, label %59
+  %57 = icmp eq ptr %54, null
+  br i1 %57, label %archive_write_pax_header_xattr.exit, label %58
 
-59:                                               ; preds = %54
-  %60 = load i32, ptr %11, align 4
-  %61 = and i32 %60, 2
-  %.not.i20 = icmp eq i32 %61, 0
-  br i1 %.not.i20, label %153, label %62
+58:                                               ; preds = %53
+  %59 = load i32, ptr %11, align 4
+  %60 = and i32 %59, 2
+  %.not.i20 = icmp eq i32 %60, 0
+  br i1 %.not.i20, label %152, label %61
 
-62:                                               ; preds = %59
-  %63 = shl i64 %57, 2
-  %64 = or disjoint i64 %63, 2
-  %65 = udiv i64 %64, 3
-  %66 = add nuw nsw i64 %65, 1
-  %67 = call noalias ptr @malloc(i64 noundef %66) #19
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %base64_encode.exit.thread.i, label %.preheader.i.i
+61:                                               ; preds = %58
+  %62 = shl i64 %56, 2
+  %63 = or disjoint i64 %62, 2
+  %64 = udiv i64 %63, 3
+  %65 = add nuw nsw i64 %64, 1
+  %66 = call noalias ptr @malloc(i64 noundef %65) #19
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %base64_encode.exit.thread.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %62
-  %69 = icmp ugt i64 %57, 2
-  br i1 %69, label %.lr.ph.i.i, label %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %61
+  %68 = icmp ugt i64 %56, 2
+  br i1 %68, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.03339.i.i = phi ptr [ %107, %.lr.ph.i.i ], [ %67, %.preheader.i.i ]
-  %.03438.i.i = phi i64 [ %84, %.lr.ph.i.i ], [ %57, %.preheader.i.i ]
-  %.03537.i.i = phi ptr [ %83, %.lr.ph.i.i ], [ %56, %.preheader.i.i ]
-  %70 = load i8, ptr %.03537.i.i, align 1
-  %71 = sext i8 %70 to i32
-  %72 = shl nsw i32 %71, 16
-  %73 = getelementptr inbounds i8, ptr %.03537.i.i, i64 1
-  %74 = load i8, ptr %73, align 1
-  %75 = sext i8 %74 to i32
-  %76 = shl nsw i32 %75, 8
-  %77 = and i32 %76, 61440
-  %78 = getelementptr inbounds i8, ptr %.03537.i.i, i64 2
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  %81 = or disjoint i32 %76, %80
-  %82 = or disjoint i32 %77, %72
-  %83 = getelementptr inbounds i8, ptr %.03537.i.i, i64 3
-  %84 = add i64 %.03438.i.i, -3
-  %85 = lshr i32 %72, 18
-  %86 = and i32 %85, 63
-  %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %87
-  %89 = load i8, ptr %88, align 1
-  %90 = getelementptr inbounds i8, ptr %.03339.i.i, i64 1
-  store i8 %89, ptr %.03339.i.i, align 1
-  %91 = lshr exact i32 %82, 12
-  %92 = and i32 %91, 63
-  %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %93
-  %95 = load i8, ptr %94, align 1
-  %96 = getelementptr inbounds i8, ptr %.03339.i.i, i64 2
-  store i8 %95, ptr %90, align 1
-  %97 = lshr i32 %81, 6
-  %98 = and i32 %97, 63
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %99
-  %101 = load i8, ptr %100, align 1
-  %102 = getelementptr inbounds i8, ptr %.03339.i.i, i64 3
-  store i8 %101, ptr %96, align 1
-  %103 = and i32 %80, 63
-  %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %104
-  %106 = load i8, ptr %105, align 1
-  %107 = getelementptr inbounds i8, ptr %.03339.i.i, i64 4
-  store i8 %106, ptr %102, align 1
-  %108 = icmp ugt i64 %84, 2
-  br i1 %108, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !23
+  %.03339.i.i = phi ptr [ %106, %.lr.ph.i.i ], [ %66, %.preheader.i.i ]
+  %.03438.i.i = phi i64 [ %83, %.lr.ph.i.i ], [ %56, %.preheader.i.i ]
+  %.03537.i.i = phi ptr [ %82, %.lr.ph.i.i ], [ %55, %.preheader.i.i ]
+  %69 = load i8, ptr %.03537.i.i, align 1
+  %70 = sext i8 %69 to i32
+  %71 = shl nsw i32 %70, 16
+  %72 = getelementptr inbounds i8, ptr %.03537.i.i, i64 1
+  %73 = load i8, ptr %72, align 1
+  %74 = sext i8 %73 to i32
+  %75 = shl nsw i32 %74, 8
+  %76 = and i32 %75, 61440
+  %77 = getelementptr inbounds i8, ptr %.03537.i.i, i64 2
+  %78 = load i8, ptr %77, align 1
+  %79 = zext i8 %78 to i32
+  %80 = or disjoint i32 %75, %79
+  %81 = or disjoint i32 %76, %71
+  %82 = getelementptr inbounds i8, ptr %.03537.i.i, i64 3
+  %83 = add i64 %.03438.i.i, -3
+  %84 = lshr i32 %71, 18
+  %85 = and i32 %84, 63
+  %86 = zext nneg i32 %85 to i64
+  %87 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %86
+  %88 = load i8, ptr %87, align 1
+  %89 = getelementptr inbounds i8, ptr %.03339.i.i, i64 1
+  store i8 %88, ptr %.03339.i.i, align 1
+  %90 = lshr exact i32 %81, 12
+  %91 = and i32 %90, 63
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %92
+  %94 = load i8, ptr %93, align 1
+  %95 = getelementptr inbounds i8, ptr %.03339.i.i, i64 2
+  store i8 %94, ptr %89, align 1
+  %96 = lshr i32 %80, 6
+  %97 = and i32 %96, 63
+  %98 = zext nneg i32 %97 to i64
+  %99 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %98
+  %100 = load i8, ptr %99, align 1
+  %101 = getelementptr inbounds i8, ptr %.03339.i.i, i64 3
+  store i8 %100, ptr %95, align 1
+  %102 = and i32 %79, 63
+  %103 = zext nneg i32 %102 to i64
+  %104 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %103
+  %105 = load i8, ptr %104, align 1
+  %106 = getelementptr inbounds i8, ptr %.03339.i.i, i64 4
+  store i8 %105, ptr %101, align 1
+  %107 = icmp ugt i64 %83, 2
+  br i1 %107, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.035.lcssa.i.i = phi ptr [ %56, %.preheader.i.i ], [ %83, %.lr.ph.i.i ]
-  %.034.lcssa.i.i = phi i64 [ %57, %.preheader.i.i ], [ %84, %.lr.ph.i.i ]
-  %.033.lcssa.i.i = phi ptr [ %67, %.preheader.i.i ], [ %107, %.lr.ph.i.i ]
+  %.035.lcssa.i.i = phi ptr [ %55, %.preheader.i.i ], [ %82, %.lr.ph.i.i ]
+  %.034.lcssa.i.i = phi i64 [ %56, %.preheader.i.i ], [ %83, %.lr.ph.i.i ]
+  %.033.lcssa.i.i = phi ptr [ %66, %.preheader.i.i ], [ %106, %.lr.ph.i.i ]
   switch i64 %.034.lcssa.i.i, label %base64_encode.exit.i [
-    i64 2, label %121
-    i64 1, label %109
+    i64 2, label %120
+    i64 1, label %108
   ]
 
-109:                                              ; preds = %._crit_edge.i.i
-  %110 = load i8, ptr %.035.lcssa.i.i, align 1
-  %111 = sext i8 %110 to i32
-  %112 = shl nsw i32 %111, 16
-  %113 = lshr i32 %112, 18
-  %114 = and i32 %113, 63
-  %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %115
-  %117 = load i8, ptr %116, align 1
-  %118 = getelementptr inbounds i8, ptr %.033.lcssa.i.i, i64 1
-  store i8 %117, ptr %.033.lcssa.i.i, align 1
-  %119 = lshr exact i32 %112, 12
-  %120 = and i32 %119, 48
+108:                                              ; preds = %._crit_edge.i.i
+  %109 = load i8, ptr %.035.lcssa.i.i, align 1
+  %110 = sext i8 %109 to i32
+  %111 = shl nsw i32 %110, 16
+  %112 = lshr i32 %111, 18
+  %113 = and i32 %112, 63
+  %114 = zext nneg i32 %113 to i64
+  %115 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %114
+  %116 = load i8, ptr %115, align 1
+  %117 = getelementptr inbounds i8, ptr %.033.lcssa.i.i, i64 1
+  store i8 %116, ptr %.033.lcssa.i.i, align 1
+  %118 = lshr exact i32 %111, 12
+  %119 = and i32 %118, 48
   br label %.sink.split.i.i
 
-121:                                              ; preds = %._crit_edge.i.i
-  %122 = load i8, ptr %.035.lcssa.i.i, align 1
-  %123 = sext i8 %122 to i32
-  %124 = shl nsw i32 %123, 16
-  %125 = getelementptr inbounds i8, ptr %.035.lcssa.i.i, i64 1
-  %126 = load i8, ptr %125, align 1
-  %127 = sext i8 %126 to i32
-  %128 = shl nsw i32 %127, 8
-  %129 = and i32 %128, 61440
-  %130 = or disjoint i32 %129, %124
-  %131 = lshr i32 %124, 18
-  %132 = and i32 %131, 63
-  %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %133
-  %135 = load i8, ptr %134, align 1
-  %136 = getelementptr inbounds i8, ptr %.033.lcssa.i.i, i64 1
-  store i8 %135, ptr %.033.lcssa.i.i, align 1
-  %137 = lshr exact i32 %130, 12
-  %138 = and i32 %137, 63
-  %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %139
-  %141 = load i8, ptr %140, align 1
-  %142 = getelementptr inbounds i8, ptr %.033.lcssa.i.i, i64 2
-  store i8 %141, ptr %136, align 1
-  %143 = lshr exact i32 %128, 6
-  %144 = and i32 %143, 60
+120:                                              ; preds = %._crit_edge.i.i
+  %121 = load i8, ptr %.035.lcssa.i.i, align 1
+  %122 = sext i8 %121 to i32
+  %123 = shl nsw i32 %122, 16
+  %124 = getelementptr inbounds i8, ptr %.035.lcssa.i.i, i64 1
+  %125 = load i8, ptr %124, align 1
+  %126 = sext i8 %125 to i32
+  %127 = shl nsw i32 %126, 8
+  %128 = and i32 %127, 61440
+  %129 = or disjoint i32 %128, %123
+  %130 = lshr i32 %123, 18
+  %131 = and i32 %130, 63
+  %132 = zext nneg i32 %131 to i64
+  %133 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %132
+  %134 = load i8, ptr %133, align 1
+  %135 = getelementptr inbounds i8, ptr %.033.lcssa.i.i, i64 1
+  store i8 %134, ptr %.033.lcssa.i.i, align 1
+  %136 = lshr exact i32 %129, 12
+  %137 = and i32 %136, 63
+  %138 = zext nneg i32 %137 to i64
+  %139 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %138
+  %140 = load i8, ptr %139, align 1
+  %141 = getelementptr inbounds i8, ptr %.033.lcssa.i.i, i64 2
+  store i8 %140, ptr %135, align 1
+  %142 = lshr exact i32 %127, 6
+  %143 = and i32 %142, 60
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %121, %109
-  %.sink49.i.i = phi i32 [ %144, %121 ], [ %120, %109 ]
-  %.sink47.i.i = phi i64 [ 3, %121 ], [ 2, %109 ]
-  %.sink46.i.i = phi ptr [ %142, %121 ], [ %118, %109 ]
-  %145 = zext nneg i32 %.sink49.i.i to i64
-  %146 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %145
-  %147 = load i8, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %.033.lcssa.i.i, i64 %.sink47.i.i
-  store i8 %147, ptr %.sink46.i.i, align 1
+.sink.split.i.i:                                  ; preds = %120, %108
+  %.sink49.i.i = phi i32 [ %143, %120 ], [ %119, %108 ]
+  %.sink47.i.i = phi i64 [ 3, %120 ], [ 2, %108 ]
+  %.sink46.i.i = phi ptr [ %141, %120 ], [ %117, %108 ]
+  %144 = zext nneg i32 %.sink49.i.i to i64
+  %145 = getelementptr inbounds [64 x i8], ptr @base64_encode.digits, i64 0, i64 %144
+  %146 = load i8, ptr %145, align 4
+  %147 = getelementptr inbounds i8, ptr %.033.lcssa.i.i, i64 %.sink47.i.i
+  store i8 %146, ptr %.sink46.i.i, align 1
   br label %base64_encode.exit.i
 
 base64_encode.exit.i:                             ; preds = %.sink.split.i.i, %._crit_edge.i.i
-  %.1.i.i = phi ptr [ %.033.lcssa.i.i, %._crit_edge.i.i ], [ %148, %.sink.split.i.i ]
+  %.1.i.i = phi ptr [ %.033.lcssa.i.i, %._crit_edge.i.i ], [ %147, %.sink.split.i.i ]
   store i8 0, ptr %.1.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %149 = call ptr @archive_strncat(ptr noundef nonnull %4, ptr noundef nonnull @.str.71, i64 noundef 17) #15
-  %150 = call ptr @archive_strcat(ptr noundef nonnull %4, ptr noundef nonnull %55) #15
-  %151 = load ptr, ptr %4, align 8
-  %152 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #17
-  call fastcc void @add_pax_attr_binary(ptr noundef nonnull %12, ptr noundef %151, ptr noundef nonnull %67, i64 noundef %152)
+  %148 = call ptr @archive_strncat(ptr noundef nonnull %4, ptr noundef nonnull @.str.71, i64 noundef 17) #15
+  %149 = call ptr @archive_strcat(ptr noundef nonnull %4, ptr noundef nonnull %54) #15
+  %150 = load ptr, ptr %4, align 8
+  %151 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #17
+  call fastcc void @add_pax_attr_binary(ptr noundef nonnull %12, ptr noundef %150, ptr noundef nonnull %66, i64 noundef %151)
   call void @archive_string_free(ptr noundef nonnull %4) #15
   %.pre.pre.i = load i32, ptr %11, align 4
   br label %base64_encode.exit.thread.i
 
-base64_encode.exit.thread.i:                      ; preds = %base64_encode.exit.i, %62
-  %.pre.i = phi i32 [ %60, %62 ], [ %.pre.pre.i, %base64_encode.exit.i ]
-  call void @free(ptr noundef %67) #15
-  br label %153
+base64_encode.exit.thread.i:                      ; preds = %base64_encode.exit.i, %61
+  %.pre.i = phi i32 [ %59, %61 ], [ %.pre.pre.i, %base64_encode.exit.i ]
+  call void @free(ptr noundef %66) #15
+  br label %152
 
-153:                                              ; preds = %base64_encode.exit.thread.i, %59
-  %154 = phi i32 [ %.pre.i, %base64_encode.exit.thread.i ], [ %60, %59 ]
-  %155 = and i32 %154, 1
-  %.not15.i = icmp eq i32 %155, 0
-  br i1 %.not15.i, label %archive_write_pax_header_xattr.exit, label %156
+152:                                              ; preds = %base64_encode.exit.thread.i, %58
+  %153 = phi i32 [ %.pre.i, %base64_encode.exit.thread.i ], [ %59, %58 ]
+  %154 = and i32 %153, 1
+  %.not15.i = icmp eq i32 %154, 0
+  br i1 %.not15.i, label %archive_write_pax_header_xattr.exit, label %155
 
-156:                                              ; preds = %153
+155:                                              ; preds = %152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %157 = call ptr @archive_strncat(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, i64 noundef 13) #15
-  %158 = call ptr @archive_strcat(ptr noundef nonnull %4, ptr noundef nonnull %55) #15
-  %159 = load ptr, ptr %4, align 8
-  call fastcc void @add_pax_attr_binary(ptr noundef nonnull %12, ptr noundef %159, ptr noundef %56, i64 noundef %57)
+  %156 = call ptr @archive_strncat(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, i64 noundef 13) #15
+  %157 = call ptr @archive_strcat(ptr noundef nonnull %4, ptr noundef nonnull %54) #15
+  %158 = load ptr, ptr %4, align 8
+  call fastcc void @add_pax_attr_binary(ptr noundef nonnull %12, ptr noundef %158, ptr noundef %55, i64 noundef %56)
   call void @archive_string_free(ptr noundef nonnull %4) #15
   br label %archive_write_pax_header_xattr.exit
 
-archive_write_pax_header_xattr.exit:              ; preds = %54, %153, %156
+archive_write_pax_header_xattr.exit:              ; preds = %53, %152, %155
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.loopexit, label %13, !llvm.loop !24
 
-160:                                              ; preds = %url_encode.exit.thread23
+159:                                              ; preds = %url_encode.exit.thread23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.69) #15
   br label %.loopexit
 
@@ -2909,8 +2911,8 @@ url_encode.exit.thread:                           ; preds = %._crit_edge.thread.
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.48) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %archive_write_pax_header_xattr.exit, %3, %url_encode.exit.thread, %160
-  %.0 = phi i32 [ -30, %url_encode.exit.thread ], [ -25, %160 ], [ 0, %3 ], [ 0, %archive_write_pax_header_xattr.exit ]
+.loopexit:                                        ; preds = %archive_write_pax_header_xattr.exit, %3, %url_encode.exit.thread, %159
+  %.0 = phi i32 [ -30, %url_encode.exit.thread ], [ -25, %159 ], [ 0, %3 ], [ 0, %archive_write_pax_header_xattr.exit ]
   ret i32 %.0
 }
 

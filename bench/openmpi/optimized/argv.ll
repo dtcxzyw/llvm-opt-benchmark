@@ -863,75 +863,74 @@ define noalias noundef ptr @opal_argv_copy(ptr noundef readonly %0) local_unname
   br i1 %2, label %opal_argv_free.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #14
-  store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr %0, align 8
-  %.not18 = icmp eq ptr %5, null
+  %calloc = tail call dereferenceable_or_null(8) ptr @calloc(i64 1, i64 8)
+  %4 = load ptr, ptr %0, align 8
+  %.not18 = icmp eq ptr %4, null
   br i1 %.not18, label %opal_argv_free.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %3, %.preheader.i.i
-  %6 = phi ptr [ %22, %.preheader.i.i ], [ null, %3 ]
-  %7 = phi ptr [ %24, %.preheader.i.i ], [ %5, %3 ]
-  %.020 = phi ptr [ %23, %.preheader.i.i ], [ %0, %3 ]
-  %.01119 = phi ptr [ %14, %.preheader.i.i ], [ %4, %3 ]
-  %.not9.i.i.i = icmp eq ptr %6, null
+  %5 = phi ptr [ %21, %.preheader.i.i ], [ null, %3 ]
+  %6 = phi ptr [ %23, %.preheader.i.i ], [ %4, %3 ]
+  %.020 = phi ptr [ %22, %.preheader.i.i ], [ %0, %3 ]
+  %.01119 = phi ptr [ %13, %.preheader.i.i ], [ %calloc, %3 ]
+  %.not9.i.i.i = icmp eq ptr %5, null
   br i1 %.not9.i.i.i, label %opal_argv_count.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
-  %.011.i.i.i = phi i32 [ %8, %.lr.ph.i.i.i ], [ 0, %.preheader.i.i.i ]
-  %.0610.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %.01119, %.preheader.i.i.i ]
-  %8 = add nuw nsw i32 %.011.i.i.i, 1
-  %9 = getelementptr inbounds i8, ptr %.0610.i.i.i, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %.not.i.i.i = icmp eq ptr %10, null
+  %.011.i.i.i = phi i32 [ %7, %.lr.ph.i.i.i ], [ 0, %.preheader.i.i.i ]
+  %.0610.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.01119, %.preheader.i.i.i ]
+  %7 = add nuw nsw i32 %.011.i.i.i, 1
+  %8 = getelementptr inbounds i8, ptr %.0610.i.i.i, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %opal_argv_count.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
 opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
-  %.07.i.i.i = phi i32 [ 0, %.preheader.i.i.i ], [ %8, %.lr.ph.i.i.i ]
-  %11 = add nsw i32 %.07.i.i.i, 2
-  %12 = sext i32 %11 to i64
-  %13 = shl nsw i64 %12, 3
-  %14 = tail call ptr @realloc(ptr noundef nonnull %.01119, i64 noundef %13) #12
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %opal_argv_free.exit, label %16
+  %.07.i.i.i = phi i32 [ 0, %.preheader.i.i.i ], [ %7, %.lr.ph.i.i.i ]
+  %10 = add nsw i32 %.07.i.i.i, 2
+  %11 = sext i32 %10 to i64
+  %12 = shl nsw i64 %11, 3
+  %13 = tail call ptr @realloc(ptr noundef nonnull %.01119, i64 noundef %12) #12
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %opal_argv_free.exit, label %15
 
-16:                                               ; preds = %opal_argv_count.exit.i.i
-  %17 = tail call noalias ptr @strdup(ptr noundef nonnull %7) #13
-  %18 = sext i32 %.07.i.i.i to i64
-  %19 = getelementptr inbounds ptr, ptr %14, i64 %18
-  store ptr %17, ptr %19, align 8
-  %20 = icmp eq ptr %17, null
-  br i1 %20, label %.preheader.i, label %.preheader.i.i
+15:                                               ; preds = %opal_argv_count.exit.i.i
+  %16 = tail call noalias ptr @strdup(ptr noundef nonnull %6) #13
+  %17 = sext i32 %.07.i.i.i to i64
+  %18 = getelementptr inbounds ptr, ptr %13, i64 %17
+  store ptr %16, ptr %18, align 8
+  %19 = icmp eq ptr %16, null
+  br i1 %19, label %.preheader.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %16
-  %21 = getelementptr i8, ptr %19, i64 8
-  store ptr null, ptr %21, align 8
-  %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %.020, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not = icmp eq ptr %24, null
+.preheader.i.i:                                   ; preds = %15
+  %20 = getelementptr i8, ptr %18, i64 8
+  store ptr null, ptr %20, align 8
+  %21 = load ptr, ptr %13, align 8
+  %22 = getelementptr inbounds i8, ptr %.020, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %.not = icmp eq ptr %23, null
   br i1 %.not, label %opal_argv_free.exit, label %.preheader.i.i.i, !llvm.loop !15
 
-.preheader.i:                                     ; preds = %16
-  %25 = load ptr, ptr %14, align 8
-  %.not8.i = icmp eq ptr %25, null
+.preheader.i:                                     ; preds = %15
+  %24 = load ptr, ptr %13, align 8
+  %.not8.i = icmp eq ptr %24, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %26 = phi ptr [ %28, %.lr.ph.i ], [ %25, %.preheader.i ]
-  %.09.i = phi ptr [ %27, %.lr.ph.i ], [ %14, %.preheader.i ]
-  tail call void @free(ptr noundef nonnull %26) #13
-  %27 = getelementptr inbounds i8, ptr %.09.i, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %.not.i = icmp eq ptr %28, null
+  %25 = phi ptr [ %27, %.lr.ph.i ], [ %24, %.preheader.i ]
+  %.09.i = phi ptr [ %26, %.lr.ph.i ], [ %13, %.preheader.i ]
+  tail call void @free(ptr noundef nonnull %25) #13
+  %26 = getelementptr inbounds i8, ptr %.09.i, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef nonnull %14) #13
+  tail call void @free(ptr noundef nonnull %13) #13
   br label %opal_argv_free.exit
 
 opal_argv_free.exit:                              ; preds = %.preheader.i.i, %opal_argv_count.exit.i.i, %3, %._crit_edge.i, %1
-  %.05 = phi ptr [ null, %1 ], [ null, %._crit_edge.i ], [ %4, %3 ], [ %14, %.preheader.i.i ], [ null, %opal_argv_count.exit.i.i ]
+  %.05 = phi ptr [ null, %1 ], [ null, %._crit_edge.i ], [ %calloc, %3 ], [ %13, %.preheader.i.i ], [ null, %opal_argv_count.exit.i.i ]
   ret ptr %.05
 }
 

@@ -21,29 +21,29 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @patchwork_layout(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @agattr(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #12
+  %2 = tail call ptr @agattr(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #11
   store ptr %2, ptr @N_shape, align 8
-  tail call void @setEdgeType(ptr noundef %0, i32 noundef 2) #12
+  tail call void @setEdgeType(ptr noundef %0, i32 noundef 2) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 232
   store i16 2, ptr %5, align 8
   store i32 2, ptr @Ndim, align 4
   tail call fastcc void @mkClusters(ptr noundef %0, ptr noundef null)
-  %6 = tail call i32 @agnnodes(ptr noundef %0) #12
+  %6 = tail call i32 @agnnodes(ptr noundef %0) #11
   %7 = sext i32 %6 to i64
   %mul.ov.i.i.i = icmp slt i32 %6, 0
   br i1 %mul.ov.i.i.i, label %8, label %11
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.5, i64 noundef %7, i64 noundef 8) #13
-  tail call fastcc void @graphviz_exit() #14
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.5, i64 noundef %7, i64 noundef 8) #12
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 11:                                               ; preds = %1
   %12 = icmp ne i32 %6, 0
-  %13 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
+  %13 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #14
   %14 = icmp eq ptr %13, null
   %or.cond3.i.i.i = and i1 %12, %14
   br i1 %or.cond3.i.i.i, label %15, label %gv_calloc.exit.i.i
@@ -51,12 +51,12 @@ define void @patchwork_layout(ptr noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %11
   %16 = load ptr, ptr @stderr, align 8
   %17 = shl nuw nsw i64 %7, 3
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.6, i64 noundef %17) #13
-  tail call fastcc void @graphviz_exit() #14
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.6, i64 noundef %17) #12
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 gv_calloc.exit.i.i:                               ; preds = %11
-  %19 = tail call i32 @agnnodes(ptr noundef nonnull %0) #12
+  %19 = tail call i32 @agnnodes(ptr noundef nonnull %0) #11
   %20 = add nsw i32 %19, 1
   %21 = sext i32 %20 to i64
   %mul.ov.i23.i.i = icmp slt i32 %19, -1
@@ -64,13 +64,13 @@ gv_calloc.exit.i.i:                               ; preds = %11
 
 22:                                               ; preds = %gv_calloc.exit.i.i
   %23 = load ptr, ptr @stderr, align 8
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.5, i64 noundef %21, i64 noundef 8) #13
-  tail call fastcc void @graphviz_exit() #14
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.5, i64 noundef %21, i64 noundef 8) #12
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 25:                                               ; preds = %gv_calloc.exit.i.i
   %26 = icmp ne i32 %20, 0
-  %27 = tail call noalias ptr @calloc(i64 noundef %21, i64 noundef 8) #15
+  %27 = tail call noalias ptr @calloc(i64 noundef %21, i64 noundef 8) #14
   %28 = icmp eq ptr %27, null
   %or.cond3.i24.i.i = and i1 %26, %28
   br i1 %or.cond3.i24.i.i, label %29, label %gv_calloc.exit25.i.i
@@ -78,22 +78,22 @@ gv_calloc.exit.i.i:                               ; preds = %11
 29:                                               ; preds = %25
   %30 = load ptr, ptr @stderr, align 8
   %31 = shl nuw nsw i64 %21, 3
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.6, i64 noundef %31) #13
-  tail call fastcc void @graphviz_exit() #14
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.6, i64 noundef %31) #12
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 gv_calloc.exit25.i.i:                             ; preds = %25
   %33 = load ptr, ptr %3, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 184
   store ptr %27, ptr %34, align 8
-  %35 = tail call ptr @agfstnode(ptr noundef nonnull %0) #12
+  %35 = tail call ptr @agfstnode(ptr noundef nonnull %0) #11
   %.not28.i.i = icmp eq ptr %35, null
   br i1 %.not28.i.i, label %patchwork_init_graph.exit, label %.lr.ph31.i.i
 
 .lr.ph31.i.i:                                     ; preds = %gv_calloc.exit25.i.i, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %gv_calloc.exit25.i.i ]
   %.030.i.i = phi ptr [ %49, %._crit_edge.i.i ], [ %35, %gv_calloc.exit25.i.i ]
-  %36 = tail call ptr @agbindrec(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str.7, i32 noundef 472, i32 noundef 1) #12
+  %36 = tail call ptr @agbindrec(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str.7, i32 noundef 472, i32 noundef 1) #11
   %37 = getelementptr inbounds %struct.rdata, ptr %13, i64 %indvars.iv.i.i
   %38 = getelementptr inbounds i8, ptr %.030.i.i, i64 16
   %39 = load ptr, ptr %38, align 8
@@ -105,25 +105,25 @@ gv_calloc.exit25.i.i:                             ; preds = %25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv.i.i
   store ptr %.030.i.i, ptr %44, align 8
-  %45 = tail call i32 @agset(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #12
-  %46 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.030.i.i) #12
+  %45 = tail call i32 @agset(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #11
+  %46 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.030.i.i) #11
   %.not2226.i.i = icmp eq ptr %46, null
   br i1 %.not2226.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph31.i.i, %.lr.ph.i.i
   %.02127.i.i = phi ptr [ %48, %.lr.ph.i.i ], [ %46, %.lr.ph31.i.i ]
-  %47 = tail call ptr @agbindrec(ptr noundef nonnull %.02127.i.i, ptr noundef nonnull @.str.8, i32 noundef 472, i32 noundef 1) #12
-  %48 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02127.i.i) #12
+  %47 = tail call ptr @agbindrec(ptr noundef nonnull %.02127.i.i, ptr noundef nonnull @.str.8, i32 noundef 472, i32 noundef 1) #11
+  %48 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02127.i.i) #11
   %.not22.i.i = icmp eq ptr %48, null
   br i1 %.not22.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph31.i.i
-  %49 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.030.i.i) #12
+  %49 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.030.i.i) #11
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %patchwork_init_graph.exit, label %.lr.ph31.i.i
 
 patchwork_init_graph.exit:                        ; preds = %._crit_edge.i.i, %gv_calloc.exit25.i.i
-  %50 = tail call i32 @agnnodes(ptr noundef %0) #12
+  %50 = tail call i32 @agnnodes(ptr noundef %0) #11
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %57
 
@@ -135,8 +135,8 @@ patchwork_init_graph.exit:                        ; preds = %._crit_edge.i.i, %g
   br i1 %56, label %58, label %57
 
 57:                                               ; preds = %52, %patchwork_init_graph.exit
-  tail call void @patchworkLayout(ptr noundef %0) #12
-  tail call void @dotneato_postprocess(ptr noundef %0) #12
+  tail call void @patchworkLayout(ptr noundef %0) #11
+  tail call void @dotneato_postprocess(ptr noundef %0) #11
   br label %58
 
 58:                                               ; preds = %52, %57
@@ -151,7 +151,7 @@ declare void @dotneato_postprocess(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @patchwork_cleanup(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @agfstnode(ptr noundef %0) #12
+  %2 = tail call ptr @agfstnode(ptr noundef %0) #11
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %20, label %3
 
@@ -160,25 +160,25 @@ define void @patchwork_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 152
   %7 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %7) #12
+  tail call void @free(ptr noundef %7) #11
   br label %8
 
 8:                                                ; preds = %3, %._crit_edge
   %.01420 = phi ptr [ %2, %3 ], [ %11, %._crit_edge ]
-  %9 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.01420) #12
+  %9 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.01420) #11
   %.not1718 = icmp eq ptr %9, null
   br i1 %.not1718, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.019 = phi ptr [ %10, %.lr.ph ], [ %9, %8 ]
-  tail call void @gv_cleanup_edge(ptr noundef nonnull %.019) #12
-  %10 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.019) #12
+  tail call void @gv_cleanup_edge(ptr noundef nonnull %.019) #11
+  %10 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.019) #11
   %.not17 = icmp eq ptr %10, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  tail call void @gv_cleanup_node(ptr noundef nonnull %.01420) #12
-  %11 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01420) #12
+  tail call void @gv_cleanup_node(ptr noundef nonnull %.01420) #11
+  %11 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01420) #11
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %12, label %8
 
@@ -187,11 +187,11 @@ define void @patchwork_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 184
   %16 = load ptr, ptr %15, align 8
-  tail call void @free(ptr noundef %16) #12
+  tail call void @free(ptr noundef %16) #11
   %17 = load ptr, ptr %13, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 240
   %19 = load ptr, ptr %18, align 8
-  tail call void @free(ptr noundef %19) #12
+  tail call void @free(ptr noundef %19) #11
   br label %20
 
 20:                                               ; preds = %1, %12
@@ -229,21 +229,20 @@ define internal fastcc void @mkClusters(ptr noundef %0, ptr noundef %1) unnamed_
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
-  %malloc = tail call dereferenceable_or_null(8) ptr @malloc(i64 8)
-  %6 = icmp eq ptr %malloc, null
+  %calloc = tail call dereferenceable_or_null(8) ptr @calloc(i64 1, i64 8)
+  %6 = icmp eq ptr %calloc, null
   br i1 %6, label %7, label %clist_append.exit
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call ptr @strerror(i32 noundef 12) #12
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef %9) #13
-  tail call fastcc void @graphviz_exit() #14
+  %9 = tail call ptr @strerror(i32 noundef 12) #11
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef %9) #12
+  tail call fastcc void @graphviz_exit() #13
   unreachable
 
 clist_append.exit:                                ; preds = %5
-  store ptr %malloc, ptr %3, align 8
+  store ptr %calloc, ptr %3, align 8
   store i64 1, ptr %.0.sroa.gep29, align 8
-  store ptr null, ptr %malloc, align 8
   store i64 1, ptr %.0.sroa.gep, align 8
   br label %11
 
@@ -251,19 +250,19 @@ clist_append.exit:                                ; preds = %5
   %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %clist_append.exit ], [ %.0.sroa.gep27, %2 ]
   %.0.sroa.phi28 = phi ptr [ %.0.sroa.gep29, %clist_append.exit ], [ %.0.sroa.gep30, %2 ]
   %.0 = phi ptr [ %3, %clist_append.exit ], [ %1, %2 ]
-  %12 = tail call ptr @agfstsubg(ptr noundef %0) #12
+  %12 = tail call ptr @agfstsubg(ptr noundef %0) #11
   %.not31 = icmp eq ptr %12, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %45
   %.01732 = phi ptr [ %46, %45 ], [ %12, %11 ]
-  %13 = call ptr @agnameof(ptr noundef nonnull %.01732) #12
-  %14 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.2, i64 noundef 7) #16
+  %13 = call ptr @agnameof(ptr noundef nonnull %.01732) #11
+  %14 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.2, i64 noundef 7) #15
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %44
 
 16:                                               ; preds = %.lr.ph
-  %17 = call ptr @agbindrec(ptr noundef nonnull %.01732, ptr noundef nonnull @.str.3, i32 noundef 408, i32 noundef 1) #12
+  %17 = call ptr @agbindrec(ptr noundef nonnull %.01732, ptr noundef nonnull @.str.3, i32 noundef 408, i32 noundef 1) #11
   %18 = load i64, ptr %.0.sroa.phi, align 8
   %19 = load i64, ptr %.0.sroa.phi28, align 8
   %20 = icmp eq i64 %18, %19
@@ -283,7 +282,7 @@ clist_append.exit:                                ; preds = %5
 24:                                               ; preds = %21
   %25 = load ptr, ptr %.0, align 8
   %26 = shl nuw i64 %spec.select.i.i22, 3
-  %27 = call ptr @realloc(ptr noundef %25, i64 noundef %26) #17
+  %27 = call ptr @realloc(ptr noundef %25, i64 noundef %26) #16
   %28 = icmp eq ptr %27, null
   br i1 %28, label %35, label %29
 
@@ -302,9 +301,9 @@ clist_append.exit:                                ; preds = %5
 35:                                               ; preds = %24, %21
   %.0.i.ph.i25 = phi i32 [ 12, %24 ], [ 34, %21 ]
   %36 = load ptr, ptr @stderr, align 8
-  %37 = call ptr @strerror(i32 noundef %.0.i.ph.i25) #12
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.4, ptr noundef %37) #13
-  call fastcc void @graphviz_exit() #14
+  %37 = call ptr @strerror(i32 noundef %.0.i.ph.i25) #11
+  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.4, ptr noundef %37) #12
+  call fastcc void @graphviz_exit() #13
   unreachable
 
 clist_append.exit26:                              ; preds = %._crit_edge.i.i20, %29
@@ -323,7 +322,7 @@ clist_append.exit26:                              ; preds = %._crit_edge.i.i20, 
   br label %45
 
 45:                                               ; preds = %clist_append.exit26, %44
-  %46 = call ptr @agnxtsubg(ptr noundef nonnull %.01732) #12
+  %46 = call ptr @agnxtsubg(ptr noundef nonnull %.01732) #11
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -356,22 +355,22 @@ clist_append.exit26:                              ; preds = %._crit_edge.i.i20, 
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr @stderr, align 8
-  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.5, i64 noundef %.val, i64 noundef 8) #13
-  call fastcc void @graphviz_exit() #14
+  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.5, i64 noundef %.val, i64 noundef 8) #12
+  call fastcc void @graphviz_exit() #13
   unreachable
 
 62:                                               ; preds = %57
   %63 = load ptr, ptr %3, align 8
   %64 = shl i64 %55, 3
   %65 = shl nuw i64 %.val, 3
-  %66 = call ptr @realloc(ptr noundef %63, i64 noundef %65) #17
+  %66 = call ptr @realloc(ptr noundef %63, i64 noundef %65) #16
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr @stderr, align 8
-  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.6, i64 noundef %65) #13
-  call fastcc void @graphviz_exit() #14
+  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.6, i64 noundef %65) #12
+  call fastcc void @graphviz_exit() #13
   unreachable
 
 71:                                               ; preds = %62
@@ -394,7 +393,7 @@ clist_shrink_to_fit.exit:                         ; preds = %71, %73, %.clist_sh
 79:                                               ; preds = %47
   store i64 0, ptr %.0.sroa.gep, align 8
   %80 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %80) #12
+  call void @free(ptr noundef %80) #11
   br label %81
 
 81:                                               ; preds = %clist_shrink_to_fit.exit, %79, %._crit_edge
@@ -420,7 +419,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #6 {
-  tail call void @exit(i32 noundef 1) #18
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 }
 
@@ -438,9 +437,6 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 declare i32 @agset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -452,14 +448,13 @@ attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsiz
 attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { noreturn }
-attributes #15 = { nounwind allocsize(0,1) }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { nounwind allocsize(1) }
-attributes #18 = { noreturn nounwind }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind allocsize(1) }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

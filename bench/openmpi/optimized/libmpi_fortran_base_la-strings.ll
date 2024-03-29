@@ -52,7 +52,7 @@ define noundef i32 @ompi_fortran_string_f2c(ptr noundef %0, i32 noundef %1, ptr 
   %.026 = phi i32 [ %21, %.critedge2 ], [ 0, %3 ], [ 0, %10 ]
   %22 = add nsw i32 %.026, 1
   %23 = sext i32 %22 to i64
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #6
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #7
   store ptr %24, ptr %2, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %30, label %26
@@ -62,7 +62,7 @@ define noundef i32 @ompi_fortran_string_f2c(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
-  tail call void @opal_string_copy(ptr noundef nonnull %24, ptr noundef %.02730, i64 noundef %23) #7
+  tail call void @opal_string_copy(ptr noundef nonnull %24, ptr noundef %.02730, i64 noundef %23) #8
   br label %30
 
 29:                                               ; preds = %26
@@ -82,8 +82,8 @@ declare void @opal_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_fortran_string_c2f(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sext i32 %2 to i64
-  tail call void @opal_string_copy(ptr noundef %1, ptr noundef %0, i64 noundef %4) #7
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
+  tail call void @opal_string_copy(ptr noundef %1, ptr noundef %0, i64 noundef %4) #8
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %6 = trunc i64 %5 to i32
   %7 = icmp slt i32 %6, %2
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
@@ -160,7 +160,7 @@ define i32 @ompi_fortran_argv_blank_f2c(ptr noundef %0, i32 noundef %1, i32 noun
   %.026.i.us = phi i32 [ %21, %.critedge2.i.us ], [ 0, %22 ]
   %25 = add nsw i32 %.026.i.us, 1
   %26 = sext i32 %25 to i64
-  %27 = call noalias ptr @malloc(i64 noundef %26) #6
+  %27 = call noalias ptr @malloc(i64 noundef %26) #7
   %28 = icmp eq ptr %27, null
   br i1 %28, label %ompi_fortran_string_f2c.exit.loopexit, label %29
 
@@ -169,23 +169,23 @@ define i32 @ompi_fortran_argv_blank_f2c(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %29
-  call void @opal_string_copy(ptr noundef nonnull %27, ptr noundef %.02730.i.us, i64 noundef %26) #7
+  call void @opal_string_copy(ptr noundef nonnull %27, ptr noundef %.02730.i.us, i64 noundef %26) #8
   %.pr.us = load i8, ptr %27, align 1
   %32 = icmp eq i8 %.pr.us, 0
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %31
-  %34 = call i32 @opal_argv_append(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %27) #7
+  %34 = call i32 @opal_argv_append(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %27) #8
   %.not13.us = icmp eq i32 %34, 0
   br i1 %.not13.us, label %35, label %.split25.us
 
 35:                                               ; preds = %33
-  call void @free(ptr noundef nonnull %27) #7
+  call void @free(ptr noundef nonnull %27) #8
   %36 = getelementptr inbounds i8, ptr %.010.us, i64 %9
   br label %.lr.ph.preheader.i.us
 
 .split:                                           ; preds = %4
-  %37 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #6
+  %37 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #7
   %38 = icmp eq ptr %37, null
   br i1 %38, label %ompi_fortran_string_f2c.exit, label %.thread
 
@@ -200,18 +200,18 @@ ompi_fortran_string_f2c.exit.loopexit:            ; preds = %.critedge.thread.i.
 
 ompi_fortran_string_f2c.exit:                     ; preds = %ompi_fortran_string_f2c.exit.loopexit, %.split
   %39 = phi ptr [ %.pre, %ompi_fortran_string_f2c.exit.loopexit ], [ null, %.split ]
-  call void @opal_argv_free(ptr noundef %39) #7
+  call void @opal_argv_free(ptr noundef %39) #8
   br label %42
 
 .split25.us:                                      ; preds = %33
   %40 = load ptr, ptr %3, align 8
-  call void @opal_argv_free(ptr noundef %40) #7
-  call void @free(ptr noundef nonnull %27) #7
+  call void @opal_argv_free(ptr noundef %40) #8
+  call void @free(ptr noundef nonnull %27) #8
   br label %42
 
 .loopexit:                                        ; preds = %31, %.thread
   %41 = phi ptr [ %.us-phi, %.thread ], [ %27, %31 ]
-  call void @free(ptr noundef nonnull %41) #7
+  call void @free(ptr noundef nonnull %41) #8
   br label %42
 
 42:                                               ; preds = %.loopexit, %.split25.us, %ompi_fortran_string_f2c.exit
@@ -285,7 +285,7 @@ define i32 @ompi_fortran_argv_count_f2c(ptr noundef %0, i32 noundef %1, i32 noun
   %.026.i.us = phi i32 [ %23, %.critedge2.i.us ], [ 0, %24 ]
   %27 = add nsw i32 %.026.i.us, 1
   %28 = sext i32 %27 to i64
-  %29 = call noalias ptr @malloc(i64 noundef %28) #6
+  %29 = call noalias ptr @malloc(i64 noundef %28) #7
   %30 = icmp eq ptr %29, null
   br i1 %30, label %ompi_fortran_string_f2c.exit, label %31
 
@@ -298,54 +298,53 @@ define i32 @ompi_fortran_argv_count_f2c(ptr noundef %0, i32 noundef %1, i32 noun
   br label %35
 
 34:                                               ; preds = %31
-  call void @opal_string_copy(ptr noundef nonnull %29, ptr noundef %.02730.i.us, i64 noundef %28) #7
+  call void @opal_string_copy(ptr noundef nonnull %29, ptr noundef %.02730.i.us, i64 noundef %28) #8
   br label %35
 
 35:                                               ; preds = %34, %33
-  %36 = call i32 @opal_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %29) #7
+  %36 = call i32 @opal_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %29) #8
   %.not17.us = icmp eq i32 %36, 0
   br i1 %.not17.us, label %37, label %.split.us
 
 37:                                               ; preds = %35
-  call void @free(ptr noundef nonnull %29) #7
+  call void @free(ptr noundef nonnull %29) #8
   %38 = getelementptr inbounds i8, ptr %.01425.us, i64 %11
   %39 = add nuw nsw i32 %.026.us, 1
   %exitcond40.not = icmp eq i32 %39, %1
   br i1 %exitcond40.not, label %.loopexit, label %.lr.ph.preheader.i.us, !llvm.loop !7
 
-.critedge.thread.i:                               ; preds = %.lr.ph, %46
-  %.026 = phi i32 [ %47, %46 ], [ 0, %.lr.ph ]
-  %40 = call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #6
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %ompi_fortran_string_f2c.exit, label %42
+.critedge.thread.i:                               ; preds = %.lr.ph, %45
+  %.026 = phi i32 [ %46, %45 ], [ 0, %.lr.ph ]
+  %calloc = call dereferenceable_or_null(1) ptr @calloc(i64 1, i64 1)
+  %40 = icmp eq ptr %calloc, null
+  br i1 %40, label %ompi_fortran_string_f2c.exit, label %41
 
-42:                                               ; preds = %.critedge.thread.i
-  store i8 0, ptr %40, align 1
-  %43 = call i32 @opal_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %40) #7
-  %.not17 = icmp eq i32 %43, 0
-  br i1 %.not17, label %46, label %.split.us
+41:                                               ; preds = %.critedge.thread.i
+  %42 = call i32 @opal_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %calloc) #8
+  %.not17 = icmp eq i32 %42, 0
+  br i1 %.not17, label %45, label %.split.us
 
 ompi_fortran_string_f2c.exit:                     ; preds = %.critedge.thread.i, %.critedge.thread.i.us
+  %43 = load ptr, ptr %4, align 8
+  call void @opal_argv_free(ptr noundef %43) #8
+  br label %.loopexit
+
+.split.us:                                        ; preds = %41, %35
+  %.us-phi = phi i32 [ %36, %35 ], [ %42, %41 ]
+  %.us-phi27 = phi ptr [ %29, %35 ], [ %calloc, %41 ]
   %44 = load ptr, ptr %4, align 8
-  call void @opal_argv_free(ptr noundef %44) #7
+  call void @opal_argv_free(ptr noundef %44) #8
+  call void @free(ptr noundef nonnull %.us-phi27) #8
   br label %.loopexit
 
-.split.us:                                        ; preds = %42, %35
-  %.us-phi = phi i32 [ %36, %35 ], [ %43, %42 ]
-  %.us-phi27 = phi ptr [ %29, %35 ], [ %40, %42 ]
-  %45 = load ptr, ptr %4, align 8
-  call void @opal_argv_free(ptr noundef %45) #7
-  call void @free(ptr noundef nonnull %.us-phi27) #7
-  br label %.loopexit
-
-46:                                               ; preds = %42
-  call void @free(ptr noundef nonnull %40) #7
-  %47 = add nuw nsw i32 %.026, 1
-  %exitcond.not = icmp eq i32 %47, %1
+45:                                               ; preds = %41
+  call void @free(ptr noundef nonnull %calloc) #8
+  %46 = add nuw nsw i32 %.026, 1
+  %exitcond.not = icmp eq i32 %46, %1
   br i1 %exitcond.not, label %.loopexit, label %.critedge.thread.i, !llvm.loop !7
 
-.loopexit:                                        ; preds = %46, %37, %5, %.split.us, %ompi_fortran_string_f2c.exit
-  %.013 = phi i32 [ -2, %ompi_fortran_string_f2c.exit ], [ %.us-phi, %.split.us ], [ 0, %5 ], [ 0, %37 ], [ 0, %46 ]
+.loopexit:                                        ; preds = %45, %37, %5, %.split.us, %ompi_fortran_string_f2c.exit
+  %.013 = phi i32 [ -2, %ompi_fortran_string_f2c.exit ], [ %.us-phi, %.split.us ], [ 0, %5 ], [ 0, %37 ], [ 0, %45 ]
   ret i32 %.013
 }
 
@@ -353,7 +352,7 @@ ompi_fortran_string_f2c.exit:                     ; preds = %.critedge.thread.i,
 define i32 @ompi_fortran_multiple_argvs_f2c(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = sext i32 %0 to i64
   %6 = shl nsw i64 %5, 3
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #6
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #7
   %8 = icmp sgt i32 %0, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -372,7 +371,7 @@ define i32 @ompi_fortran_multiple_argvs_f2c(i32 noundef %0, ptr noundef %1, i32 
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %11
-  tail call void @free(ptr noundef %7) #7
+  tail call void @free(ptr noundef %7) #8
   br label %17
 
 15:                                               ; preds = %11
@@ -393,15 +392,19 @@ define i32 @ompi_fortran_multiple_argvs_f2c(i32 noundef %0, ptr noundef %1, i32 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind allocsize(0) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #6 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #7 = { nounwind allocsize(0) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

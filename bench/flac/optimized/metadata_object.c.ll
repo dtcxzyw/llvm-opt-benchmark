@@ -325,38 +325,34 @@ if.end59:                                         ; preds = %if.then52, %sw.bb47
   %entry2.i = getelementptr inbounds i8, ptr %object, i64 24
   %10 = load ptr, ptr %entry2.i, align 8
   %cmp.i92 = icmp eq ptr %10, null
-  br i1 %cmp.i92, label %if.then.i95, label %if.else.i
-
-if.then.i95:                                      ; preds = %if.end59
-  %call.i.i96 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #27
-  store ptr %call.i.i96, ptr %entry49, align 8
-  %cmp4.i = icmp eq ptr %call.i.i96, null
-  br i1 %cmp4.i, label %if.then66, label %if.end.i97
-
-if.end.i97:                                       ; preds = %if.then.i95
-  store i8 0, ptr %call.i.i96, align 1
-  br label %if.end67
+  br i1 %cmp.i92, label %copy_vcentry_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end59
   %conv.i93 = zext i32 %9 to i64
   %add.i.i = add nuw nsw i64 %conv.i93, 1
   %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #27
   %cmp9.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp9.i, label %if.then66, label %if.end12.i
+  br i1 %cmp9.i, label %if.then66, label %copy_vcentry_.exit.thread154
 
-if.end12.i:                                       ; preds = %if.else.i
+copy_vcentry_.exit.thread154:                     ; preds = %if.else.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr nonnull align 1 %10, i64 %conv.i93, i1 false)
   %arrayidx17.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %conv.i93
   store i8 0, ptr %arrayidx17.i, align 1
   store ptr %call.i.i.i, ptr %entry49, align 8
   br label %if.end67
 
-if.then66:                                        ; preds = %if.then.i95, %if.else.i
+copy_vcentry_.exit:                               ; preds = %if.end59
+  %calloc.i = tail call dereferenceable_or_null(1) ptr @calloc(i64 1, i64 1)
+  store ptr %calloc.i, ptr %entry49, align 8
+  %cmp4.i.not = icmp eq ptr %calloc.i, null
+  br i1 %cmp4.i.not, label %if.then66, label %if.end67
+
+if.then66:                                        ; preds = %if.else.i, %copy_vcentry_.exit
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
   tail call void @free(ptr noundef nonnull %call) #28
   br label %return
 
-if.end67:                                         ; preds = %if.end12.i, %if.end.i97
+if.end67:                                         ; preds = %copy_vcentry_.exit.thread154, %copy_vcentry_.exit
   %num_comments = getelementptr inbounds i8, ptr %object, i64 32
   %11 = load i32, ptr %num_comments, align 8
   %cmp69 = icmp eq i32 %11, 0
@@ -379,36 +375,32 @@ for.body.i:                                       ; preds = %if.else, %for.inc.i
   %entry2.i.i = getelementptr inbounds i8, ptr %add.ptr3.i, i64 8
   %14 = load ptr, ptr %entry2.i.i, align 8
   %cmp.i.i = icmp eq ptr %14, null
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
-
-if.then.i.i:                                      ; preds = %for.body.i
-  %call.i.i.i99 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #27
-  %entry3.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  store ptr %call.i.i.i99, ptr %entry3.i.i, align 8
-  %cmp4.i.i = icmp eq ptr %call.i.i.i99, null
-  br i1 %cmp4.i.i, label %for.body.i.i.preheader, label %if.end.i.i
-
-for.body.i.i.preheader:                           ; preds = %if.else.i.i, %if.then.i.i
-  br label %for.body.i.i
-
-if.end.i.i:                                       ; preds = %if.then.i.i
-  store i8 0, ptr %call.i.i.i99, align 1
-  br label %for.inc.i
+  br i1 %cmp.i.i, label %copy_vcentry_.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i
   %conv.i9.i = zext i32 %13 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i9.i, 1
   %call.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #27
   %cmp9.i.i = icmp eq ptr %call.i.i.i.i, null
-  br i1 %cmp9.i.i, label %for.body.i.i.preheader, label %if.end12.i.i
+  br i1 %cmp9.i.i, label %for.body.i.i.preheader, label %copy_vcentry_.exit.thread12.i
 
-if.end12.i.i:                                     ; preds = %if.else.i.i
+copy_vcentry_.exit.thread12.i:                    ; preds = %if.else.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr nonnull align 1 %14, i64 %conv.i9.i, i1 false)
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %conv.i9.i
   store i8 0, ptr %arrayidx17.i.i, align 1
   %entry18.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store ptr %call.i.i.i.i, ptr %entry18.i.i, align 8
   br label %for.inc.i
+
+copy_vcentry_.exit.i:                             ; preds = %for.body.i
+  %calloc.i.i = tail call dereferenceable_or_null(1) ptr @calloc(i64 1, i64 1)
+  %entry3.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  store ptr %calloc.i.i, ptr %entry3.i.i, align 8
+  %cmp4.i.not.i = icmp eq ptr %calloc.i.i, null
+  br i1 %cmp4.i.not.i, label %for.body.i.i.preheader, label %for.inc.i
+
+for.body.i.i.preheader:                           ; preds = %copy_vcentry_.exit.i, %if.else.i.i
+  br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
@@ -423,14 +415,14 @@ vorbiscomment_entry_array_delete_.exit.i:         ; preds = %for.body.i.i
   tail call void @free(ptr noundef nonnull %call2.i.i.i) #28
   br label %if.then84
 
-for.inc.i:                                        ; preds = %if.end12.i.i, %if.end.i.i
+for.inc.i:                                        ; preds = %copy_vcentry_.exit.i, %copy_vcentry_.exit.thread12.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i.i
   br i1 %exitcond.not.i, label %if.end88, label %for.body.i, !llvm.loop !6
 
 if.then84:                                        ; preds = %vorbiscomment_entry_array_delete_.exit.i, %if.else
-  %comments79160 = getelementptr inbounds i8, ptr %call, i64 40
-  store ptr null, ptr %comments79160, align 8
+  %comments79158 = getelementptr inbounds i8, ptr %call, i64 40
+  store ptr null, ptr %comments79158, align 8
   %num_comments86 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 0, ptr %num_comments86, align 8
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
@@ -457,72 +449,72 @@ sw.bb93:                                          ; preds = %if.then
 if.else100:                                       ; preds = %sw.bb93
   %tracks = getelementptr inbounds i8, ptr %object, i64 168
   %17 = load ptr, ptr %tracks, align 8
-  %conv.i.i100 = zext i32 %16 to i64
-  %call2.i.i.i101 = tail call noalias noundef ptr @calloc(i64 noundef %conv.i.i100, i64 noundef 32) #25
-  %cmp.not.i102 = icmp eq ptr %call2.i.i.i101, null
-  br i1 %cmp.not.i102, label %if.then111, label %for.body.i104
+  %conv.i.i97 = zext i32 %16 to i64
+  %call2.i.i.i98 = tail call noalias noundef ptr @calloc(i64 noundef %conv.i.i97, i64 noundef 32) #25
+  %cmp.not.i99 = icmp eq ptr %call2.i.i.i98, null
+  br i1 %cmp.not.i99, label %if.then111, label %for.body.i101
 
-for.body.i104:                                    ; preds = %if.else100, %for.inc.i113
-  %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i114, %for.inc.i113 ], [ 0, %if.else100 ]
-  %add.ptr.i106 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %call2.i.i.i101, i64 %indvars.iv.i105
-  %add.ptr3.i107 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %17, i64 %indvars.iv.i105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i106, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i107, i64 32, i1 false)
-  %indices.i.i = getelementptr inbounds i8, ptr %add.ptr3.i107, i64 24
+for.body.i101:                                    ; preds = %if.else100, %for.inc.i109
+  %indvars.iv.i102 = phi i64 [ %indvars.iv.next.i110, %for.inc.i109 ], [ 0, %if.else100 ]
+  %add.ptr.i103 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %call2.i.i.i98, i64 %indvars.iv.i102
+  %add.ptr3.i104 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %17, i64 %indvars.iv.i102
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i103, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i104, i64 32, i1 false)
+  %indices.i.i = getelementptr inbounds i8, ptr %add.ptr3.i104, i64 24
   %18 = load ptr, ptr %indices.i.i, align 8
-  %cmp.i.i108 = icmp eq ptr %18, null
-  br i1 %cmp.i.i108, label %for.inc.i113, label %if.else.i.i109
+  %cmp.i.i105 = icmp eq ptr %18, null
+  br i1 %cmp.i.i105, label %for.inc.i109, label %if.else.i.i106
 
-if.else.i.i109:                                   ; preds = %for.body.i104
-  %num_indices.i.i = getelementptr inbounds i8, ptr %add.ptr3.i107, i64 23
+if.else.i.i106:                                   ; preds = %for.body.i101
+  %num_indices.i.i = getelementptr inbounds i8, ptr %add.ptr3.i104, i64 23
   %19 = load i8, ptr %num_indices.i.i, align 1
-  %conv.i9.i110 = zext i8 %19 to i64
-  %call.i.i111 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %conv.i9.i110, i64 noundef 16) #28
-  %cmp1.i.i = icmp eq ptr %call.i.i111, null
-  br i1 %cmp1.i.i, label %for.body.i.i117, label %if.end.i.i112
+  %conv.i9.i107 = zext i8 %19 to i64
+  %call.i.i108 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %conv.i9.i107, i64 noundef 16) #28
+  %cmp1.i.i = icmp eq ptr %call.i.i108, null
+  br i1 %cmp1.i.i, label %for.body.i.i113, label %if.end.i.i
 
-if.end.i.i112:                                    ; preds = %if.else.i.i109
+if.end.i.i:                                       ; preds = %if.else.i.i106
   %20 = load ptr, ptr %indices.i.i, align 8
   %21 = load i8, ptr %num_indices.i.i, align 1
   %conv6.i.i = zext i8 %21 to i64
   %mul.i.i = shl nuw nsw i64 %conv6.i.i, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i111, ptr align 8 %20, i64 %mul.i.i, i1 false)
-  %indices7.i.i = getelementptr inbounds i8, ptr %add.ptr.i106, i64 24
-  store ptr %call.i.i111, ptr %indices7.i.i, align 8
-  br label %for.inc.i113
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i108, ptr align 8 %20, i64 %mul.i.i, i1 false)
+  %indices7.i.i = getelementptr inbounds i8, ptr %add.ptr.i103, i64 24
+  store ptr %call.i.i108, ptr %indices7.i.i, align 8
+  br label %for.inc.i109
 
-for.body.i.i117:                                  ; preds = %if.else.i.i109, %for.inc.i.i
-  %indvars.iv.i.i118 = phi i64 [ %indvars.iv.next.i.i120, %for.inc.i.i ], [ 0, %if.else.i.i109 ]
-  %indices.i10.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %call2.i.i.i101, i64 %indvars.iv.i.i118, i32 5
+for.body.i.i113:                                  ; preds = %if.else.i.i106, %for.inc.i.i
+  %indvars.iv.i.i114 = phi i64 [ %indvars.iv.next.i.i115, %for.inc.i.i ], [ 0, %if.else.i.i106 ]
+  %indices.i10.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %call2.i.i.i98, i64 %indvars.iv.i.i114, i32 5
   %22 = load ptr, ptr %indices.i10.i, align 8
   %cmp1.not.i.i = icmp eq ptr %22, null
-  br i1 %cmp1.not.i.i, label %for.inc.i.i, label %if.then.i.i119
+  br i1 %cmp1.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
-if.then.i.i119:                                   ; preds = %for.body.i.i117
+if.then.i.i:                                      ; preds = %for.body.i.i113
   tail call void @free(ptr noundef nonnull %22) #28
   br label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %if.then.i.i119, %for.body.i.i117
-  %indvars.iv.next.i.i120 = add nuw nsw i64 %indvars.iv.i.i118, 1
-  %exitcond.not.i.i121 = icmp eq i64 %indvars.iv.next.i.i120, %conv.i.i100
-  br i1 %exitcond.not.i.i121, label %cuesheet_track_array_delete_.exit.i, label %for.body.i.i117, !llvm.loop !7
+for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i113
+  %indvars.iv.next.i.i115 = add nuw nsw i64 %indvars.iv.i.i114, 1
+  %exitcond.not.i.i116 = icmp eq i64 %indvars.iv.next.i.i115, %conv.i.i97
+  br i1 %exitcond.not.i.i116, label %cuesheet_track_array_delete_.exit.i, label %for.body.i.i113, !llvm.loop !7
 
 cuesheet_track_array_delete_.exit.i:              ; preds = %for.inc.i.i
-  tail call void @free(ptr noundef nonnull %call2.i.i.i101) #28
+  tail call void @free(ptr noundef nonnull %call2.i.i.i98) #28
   br label %if.then111
 
-for.inc.i113:                                     ; preds = %if.end.i.i112, %for.body.i104
-  %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i105, 1
-  %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %conv.i.i100
-  br i1 %exitcond.not.i115, label %cuesheet_track_array_copy_.exit, label %for.body.i104, !llvm.loop !8
+for.inc.i109:                                     ; preds = %if.end.i.i, %for.body.i101
+  %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i102, 1
+  %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, %conv.i.i97
+  br i1 %exitcond.not.i111, label %cuesheet_track_array_copy_.exit, label %for.body.i101, !llvm.loop !8
 
-cuesheet_track_array_copy_.exit:                  ; preds = %for.inc.i113
+cuesheet_track_array_copy_.exit:                  ; preds = %for.inc.i109
   %tracks106 = getelementptr inbounds i8, ptr %call, i64 168
-  store ptr %call2.i.i.i101, ptr %tracks106, align 8
+  store ptr %call2.i.i.i98, ptr %tracks106, align 8
   br label %return
 
 if.then111:                                       ; preds = %cuesheet_track_array_delete_.exit.i, %if.else100
-  %tracks106163 = getelementptr inbounds i8, ptr %call, i64 168
-  store ptr null, ptr %tracks106163, align 8
+  %tracks106161 = getelementptr inbounds i8, ptr %call, i64 168
+  store ptr null, ptr %tracks106161, align 8
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
   tail call void @free(ptr noundef %call) #28
   br label %return
@@ -550,9 +542,9 @@ if.end125:                                        ; preds = %sw.bb114
   store ptr %call.i, ptr %mime_type, align 8
   %description128 = getelementptr inbounds i8, ptr %object, i64 32
   %26 = load ptr, ptr %description128, align 8
-  %call.i124 = tail call noalias ptr @strdup(ptr noundef %26) #28
-  %tobool.not.i125 = icmp eq ptr %call.i124, null
-  br i1 %tobool.not.i125, label %if.then131, label %if.end132
+  %call.i119 = tail call noalias ptr @strdup(ptr noundef %26) #28
+  %tobool.not.i120 = icmp eq ptr %call.i119, null
+  br i1 %tobool.not.i120, label %if.then131, label %if.end132
 
 if.then131:                                       ; preds = %if.end125
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
@@ -563,7 +555,7 @@ if.end132:                                        ; preds = %if.end125
   %description = getelementptr inbounds i8, ptr %call, i64 32
   %27 = load ptr, ptr %description, align 8
   tail call void @free(ptr noundef %27) #28
-  store ptr %call.i124, ptr %description, align 8
+  store ptr %call.i119, ptr %description, align 8
   %width = getelementptr inbounds i8, ptr %object, i64 40
   %width135 = getelementptr inbounds i8, ptr %call, i64 40
   %28 = load <4 x i32>, ptr %width, align 8
@@ -575,27 +567,27 @@ if.end132:                                        ; preds = %if.end125
   %data149 = getelementptr inbounds i8, ptr %call, i64 64
   %data151 = getelementptr inbounds i8, ptr %object, i64 64
   %30 = load ptr, ptr %data151, align 8
-  %cmp.i129 = icmp ne i32 %29, 0
-  %cmp1.i130 = icmp ne ptr %30, null
-  %or.cond.i131 = and i1 %cmp.i129, %cmp1.i130
-  br i1 %or.cond.i131, label %if.then.i135, label %copy_bytes_.exit140
+  %cmp.i124 = icmp ne i32 %29, 0
+  %cmp1.i125 = icmp ne ptr %30, null
+  %or.cond.i126 = and i1 %cmp.i124, %cmp1.i125
+  br i1 %or.cond.i126, label %if.then.i130, label %copy_bytes_.exit135
 
-if.then.i135:                                     ; preds = %if.end132
-  %conv.i136 = zext i32 %29 to i64
-  %call.i.i137 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i136) #27
-  %cmp2.i138 = icmp eq ptr %call.i.i137, null
-  br i1 %cmp2.i138, label %if.then156, label %if.end.i139
+if.then.i130:                                     ; preds = %if.end132
+  %conv.i131 = zext i32 %29 to i64
+  %call.i.i132 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i131) #27
+  %cmp2.i133 = icmp eq ptr %call.i.i132, null
+  br i1 %cmp2.i133, label %if.then156, label %if.end.i134
 
-if.end.i139:                                      ; preds = %if.then.i135
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i137, ptr nonnull align 1 %30, i64 %conv.i136, i1 false)
-  br label %copy_bytes_.exit140
+if.end.i134:                                      ; preds = %if.then.i130
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i132, ptr nonnull align 1 %30, i64 %conv.i131, i1 false)
+  br label %copy_bytes_.exit135
 
-copy_bytes_.exit140:                              ; preds = %if.end132, %if.end.i139
-  %storemerge.i133 = phi ptr [ %call.i.i137, %if.end.i139 ], [ null, %if.end132 ]
-  store ptr %storemerge.i133, ptr %data149, align 8
+copy_bytes_.exit135:                              ; preds = %if.end132, %if.end.i134
+  %storemerge.i128 = phi ptr [ %call.i.i132, %if.end.i134 ], [ null, %if.end132 ]
+  store ptr %storemerge.i128, ptr %data149, align 8
   br label %return
 
-if.then156:                                       ; preds = %if.then.i135
+if.then156:                                       ; preds = %if.then.i130
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
   tail call void @free(ptr noundef nonnull %call) #28
   br label %return
@@ -604,33 +596,33 @@ sw.default:                                       ; preds = %if.then
   %data158 = getelementptr inbounds i8, ptr %call, i64 16
   %data160 = getelementptr inbounds i8, ptr %object, i64 16
   %31 = load ptr, ptr %data160, align 8
-  %cmp.i141 = icmp ne i32 %2, 0
-  %cmp1.i142 = icmp ne ptr %31, null
-  %or.cond.i143 = and i1 %cmp.i141, %cmp1.i142
-  br i1 %or.cond.i143, label %if.then.i147, label %copy_bytes_.exit152
+  %cmp.i136 = icmp ne i32 %2, 0
+  %cmp1.i137 = icmp ne ptr %31, null
+  %or.cond.i138 = and i1 %cmp.i136, %cmp1.i137
+  br i1 %or.cond.i138, label %if.then.i142, label %copy_bytes_.exit147
 
-if.then.i147:                                     ; preds = %sw.default
-  %conv.i148 = zext i32 %2 to i64
-  %call.i.i149 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i148) #27
-  %cmp2.i150 = icmp eq ptr %call.i.i149, null
-  br i1 %cmp2.i150, label %if.then165, label %if.end.i151
+if.then.i142:                                     ; preds = %sw.default
+  %conv.i143 = zext i32 %2 to i64
+  %call.i.i144 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i143) #27
+  %cmp2.i145 = icmp eq ptr %call.i.i144, null
+  br i1 %cmp2.i145, label %if.then165, label %if.end.i146
 
-if.end.i151:                                      ; preds = %if.then.i147
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i149, ptr nonnull align 1 %31, i64 %conv.i148, i1 false)
-  br label %copy_bytes_.exit152
+if.end.i146:                                      ; preds = %if.then.i142
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i144, ptr nonnull align 1 %31, i64 %conv.i143, i1 false)
+  br label %copy_bytes_.exit147
 
-copy_bytes_.exit152:                              ; preds = %sw.default, %if.end.i151
-  %storemerge.i145 = phi ptr [ %call.i.i149, %if.end.i151 ], [ null, %sw.default ]
-  store ptr %storemerge.i145, ptr %data158, align 8
+copy_bytes_.exit147:                              ; preds = %sw.default, %if.end.i146
+  %storemerge.i140 = phi ptr [ %call.i.i144, %if.end.i146 ], [ null, %sw.default ]
+  store ptr %storemerge.i140, ptr %data158, align 8
   br label %return
 
-if.then165:                                       ; preds = %if.then.i147
+if.then165:                                       ; preds = %if.then.i142
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
   tail call void @free(ptr noundef nonnull %call) #28
   br label %return
 
-return:                                           ; preds = %copy_bytes_.exit152, %copy_bytes_.exit140, %cuesheet_track_array_copy_.exit, %copy_bytes_.exit91, %copy_bytes_.exit, %entry, %sw.bb93, %if.then, %if.end88, %sw.bb, %if.then165, %if.then156, %if.then131, %if.then124, %if.then111, %if.then84, %if.then66, %if.then45, %if.then34, %if.then23, %if.then11
-  %retval.0 = phi ptr [ null, %if.then165 ], [ null, %if.then156 ], [ null, %if.then131 ], [ null, %if.then124 ], [ null, %if.then111 ], [ null, %if.then84 ], [ null, %if.then66 ], [ null, %if.then34 ], [ null, %if.then45 ], [ null, %if.then11 ], [ null, %if.then23 ], [ %call, %sw.bb ], [ %call, %if.end88 ], [ %call, %if.then ], [ %call, %copy_bytes_.exit ], [ %call, %copy_bytes_.exit91 ], [ %call, %cuesheet_track_array_copy_.exit ], [ %call, %sw.bb93 ], [ %call, %copy_bytes_.exit140 ], [ %call, %copy_bytes_.exit152 ], [ null, %entry ]
+return:                                           ; preds = %copy_bytes_.exit147, %copy_bytes_.exit135, %cuesheet_track_array_copy_.exit, %copy_bytes_.exit91, %copy_bytes_.exit, %entry, %sw.bb93, %if.then, %if.end88, %sw.bb, %if.then165, %if.then156, %if.then131, %if.then124, %if.then111, %if.then84, %if.then66, %if.then45, %if.then34, %if.then23, %if.then11
+  %retval.0 = phi ptr [ null, %if.then165 ], [ null, %if.then156 ], [ null, %if.then131 ], [ null, %if.then124 ], [ null, %if.then111 ], [ null, %if.then84 ], [ null, %if.then66 ], [ null, %if.then34 ], [ null, %if.then45 ], [ null, %if.then11 ], [ null, %if.then23 ], [ %call, %sw.bb ], [ %call, %if.end88 ], [ %call, %if.then ], [ %call, %copy_bytes_.exit ], [ %call, %copy_bytes_.exit91 ], [ %call, %cuesheet_track_array_copy_.exit ], [ %call, %sw.bb93 ], [ %call, %copy_bytes_.exit135 ], [ %call, %copy_bytes_.exit147 ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -1978,43 +1970,39 @@ if.then3:                                         ; preds = %if.then
   store i32 %2, ptr %dest, align 8
   %3 = load ptr, ptr %entry2, align 8
   %cmp.i = icmp eq ptr %3, null
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %if.then3
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #27
-  store ptr %call.i.i, ptr %entry1, align 8
-  %cmp4.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp4.i, label %return, label %if.end.i
-
-if.end.i:                                         ; preds = %if.then.i
-  store i8 0, ptr %call.i.i, align 1
-  br label %if.end13
+  br i1 %cmp.i, label %copy_vcentry_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then3
   %conv.i = zext i32 %2 to i64
   %add.i.i = add nuw nsw i64 %conv.i, 1
   %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #27
   %cmp9.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp9.i, label %return, label %if.end12.i
+  br i1 %cmp9.i, label %return, label %copy_vcentry_.exit.thread16
 
-if.end12.i:                                       ; preds = %if.else.i
+copy_vcentry_.exit.thread16:                      ; preds = %if.else.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr nonnull align 1 %3, i64 %conv.i, i1 false)
   %arrayidx17.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %conv.i
   store i8 0, ptr %arrayidx17.i, align 1
   store ptr %call.i.i.i, ptr %entry1, align 8
   br label %if.end13
 
+copy_vcentry_.exit:                               ; preds = %if.then3
+  %calloc.i = tail call dereferenceable_or_null(1) ptr @calloc(i64 1, i64 1)
+  store ptr %calloc.i, ptr %entry1, align 8
+  %cmp4.i.not = icmp eq ptr %calloc.i, null
+  br i1 %cmp4.i.not, label %return, label %if.end13
+
 if.else:                                          ; preds = %if.then
   %conv.i9 = zext i32 %2 to i64
   %add.i.i10 = add nuw nsw i64 %conv.i9, 1
-  %call.i.i11 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %1, i64 noundef %add.i.i10) #29
-  %cmp.not.i = icmp eq ptr %call.i.i11, null
+  %call.i.i = tail call noalias noundef ptr @realloc(ptr noundef nonnull %1, i64 noundef %add.i.i10) #29
+  %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.else
-  %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i11, i64 %conv.i9
+  %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i, i64 %conv.i9
   store i8 0, ptr %arrayidx.i, align 1
-  store ptr %call.i.i11, ptr %entry2, align 8
+  store ptr %call.i.i, ptr %entry2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, ptr noundef nonnull align 8 dereferenceable(16) %src, i64 16, i1 false)
   br label %if.end13
 
@@ -2022,7 +2010,7 @@ if.else12:                                        ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, ptr noundef nonnull align 8 dereferenceable(16) %src, i64 16, i1 false)
   br label %if.end13
 
-if.end13:                                         ; preds = %if.end12.i, %if.end.i, %if.end10, %if.else12
+if.end13:                                         ; preds = %copy_vcentry_.exit.thread16, %if.end10, %copy_vcentry_.exit, %if.else12
   tail call void @free(ptr noundef %0) #28
   %4 = load i32, ptr @FLAC__STREAM_METADATA_VORBIS_COMMENT_ENTRY_LENGTH_LEN, align 4
   %div10.i = lshr i32 %4, 3
@@ -2050,16 +2038,16 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add915.i = phi i32 [ %add5.i, %for.body.lr.ph.i ], [ %add13.i, %for.body.i ]
   %add9.i = add i32 %add915.i, %div10.i
   store i32 %add9.i, ptr %length.i, align 8
-  %arrayidx.i14 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %8, i64 %indvars.iv.i
-  %9 = load i32, ptr %arrayidx.i14, align 8
+  %arrayidx.i13 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %8, i64 %indvars.iv.i
+  %9 = load i32, ptr %arrayidx.i13, align 8
   %add13.i = add i32 %9, %add9.i
   store i32 %add13.i, ptr %length.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !21
 
-return:                                           ; preds = %for.body.i, %if.else, %if.else.i, %if.then.i, %if.end13
-  %retval.0 = phi i32 [ 1, %if.end13 ], [ 0, %if.then.i ], [ 0, %if.else.i ], [ 0, %if.else ], [ 1, %for.body.i ]
+return:                                           ; preds = %for.body.i, %if.else, %if.else.i, %if.end13, %copy_vcentry_.exit
+  %retval.0 = phi i32 [ 0, %copy_vcentry_.exit ], [ 1, %if.end13 ], [ 0, %if.else.i ], [ 0, %if.else ], [ 1, %for.body.i ]
   ret i32 %retval.0
 }
 

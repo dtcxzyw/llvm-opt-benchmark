@@ -109,8 +109,8 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   br label %sameedge.exit
 
 ._crit_edge.i:                                    ; preds = %30, %29
-  %malloc.i = tail call dereferenceable_or_null(8) ptr @malloc(i64 8)
-  %36 = icmp eq ptr %malloc.i, null
+  %calloc.i = tail call dereferenceable_or_null(8) ptr @calloc(i64 1, i64 8)
+  %36 = icmp eq ptr %calloc.i, null
   br i1 %36, label %37, label %edge_list_append.exit.i
 
 37:                                               ; preds = %._crit_edge.i
@@ -121,7 +121,7 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 edge_list_append.exit.i:                          ; preds = %._crit_edge.i
-  store ptr %.047196, ptr %malloc.i, align 8
+  store ptr %.047196, ptr %calloc.i, align 8
   %41 = icmp eq i64 %.sroa.11137.1194, %.sroa.22142.1193
   br i1 %41, label %42, label %same_list_append.exit.i
 
@@ -159,7 +159,7 @@ same_list_append.exit.i:                          ; preds = %edge_list_append.ex
   %57 = getelementptr inbounds %struct.same_t, ptr %.sroa.0133.2, i64 %.sroa.11137.1194
   store ptr %27, ptr %57, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 8
-  store ptr %malloc.i, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store ptr %calloc.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 16
   store i64 1, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.625.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 24
@@ -208,8 +208,8 @@ same_list_append.exit.i:                          ; preds = %edge_list_append.ex
   br label %sameedge.exit
 
 ._crit_edge.i73:                                  ; preds = %71, %70
-  %malloc.i74 = tail call dereferenceable_or_null(8) ptr @malloc(i64 8)
-  %77 = icmp eq ptr %malloc.i74, null
+  %calloc.i74 = tail call dereferenceable_or_null(8) ptr @calloc(i64 1, i64 8)
+  %77 = icmp eq ptr %calloc.i74, null
   br i1 %77, label %78, label %edge_list_append.exit.i75
 
 78:                                               ; preds = %._crit_edge.i73
@@ -220,7 +220,7 @@ same_list_append.exit.i:                          ; preds = %edge_list_append.ex
   unreachable
 
 edge_list_append.exit.i75:                        ; preds = %._crit_edge.i73
-  store ptr %.047196, ptr %malloc.i74, align 8
+  store ptr %.047196, ptr %calloc.i74, align 8
   %82 = icmp eq i64 %.sroa.11.1191, %.sroa.22.1190
   br i1 %82, label %83, label %same_list_append.exit.i78
 
@@ -258,7 +258,7 @@ same_list_append.exit.i78:                        ; preds = %edge_list_append.ex
   %98 = getelementptr inbounds %struct.same_t, ptr %.sroa.0114.2, i64 %.sroa.11.1191
   store ptr %68, ptr %98, align 8
   %.sroa.4.0..sroa_idx.i79 = getelementptr inbounds i8, ptr %98, i64 8
-  store ptr %malloc.i74, ptr %.sroa.4.0..sroa_idx.i79, align 8
+  store ptr %calloc.i74, ptr %.sroa.4.0..sroa_idx.i79, align 8
   %.sroa.5.0..sroa_idx.i80 = getelementptr inbounds i8, ptr %98, i64 16
   store i64 1, ptr %.sroa.5.0..sroa_idx.i80, align 8
   %.sroa.625.0..sroa_idx.i81 = getelementptr inbounds i8, ptr %98, i64 24
@@ -836,8 +836,8 @@ declare ptr @agraphof(ptr noundef) local_unnamed_addr #2
 
 declare void @shape_clip(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #11
@@ -852,7 +852,7 @@ attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #10 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }
